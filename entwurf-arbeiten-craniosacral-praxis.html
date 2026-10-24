@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>ENTWURF · Craniosacral Praxis Fulenbach: Website | formateins</title>
+<meta name="description" content="Eine Website für die Craniosacral Praxis Johann von Arb in Fulenbach bei Olten: eine ruhige Seite, die erklärt, für wen die Therapie ist und wie eine Behandlung abläuft, und zum Anruf führt. 114 KB, keine Cookies.">
+<!-- LIVEGANG: noindex entfernen, Adresse /arbeiten/craniosacral-praxis in .htaccess und sitemap.xml eintragen,
+     canonical und og:url einkommentieren. -->
+<meta name="robots" content="noindex,nofollow">
+<!-- <link rel="canonical" href="https://www.formateins.ch/arbeiten/craniosacral-praxis"> -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="de_CH">
+<meta property="og:site_name" content="formateins">
+<meta property="og:title" content="Craniosacral Praxis Fulenbach: Website | formateins">
+<meta property="og:description" content="Eine ruhige Seite für eine Praxis in Fulenbach bei Olten, die zum Anruf führt. 114 KB, keine Cookies.">
+<meta property="og:image" content="https://www.formateins.ch/arbeiten/johann-vorschau.webp">
+<meta property="og:image:alt" content="Startseite der Craniosacral Praxis Johann von Arb am Desktop">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#1b2a33">
+<link rel="preload" href="schriften/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="schriften/playfair-display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="schriften.css">
+<link rel="stylesheet" href="recht.css">
+<style>
+/* Arbeit: eine Textspalte wie Impressum und Datenschutz, dazu Steckbrief,
+   Bilder und Kennwerte in voller Spaltenbreite. */
+.etikett{display:flex;align-items:center;gap:12px;font-size:var(--txt-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--signal);margin-bottom:18px}
+.etikett i{width:26px;height:1.5px;background:var(--signal)}
+.untertitel{font-size:var(--txt-l);color:var(--auf-grund-still);margin-top:-.2em}
+.datum{margin-top:1.2em;font-size:var(--txt-s);color:var(--auf-grund-still)}
+main .spalte > .breit{max-width:none}
+.steckbrief{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px 28px;margin-top:2.2em;padding:22px 0;border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+.steckbrief div{display:flex;flex-direction:column;gap:4px}
+.steckbrief dt{font-size:var(--txt-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--auf-grund-still)}
+.steckbrief dd{font-weight:600}
+.steckbrief dd a{text-decoration-color:var(--linie)}
+.bilder{display:grid;grid-template-columns:1fr;gap:18px;margin-top:2.2em;align-items:start}
+@media(min-width:700px){.bilder{grid-template-columns:3fr 1fr}}
+.bilder figure{margin:0}
+.bilder img{display:block;width:100%;height:auto;border:1px solid var(--linie);border-radius:6px;background:#fff}
+.bilder figcaption{margin-top:8px;font-size:var(--txt-xs);color:var(--auf-grund-still)}
+.bauplan{margin-top:1.4em}
+.bauplan .ausschnitt{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--linie);border-radius:6px;background:#0e1820}
+.bauplan .ausschnitt::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(transparent,#0e1820)}
+.bauplan img{position:absolute;inset:0;width:100%;height:auto}
+.bauplan figcaption{margin-top:8px;font-size:var(--txt-xs);color:var(--auf-grund-still)}
+.kennwerte{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 32px;margin-top:1.4em}
+.kennwerte > div{display:grid;grid-template-columns:76px 1fr;align-items:center;gap:0 14px;padding:16px 0;border-top:1px solid var(--linie)}
+.kennwerte dt b{font-family:var(--serif);font-weight:900;font-size:2.6rem;line-height:1;color:var(--signal)}
+.kennwerte dt small{font-size:1.5rem;margin-left:1px}
+.kennwerte dd{margin:0}
+.kennwerte strong{display:block;font-size:var(--txt-s)}
+.kennwerte span{display:block;font-size:var(--txt-xs);color:var(--auf-grund-still);margin-top:2px}
+.fussnote{margin-top:12px;font-size:var(--txt-xs);color:var(--auf-grund-still)}
+.handeln{display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center;margin-top:2.4em}
+.knopf{display:inline-flex;align-items:center;gap:11px;background:var(--signal);color:#15202a;font-weight:700;padding:16px 26px;text-decoration:none;border-radius:2px}
+.knopf:hover{color:#15202a;background:#ff9f6d}
+.zweitweg{font-size:var(--txt-s);font-weight:500;color:var(--auf-grund-still);text-underline-offset:5px}
+</style>
+
+<header class="kopf">
+  <div class="spalte">
+    <a class="logo" href="entwurf.html"><span class="s">format</span><span class="p">eins</span></a>
+    <a class="zurueck" href="entwurf.html#arbeiten">← Arbeiten</a>
+  </div>
+</header>
+
+<main>
+  <div class="spalte">
+    <p class="etikett"><i aria-hidden="true"></i>Arbeit 02 · Website</p>
+    <h1>Eine Website für die Craniosacral Praxis Johann von Arb in Fulenbach bei Olten</h1>
+    <p class="untertitel">Eine ruhige Seite, die erklärt, was Craniosacral Therapie ist, für wen und wie eine Behandlung abläuft, und dann zum Anruf führt.</p>
+    <p class="datum">Gebaut 2026, Vorschau online, eigene Adresse folgt · Seite zuletzt aktualisiert am <time datetime="2026-10-24">24. Oktober 2026</time></p>
+
+    <dl class="steckbrief breit">
+      <div><dt>Kunde</dt><dd>Johann von Arb, Craniosacral Therapeut</dd></div>
+      <div><dt>Ort</dt><dd>Fulenbach SO, zwischen Olten und Zofingen</dd></div>
+      <div><dt>Branche</dt><dd>Komplementärtherapie</dd></div>
+      <div><dt>Leistung</dt><dd>Website: Aufbau, Texte, Gestaltung, Bau</dd></div>
+      <div><dt>Umfang</dt><dd>Eine Seite, dazu Impressum und Datenschutz</dd></div>
+      <div><dt>Technik</dt><dd>HTML und CSS von Hand, ohne Baukasten, ohne CMS</dd></div>
+      <!-- LIVEGANG: «Schweiz» gilt erst nach dem Umzug der Praxisseite zu Hostpoint (siehe README, Kennzahlen). -->
+      <div><dt>Hosting</dt><dd>Schweiz</dd></div>
+      <div><dt>Jahr</dt><dd>2026</dd></div>
+    </dl>
+
+    <div class="bilder breit">
+      <figure>
+        <img src="arbeiten/johann-vorschau.webp" alt="Startseite der Craniosacral Praxis am Desktop: Schlagzeile «Craniosacral Therapie in Fulenbach», Telefonnummer, drei kurze Zusagen" width="960" height="600" loading="eager" decoding="async">
+        <figcaption>Der erste Bildschirm am Desktop, 1440 Pixel breit. Die Fotos werden noch aufgenommen, die Plätze dafür sind reserviert.</figcaption>
+      </figure>
+      <figure>
+        <img src="arbeiten/johann-vorschau-mobil.webp" alt="Dieselbe Startseite am Handy" width="220" height="476" loading="lazy" decoding="async">
+        <figcaption>Dieselbe Seite am Handy.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Ausgangslage</h2>
+    <!-- Adrian: gegenlesen. Die Saetze stammen aus dem, was die Seite selbst zeigt. -->
+    <p>Johann von Arb arbeitet seit über zwanzig Jahren selbständig als Craniosacral Therapeut, heute in Fulenbach. Wer zu ihm kommt, kommt meist auf Empfehlung. Was im Netz fehlte, war der Ort, an dem man vorher nachlesen kann, was einen erwartet.</p>
+    <p>Die Seite sollte abbilden, was sonst am Telefon passiert: ruhig erklären, was die Therapie ist und für wen, wie eine Behandlung abläuft, und dann zum Anruf führen. Keine Online-Buchung, keine Preisliste, denn Tarif und Dauer klärt er im Gespräch, weil sie von Mensch zu Mensch verschieden sind. Und keine Versprechen, die eine Therapie nicht halten kann.</p>
+
+    <h2>Was gebaut wurde</h2>
+    <ul>
+      <li><b>Der Anruf als erster Weg.</b> Die Telefonnummer steht in der Kopfzeile, im ersten Bildschirm und am Schluss, am Handy als Taste. E-Mail als zweiter Weg, mit vorbereitetem Betreff.</li>
+      <li><b>Drei Zusagen statt Fachsprache.</b> Ohne Druck, über zwanzig Jahre, vom Säugling bis ins hohe Alter. Das beantwortet die drei häufigsten Sorgen, bevor jemand weiterliest.</li>
+      <li><b>Sechs Anliegen als Raster.</b> Kopfschmerzen, Rücken und Nacken, Stress, Schlaf, Kiefer, Schwangerschaft. Wer sein Thema findet, bleibt. Mit dem Satz, dass die Therapie begleitet und keine ärztliche Behandlung ersetzt.</li>
+      <li><b>Ablauf in drei Schritten.</b> Ankommen und Gespräch, Behandlung auf der Liege, Nachspüren. Man muss nichts vorbereiten und nichts können.</li>
+      <li><b>Acht Fragen, ehrlich beantwortet.</b> Was anziehen, tut es weh, wie lange dauert es, was kostet es, zahlt die Krankenkasse. Auch dort, wo die Antwort «das kläre ich mit Ihnen am Telefon» heisst.</li>
+      <li><b>Kontaktblock mit Anfahrt.</b> Adresse, Telefon, E-Mail, Termine nach Vereinbarung, erreichbar aus Olten, Zofingen, Aarburg und Murgenthal.</li>
+      <li><b>Für die Suche gebaut.</b> «Craniosacral Therapie Fulenbach» im Titel, in der Überschrift und in der Beschreibung, Ortsangaben im Code, Teilen-Bild für Nachrichten-Apps.</li>
+    </ul>
+
+    <h2>Bauplan</h2>
+    <p>Dieselbe Seite ohne Farben und Bilder: Text als Balken, Abschnitte gestrichelt. So sieht man die Ordnung, die unter der Gestaltung liegt.</p>
+    <figure class="bauplan breit">
+      <div class="ausschnitt"><img src="arbeiten/johann-bauplan.webp" alt="Bauplan der Praxis-Startseite: Abschnitte als gestrichelte Rahmen, Text als Balken, oberer Teil der Seite" width="1440" height="4906" loading="lazy" decoding="async"></div>
+      <figcaption>Oberer Teil des Bauplans. Die ganze Seite ist 4’906 Pixel lang.</figcaption>
+    </figure>
+
+    <h2>Gemessen, nicht geschätzt</h2>
+    <dl class="kennwerte breit">
+      <div><dt><b>23<small>×</small></b></dt><dd><strong>leichter als der Durchschnitt</strong><span>114 KB für die ganze Startseite statt 2’652 KB. Die Seite steht, bevor man ungeduldig wird.</span></dd></div>
+      <div><dt><b>0</b></dt><dd><strong>Cookies</strong><span>Darum kein Banner, den Besucher wegklicken müssen.</span></dd></div>
+      <div><dt><b>CH</b></dt><dd><strong>Gehostet in der Schweiz</strong><span>Keine Besucherdaten an Google und Co.</span></dd></div>
+    </dl>
+    <p class="fussnote breit">Gemessen im Oktober 2026 im Browser, übertragene Grösse der Startseite ohne Fotos, die noch folgen. Durchschnitt: mittlere Website am Desktop laut <a href="https://almanac.httparchive.org/de/2024/page-weight" target="_blank" rel="noopener">HTTP Archive, Web Almanac 2024</a>.</p>
+
+    <div class="handeln breit">
+      <!-- LIVEGANG: auf die echte Domain der Praxis umstellen, sobald sie live ist. -->
+      <a class="knopf" href="https://f5yct67kcv-source.github.io/webseite-johann-vonarb/" target="_blank" rel="noopener">Seite ansehen ↗</a>
+      <a class="zweitweg" href="entwurf-arbeiten-guardops.html">Vorherige Arbeit: GuardOpS →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="spalte">
+    <div class="fussraster">
+      <div class="fussmarke">
+        <a class="logo" href="entwurf.html" aria-label="formateins, zur Startseite"><span class="s">format</span><span class="p">eins</span></a>
+        <p>Website, Marke und Social Media für Selbstständige und kleine Unternehmen in Olten und der Region. Von Hand gebaut.</p>
+      </div>
+      <div>
+        <p class="fusstitel"><i aria-hidden="true"></i>Arbeiten</p>
+        <ul class="fussliste">
+          <li><a href="entwurf-arbeiten-guardops.html">GuardOpS</a></li>
+          <li><a href="entwurf-arbeiten-craniosacral-praxis.html" aria-current="page">Craniosacral Praxis Johann von Arb</a></li>
+          <li><a href="entwurf-website-kosten.html">Was kostet eine Website?</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="fusstitel"><i aria-hidden="true"></i>Kontakt</p>
+        <ul class="fussliste">
+          <li><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a></li>
+          <li><a href="tel:+41796868486">079 686 84 86</a></li>
+          <li><a href="gespraech">Gespräch vereinbaren</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rechtliches">
+      <nav><a href="impressum">Impressum</a><a href="datenschutz">Datenschutz</a></nav>
+      <span>© 2026 formateins, eine Marke der pzu consulting gmbh</span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Eine Website für die Craniosacral Praxis Johann von Arb in Fulenbach bei Olten",
+  "url": "https://www.formateins.ch/arbeiten/craniosacral-praxis",
+  "inLanguage": "de-CH",
+  "datePublished": "2026-10-24",
+  "dateModified": "2026-10-24",
+  "author": { "@type": "Person", "name": "Adrian von Arb" },
+  "publisher": { "@type": "ProfessionalService", "name": "formateins", "url": "https://www.formateins.ch" },
+  "primaryImageOfPage": { "@type": "ImageObject", "url": "https://www.formateins.ch/arbeiten/johann-vorschau.webp", "width": 960, "height": 600 },
+  "about": {
+    "@type": "WebSite",
+    "name": "Craniosacral Therapie Fulenbach, Johann von Arb",
+    "url": "https://f5yct67kcv-source.github.io/webseite-johann-vonarb/",
+    "creator": { "@type": "ProfessionalService", "name": "formateins", "url": "https://www.formateins.ch" }
+  },
+  "isPartOf": { "@type": "WebSite", "name": "formateins", "url": "https://www.formateins.ch" }
+}
+</script>

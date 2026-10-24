@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>ENTWURF · GuardOpS: Produktwebsite für Betriebssoftware | formateins</title>
+<meta name="description" content="Eine Produktwebsite für GuardOpS, Software für Schweizer Sicherheitsdienste: eine Seite, die eine komplexe Software in Minuten erklärt und in einen Demozugang führt. 355 KB, keine Cookies, gehostet in der Schweiz.">
+<!-- LIVEGANG: noindex entfernen, Adresse /arbeiten/guardops in .htaccess und sitemap.xml eintragen,
+     canonical und og:url einkommentieren. -->
+<meta name="robots" content="noindex,nofollow">
+<!-- <link rel="canonical" href="https://www.formateins.ch/arbeiten/guardops"> -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="de_CH">
+<meta property="og:site_name" content="formateins">
+<meta property="og:title" content="GuardOpS: Produktwebsite für Betriebssoftware | formateins">
+<meta property="og:description" content="Eine Seite, die eine komplexe Software in Minuten erklärt und in einen Demozugang führt. 355 KB, keine Cookies, gehostet in der Schweiz.">
+<meta property="og:image" content="https://www.formateins.ch/arbeiten/guardops-vorschau.webp">
+<meta property="og:image:alt" content="Startseite von GuardOpS am Desktop">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#1b2a33">
+<link rel="preload" href="schriften/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="schriften/playfair-display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="schriften.css">
+<link rel="stylesheet" href="recht.css">
+<style>
+/* Arbeit: eine Textspalte wie Impressum und Datenschutz, dazu Steckbrief,
+   Bilder und Kennwerte in voller Spaltenbreite. */
+.etikett{display:flex;align-items:center;gap:12px;font-size:var(--txt-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--signal);margin-bottom:18px}
+.etikett i{width:26px;height:1.5px;background:var(--signal)}
+.untertitel{font-size:var(--txt-l);color:var(--auf-grund-still);margin-top:-.2em}
+.datum{margin-top:1.2em;font-size:var(--txt-s);color:var(--auf-grund-still)}
+main .spalte > .breit{max-width:none}
+.steckbrief{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px 28px;margin-top:2.2em;padding:22px 0;border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+.steckbrief div{display:flex;flex-direction:column;gap:4px}
+.steckbrief dt{font-size:var(--txt-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--auf-grund-still)}
+.steckbrief dd{font-weight:600}
+.steckbrief dd a{text-decoration-color:var(--linie)}
+.bilder{display:grid;grid-template-columns:1fr;gap:18px;margin-top:2.2em;align-items:start}
+@media(min-width:700px){.bilder{grid-template-columns:3fr 1fr}}
+.bilder figure{margin:0}
+.bilder img{display:block;width:100%;height:auto;border:1px solid var(--linie);border-radius:6px;background:#fff}
+.bilder figcaption{margin-top:8px;font-size:var(--txt-xs);color:var(--auf-grund-still)}
+.bauplan{margin-top:1.4em}
+.bauplan .ausschnitt{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--linie);border-radius:6px;background:#0e1820}
+.bauplan .ausschnitt::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(transparent,#0e1820)}
+.bauplan img{position:absolute;inset:0;width:100%;height:auto}
+.bauplan figcaption{margin-top:8px;font-size:var(--txt-xs);color:var(--auf-grund-still)}
+.kennwerte{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 32px;margin-top:1.4em}
+.kennwerte > div{display:grid;grid-template-columns:76px 1fr;align-items:center;gap:0 14px;padding:16px 0;border-top:1px solid var(--linie)}
+.kennwerte dt b{font-family:var(--serif);font-weight:900;font-size:2.6rem;line-height:1;color:var(--signal)}
+.kennwerte dt small{font-size:1.5rem;margin-left:1px}
+.kennwerte dd{margin:0}
+.kennwerte strong{display:block;font-size:var(--txt-s)}
+.kennwerte span{display:block;font-size:var(--txt-xs);color:var(--auf-grund-still);margin-top:2px}
+.fussnote{margin-top:12px;font-size:var(--txt-xs);color:var(--auf-grund-still)}
+.handeln{display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center;margin-top:2.4em}
+.knopf{display:inline-flex;align-items:center;gap:11px;background:var(--signal);color:#15202a;font-weight:700;padding:16px 26px;text-decoration:none;border-radius:2px}
+.knopf:hover{color:#15202a;background:#ff9f6d}
+.zweitweg{font-size:var(--txt-s);font-weight:500;color:var(--auf-grund-still);text-underline-offset:5px}
+</style>
+
+<header class="kopf">
+  <div class="spalte">
+    <a class="logo" href="entwurf.html"><span class="s">format</span><span class="p">eins</span></a>
+    <a class="zurueck" href="entwurf.html#arbeiten">← Arbeiten</a>
+  </div>
+</header>
+
+<main>
+  <div class="spalte">
+    <p class="etikett"><i aria-hidden="true"></i>Arbeit 01 · Website</p>
+    <h1>Eine Produktwebsite für GuardOpS, Software für Schweizer Sicherheitsdienste</h1>
+    <p class="untertitel">Eine Seite, die eine komplexe Software in wenigen Minuten erklärt und ohne Termin in einen Demozugang führt.</p>
+    <p class="datum">Online seit 2026 · Seite zuletzt aktualisiert am <time datetime="2026-10-24">24. Oktober 2026</time></p>
+
+    <dl class="steckbrief breit">
+      <div><dt>Kunde</dt><dd>GuardOpS</dd></div>
+      <div><dt>Branche</dt><dd>Betriebssoftware für Sicherheitsdienste</dd></div>
+      <div><dt>Leistung</dt><dd>Website: Aufbau, Gestaltung, Bau, Demo-Formular</dd></div>
+      <div><dt>Umfang</dt><dd>Eine Seite, dazu Impressum, Datenschutz, Nutzungsbedingungen</dd></div>
+      <div><dt>Technik</dt><dd>HTML, CSS und JavaScript von Hand, ohne Baukasten, ohne CMS</dd></div>
+      <div><dt>Hosting</dt><dd>Schweiz, verschlüsselt (HTTPS, HSTS)</dd></div>
+      <div><dt>Jahr</dt><dd>2026</dd></div>
+      <div><dt>Adresse</dt><dd><a href="https://guardops.ch/" target="_blank" rel="noopener">guardops.ch</a></dd></div>
+    </dl>
+
+    <div class="bilder breit">
+      <figure>
+        <img src="arbeiten/guardops-vorschau.webp" alt="Startseite von GuardOpS am Desktop: Schlagzeile «Der ganze Betrieb. Eine Software.», darunter Cockpit, App und Portal" width="960" height="600" loading="eager" decoding="async">
+        <figcaption>Der erste Bildschirm am Desktop, 1440 Pixel breit.</figcaption>
+      </figure>
+      <figure>
+        <img src="arbeiten/guardops-vorschau-mobil.webp" alt="Dieselbe Startseite am Handy" width="220" height="476" loading="lazy" decoding="async">
+        <figcaption>Dieselbe Seite am Handy.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Ausgangslage</h2>
+    <!-- Adrian: gegenlesen. Die Saetze stammen aus dem, was die Seite selbst zeigt. -->
+    <p>GuardOpS führt zusammen, was in einem Sicherheitsdienst sonst auf vier Programme, einen Gruppenchat und Papier verteilt ist: Einsatzplanung, Mitarbeiter-App, Rapport, Revierdienst, Kundenportal, Offerten und Rechnungen, mit dem Gesamtarbeitsvertrag der Branche im Kern. Das erklärt sich nicht in einem Satz.</p>
+    <p>Die Seite musste drei Dinge leisten: in wenigen Minuten zeigen, was der Betrieb davon hat, und zwar in der Sprache einer Einsatzleitung, nicht in der von Entwicklern. Vertrauen schaffen, weil die Software Personaldaten und Aufenthaltsspuren verwaltet. Und ohne Termin und ohne Verkaufsgespräch in einen eigenen Demozugang führen.</p>
+
+    <h2>Was gebaut wurde</h2>
+    <ul>
+      <li><b>Ein Einstieg mit drei Rollen.</b> Cockpit für die Einsatzleitung, App für die Mitarbeitenden, Portal für die Kunden. Wer die Seite öffnet, findet sich in einer der drei Zeilen wieder.</li>
+      <li><b>Vorher und nachher.</b> «Vier Systeme, ein Gruppenchat und ein Stapel Papier» gegen eine Datenbasis. Der Aufwand entsteht an den Schnittstellen, das zeigt die Seite, statt es zu behaupten.</li>
+      <li><b>Ein Tag im Betrieb</b> als Zeitleiste: von der Planung um 06:40 über Zusagen, Rapport und Rundgang in der Nacht bis zur Rechnung am Monatsende. Jede Station ein Bild aus der Software, mit Beispieldaten gekennzeichnet.</li>
+      <li><b>Der GAV mit Artikelnummern.</b> Zeitbonus, Auslagenersatz, Ferienanspruch, je mit dem Artikel, nach dem gerechnet wird. Fachleute prüfen das, Laien überspringen es.</li>
+      <li><b>Sicherheit als eigener Abschnitt</b>, in sechs Punkten: Zwei-Faktor-Anmeldung, Rollen, vertrauliche Personaldaten, Festschreiben nach dem Abgleich, getrenntes Kundenportal, Betrieb in der Schweiz.</li>
+      <li><b>Fragen, die Betriebe zuerst stellen</b>, und ehrliche Antworten, auch die unbequemen: Lohn rechnet die Software bewusst nicht.</li>
+      <li><b>Demo-Formular mit Bestätigung.</b> Zugang per E-Mail, erst nach einem Klick in der Bestätigungsmail. Spamfalle statt Captcha, Rückruf abwählbar, Zugangsdaten lassen sich neu schicken. Keine Newsletter, keine Weitergabe.</li>
+    </ul>
+
+    <h2>Bauplan</h2>
+    <p>Dieselbe Seite ohne Farben und Bilder: Text als Balken, Abschnitte gestrichelt. So sieht man die Ordnung, die unter der Gestaltung liegt.</p>
+    <figure class="bauplan breit">
+      <div class="ausschnitt"><img src="arbeiten/guardops-bauplan.webp" alt="Bauplan der GuardOpS-Startseite: Abschnitte als gestrichelte Rahmen, Text als Balken, oberer Teil der Seite" width="1440" height="8411" loading="lazy" decoding="async"></div>
+      <figcaption>Oberer Teil des Bauplans. Die ganze Seite ist 8’411 Pixel lang.</figcaption>
+    </figure>
+
+    <h2>Gemessen, nicht geschätzt</h2>
+    <dl class="kennwerte breit">
+      <div><dt><b>7<small>×</small></b></dt><dd><strong>leichter als der Durchschnitt</strong><span>355 KB für die ganze Startseite statt 2’652 KB. Die Seite steht, bevor man ungeduldig wird.</span></dd></div>
+      <div><dt><b>0</b></dt><dd><strong>Cookies</strong><span>Darum kein Banner, den Besucher wegklicken müssen.</span></dd></div>
+      <div><dt><b>CH</b></dt><dd><strong>Gehostet in der Schweiz</strong><span>Keine Besucherdaten an Google und Co.</span></dd></div>
+    </dl>
+    <p class="fussnote breit">Gemessen im Oktober 2026 im Browser, übertragene Grösse der Startseite. Durchschnitt: mittlere Website am Desktop laut <a href="https://almanac.httparchive.org/de/2024/page-weight" target="_blank" rel="noopener">HTTP Archive, Web Almanac 2024</a>.</p>
+
+    <div class="handeln breit">
+      <a class="knopf" href="https://guardops.ch/" target="_blank" rel="noopener">guardops.ch ansehen ↗</a>
+      <a class="zweitweg" href="entwurf-arbeiten-craniosacral-praxis.html">Nächste Arbeit: Craniosacral Praxis →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="spalte">
+    <div class="fussraster">
+      <div class="fussmarke">
+        <a class="logo" href="entwurf.html" aria-label="formateins, zur Startseite"><span class="s">format</span><span class="p">eins</span></a>
+        <p>Website, Marke und Social Media für Selbstständige und kleine Unternehmen in Olten und der Region. Von Hand gebaut.</p>
+      </div>
+      <div>
+        <p class="fusstitel"><i aria-hidden="true"></i>Arbeiten</p>
+        <ul class="fussliste">
+          <li><a href="entwurf-arbeiten-guardops.html" aria-current="page">GuardOpS</a></li>
+          <li><a href="entwurf-arbeiten-craniosacral-praxis.html">Craniosacral Praxis Johann von Arb</a></li>
+          <li><a href="entwurf-website-kosten.html">Was kostet eine Website?</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="fusstitel"><i aria-hidden="true"></i>Kontakt</p>
+        <ul class="fussliste">
+          <li><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a></li>
+          <li><a href="tel:+41796868486">079 686 84 86</a></li>
+          <li><a href="gespraech">Gespräch vereinbaren</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rechtliches">
+      <nav><a href="impressum">Impressum</a><a href="datenschutz">Datenschutz</a></nav>
+      <span>© 2026 formateins, eine Marke der pzu consulting gmbh</span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Eine Produktwebsite für GuardOpS, Software für Schweizer Sicherheitsdienste",
+  "url": "https://www.formateins.ch/arbeiten/guardops",
+  "inLanguage": "de-CH",
+  "datePublished": "2026-10-24",
+  "dateModified": "2026-10-24",
+  "author": { "@type": "Person", "name": "Adrian von Arb" },
+  "publisher": { "@type": "ProfessionalService", "name": "formateins", "url": "https://www.formateins.ch" },
+  "primaryImageOfPage": { "@type": "ImageObject", "url": "https://www.formateins.ch/arbeiten/guardops-vorschau.webp", "width": 960, "height": 600 },
+  "about": {
+    "@type": "WebSite",
+    "name": "GuardOpS",
+    "url": "https://guardops.ch/",
+    "creator": { "@type": "ProfessionalService", "name": "formateins", "url": "https://www.formateins.ch" }
+  },
+  "isPartOf": { "@type": "WebSite", "name": "formateins", "url": "https://www.formateins.ch" }
+}
+</script>

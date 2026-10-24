@@ -369,6 +369,58 @@ als Frage und Antwort lesen. Nach jeder Änderung an den Fragen ausführen:
 python3 quellen/faq-daten.py
 ```
 
+## Massnahmen aus dem Vergleich mit beyondweb.ch
+
+Am 24.10.2026 wurde beyondweb.ch (Webdesign- und SEO-Agentur, Zug) gecrawlt
+und mit formateins verglichen. Sieben Massnahmen wurden daraus abgeleitet und
+hier festgehalten. Was ohne Adrian geht, ist im Entwurf gebaut; der Rest
+wartet auf ihn. Alles liegt in `entwurf*`-Dateien, bis er es abnimmt.
+
+Zuerst das, was alles andere aushebelt: solange `robots.txt` auf `Disallow: /`
+steht und die Seiten `noindex,nofollow` tragen, zaehlt keine der Massnahmen.
+Beides ist Absicht bis zum Livegang (siehe oben).
+
+1. **Je Arbeit eine eigene Seite.** Gebaut: `entwurf-arbeiten-guardops.html`
+   und `entwurf-arbeiten-craniosacral-praxis.html`, je mit Steckbrief,
+   Ausgangslage, was gebaut wurde, Bauplan, gemessenen Kennwerten und Link.
+   Verlinkt aus dem Pruefstand auf der Entwurfs-Startseite.
+   *Adrian:* Ausgangslage je Projekt gegenlesen (die Saetze stammen aus dem,
+   was die Seiten selbst zeigen), schriftliche Freigabe der Kunden fuer die
+   Nennung einholen (steht schon oben unter Arbeiten), beim Livegang die
+   Adressen `/arbeiten/guardops` und `/arbeiten/craniosacral-praxis` in
+   `.htaccess` und `sitemap.xml` eintragen.
+2. **Text um den Kostenrechner.** Gebaut: `entwurf-website-kosten.html`,
+   „Was kostet eine Website in Olten?“ mit „Das Wichtigste in Kuerze“, den
+   drei Groessen samt Rahmen aus den Ansaetzen des Rechners, Zuschlaegen,
+   laufenden Kosten, Quellen, FAQ (als `FAQPage` im Code), Artikel-Schema mit
+   Autor und Datum, „zuletzt aktualisiert“. Verlinkt aus FAQ und Fuss der
+   Entwurfs-Startseite. *Pflege:* Aendern sich die Ansaetze in
+   `kostenrechner.html` (`const preis`), die Rahmen im Artikel nachfuehren
+   (Grundpreis −10 % bis +15 %). Beim Livegang Adresse `/website-kosten` in
+   `.htaccess` und `sitemap.xml`.
+3. **Google-Unternehmensprofil fuer Olten** und die ersten Kunden um eine
+   Bewertung bitten. *Adrian*, steht auch unter „Vor dem Livegang“. Sterne
+   auf der Website erst ab etwa fuenf Bewertungen, mit echter Zahl.
+4. **Suchbegriff sichtbar im Text.** Gebaut: eine Zeile „Webdesign in Olten
+   und der Region“ ueber den Bereichen in `entwurf.html`. H1 bleibt
+   „Du machst gute Arbeit.“
+5. **„Passen wir zusammen?“** mit Ja- und Nein-Liste. Gebaut als Abschnitt
+   `#passung` in `entwurf.html` zwischen Arbeiten und Fragen. Die Punkte
+   stammen aus Aussagen, die schon auf der Seite stehen (keine Shops, kein
+   Login, kein Platz-eins-Versprechen, nichts unter tausend Franken).
+6. **Datum und Pflege sichtbar.** Gebaut in `entwurf.html`: `WebPage` mit
+   `dateModified` im Schema, „Kennwerte gemessen am …“ unter dem Pruefstand;
+   die neuen Seiten tragen `datePublished`/`dateModified` und ein sichtbares
+   Datum. *Adrian:* `sameAs` (Google-Profil, LinkedIn, local.ch, search.ch)
+   sobald es die Eintraege gibt; `kostenrechner.html` ist live und bekommt
+   sein „zuletzt aktualisiert“ erst mit der Abnahme des Entwurfs.
+7. **Ansprechperson als Block.** Gebaut in `entwurf.html`, Abschnitt „Wer das
+   macht“: Telefon, E-Mail und „30 Minuten, kostet nichts“ direkt unter dem
+   Text, zusaetzlich zum Fuss.
+
+Bewusst nicht uebernommen: Stadtseiten (Aarau, Zofingen, Solothurn), Zaehler
+per Skript, Presselogos, Knappheitsdruck, Tracker.
+
 ## Gestaltungsauftrag
 
 Der Auftrag, nach dem die beiden Hauptseiten gebaut sind. Er stand bis zum

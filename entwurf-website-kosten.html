@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>ENTWURF · Was kostet eine Website in Olten? Preise 2026 | formateins</title>
+<meta name="description" content="Was eine von Hand gebaute Website in Olten und der Region kostet: eine Seite ab rund 1’400 Franken, eine Firmenwebsite ab 2’700, was den Preis bewegt, was dazukommt und was nicht. Mit den Ansätzen, nach denen ich rechne.">
+<!-- LIVEGANG: noindex entfernen, Adresse /website-kosten in .htaccess und sitemap.xml eintragen,
+     canonical und og:url einkommentieren. -->
+<meta name="robots" content="noindex,nofollow">
+<!-- <link rel="canonical" href="https://www.formateins.ch/website-kosten"> -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="de_CH">
+<meta property="og:site_name" content="formateins">
+<meta property="og:title" content="Was kostet eine Website in Olten? Preise 2026">
+<meta property="og:description" content="Eine Seite ab rund 1’400 Franken, eine Firmenwebsite ab 2’700. Was den Preis bewegt, was dazukommt und was nicht.">
+<meta property="og:image" content="https://www.formateins.ch/teilen.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="formateins — Webdesign aus Olten und Region">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#1b2a33">
+<link rel="preload" href="schriften/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="schriften/playfair-display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="schriften.css">
+<link rel="stylesheet" href="recht.css">
+<style>
+/* Ratgeber: eine Textspalte wie Impressum und Datenschutz, dazu eine Tabelle
+   mit den drei Groessen in voller Spaltenbreite. */
+.etikett{display:flex;align-items:center;gap:12px;font-size:var(--txt-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--signal);margin-bottom:18px}
+.etikett i{width:26px;height:1.5px;background:var(--signal)}
+.untertitel{font-size:var(--txt-l);color:var(--auf-grund-still);margin-top:-.2em}
+.autor{display:flex;align-items:center;gap:14px;margin-top:1.6em;font-size:var(--txt-s);color:var(--auf-grund-still)}
+.autor img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none}
+.autor b{display:block;color:var(--auf-grund);font-weight:600}
+.kurz ul{margin-top:.5em;padding-left:1.1em}
+.kurz li+li{margin-top:.45em}
+main .spalte > .breit{max-width:none}
+.groessen{width:100%;border-collapse:collapse;margin-top:1.4em;font-size:var(--txt-s)}
+.groessen th,.groessen td{text-align:left;vertical-align:top;padding:14px 16px 14px 0;border-bottom:1px solid var(--linie)}
+.groessen th{font-size:var(--txt-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--auf-grund-still);font-weight:600;border-bottom-color:var(--auf-grund-still)}
+.groessen td b{display:block;font-family:var(--serif);font-weight:700;font-size:1.1rem;color:var(--auf-grund)}
+.groessen td .preis{font-family:var(--serif);font-weight:900;font-size:1.25rem;color:var(--signal);white-space:nowrap;font-variant-numeric:lining-nums}
+.groessen td span{display:block;color:var(--auf-grund-still);margin-top:4px}
+.groessen td:last-child{padding-right:0}
+@media(max-width:620px){
+  .groessen thead{display:none}
+  .groessen tr{display:block;padding:14px 0;border-bottom:1px solid var(--linie)}
+  .groessen td{display:block;padding:4px 0;border:0}
+}
+.zuschlaege{list-style:none;padding:0;margin-top:1.2em}
+.zuschlaege li{display:grid;grid-template-columns:1fr auto;gap:4px 24px;padding:12px 0;border-bottom:1px solid var(--linie);margin:0}
+.zuschlaege li b{font-weight:600;grid-column:1;grid-row:1}
+.zuschlaege li span{color:var(--auf-grund-still);font-size:var(--txt-s);grid-column:1}
+.zuschlaege li em{font-style:normal;font-weight:700;color:var(--signal);white-space:nowrap;font-variant-numeric:lining-nums;grid-column:2;grid-row:1}
+.faq{border-top:1px solid var(--linie);margin-top:1.4em}
+.faq details{border-bottom:1px solid var(--linie)}
+.faq summary{cursor:pointer;list-style:none;padding:16px 36px 16px 0;position:relative;font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:1.4rem;color:var(--signal);line-height:1;transition:transform .2s ease}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{color:var(--auf-grund-still);padding:0 0 18px;max-width:58ch}
+.handeln{display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center;margin-top:2.2em}
+.knopf{display:inline-flex;align-items:center;gap:11px;background:var(--signal);color:#15202a;font-weight:700;padding:16px 26px;text-decoration:none;border-radius:2px}
+.knopf:hover{color:#15202a;background:#ff9f6d}
+.zweitweg{font-size:var(--txt-s);font-weight:500;color:var(--auf-grund-still);text-underline-offset:5px}
+.quellen{font-size:var(--txt-s);color:var(--auf-grund-still)}
+.quellen li+li{margin-top:.5em}
+</style>
+
+<header class="kopf">
+  <div class="spalte">
+    <a class="logo" href="entwurf.html"><span class="s">format</span><span class="p">eins</span></a>
+    <a class="zurueck" href="entwurf.html">← Startseite</a>
+  </div>
+</header>
+
+<main>
+  <div class="spalte">
+    <p class="etikett"><i aria-hidden="true"></i>Ratgeber · Preise</p>
+    <h1>Was kostet eine Website in Olten?</h1>
+    <p class="untertitel">Preise 2026 für Selbstständige und kleine Betriebe in Olten und der Region, mit den Ansätzen, nach denen ich selbst rechne. Keine «ab»-Preise, sondern der Rahmen, der am Ende auch auf der Rechnung steht.</p>
+    <div class="autor">
+      <img src="foto.webp" alt="" width="88" height="88" loading="lazy" decoding="async">
+      <div><b>Adrian von Arb, formateins</b>Zuletzt aktualisiert am <time datetime="2026-10-24">24. Oktober 2026</time> · Lesezeit 5 Minuten</div>
+    </div>
+
+    <div class="kurz">
+      <b>Das Wichtigste in Kürze</b>
+      <ul>
+        <li>Eine Website auf einer Seite kostet bei mir <b>CHF 1’400 bis 1’900</b>, eine Firmenwebsite mit drei bis fünf Seiten <b>CHF 2’700 bis 3’600</b>, eine grössere Website ab sechs Seiten <b>CHF 4’500 bis 5’900</b>.</li>
+        <li>Den Preis bewegen vor allem Texte und Bilder, nicht die Technik. Fehlen sie, kommt etwas dazu; sind sie da, bleibt es beim Grundpreis.</li>
+        <li>Nach dem Livegang kostet die Seite nur Hosting und Domain, <b>rund CHF 200 bis 250 im Jahr</b>, direkt beim Anbieter. Kein Abo, keine Updates.</li>
+        <li>Der <a href="kostenrechner">Kostenrechner</a> rechnet mit genau diesen Ansätzen in sieben Fragen deinen Rahmen aus, ohne Konto und ohne Telefonnummer. Danach bekommst du einen Festpreis.</li>
+      </ul>
+    </div>
+
+    <h2>Drei Grössen, drei Rahmen</h2>
+    <p>Die meisten Betriebe in der Region brauchen eine von drei Grössen. Der Rahmen gilt, wenn Texte, Bilder und Logo vorhanden sind. Was fehlt, kommt dazu, siehe unten. Mehrwertsteuer kommt keine dazu.</p>
+    <table class="groessen breit">
+      <thead><tr><th>Grösse</th><th>Für wen</th><th>Rahmen</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Eine Seite</b><span>Alles Wichtige auf einer Länge: wer du bist, was du machst, wie man dich erreicht.</span></td>
+          <td>Reicht für die meisten Betriebe. Praxis, Handwerk, Beratung, Gastro ohne Bestellsystem.</td>
+          <td><span class="preis">CHF 1’400 – 1’900</span></td>
+        </tr>
+        <tr>
+          <td><b>Firmenwebsite, 3 bis 5 Seiten</b><span>Wenn Leistungen, Team oder Standorte wirklich getrennt gehören.</span></td>
+          <td>Betriebe mit mehreren Angeboten, die einzeln gefunden werden sollen.</td>
+          <td><span class="preis">CHF 2’700 – 3’600</span></td>
+        </tr>
+        <tr>
+          <td><b>Grössere Website, ab 6 Seiten</b><span>Mehrere Angebote oder Standorte. Hier schaue ich vorher genau hin.</span></td>
+          <td>Firmen mit mehreren Standorten oder Sparten.</td>
+          <td><span class="preis">CHF 4’500 – 5’900</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="still" style="margin-top:1em">Wenn du unsicher bist: nimm das Kleinere. Ich sage dir nachher, wenn mehr sinnvoll wäre, und nie umgekehrt.</p>
+
+    <h2>Was den Preis bewegt</h2>
+    <p>Der Bau ist selten das Teure. Teuer wird eine Website, wenn Texte und Bilder fehlen, denn dann liegt sie monatelang, oder jemand muss sie machen. Darum stehen diese Posten offen da, mit dem Betrag für eine Seite bis zur grossen Website.</p>
+    <ul class="zuschlaege breit">
+      <li><b>Texte teilweise vorhanden</b><em>+ CHF 350 – 1’000</em><span>Ein Teil steht, den Rest schreiben wir gemeinsam.</span></li>
+      <li><b>Texte schreiben lassen</b><em>+ CHF 700 – 2’000</em><span>Ich schreibe sie nach einem Gespräch mit dir. Kostet extra, spart Monate.</span></li>
+      <li><b>Bilder teilweise vorhanden</b><em>+ CHF 250 – 600</em><span>Für die Lücken finden wir eine Lösung. Handyfotos vom Betrieb sind oft brauchbarer als Bilddatenbanken.</span></li>
+      <li><b>Nur ein Logo, kein Auftritt</b><em>+ CHF 300</em><span>Farben und Schrift lege ich passend zum Logo fest.</span></li>
+      <li><b>Zweite Sprache</b><em>+ CHF 450 – 1’300</em><span>Aufbau und Umschalter doppelt. Die Übersetzung selbst ist nicht dabei.</span></li>
+      <li><b>Online-Termine oder Reservationen</b><em>+ CHF 350</em><span>Über einen bewährten Buchungsdienst, eingebunden in deine Seite. Dessen Gebühren laufen auf dich.</span></li>
+      <li><b>Bestehende Seite überarbeiten</b><em>rund 80 %</em><span>Statt neu bauen, wenn das Fundament taugt. Ich prüfe das zuerst, manchmal ist Neubau günstiger.</span></li>
+      <li><b>Fester Termin in weniger als sechs Wochen</b><em>+ 15 %</em><span>Eröffnung, Messe, Saisonstart. Geht, aber mit Eilzuschlag.</span></li>
+    </ul>
+
+    <h2>Was im Preis drin ist</h2>
+    <p>Gestaltung, Bau, Anpassung für Handy und Tablet, die Grundlage, damit Google die Seite findet, und die Einrichtung von Domain und Hosting bis zum Livegang. Die Seite ist von Hand gebaut, ohne Baukasten und ohne CMS. Sie lädt darum schnell, braucht keine Updates und setzt keine Cookies.</p>
+    <p>Domain und Hosting laufen auf deinen Namen, die Dateien gehören dir. Du kannst jederzeit wechseln, auch zu jemand anderem.</p>
+
+    <h2>Was separat offeriert wird</h2>
+    <p>Drei Dinge nenne ich bewusst nicht im Rahmen, weil Umfang und Anfahrt den Preis bestimmen: <b>Fotos vor Ort</b>, ein <b>kurzer Film</b> über den Betrieb und <b>umfangreiche Markenarbeit</b>, also Logo, Farben und Schrift von null. Alle drei mache ich selbst, du bekommst dafür eine eigene Offerte.</p>
+
+    <h2>Was es nach dem Livegang kostet</h2>
+    <p>Nur Hosting und Domain, direkt beim Anbieter und auf deinen Namen. Bei einem Schweizer Anbieter wie Hostpoint sind das rund CHF 200 bis 250 im Jahr für das kleinste Webhosting samt .ch-Domain. Updates braucht deine Seite keine, weil kein Baukasten und kein CMS dahinterstecken. Änderungen wie neue Öffnungszeiten oder Preise mache ich, wenn du sie willst, und rechne sie nach Aufwand ab. Kein Abo.</p>
+    <p>Zum Vergleich: Ein Baukasten-Abo kostet Monat für Monat, solange die Seite steht. Rechne so ein Abo auf fünf Jahre, bevor du es mit einem einmaligen Preis vergleichst.</p>
+
+    <h2>Warum ich keinen «ab»-Preis nenne</h2>
+    <p>«Website ab CHF 990» sagt wenig über die Rechnung am Ende. Der Preis mit «ab» gilt für den Fall, den es kaum gibt: alle Texte fertig, alle Bilder da, nichts Besonderes. Darum nenne ich Rahmen, und darum rechnet der <a href="kostenrechner">Kostenrechner</a> mit denselben Ansätzen wie mein Angebot. Nach kurzer Prüfung bekommst du einen Festpreis. Der gilt dann, und er liegt in aller Regel im Rahmen.</p>
+    <p>Unter tausend Franken gibt es bei mir keine Website. Darunter lässt sich eine Seite nicht so bauen, dass sie Jahre hält.</p>
+
+    <div class="handeln breit">
+      <a class="knopf" href="kostenrechner">Deinen Rahmen berechnen →</a>
+      <a class="zweitweg" href="gespraech">Oder 30 Minuten reden, kostet nichts</a>
+    </div>
+
+    <h2>Häufige Fragen zum Preis</h2>
+    <div class="faq breit">
+      <details>
+        <summary>Wie genau ist der Rahmen?</summary>
+        <p>Der Rechner und dieser Artikel arbeiten mit denselben Ansätzen wie mein Angebot, der Festpreis liegt in aller Regel darin. Brauchst du weniger als angekreuzt, sage ich es dir, und der Preis sinkt. Kommt etwas dazu, das der Rechner nicht abfragt, erfährst du vorher, was und warum.</p>
+      </details>
+      <details>
+        <summary>Kommt Mehrwertsteuer dazu?</summary>
+        <p>Nein. formateins ist nicht mehrwertsteuerpflichtig, die genannten Beträge sind Endpreise.</p>
+      </details>
+      <details>
+        <summary>Was kostet eine Änderung später?</summary>
+        <p>Kleine Änderungen wie neue Öffnungszeiten, ein Preis oder ein Foto rechne ich nach Aufwand ab, meist eine Viertelstunde bis eine Stunde. Ein Abo gibt es nicht, und du zahlst nur, wenn du etwas ändern willst.</p>
+      </details>
+      <details>
+        <summary>Was kostet es, wenn ich die Seite selbst bearbeiten will?</summary>
+        <p>Das biete ich nicht an, und das ist Absicht. Ohne Login gibt es keine Updates, keine Erweiterungen und nichts, was über Nacht kaputtgeht. Wer täglich selbst Inhalte einpflegen will, ist mit einem Baukasten besser bedient, das sage ich dir im Gespräch offen.</p>
+      </details>
+      <details>
+        <summary>Gehört die Website dann mir?</summary>
+        <p>Ja. Domain und Hosting laufen auf deinen Namen, die Dateien gehören dir. Du kannst jederzeit wechseln, auch zu jemand anderem.</p>
+      </details>
+    </div>
+
+    <h2>Quellen</h2>
+    <ul class="quellen">
+      <li>Ansätze und Rahmen: der <a href="kostenrechner">Kostenrechner von formateins</a>, Stand 24. Oktober 2026. Rahmen = Grundpreis minus 10 bis plus 15 Prozent, auf hundert Franken gerundet.</li>
+      <li>Laufende Kosten: <a href="https://www.hostpoint.ch/webhosting/webhosting.html" target="_blank" rel="noopener">Hostpoint, Webhosting Standard</a>, CHF 15.90 pro Monat, abgerufen am 24. Oktober 2026, zuzüglich .ch-Domain.</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <div class="spalte">
+    <div class="fussraster">
+      <div class="fussmarke">
+        <a class="logo" href="entwurf.html" aria-label="formateins, zur Startseite"><span class="s">format</span><span class="p">eins</span></a>
+        <p>Website, Marke und Social Media für Selbstständige und kleine Unternehmen in Olten und der Region. Von Hand gebaut.</p>
+      </div>
+      <div>
+        <p class="fusstitel"><i aria-hidden="true"></i>Weiterlesen</p>
+        <ul class="fussliste">
+          <li><a href="kostenrechner">Kostenrechner</a></li>
+          <li><a href="entwurf-arbeiten-guardops.html">Arbeit: GuardOpS</a></li>
+          <li><a href="entwurf-arbeiten-craniosacral-praxis.html">Arbeit: Craniosacral Praxis</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="fusstitel"><i aria-hidden="true"></i>Kontakt</p>
+        <ul class="fussliste">
+          <li><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a></li>
+          <li><a href="tel:+41796868486">079 686 84 86</a></li>
+          <li><a href="gespraech">Gespräch vereinbaren</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rechtliches">
+      <nav><a href="impressum">Impressum</a><a href="datenschutz">Datenschutz</a></nav>
+      <span>© 2026 formateins, eine Marke der pzu consulting gmbh</span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Was kostet eine Website in Olten?",
+  "description": "Was eine von Hand gebaute Website in Olten und der Region kostet: drei Grössen mit Rahmen, was den Preis bewegt, was dazukommt und was nicht.",
+  "inLanguage": "de-CH",
+  "datePublished": "2026-10-24",
+  "dateModified": "2026-10-24",
+  "author": { "@type": "Person", "name": "Adrian von Arb", "url": "https://www.formateins.ch/#kontakt" },
+  "publisher": { "@type": "ProfessionalService", "name": "formateins", "url": "https://www.formateins.ch", "logo": { "@type": "ImageObject", "url": "https://www.formateins.ch/icon-512.png" } },
+  "image": "https://www.formateins.ch/teilen.png",
+  "mainEntityOfPage": "https://www.formateins.ch/website-kosten",
+  "about": { "@type": "Service", "name": "Webdesign in Olten und der Region", "provider": { "@type": "ProfessionalService", "name": "formateins" } }
+}
+</script>
+<!-- FAQ-DATEN -->
+<!-- Erzeugt aus den Fragen oben mit quellen/faq-daten.py, nicht von Hand aendern. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie genau ist der Rahmen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Rechner und dieser Artikel arbeiten mit denselben Ansätzen wie mein Angebot, der Festpreis liegt in aller Regel darin. Brauchst du weniger als angekreuzt, sage ich es dir, und der Preis sinkt. Kommt etwas dazu, das der Rechner nicht abfragt, erfährst du vorher, was und warum."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kommt Mehrwertsteuer dazu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. formateins ist nicht mehrwertsteuerpflichtig, die genannten Beträge sind Endpreise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kostet eine Änderung später?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kleine Änderungen wie neue Öffnungszeiten, ein Preis oder ein Foto rechne ich nach Aufwand ab, meist eine Viertelstunde bis eine Stunde. Ein Abo gibt es nicht, und du zahlst nur, wenn du etwas ändern willst."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kostet es, wenn ich die Seite selbst bearbeiten will?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Das biete ich nicht an, und das ist Absicht. Ohne Login gibt es keine Updates, keine Erweiterungen und nichts, was über Nacht kaputtgeht. Wer täglich selbst Inhalte einpflegen will, ist mit einem Baukasten besser bedient, das sage ich dir im Gespräch offen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gehört die Website dann mir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Domain und Hosting laufen auf deinen Namen, die Dateien gehören dir. Du kannst jederzeit wechseln, auch zu jemand anderem."
+      }
+    }
+  ]
+}
+</script>
+<!-- /FAQ-DATEN -->

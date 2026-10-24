@@ -1130,6 +1130,27 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .auswahl.telefon-rahmen{max-width:52%}
   .schnittleiste{max-width:86%}
 }
+
+/* ---------- Ortszeile, Passung, Direktkontakt ---------- */
+.ortszeile{margin-top:1.2em;max-width:58ch}
+.passung{display:grid;grid-template-columns:1fr;gap:34px clamp(28px,5vw,72px);margin-top:clamp(28px,4vh,44px)}
+@media(min-width:760px){.passung{grid-template-columns:1fr 1fr}}
+.passung h3{display:flex;align-items:center;gap:12px;margin:0 0 4px;font-family:var(--sans);font-size:var(--txt-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--signal)}
+.passung h3::before{content:"";width:26px;height:1.5px;background:currentColor}
+.passung .nein h3{color:var(--ringschrift)}
+.passung ul{list-style:none;padding:0;margin:0}
+.passung li{position:relative;padding:14px 0 14px 34px;border-bottom:1px solid var(--linie);font-size:var(--txt-m);max-width:none}
+.passung li:last-child{border-bottom:0}
+.passung li::before{position:absolute;left:2px;top:13px;font-weight:700;color:var(--signal);line-height:1.5}
+.passung .ja li::before{content:"✓"}
+.passung .nein li{color:var(--auf-grund-still)}
+.passung .nein li::before{content:"×";color:var(--ringschrift);font-size:1.25em;top:11px}
+.direkt{list-style:none;padding:0;margin:1.6em 0 0;display:flex;flex-direction:column;gap:12px}
+.direkt li{display:flex;align-items:center;gap:14px;font-weight:600}
+.direkt svg{flex:none;width:22px;height:22px;fill:none;stroke:var(--signal);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.direkt a{color:inherit;text-decoration:none;transition:color .2s ease}
+.direkt a:hover{color:var(--signal)}
+.direkt span{font-weight:400;color:var(--auf-grund-still)}
 </style>
 
 <header class="kopf">
@@ -1185,6 +1206,9 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 <section id="leistungen">
   <div class="spalte auf">
     <h2>Drei Bereiche.<span class="zweite">Eine Handschrift.</span></h2>
+    <!-- Der Suchbegriff steht sichtbar im Text, nicht nur im Titel und im
+         Schriftring: eine Zeile, kein Keyword-H1. -->
+    <p class="still ortszeile">Webdesign in Olten und der Region. Website, Marke und Social Media aus einer Hand, für Selbstständige und kleine Unternehmen zwischen Aarau, Zofingen und Solothurn.</p>
 
     <!-- Zweite Werkbank, gleiche Mechanik wie #arbeiten (siehe Skript unten,
          werkbankEinrichten). Drei Karten: Fenster, Blatt, Telefon, alles
@@ -1380,10 +1404,12 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
       <div class="pruefprojekte">
         <div class="pruefprojekt an" data-seite="https://guardops.ch/">
           <p class="brettname"><span class="nr">01</span><b>GuardOpS</b><span class="meta">Produktwebsite · Software für Schweizer Sicherheitsdienste · 2026</span></p>
+          <a class="zweitweg" href="entwurf-arbeiten-guardops.html">Mehr zur Arbeit →</a>
           <a class="zweitweg" href="https://guardops.ch/" target="_blank" rel="noopener">guardops.ch ansehen ↗</a>
         </div>
         <div class="pruefprojekt" data-seite="https://f5yct67kcv-source.github.io/webseite-johann-vonarb/">
           <p class="brettname"><span class="nr">02</span><b>Craniosacral Praxis Johann von Arb</b><span class="meta">Fulenbach · eine Seite · von Hand gebaut, ohne Baukasten · 2026</span></p>
+          <a class="zweitweg" href="entwurf-arbeiten-craniosacral-praxis.html">Mehr zur Arbeit →</a>
           <a class="zweitweg" href="https://f5yct67kcv-source.github.io/webseite-johann-vonarb/" target="_blank" rel="noopener">Seite ansehen ↗</a>
         </div>
       </div>
@@ -1423,7 +1449,39 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
         </dl>
       </div>
     </div>
-    <p class="fussnote">Durchschnitt: mittlere Website am Desktop laut <a href="https://almanac.httparchive.org/de/2024/page-weight" target="_blank" rel="noopener">HTTP Archive, Web Almanac 2024</a>.</p>
+    <p class="fussnote">Kennwerte gemessen im Oktober 2026. Durchschnitt: mittlere Website am Desktop laut <a href="https://almanac.httparchive.org/de/2024/page-weight" target="_blank" rel="noopener">HTTP Archive, Web Almanac 2024</a>.</p>
+  </div>
+</section>
+
+<!-- Passung: wer hier richtig ist und wer nicht. Die Nein-Liste ist der
+     wertvolle Teil, sie spart beiden Seiten Gespraeche. Jeder Punkt steht
+     schon irgendwo auf der Seite (FAQ, Wer das macht, Kostenrechner). -->
+<section id="passung">
+  <div class="spalte auf">
+    <h2>Passen wir zusammen?<span class="zweite">Ehrlich gesagt.</span></h2>
+    <p class="still" style="margin-top:1.2em;max-width:58ch">Nicht jeder Betrieb braucht mich, und ich sage das lieber jetzt als in Woche sechs. Zwei Listen, damit du es vorher weisst.</p>
+    <div class="passung">
+      <div class="ja">
+        <h3>Passt</h3>
+        <ul>
+          <li>Du bist selbstständig oder führst einen kleinen Betrieb in Olten oder der Region.</li>
+          <li>Deine Seite soll zeigen, was du machst, und man soll dich erreichen. Mehr muss sie nicht.</li>
+          <li>Du willst eine Ansprechperson, die deinen Betrieb kennt, statt ein Projektbüro.</li>
+          <li>Du hast Texte und Bilder oder lässt sie machen, und du weisst, dass sie am meisten Zeit brauchen.</li>
+          <li>Du willst keinen Baukasten, keine Updates und kein Abo.</li>
+        </ul>
+      </div>
+      <div class="nein">
+        <h3>Passt nicht</h3>
+        <ul>
+          <li>Du brauchst einen Shop oder ein Bestellsystem. Das baue ich nicht.</li>
+          <li>Du willst täglich selbst Inhalte einpflegen, mit Login. Dafür ist ein Baukasten das bessere Werkzeug.</li>
+          <li>Du brauchst ein Portal mit Kundenkonten oder einen Mitgliederbereich.</li>
+          <li>Du suchst eine Website für unter tausend Franken.</li>
+          <li>Du willst Platz eins bei Google garantiert haben. Das garantiert dir niemand ehrlich.</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1444,7 +1502,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
       </details>
       <details>
         <summary>Was kostet eine Website bei dir?</summary>
-        <p>Das hängt vom Umfang ab und davon, was an Texten und Bildern schon da ist. Einen Startpreis mit „ab“ nenne ich bewusst nicht, er sagt wenig über die Rechnung am Ende. Der <a href="kostenrechner">Kostenrechner</a> zeigt dir in sieben Fragen einen Rahmen, danach bekommst du einen Festpreis. Unter tausend Franken gibt es bei mir keine Website.</p>
+        <p>Das hängt vom Umfang ab und davon, was an Texten und Bildern schon da ist. Einen Startpreis mit „ab“ nenne ich bewusst nicht, er sagt wenig über die Rechnung am Ende. Der <a href="kostenrechner">Kostenrechner</a> zeigt dir in sieben Fragen einen Rahmen, danach bekommst du einen Festpreis. Was die drei Grössen kosten und was den Preis bewegt, steht im Ratgeber <a href="entwurf-website-kosten.html">Was kostet eine Website in Olten?</a> Unter tausend Franken gibt es bei mir keine Website.</p>
       </details>
       <details>
         <summary>Wie lange dauert es, bis sie live ist?</summary>
@@ -1476,6 +1534,11 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
       <p class="gross">Ich bin Adrian, aus der Region Olten. Ich baue jede Seite selbst, vom ersten Gespräch bis zum Livegang.</p>
       <p style="margin-top:1.1em">Du hast eine Ansprechperson, die deinen Betrieb kennt und deine Seite in- und auswendig. Kein Projektbüro, keine Runde mit vier Leuten, die nie bei dir waren.</p>
       <p style="margin-top:1.1em" class="still">Shops und Bestellsysteme baue ich nicht. Das sage ich dir lieber jetzt als in Woche sechs.</p>
+      <ul class="direkt">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><a href="tel:+41796868486">079 686 84 86</a></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>Ein Gespräch dauert 30 Minuten und kostet nichts.</span></li>
+      </ul>
       <div class="handeln" style="margin-top:1.8em">
         <a class="knopf" href="kostenrechner">Kosten berechnen<span class="pfeil">→</span></a>
         <a class="knopf umriss" href="gespraech"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Gespräch vereinbaren</a>
@@ -1500,6 +1563,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
           <li><a href="entwurf-marke.html">Marke und Gestaltung</a></li>
           <li><a href="entwurf-social.html">Social Media</a></li>
           <li><a href="kostenrechner">Kostenrechner</a></li>
+          <li><a href="entwurf-website-kosten.html">Was kostet eine Website?</a></li>
         </ul>
       </div>
       <div>
@@ -1570,6 +1634,20 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 }
 </script>
 
+<!-- Die Seite selbst mit Aenderungsdatum. dateModified bei jeder inhaltlichen
+     Aenderung nachfuehren, sonst sagt es Suchmaschinen das Falsche. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Webdesign Olten & Region | formateins",
+  "url": "https://www.formateins.ch/",
+  "inLanguage": "de-CH",
+  "dateModified": "2026-10-24",
+  "about": { "@type": "ProfessionalService", "name": "formateins", "url": "https://www.formateins.ch" },
+  "isPartOf": { "@type": "WebSite", "name": "formateins", "url": "https://www.formateins.ch" }
+}
+</script>
 <!-- FAQ-DATEN -->
 <!-- Erzeugt aus den Fragen oben mit quellen/faq-daten.py, nicht von Hand aendern. -->
 <script type="application/ld+json">
@@ -1598,7 +1676,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
       "name": "Was kostet eine Website bei dir?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Das hängt vom Umfang ab und davon, was an Texten und Bildern schon da ist. Einen Startpreis mit „ab“ nenne ich bewusst nicht, er sagt wenig über die Rechnung am Ende. Der Kostenrechner zeigt dir in sieben Fragen einen Rahmen, danach bekommst du einen Festpreis. Unter tausend Franken gibt es bei mir keine Website."
+        "text": "Das hängt vom Umfang ab und davon, was an Texten und Bildern schon da ist. Einen Startpreis mit „ab“ nenne ich bewusst nicht, er sagt wenig über die Rechnung am Ende. Der Kostenrechner zeigt dir in sieben Fragen einen Rahmen, danach bekommst du einen Festpreis. Was die drei Grössen kosten und was den Preis bewegt, steht im Ratgeber Was kostet eine Website in Olten? Unter tausend Franken gibt es bei mir keine Website."
       }
     },
     {
