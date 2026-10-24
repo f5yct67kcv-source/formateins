@@ -727,29 +727,6 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .karte{display:block;width:100%;text-align:left;-webkit-tap-highlight-color:transparent}
 .karte:nth-child(even){margin-top:clamp(40px,7vw,96px)}
 .karte .brettname{display:block;transition:color .2s ease}
-.mini,.mini .fenster,.mini .sicht,.mini .tel{display:block}
-.mini .fensterleiste{display:flex}
-.mini{position:relative;margin-right:clamp(26px,3.4vw,46px)}
-.mini::before{
-  content:"";position:absolute;inset:-9px;border:1px solid var(--signal);pointer-events:none;opacity:0;
-  background:
-    linear-gradient(var(--signal),var(--signal)) 0 0/7px 7px no-repeat,
-    linear-gradient(var(--signal),var(--signal)) 100% 0/7px 7px no-repeat,
-    linear-gradient(var(--signal),var(--signal)) 0 100%/7px 7px no-repeat,
-    linear-gradient(var(--signal),var(--signal)) 100% 100%/7px 7px no-repeat;
-  transition:opacity .25s ease;
-}
-.mini .fenster .sicht{aspect-ratio:16/10}
-.mini .fenster img{width:100%;height:100%;object-fit:cover;object-position:top}
-.mini .fensterleiste{height:20px;padding:0 9px;gap:5px}
-.mini .fensterleiste i{width:6px;height:6px}
-.mini .fensterleiste span{display:none}
-.mini .tel{
-  position:absolute;right:calc(-1 * clamp(26px,3.4vw,46px));bottom:-11%;width:22%;
-  background:#0a1117;border-radius:14px;padding:4px;
-  box-shadow:0 30px 50px -20px rgba(0,0,0,.9),0 0 0 1px rgba(117,144,159,.22);
-}
-.mini .tel img{width:100%;height:auto;border-radius:10px}
 .chip{
   position:absolute;left:50%;bottom:-58px;translate:-50% 6px;opacity:0;
   background:var(--signal);color:var(--tinte);font-weight:700;font-size:var(--txt-xs);
@@ -760,29 +737,20 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 }
 .chip:hover{background:var(--signal-hell)}
 .chip:focus-visible{opacity:1;translate:-50% 0;outline-offset:4px}
-.karte:has(.chip:focus-visible) .mini::before{opacity:1}
 @media(hover:hover) and (pointer:fine){
   .karte{cursor:zoom-in}
   .karte .brettname b{transition:color .2s ease}
   .karte:hover .brettname b{color:var(--auf-grund)}
-  .karte:hover .mini::before{opacity:1}
   .karte:hover .chip{opacity:1;translate:-50% 0}
 }
 /* Ohne Maus steht die Pille immer da und ist gross genug fuer den Daumen. */
 @media (hover:none),(pointer:coarse){
   .chip{opacity:1;translate:-50% 0;padding:11px 18px;font-size:var(--txt-s);bottom:-66px}
 }
-.leer{opacity:.7;width:72%;justify-self:center}
-.leer:nth-child(even){opacity:.5}
-.leer div{
-  aspect-ratio:16/10.6;border:1px dashed var(--linie-hell);border-radius:9px;
-  display:grid;place-items:center;color:var(--ringschrift);font-size:var(--txt-xs);letter-spacing:.04em;
-}
 @media(max-width:699px){
   .tisch{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:26px;padding:40px 22px 84px;scrollbar-width:none}
   .tisch::-webkit-scrollbar{display:none}
   .karte{flex:0 0 80%;scroll-snap-align:center;margin-top:0!important}
-  .leer{display:none}
 }
 
 /* Waehrend des Zooms bleibt die Auswahl der grossen Flaeche aus, sonst stuende
@@ -927,7 +895,6 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .zusagen span{display:block;font-size:var(--txt-xs);color:var(--ringschrift);margin-top:2px;max-width:none}
 .fussnote{margin-top:14px;font-size:.7rem;color:var(--ringschrift);max-width:none}
 .fussnote a{color:inherit}
-.werkbank[data-ansicht="uebersicht"]+.fussnote{display:none}
 
 .projekt .brettname{margin-bottom:6px}
 .projekt h3{font-size:clamp(1.3rem,2vw,1.7rem)}
@@ -1019,6 +986,83 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .tel-objekt .telefon{display:block;border-radius:22px;padding:5px}
 .tel-objekt .telefon .sicht{display:block;border-radius:17px;aspect-ratio:1/2.164}
 .tel-objekt .telefon img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ---------- Pruefstand ----------
+   Die Seite selbst in einem Rahmen; --w ist die Breite, die die Seite sieht,
+   --s der Massstab, mit dem der Rahmen ins Feld passt (Skript). Die Sicht ist
+   --w breit und wird um --s verkleinert, der Rahmen zeigt genau diesen
+   Ausschnitt. */
+.pruefstand{--hoehe:640px}
+.pruefstand .pruefprojekte{margin-bottom:18px}
+.pruefstand .pruefprojekt{display:none}
+.pruefstand .pruefprojekt.an{display:flex;align-items:baseline;gap:8px 28px;flex-wrap:wrap}
+.pruefstand .pruefprojekt .brettname{flex:1 1 auto;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;font-size:var(--txt-s);margin:0}
+.pruefstand .pruefprojekt .brettname b{font-family:var(--serif);font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:700;color:var(--auf-grund);letter-spacing:-.015em}
+.pruefstand .pruefprojekt .nr{font-family:var(--serif);font-weight:900;color:var(--signal);font-size:1.1rem;font-variant-numeric:lining-nums}
+.pruefstand .pruefprojekt .zweitweg{margin:0}
+/* Die drei Kennwerte des gezeigten Projekts, nebeneinander unter dem Kasten. */
+.pruefwerte{margin-top:26px}
+.pruefwerte .zusagen{display:none;margin:0}
+.pruefwerte .zusagen.an{display:grid;grid-template-columns:repeat(3,1fr);gap:0 32px}
+.pruefwerte .zusagen>div{border-bottom:0;border-top:1px solid var(--linie);padding:16px 0 0}
+@media(max-width:699px){.pruefwerte .zusagen.an{grid-template-columns:1fr;gap:0}.pruefwerte .zusagen>div{padding:14px 0}}
+.pruefkasten{border:1px solid var(--linie);border-radius:10px;background:var(--grund-tief);overflow:hidden}
+.pruefleiste{display:flex;align-items:center;gap:8px 16px;padding:10px 14px;border-bottom:1px solid var(--linie);background:#16232c;font-size:var(--txt-xs);color:var(--ringschrift);flex-wrap:wrap}
+.pruefleiste button{font-family:var(--sans);font-size:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.reiter{display:flex;gap:6px}
+.reiterknopf{padding:7px 12px;border:1px solid var(--linie);border-radius:6px;background:none;color:var(--auf-grund-still);font-weight:600;transition:background .2s,color .2s}
+.reiterknopf.an{background:var(--grund);color:var(--auf-grund);border-color:var(--linie-hell)}
+.breiten{margin-left:auto;display:flex;gap:6px;align-items:center}
+.breiten button{padding:6px 11px;border-radius:99px;border:1px solid var(--linie);background:none;color:var(--ringschrift);font-variant-numeric:tabular-nums;transition:background .2s,color .2s}
+.breiten button.an{background:var(--signal);color:var(--tinte);border-color:var(--signal);font-weight:700}
+.breiten .messung{font-variant-numeric:tabular-nums;color:var(--signal);font-weight:700;margin-left:8px;min-width:4.5em;text-align:right}
+.prueffeld{position:relative;padding:36px 60px 44px;background:radial-gradient(circle,rgba(117,144,159,.22) 1px,transparent 1.5px) 0 0/22px 22px}
+.pruefrahmen{
+  position:relative;margin:0 auto;height:var(--hoehe);
+  width:calc(var(--w) * var(--s) * 1px);max-width:100%;
+  border-radius:8px;background:#fff;
+  box-shadow:0 50px 90px -40px rgba(0,0,0,.9),0 0 0 1px rgba(117,144,159,.2);
+  transition:width .45s cubic-bezier(.65,0,.25,1),border-radius .3s,padding .3s;
+}
+.pruefrahmen.zieht{transition:none}
+/* Die Kante schneidet die Sicht ab; der Griff haengt aussen am Rahmen und
+   darf deshalb nicht vom Rahmen selbst beschnitten werden. */
+.pruefkante{height:100%;overflow:hidden;border-radius:inherit}
+.pruefsicht{width:calc(var(--w) * 1px);height:calc(var(--hoehe) / var(--s));transform:scale(var(--s));transform-origin:0 0}
+.pruefsicht iframe{display:block;width:100%;height:100%;border:0;background:#fff}
+/* Unter 430 Pixel steht die Seite in einem Telefon. */
+.pruefrahmen.handy{border-radius:26px;padding:7px;background:#0a1117}
+.pruefrahmen.handy .pruefkante{border-radius:19px}
+.pruefrahmen.handy{height:calc(var(--hoehe) + 14px)}
+.griff-breite{
+  position:absolute;right:-26px;top:50%;translate:0 -50%;width:14px;height:64px;padding:0;border:0;
+  border-radius:7px;background:var(--signal);box-shadow:0 8px 22px -8px rgba(0,0,0,.6);cursor:ew-resize;touch-action:none;
+}
+.griff-breite::before{content:"";position:absolute;left:5px;right:5px;top:18px;bottom:18px;border-left:1px solid rgba(21,32,42,.5);border-right:1px solid rgba(21,32,42,.5)}
+.griff-breite:hover{background:var(--signal-hell)}
+.griff-breite:focus-visible{outline-offset:4px}
+.pruefrahmen.handy .griff-breite{right:-34px}
+.massband{position:absolute;left:60px;right:60px;bottom:16px;height:1px;background:var(--linie-hell);margin:0;max-width:none}
+.massband::before,.massband::after{content:"";position:absolute;top:-5px;width:1px;height:11px;background:var(--linie-hell)}
+.massband::after{right:0}
+.massband i{display:none}
+.massband b,.massband i{position:absolute;left:50%;top:-9px;translate:-50% 0;background:var(--grund-tief);padding:0 8px;font-size:.66rem;color:var(--ringschrift);font-weight:400;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.pruefhinweis{color:var(--ringschrift);font-size:var(--txt-s);margin-top:14px;max-width:62ch}
+.pruefhinweis b{color:var(--auf-grund-still);font-weight:600}
+@media(max-width:699px){
+  .pruefstand{--hoehe:min(520px,66vh)}
+  .prueffeld{padding:22px 16px 40px}
+  .massband{left:16px;right:16px}
+  .breiten{margin-left:0}
+  .breiten button span{display:none}
+  .breiten .messung{margin-left:auto}
+  /* Am Finger gibt es keinen Griff, nur die drei Breiten; ein Fenster von
+     der Breite des Bildschirms laesst sich ohnehin nicht ziehen. */
+  .griff-breite{display:none}
+  .massband b{display:none}
+  .massband i{display:block;font-style:normal}
+}
+@media(prefers-reduced-motion:reduce){.pruefrahmen{transition:none}}
 
 /* Die Staende der Bereiche, im Raster der Arbeiten-Flaeche. Die Auswahl hugt
    das Objekt, das kleiner ist als das Brett: Blatt und Telefon. */
@@ -1322,140 +1366,61 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   <div class="spalte auf">
     <div class="arbeitenkopf">
       <h2>Gebaut, nicht behauptet.<span class="zweite">Seiten, Markenblätter, Reels.</span></h2>
-      <p class="still">Statt einer Galerie mit Logos liegen hier echte Arbeiten auf dem Tisch. Zoom in ein Projekt und fahr mit dem Zeiger oder dem Finger über das Fenster, darunter liegt der Bauplan.</p>
+      <p class="still">Statt einer Galerie mit Logos steht hier die Seite selbst im Fenster, live. Zieh das Fenster schmaler, und die Seite baut sich um, bis zum Handy.</p>
     </div>
 
-    <!-- Aufnahmen, Vorschauen und Bauplan kommen aus Chrome ohne Kopf, gesteuert
-         ueber das DevTools-Protokoll (quellen/aufnahme.mjs, quellen/bauplan.js).
-         Neues Projekt: Karte auf dem Tisch und Stand auf der Flaeche nach
-         demselben Muster ergaenzen, siehe README, Abschnitt Arbeiten.
-         Messwerte im Inspektor nach jedem Neubau nachmessen. -->
-    <div class="werkbank" id="werkbank" data-ansicht="uebersicht">
-      <div class="werkzeugleiste">
-        <div class="teil nur-uebersicht"><b>Arbeiten</b><span class="trenner">/</span><span>Übersicht · 2 Arbeiten</span></div>
-        <div class="teil nur-projekt"><button class="zurueck" type="button">Übersicht</button><span class="trenner">/</span><b class="projekttitel"></b></div>
-        <div class="teil nur-uebersicht"><span class="leise breit">Projekt anklicken zum Hineinzoomen</span><span class="prozent">50 %</span></div>
-        <div class="teil nur-projekt"><span class="leise breit">Projekt <span class="nummer">1</span> von 2</span><button class="blaettern" type="button" data-richtung="-1" aria-label="Vorheriges Projekt">‹</button><button class="blaettern" type="button" data-richtung="1" aria-label="Nächstes Projekt">›</button><span class="prozent breit">100 %</span></div>
-      </div>
-      <div class="buehne">
-        <div class="tisch">
-        <div class="karte" data-projekt="0">
-          <span class="brettname"><b>01 GuardOpS</b> · Software · online</span>
-          <span class="mini">
-            <span class="fenster"><span class="fensterleiste"><i></i><i></i><i></i><span></span></span><span class="sicht"><img src="arbeiten/guardops-vorschau.webp?v=4" alt="" width="960" height="600" loading="lazy" decoding="async"></span></span>
-            <span class="tel"><img src="arbeiten/guardops-vorschau-mobil.webp?v=4" alt="" width="220" height="476" loading="lazy" decoding="async"></span>
-            <button class="chip" type="button" aria-label="GuardOpS ansehen">Hineinzoomen ⤢</button>
-          </span>
-        </div>
-        <div class="karte" data-projekt="1">
-          <span class="brettname"><b>02 Craniosacral Praxis</b> · Fulenbach</span>
-          <span class="mini">
-            <span class="fenster"><span class="fensterleiste"><i></i><i></i><i></i><span></span></span><span class="sicht"><img src="arbeiten/johann-vorschau.webp?v=4" alt="" width="960" height="600" loading="lazy" decoding="async"></span></span>
-            <span class="tel"><img src="arbeiten/johann-vorschau-mobil.webp?v=4" alt="" width="220" height="476" loading="lazy" decoding="async"></span>
-            <button class="chip" type="button" aria-label="Craniosacral Praxis Johann von Arb ansehen">Hineinzoomen ⤢</button>
-          </span>
-        </div>
-        </div>
-        <div class="flaeche" hidden>
-      <div class="stand" id="stand-guardops" data-titel="GuardOpS" role="group" aria-label="GuardOpS" hidden>
-        <div class="brett-desktop">
-          <p class="brettname" aria-hidden="true"><b>Desktop</b> · 1440 × 900</p>
-          <div class="auswahl" data-mass="1440 × 8411">
-            <div class="fenster">
-              <div class="fensterleiste" aria-hidden="true"><i></i><i></i><i></i><span>GuardOpS – Betriebssoftware für Sicherheitsdienste</span></div>
-              <div class="sicht" style="--v:.625;--vorschau:url(arbeiten/guardops-vorschau.webp?v=4)">
-                <div class="bahn" style="--b:1440;--h:8411">
-                  <img src="arbeiten/guardops-desktop.webp?v=4" alt="Startseite von GuardOpS, Betriebssoftware für Sicherheitsdienste, ganze Länge am Desktop" width="1440" height="8411" loading="lazy" decoding="async">
-                  <img class="plan" src="arbeiten/guardops-bauplan.webp?v=4" alt="" width="1440" height="8411" loading="lazy" decoding="async">
-                </div>
-                <div class="schnitt">
-                  <span class="griff" role="slider" tabindex="0" aria-label="Bauplan aufdecken" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38" aria-valuetext="38 Prozent Bauplan"><span>Bauplan</span><span>Seite</span></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <aside class="inspektor" aria-label="Kennwerte der Seite">
-          <h3>Inspektor</h3>
-          <dl class="zusagen">
-            <div><dt><b>7<small>×</small></b></dt><dd><strong>leichter als der Durchschnitt</strong><span>355 KB statt 2’652 KB. Die Seite steht, bevor man ungeduldig wird.</span></dd></div>
-            <div><dt><b>0</b></dt><dd><strong>Cookies</strong><span>Darum kein Banner, den Besucher wegklicken müssen.</span></dd></div>
-            <div><dt><b class="ch">CH</b></dt><dd><strong>Gehostet in der Schweiz</strong><span>Keine Besucherdaten an Google und Co.</span></dd></div>
-          </dl>
-        </aside>
-
-        <div class="brett-mobil">
-          <p class="brettname" aria-hidden="true"><b>Mobil</b> · 390</p>
-          <div class="auswahl" data-mass="390 × 11686">
-            <div class="telefon">
-              <div class="sicht" style="--v:2.164">
-                <div class="bahn" style="--b:390;--h:11686">
-                  <img src="arbeiten/guardops-mobil.webp?v=4" alt="Dieselbe Seite am Telefon, ganze Länge" width="420" height="12585" loading="lazy" decoding="async">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="projekt">
-          <p class="brettname"><b>Projekt 01</b> · 2026</p>
-          <h3>GuardOpS</h3>
-          <p>Produktwebsite · Software für Schweizer Sicherheitsdienste · online</p>
+    <!-- Pruefstand: nicht eine Aufnahme, sondern die Seite selbst in einem
+         Rahmen, der sich schmaler ziehen laesst. Die Seite baut sich dabei um.
+         Ein Rahmen fuer alle Projekte; die Reiter wechseln Adresse, Titel und
+         Kennwerte. Breiter als das Feld wird der Rahmen nicht: dann wird die
+         Seite im Rahmen verkleinert (Skript, --s), so sieht man am Handy auch
+         die Desktop-Ansicht. Die Seiten muessen das Einbetten erlauben
+         (kein X-Frame-Options, kein frame-ancestors ohne formateins.ch). -->
+    <div class="pruefstand" id="pruefstand">
+      <div class="pruefprojekte">
+        <div class="pruefprojekt an" data-seite="https://guardops.ch/">
+          <p class="brettname"><span class="nr">01</span><b>GuardOpS</b><span class="meta">Produktwebsite · Software für Schweizer Sicherheitsdienste · 2026</span></p>
           <a class="zweitweg" href="https://guardops.ch/" target="_blank" rel="noopener">guardops.ch ansehen ↗</a>
         </div>
-      </div>
-      <div class="stand" id="stand-johann" data-titel="Craniosacral Praxis" role="group" aria-label="Craniosacral Praxis Johann von Arb" hidden>
-        <div class="brett-desktop">
-          <p class="brettname" aria-hidden="true"><b>Desktop</b> · 1440 × 900</p>
-          <div class="auswahl" data-mass="1440 × 4906">
-            <div class="fenster">
-              <div class="fensterleiste" aria-hidden="true"><i></i><i></i><i></i><span>Craniosacral Therapie Fulenbach</span></div>
-              <div class="sicht" style="--v:.625;--vorschau:url(arbeiten/johann-vorschau.webp?v=4)">
-                <div class="bahn" style="--b:1440;--h:4906">
-                  <img src="arbeiten/johann-desktop.webp?v=4" alt="Startseite der Craniosacral-Praxis Johann von Arb in Fulenbach, ganze Länge am Desktop" width="1440" height="4906" loading="lazy" decoding="async">
-                  <img class="plan" src="arbeiten/johann-bauplan.webp?v=4" alt="" width="1440" height="4906" loading="lazy" decoding="async">
-                </div>
-                <div class="schnitt">
-                  <span class="griff" role="slider" tabindex="0" aria-label="Bauplan aufdecken" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38" aria-valuetext="38 Prozent Bauplan"><span>Bauplan</span><span>Seite</span></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <aside class="inspektor" aria-label="Kennwerte der Seite">
-          <h3>Inspektor</h3>
-          <dl class="zusagen">
-            <div><dt><b>23<small>×</small></b></dt><dd><strong>leichter als der Durchschnitt</strong><span>114 KB statt 2’652 KB. Die Seite steht, bevor man ungeduldig wird.</span></dd></div>
-            <div><dt><b>0</b></dt><dd><strong>Cookies</strong><span>Darum kein Banner, den Besucher wegklicken müssen.</span></dd></div>
-            <!-- LIVEGANG: stimmt erst, wenn die Praxis-Seite bei Hostpoint liegt. -->
-            <div><dt><b class="ch">CH</b></dt><dd><strong>Gehostet in der Schweiz</strong><span>Keine Besucherdaten an Google und Co.</span></dd></div>
-          </dl>
-        </aside>
-
-        <div class="brett-mobil">
-          <p class="brettname" aria-hidden="true"><b>Mobil</b> · 390</p>
-          <div class="auswahl" data-mass="390 × 7316">
-            <div class="telefon">
-              <div class="sicht" style="--v:2.164">
-                <div class="bahn" style="--b:390;--h:7316">
-                  <img src="arbeiten/johann-mobil.webp?v=4" alt="Dieselbe Seite am Telefon, ganze Länge" width="440" height="8254" loading="lazy" decoding="async">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="projekt">
-          <p class="brettname"><b>Projekt 02</b> · 2026</p>
-          <h3>Craniosacral Praxis Johann von Arb</h3>
-          <p>Fulenbach · eine Seite · von Hand gebaut, ohne Baukasten</p>
-          <!-- LIVEGANG: auf die echte Domain der Praxis umstellen, sobald sie live ist. -->
+        <div class="pruefprojekt" data-seite="https://f5yct67kcv-source.github.io/webseite-johann-vonarb/">
+          <p class="brettname"><span class="nr">02</span><b>Craniosacral Praxis Johann von Arb</b><span class="meta">Fulenbach · eine Seite · von Hand gebaut, ohne Baukasten · 2026</span></p>
           <a class="zweitweg" href="https://f5yct67kcv-source.github.io/webseite-johann-vonarb/" target="_blank" rel="noopener">Seite ansehen ↗</a>
         </div>
       </div>
+
+      <div class="pruefkasten">
+        <div class="pruefleiste">
+          <div class="reiter" role="tablist" aria-label="Projekt">
+            <button class="reiterknopf an" type="button" role="tab" aria-selected="true" data-projekt="0">GuardOpS</button>
+            <button class="reiterknopf" type="button" role="tab" aria-selected="false" data-projekt="1">Craniosacral Praxis</button>
+          </div>
+          <div class="breiten" role="group" aria-label="Breite des Fensters">
+            <button class="an" type="button" data-breite="1440">1440<span> · Desktop</span></button>
+            <button type="button" data-breite="820">820<span> · Tablet</span></button>
+            <button type="button" data-breite="390">390<span> · Handy</span></button>
+            <output class="messung" aria-live="polite">1440 px</output>
+          </div>
         </div>
+        <div class="prueffeld">
+          <div class="pruefrahmen" style="--w:1440;--s:1">
+            <div class="pruefkante"><div class="pruefsicht"><iframe src="https://guardops.ch/" title="GuardOpS, die Seite selbst" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
+            <button class="griff-breite" type="button" role="slider" aria-label="Breite des Fensters" aria-valuemin="390" aria-valuemax="1440" aria-valuenow="1440" aria-valuetext="1440 Pixel"></button>
+          </div>
+          <p class="massband"><b>Zieh am Griff, die Seite baut sich um</b><i>Drei Breiten, dieselbe Seite</i></p>
+        </div>
+      </div>
+      <p class="pruefhinweis"><b>Kein Bild, die Seite selbst.</b> Zieh das Fenster schmaler oder wähl eine Breite: die Seite ordnet sich neu, bis zum Handy. So sieht man, dass sie auf jedem Gerät sitzt.</p>
+      <div class="pruefwerte">
+        <dl class="zusagen an">
+          <div><dt><b>7<small>×</small></b></dt><dd><strong>leichter als der Durchschnitt</strong><span>355 KB statt 2’652 KB. Die Seite steht, bevor man ungeduldig wird.</span></dd></div>
+          <div><dt><b>0</b></dt><dd><strong>Cookies</strong><span>Darum kein Banner, den Besucher wegklicken müssen.</span></dd></div>
+          <div><dt><b class="ch">CH</b></dt><dd><strong>Gehostet in der Schweiz</strong><span>Keine Besucherdaten an Google und Co.</span></dd></div>
+        </dl>
+        <dl class="zusagen">
+          <div><dt><b>23<small>×</small></b></dt><dd><strong>leichter als der Durchschnitt</strong><span>114 KB statt 2’652 KB. Die Seite steht, bevor man ungeduldig wird.</span></dd></div>
+          <div><dt><b>0</b></dt><dd><strong>Cookies</strong><span>Darum kein Banner, den Besucher wegklicken müssen.</span></dd></div>
+          <div><dt><b class="ch">CH</b></dt><dd><strong>Gehostet in der Schweiz</strong><span>Keine Besucherdaten an Google und Co.</span></dd></div>
+        </dl>
       </div>
     </div>
     <p class="fussnote">Durchschnitt: mittlere Website am Desktop laut <a href="https://almanac.httparchive.org/de/2024/page-weight" target="_blank" rel="noopener">HTTP Archive, Web Almanac 2024</a>.</p>
@@ -2082,8 +2047,67 @@ function werkbankEinrichten(werkbank) {
   return { hinein, hinaus };
 }
 
-const werkbank = document.getElementById('werkbank');
-if (werkbank) werkbankEinrichten(werkbank);
+// Pruefstand: die Seite selbst im Rahmen. --w ist die Breite, die die Seite
+// sieht, --s der Massstab, damit der Rahmen ins Feld passt. Ziehen am Griff
+// aendert --w, solange der Rahmen kleiner als das Feld ist; die drei Knoepfe
+// setzen feste Breiten, auch groessere, dann wird verkleinert.
+const pruefstand = document.getElementById('pruefstand');
+if (pruefstand) {
+  const feld = pruefstand.querySelector('.prueffeld');
+  const rahmen = pruefstand.querySelector('.pruefrahmen');
+  const sicht = pruefstand.querySelector('iframe');
+  const griff = pruefstand.querySelector('.griff-breite');
+  const messung = pruefstand.querySelector('.messung');
+  const breiten = [...pruefstand.querySelectorAll('.breiten button')];
+  const reiter = [...pruefstand.querySelectorAll('.reiterknopf')];
+  const projekte = [...pruefstand.querySelectorAll('.pruefprojekt')];
+  const werte = [...pruefstand.querySelectorAll('.pruefwerte .zusagen')];
+  const min = 390, max = 1440;
+  let w = max;
+  const feldbreite = () => feld.clientWidth - parseFloat(getComputedStyle(feld).paddingLeft) - parseFloat(getComputedStyle(feld).paddingRight);
+  function setzen(neu, ziehen) {
+    w = Math.round(Math.min(max, Math.max(min, neu)));
+    const s = Math.min(1, feldbreite() / w);
+    rahmen.style.setProperty('--w', w);
+    rahmen.style.setProperty('--s', s.toFixed(4));
+    rahmen.classList.toggle('handy', w <= 430);
+    rahmen.classList.toggle('zieht', !!ziehen);
+    messung.value = w + ' px';
+    griff.setAttribute('aria-valuenow', w);
+    griff.setAttribute('aria-valuetext', w + ' Pixel');
+    breiten.forEach(b => b.classList.toggle('an', +b.dataset.breite === w));
+  }
+  breiten.forEach(b => b.addEventListener('click', () => setzen(+b.dataset.breite)));
+  // Ziehen: die rechte Kante folgt dem Zeiger, der Rahmen bleibt mittig.
+  griff.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    griff.setPointerCapture(e.pointerId);
+    const start = e.clientX, anfang = w;
+    const bewegen = (e) => setzen(anfang + (e.clientX - start) * 2, true);
+    const loslassen = () => { griff.removeEventListener('pointermove', bewegen); setzen(w); };
+    griff.addEventListener('pointermove', bewegen);
+    griff.addEventListener('pointerup', loslassen, { once: true });
+    griff.addEventListener('pointercancel', loslassen, { once: true });
+  });
+  griff.addEventListener('keydown', (e) => {
+    const schritt = e.shiftKey ? 100 : 20;
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') setzen(w - schritt);
+    else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') setzen(w + schritt);
+    else if (e.key === 'Home') setzen(min);
+    else if (e.key === 'End') setzen(max);
+    else return;
+    e.preventDefault();
+  });
+  reiter.forEach((r, i) => r.addEventListener('click', () => {
+    reiter.forEach((x, k) => { x.classList.toggle('an', k === i); x.setAttribute('aria-selected', k === i); });
+    projekte.forEach((p, k) => p.classList.toggle('an', k === i));
+    werte.forEach((w, k) => w.classList.toggle('an', k === i));
+    const adresse = projekte[i].dataset.seite;
+    if (sicht.getAttribute('src') !== adresse) sicht.src = adresse;
+  }));
+  addEventListener('resize', () => setzen(w));
+  setzen(w);
+}
 
 // Bereiche: dieselbe Werkbank, nur mit Link statt Pille auf der Karte.
 const bereiche = document.getElementById('bereiche');
