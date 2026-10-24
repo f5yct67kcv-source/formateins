@@ -23,6 +23,7 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
 | `quellen/` | Vorlagen fuer Teilen-Bild und Favicon, siehe unten |
 | `archiv/` | Frühere Entwurfsrichtungen, nicht mehr aktuell |
 | `entwurf*.html`, `entwurf-leiste.css`, `entwurf-leiste.js` | Entwürfe, nur auf Pages sichtbar (siehe CLAUDE.md). Die Leiste: Menü mit Bereiche, Arbeiten, Preise, Fragen und Knopf, in Kopfzeile und Mitlaufleiste, am Handy als Menüknopf mit offener Liste; auf allen Entwurfsseiten dieselbe. Beim Livegang in `leiste.css`/`leiste.js` umbenennen oder in die Seiten nehmen |
+| `entwurf-video-spot.mp4`, `.webm`, `.jpg` | Der Spot im Telefon der dritten Richtung (Video), ohne Ton, 720 px hoch, dazu das Standbild. Aus der Quelle neu bauen: `ffmpeg -i QUELLE.mp4 -an -vf scale=-2:720 -c:v libx264 -crf 27 -preset slow -movflags +faststart entwurf-video-spot.mp4`, dasselbe mit `-c:v libvpx-vp9 -crf 36 -b:v 0` als `.webm`, Standbild mit `-ss 5.2 -frames:v 1`. Beide Fassungen, weil Chromium ohne Lizenz kein H.264 spielt |
 
 ## Noch offen
 
