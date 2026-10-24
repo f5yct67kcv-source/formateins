@@ -947,63 +947,41 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 }
 
 /* ---------- Bereiche ----------
-   Dieselbe Werkbank wie bei den Arbeiten, mit anderem Tisch. Statt Karten in
-   zwei Spalten liegt eine Szene auf dem Tisch, die am Bildschirm klebt, waehrend
-   die drei Kapitel daneben vorbeilaufen. Das Kapitel im Blick holt sein Objekt
-   nach vorn: Blatt, Fenster oder Telefon, dreimal dieselbe Handschrift. Ein
-   Klick zoomt wie bei den Arbeiten in den Stand des Bereichs; der Zoom ist
-   derselbe Code, nur fliegt hier nicht immer das Fenster, sondern das Objekt,
-   das data-anker an Karte und Stand nennt. */
-/* overflow:clip statt hidden: schneidet ab, macht aber keinen Scrollkasten,
-   darum klebt die Szene weiterhin am Bildschirm. */
-.bereiche .buehne{overflow:clip}
-/* overflow:visible hebt den Wischkasten des Handy-Tisches auf, sonst klebte
-   die Szene an dessen Rand statt am Bildschirm. */
-.bereiche .tisch:not([hidden]){display:block;padding:0;overflow:visible;scroll-snap-type:none}
-.szenenraum{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(30px,5vw,80px);align-items:start;padding:clamp(28px,3vw,44px) clamp(28px,4vw,56px)}
-.klebt{
-  position:sticky;top:calc(50vh - 270px);height:540px;border:1px solid var(--linie);
-  background:radial-gradient(60% 55% at 42% 45%, rgba(46,69,87,.35), transparent 75%);
-}
-.szene{position:absolute;inset:0}
-
-/* Die Objekte sind Karten wie auf dem Leuchttisch: das vordere traegt Rahmen,
-   Mass und Pille, die hinteren liegen gedaempft an ihrem Platz. */
-.objekt{position:absolute;display:block;transition:transform .7s cubic-bezier(.16,1,.3,1),opacity .6s ease}
-.szene.sofort .objekt{transition:none}
-.objekt::before{
+   Dieselbe Werkbank wie bei den Arbeiten, drei Karten auf dem Tisch: Fenster,
+   Blatt, Telefon, dreimal dieselbe Handschrift. Jede Karte traegt unter dem
+   Objekt eine Bildunterschrift, hinein geht es ueber den Link darin (oder mit
+   der Maus ueber die Karte). Der Zoom ist derselbe Code wie bei den Arbeiten,
+   nur fliegt nicht immer das Fenster, sondern das Objekt, das data-anker an
+   Karte und Stand nennt. */
+.bereiche .tisch:not([hidden]){grid-template-columns:repeat(3,1fr);gap:clamp(40px,4vw,64px);padding:clamp(48px,5vw,72px) clamp(28px,5vw,72px) clamp(56px,6vw,80px)}
+.bereiche .karte{margin-top:0!important}
+/* Das Bild: ein Feld gleicher Hoehe auf jeder Karte, das Objekt mittig darin.
+   Der Rahmen mit Ecken erscheint wie bei den Arbeiten beim Zeigen. */
+.bereiche .bild{position:relative;display:grid;place-items:center;aspect-ratio:16/11;margin-top:4px}
+.bereiche .bild::before{
   content:"";position:absolute;inset:-9px;border:1px solid var(--signal);pointer-events:none;opacity:0;
   background:
     linear-gradient(var(--signal),var(--signal)) 0 0/7px 7px no-repeat,
     linear-gradient(var(--signal),var(--signal)) 100% 0/7px 7px no-repeat,
     linear-gradient(var(--signal),var(--signal)) 0 100%/7px 7px no-repeat,
     linear-gradient(var(--signal),var(--signal)) 100% 100%/7px 7px no-repeat;
-  transition:opacity .35s ease .25s;
+  transition:opacity .25s ease;
 }
-.objekt .mass{
-  position:absolute;left:50%;bottom:-34px;translate:-50% 0;opacity:0;
-  background:var(--signal);color:var(--tinte);font-size:var(--txt-xs);font-weight:700;
-  padding:3px 8px;border-radius:3px;font-variant-numeric:tabular-nums;white-space:nowrap;
-  transition:opacity .35s ease .25s;font-family:var(--sans);
+.bereiche .karte:has(.hin:focus-visible) .bild::before{opacity:1}
+@media(hover:hover) and (pointer:fine){.bereiche .karte:hover .bild::before{opacity:1}}
+.bereiche .objekt{display:block;position:relative}
+.bereiche .fenster-objekt{width:100%}
+.bereiche .blatt-objekt{width:46%;margin-right:10%}
+.bereiche .tel-objekt{width:27%}
+.bereiche .unterschrift{display:block;margin-top:22px}
+.bereiche .unterschrift h3{font-family:var(--serif);font-weight:700;font-size:clamp(1.15rem,1.5vw,1.4rem);line-height:1.15;color:var(--auf-grund)}
+.bereiche .unterschrift p{margin-top:8px;color:var(--auf-grund-still);font-size:var(--txt-s);max-width:34ch}
+.bereiche .unterschrift .hin{display:inline-block;margin-top:12px;color:var(--signal);font-size:var(--txt-s);font-weight:700;background:none;border:0;padding:0;cursor:pointer;font-family:var(--sans)}
+.bereiche .unterschrift .hin:hover{color:var(--signal-hell)}
+@media(max-width:699px){
+  .bereiche .tisch:not([hidden]){gap:26px;padding:40px 22px 56px}
+  .bereiche .karte{flex-basis:84%}
 }
-.objekt.vorn::before,.objekt.vorn .mass{opacity:1}
-.objekt .chip{bottom:-70px}
-.objekt.vorn{cursor:zoom-in}
-.objekt.vorn:hover .chip,.objekt.vorn .chip:focus-visible{opacity:1;translate:-50% 0}
-/* Nur das vordere Objekt bietet die Pille an, auch am Finger. */
-.szene .objekt:not(.vorn) .chip{opacity:0;pointer-events:none}
-
-.szene .blatt-objekt{left:7%;bottom:9%;width:27%;z-index:1;transform:scale(.9);opacity:.38}
-.szene .fenster-objekt{left:19%;top:13%;width:62%;z-index:2;transform:scale(.94);opacity:.38}
-.szene .tel-objekt{right:7%;bottom:7%;width:17%;z-index:3;transform:scale(.9);opacity:.38}
-.szene .objekt.vorn{opacity:1;z-index:5}
-.szene .blatt-objekt.vorn{transform:translate(38%,-18%) scale(1.22)}
-.szene .fenster-objekt.vorn{transform:scale(1)}
-.szene .tel-objekt.vorn{transform:translate(-120%,-14%) scale(1.3)}
-.zaehler{position:absolute;left:18px;top:16px;display:flex;gap:8px;align-items:center;font-size:.66rem;letter-spacing:.06em;color:var(--ringschrift);font-variant-numeric:tabular-nums}
-.zaehler i{width:28px;height:2px;background:var(--linie-hell);transition:background .3s ease}
-.zaehler i.an{background:var(--signal)}
-.bildzeile{display:none}
 
 .fenster-objekt .fenster{display:block}
 .fenster-objekt .fensterleiste{display:flex;height:22px;padding:0 9px;gap:5px}
@@ -1041,16 +1019,6 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .tel-objekt .telefon{display:block;border-radius:22px;padding:5px}
 .tel-objekt .telefon .sicht{display:block;border-radius:17px;aspect-ratio:1/2.164}
 .tel-objekt .telefon img{width:100%;height:100%;object-fit:cover;display:block}
-
-/* Die Kapitel laufen neben der Szene vorbei; das im Blick ist hell. */
-.kapitel{display:flex;flex-direction:column}
-.kap{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:28px 0;transition:opacity .5s ease}
-.kap .brettname{margin-bottom:14px}
-.kap h3{font-family:var(--serif);font-weight:700;font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.1;color:var(--auf-grund)}
-.kap p.text{margin-top:14px;color:var(--auf-grund-still);font-size:var(--txt-l);max-width:36ch}
-.kap .hin{display:inline-block;margin-top:18px;color:var(--signal);font-size:var(--txt-s);font-weight:700;text-decoration:none;background:none;border:0;padding:0;cursor:pointer;font-family:var(--sans)}
-.kap:not(.aktiv){opacity:.32}
-@media(prefers-reduced-motion:reduce){.objekt,.kap{transition:none}}
 
 /* Die Staende der Bereiche, im Raster der Arbeiten-Flaeche. Die Auswahl hugt
    das Objekt, das kleiner ist als das Brett: Blatt und Telefon. */
@@ -1114,44 +1082,6 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .bereiche .brett-desktop .auswahl::after{left:50%;bottom:-38px}
 }
 @media(max-width:819px){
-  /* Kein Raster mehr: als Rasterzelle duerfte die Szene nur in ihrer eigenen
-     Zeile kleben. Als Block klebt sie ueber die ganze Laenge der Kapitel. */
-  .szenenraum{display:block;padding:0 16px}
-  /* 61 = die mitlaufende Leiste; darunter bleibt die Szene sichtbar. Die
-     Kapitel laufen unter ihr durch, darum traegt sie den Grund der Buehne und
-     einen Schatten nach unten. Feste Proportion statt Bildschirmhoehe: so
-     bleibt unter der Szene beim ersten Blick Platz fuer Kapitelzeile und
-     Titel, und die Objekte wachsen nicht ueber den Rand. */
-  .klebt{
-    top:61px;height:auto;aspect-ratio:16/11;z-index:3;
-    background:
-      radial-gradient(60% 55% at 42% 45%, rgba(46,69,87,.45), transparent 75%),
-      radial-gradient(circle, rgba(117,144,159,.26) 1px, transparent 1.5px) 0 0/22px 22px,
-      var(--grund-tief);
-    box-shadow:0 24px 30px -22px rgba(0,0,0,.85);
-  }
-  .kapitel{padding-top:14px}
-  .szene{bottom:34px}
-  .szene .fenster-objekt{width:56%;left:22%;top:17%}
-  .szene .blatt-objekt{width:23%;left:9%;bottom:14%}
-  .szene .tel-objekt{width:14%;right:9%;bottom:11%}
-  .szene .blatt-objekt.vorn{transform:translate(42%,4%) scale(1.08)}
-  .szene .tel-objekt.vorn{transform:translate(-130%,-2%) scale(1.2)}
-  /* Mass und Pille haengen am Handy nicht unter dem Objekt (sie lagen ueber
-     dem Text); das Mass steht in der Bildzeile, hinein geht es ueber das
-     vordere Objekt oder den Link im Kapitel. */
-  .szene .objekt .mass,.szene .objekt .chip{display:none}
-  /* Bildzeile am Fuss der Szene: Kapitelname links, Mass rechts, wechselt mit. */
-  .bildzeile{
-    position:absolute;left:0;right:0;bottom:0;height:34px;
-    display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 14px;
-    border-top:1px solid var(--linie);background:rgba(22,35,44,.9);
-    font-size:.7rem;letter-spacing:.03em;color:var(--ringschrift);white-space:nowrap;
-  }
-  .bildzeile b{color:var(--auf-grund-still);font-weight:600;overflow:hidden;text-overflow:ellipsis}
-  .bildzeile em{font-style:normal;font-variant-numeric:tabular-nums;color:var(--signal);font-weight:700}
-  .kap{min-height:54vh;padding:30px 0}
-  .kap h3{font-size:1.5rem}
   .auswahl.blatt-rahmen{max-width:88%}
   .auswahl.telefon-rahmen{max-width:52%}
   .schnittleiste{max-width:86%}
@@ -1213,112 +1143,65 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
     <h2>Drei Bereiche.<span class="zweite">Eine Handschrift.</span></h2>
 
     <!-- Zweite Werkbank, gleiche Mechanik wie #arbeiten (siehe Skript unten,
-         werkbankEinrichten). Auf dem Tisch liegt eine Szene statt Karten:
-         Blatt, Fenster, Telefon, alles derselbe Betrieb. Scrollen holt das
-         Objekt des Kapitels nach vorn, ein Klick zoomt in den Stand des Bereichs.
-         Welches Objekt fliegt, sagt data-anker an Karte und Stand. -->
+         werkbankEinrichten). Drei Karten: Fenster, Blatt, Telefon, alles
+         derselbe Betrieb. Welches Objekt beim Zoom fliegt, sagt data-anker an
+         Karte und Stand. Reihenfolge der Karten = Reihenfolge der Staende. -->
     <div class="werkbank bereiche" id="bereiche" data-ansicht="uebersicht" style="margin-top:clamp(28px,4vh,48px)">
       <div class="werkzeugleiste">
         <div class="teil nur-uebersicht"><b>Bereiche</b><span class="trenner">/</span><span>Übersicht · 3 Bereiche</span></div>
         <div class="teil nur-projekt"><button class="zurueck" type="button">Übersicht</button><span class="trenner">/</span><b class="projekttitel"></b></div>
-        <div class="teil nur-uebersicht"><span class="leise breit">Scrollen wechselt den Bereich, Anklicken zoomt hinein</span><span class="prozent">33 %</span></div>
+        <div class="teil nur-uebersicht"><span class="leise breit">Bereich anklicken zum Hineinzoomen</span><span class="prozent">33 %</span></div>
         <div class="teil nur-projekt"><span class="leise breit">Bereich <span class="nummer">1</span> von 3</span><button class="blaettern" type="button" data-richtung="-1" aria-label="Vorheriger Bereich">‹</button><button class="blaettern" type="button" data-richtung="1" aria-label="Nächster Bereich">›</button><span class="prozent breit">100 %</span></div>
       </div>
       <div class="buehne">
 
         <div class="tisch">
-          <div class="szenenraum">
-            <div class="klebt">
-              <div class="szene" id="szene">
-                <span class="objekt karte blatt-objekt" data-schritt="1" data-anker=".blatt">
-                  <span class="blatt">
-                    <small>Markenblatt</small>
-                    <span class="wortmarke">format<b>eins</b></span>
-                    <span class="farben"><i style="--f:#1b2a33"></i><i style="--f:#0e1820"></i><i style="--f:#ff8a4c"></i><i style="--f:#f2ede2"></i><i style="--f:#ddd4c3"></i></span>
-                    <span class="schriften"><span class="serif">Playfair Display</span><span class="sans">Schibsted Grotesk</span></span>
-                  </span>
-                  <span class="visit"><span class="wortmarke">format<b>eins</b></span><span>Adrian von Arb<br>079 686 84 86</span></span>
-                  <span class="mass">210 × 297 mm</span>
-                  <button class="chip" type="button" aria-label="Marke und Gestaltung ansehen">Hineinzoomen &#10530;</button>
-                </span>
-                <span class="objekt karte fenster-objekt" data-schritt="2" data-anker=".fenster">
-                  <span class="fenster"><span class="fensterleiste"><i></i><i></i><i></i><span>formateins.ch</span></span><span class="sicht"><img src="entwurf-seite-vorschau.webp" alt="" width="960" height="600" decoding="async"></span></span>
-                  <span class="mass">1440 × 900</span>
-                  <button class="chip" type="button" aria-label="Website ansehen">Hineinzoomen &#10530;</button>
-                </span>
-                <span class="objekt karte tel-objekt" data-schritt="3" data-anker=".telefon">
-                  <span class="telefon"><span class="sicht"><img src="entwurf-reel.webp" alt="" width="220" height="476" decoding="async"></span></span>
-                  <span class="mass">1080 × 1920 · 0:18</span>
-                  <button class="chip" type="button" aria-label="Social Media ansehen">Hineinzoomen &#10530;</button>
-                </span>
-              </div>
-              <div class="zaehler" id="zaehler" aria-hidden="true"><i></i><i></i><i></i><span>01 / 03</span></div>
-              <div class="bildzeile" aria-hidden="true"><b></b><em></em></div>
-            </div>
-
-            <div class="kapitel">
-              <article class="kap" data-schritt="1">
-                <p class="brettname"><b>01 Marke und Gestaltung</b> · Blatt · A4</p>
-                <h3>Das Blatt, nach dem alles gebaut wird.</h3>
-                <p class="text">Logo, Farben, zwei Schriften und ein paar Regeln. Daraus folgen Visitenkarte, Briefbogen und Offerte, und alles, was danach kommt.</p>
-                <button class="hin" type="button" data-ziel="0">Hineinzoomen →</button>
-              </article>
-              <article class="kap" data-schritt="2">
-                <p class="brettname"><b>02 Website</b> · Fenster · 1440 × 900</p>
-                <h3>Dieselben Farben, jetzt als Seite.</h3>
-                <p class="text">Was du machst, für wen und wie man dich erreicht. Von Hand gebaut, zum Festpreis, in drei Grössen, je nachdem, was der Betrieb braucht.</p>
-                <button class="hin" type="button" data-ziel="1">Hineinzoomen →</button>
-              </article>
-              <article class="kap" data-schritt="3">
-                <p class="brettname"><b>03 Social Media</b> · Reel · 18 s</p>
-                <h3>Und als Reel auf dem Telefon.</h3>
-                <p class="text">Beiträge, denen man den Betrieb ansieht, nicht die App. Schrift, Licht, Rhythmus: jede Sekunde gesetzt.</p>
-                <button class="hin" type="button" data-ziel="2">Hineinzoomen →</button>
-              </article>
-            </div>
-          </div>
+        <div class="karte" data-projekt="0" data-anker=".fenster">
+          <span class="brettname"><b>01 Website</b> · Fenster · 1440 × 900</span>
+          <span class="bild">
+            <span class="objekt fenster-objekt"><span class="fenster"><span class="fensterleiste"><i></i><i></i><i></i><span>formateins.ch</span></span><span class="sicht"><img src="entwurf-seite-vorschau.webp" alt="" width="960" height="600" decoding="async"></span></span></span>
+          </span>
+          <span class="unterschrift">
+            <h3>Dieselben Farben, jetzt als Seite.</h3>
+            <p>Was du machst, für wen und wie man dich erreicht. Von Hand gebaut, zum Festpreis, in drei Grössen, je nachdem, was der Betrieb braucht.</p>
+            <button class="hin" type="button" aria-label="Website ansehen">Hineinzoomen →</button>
+          </span>
+        </div>
+        <div class="karte" data-projekt="1" data-anker=".blatt">
+          <span class="brettname"><b>02 Marke und Gestaltung</b> · Blatt · A4</span>
+          <span class="bild">
+            <span class="objekt blatt-objekt">
+              <span class="blatt">
+                <small>Markenblatt</small>
+                <span class="wortmarke">format<b>eins</b></span>
+                <span class="farben"><i style="--f:#1b2a33"></i><i style="--f:#0e1820"></i><i style="--f:#ff8a4c"></i><i style="--f:#f2ede2"></i><i style="--f:#ddd4c3"></i></span>
+                <span class="schriften"><span class="serif">Playfair Display</span><span class="sans">Schibsted Grotesk</span></span>
+              </span>
+              <span class="visit"><span class="wortmarke">format<b>eins</b></span><span>Adrian von Arb<br>079 686 84 86</span></span>
+            </span>
+          </span>
+          <span class="unterschrift">
+            <h3>Das Blatt, nach dem alles gebaut wird.</h3>
+            <p>Logo, Farben, zwei Schriften und ein paar Regeln. Daraus folgen Visitenkarte, Briefbogen und Offerte, und alles, was danach kommt.</p>
+            <button class="hin" type="button" aria-label="Marke und Gestaltung ansehen">Hineinzoomen →</button>
+          </span>
+        </div>
+        <div class="karte" data-projekt="2" data-anker=".telefon">
+          <span class="brettname"><b>03 Social Media</b> · Reel · 18 s</span>
+          <span class="bild">
+            <span class="objekt tel-objekt"><span class="telefon"><span class="sicht"><img src="entwurf-reel.webp" alt="" width="220" height="476" decoding="async"></span></span></span>
+          </span>
+          <span class="unterschrift">
+            <h3>Und als Reel auf dem Telefon.</h3>
+            <p>Beiträge, denen man den Betrieb ansieht, nicht die App. Schrift, Licht, Rhythmus: jede Sekunde gesetzt.</p>
+            <button class="hin" type="button" aria-label="Social Media ansehen">Hineinzoomen →</button>
+          </span>
+        </div>
         </div>
 
         <!-- Ein Stand je Bereich, im Raster der Arbeiten-Flaeche. Wo bei den
              Arbeiten der Inspektor steht, steht hier das Angebot. -->
         <div class="flaeche" hidden>
-
-          <div class="stand" data-titel="Marke und Gestaltung" data-anker=".blatt" role="group" aria-label="Marke und Gestaltung" hidden>
-            <div class="brett-desktop">
-              <p class="brettname" aria-hidden="true"><b>Markenblatt</b> · 210 × 297 mm</p>
-              <div class="auswahl blatt-rahmen" data-mass="210 × 297 mm">
-                <span class="blatt">
-                  <small>Markenblatt</small>
-                  <span class="wortmarke">format<b>eins</b></span>
-                  <span class="farben"><i style="--f:#1b2a33" data-hex="#1b2a33"></i><i style="--f:#0e1820" data-hex="#0e1820"></i><i style="--f:#ff8a4c" data-hex="#ff8a4c"></i><i style="--f:#f2ede2" data-hex="#f2ede2"></i><i style="--f:#ddd4c3" data-hex="#ddd4c3"></i></span>
-                  <span class="schriften"><span><span class="serif">Playfair Display</span></span><span><span class="sans">Schibsted Grotesk</span></span></span>
-                  <span class="regeln">
-                    <span><b>Schutzraum</b> um das Logo: die Höhe des e, auf allen Seiten.</span>
-                    <span><b>Kleinste Grösse</b> 24 mm im Druck, 120 px am Bildschirm.</span>
-                    <span><b>Orange</b> nur als Signal: Knopf, Hervorhebung, das eins. Nie als Fläche.</span>
-                  </span>
-                  <span class="masse" aria-hidden="true">
-                    <i class="h" style="left:4%;top:8%;bottom:6%"></i><em style="left:1%;top:50%;rotate:-90deg;translate:-50% 0">297</em>
-                  </span>
-                </span>
-              </div>
-            </div>
-            <aside class="inspektor" aria-label="Was dazugehört">
-              <h3>Was dazugehört</h3>
-              <ul class="angebot">
-                <li><a href="entwurf-marke.html"><b>Markenblatt</b><span>Logo, Farben mit Hex und CMYK, Schriften, Regeln. Ein Blatt, das du jedem Drucker und jedem Gestalter in die Hand geben kannst.</span></a></li>
-                <li><a href="entwurf-marke.html"><b>Geschäftsdokumente</b><span>Visitenkarte, Briefbogen, Offertenkopf, Beitragsvorlagen. Fertig aufgebaut, du füllst nur noch aus.</span></a></li>
-                <li><a href="entwurf-marke.html"><b>Wenn noch nichts da ist</b><span>Wir fangen beim Namen an und bauen das Logo. Das ist eigene Arbeit und steht bewusst nicht im Rahmen der Website.</span></a></li>
-              </ul>
-            </aside>
-            <div class="projekt">
-              <p class="brettname"><b>Bereich 01</b> · Marke und Gestaltung</p>
-              <h3>Damit alles nach dir aussieht.</h3>
-              <p>Ein Logo ist der Anfang. Dazu gehören Farben, zwei Schriften und ein paar Regeln. Erst dann sehen die Offerte, die Visitenkarte und der Beitrag auf Instagram nach demselben Betrieb aus.</p>
-              <p class="hinweis">Entwurfstext. Hier stehen später deine Worte und die Paketpreise.</p>
-              <div class="handeln"><a class="knopf" href="entwurf-marke.html">Marke und Gestaltung<span class="pfeil">→</span></a></div>
-            </div>
-          </div>
 
           <div class="stand" data-titel="Website" data-anker=".fenster" role="group" aria-label="Website" hidden>
             <div class="brett-desktop">
@@ -1359,6 +1242,43 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
                 <a class="knopf" href="kostenrechner">Was kostet meine Website?<span class="pfeil">→</span></a>
                 <a class="knopf umriss" href="entwurf-website.html">Wie ich Websites baue<span class="pfeil">→</span></a>
               </div>
+            </div>
+          </div>
+
+          <div class="stand" data-titel="Marke und Gestaltung" data-anker=".blatt" role="group" aria-label="Marke und Gestaltung" hidden>
+            <div class="brett-desktop">
+              <p class="brettname" aria-hidden="true"><b>Markenblatt</b> · 210 × 297 mm</p>
+              <div class="auswahl blatt-rahmen" data-mass="210 × 297 mm">
+                <span class="blatt">
+                  <small>Markenblatt</small>
+                  <span class="wortmarke">format<b>eins</b></span>
+                  <span class="farben"><i style="--f:#1b2a33" data-hex="#1b2a33"></i><i style="--f:#0e1820" data-hex="#0e1820"></i><i style="--f:#ff8a4c" data-hex="#ff8a4c"></i><i style="--f:#f2ede2" data-hex="#f2ede2"></i><i style="--f:#ddd4c3" data-hex="#ddd4c3"></i></span>
+                  <span class="schriften"><span><span class="serif">Playfair Display</span></span><span><span class="sans">Schibsted Grotesk</span></span></span>
+                  <span class="regeln">
+                    <span><b>Schutzraum</b> um das Logo: die Höhe des e, auf allen Seiten.</span>
+                    <span><b>Kleinste Grösse</b> 24 mm im Druck, 120 px am Bildschirm.</span>
+                    <span><b>Orange</b> nur als Signal: Knopf, Hervorhebung, das eins. Nie als Fläche.</span>
+                  </span>
+                  <span class="masse" aria-hidden="true">
+                    <i class="h" style="left:4%;top:8%;bottom:6%"></i><em style="left:1%;top:50%;rotate:-90deg;translate:-50% 0">297</em>
+                  </span>
+                </span>
+              </div>
+            </div>
+            <aside class="inspektor" aria-label="Was dazugehört">
+              <h3>Was dazugehört</h3>
+              <ul class="angebot">
+                <li><a href="entwurf-marke.html"><b>Markenblatt</b><span>Logo, Farben mit Hex und CMYK, Schriften, Regeln. Ein Blatt, das du jedem Drucker und jedem Gestalter in die Hand geben kannst.</span></a></li>
+                <li><a href="entwurf-marke.html"><b>Geschäftsdokumente</b><span>Visitenkarte, Briefbogen, Offertenkopf, Beitragsvorlagen. Fertig aufgebaut, du füllst nur noch aus.</span></a></li>
+                <li><a href="entwurf-marke.html"><b>Wenn noch nichts da ist</b><span>Wir fangen beim Namen an und bauen das Logo. Das ist eigene Arbeit und steht bewusst nicht im Rahmen der Website.</span></a></li>
+              </ul>
+            </aside>
+            <div class="projekt">
+              <p class="brettname"><b>Bereich 01</b> · Marke und Gestaltung</p>
+              <h3>Damit alles nach dir aussieht.</h3>
+              <p>Ein Logo ist der Anfang. Dazu gehören Farben, zwei Schriften und ein paar Regeln. Erst dann sehen die Offerte, die Visitenkarte und der Beitrag auf Instagram nach demselben Betrieb aus.</p>
+              <p class="hinweis">Entwurfstext. Hier stehen später deine Worte und die Paketpreise.</p>
+              <div class="handeln"><a class="knopf" href="entwurf-marke.html">Marke und Gestaltung<span class="pfeil">→</span></a></div>
             </div>
           </div>
 
@@ -1970,7 +1890,7 @@ if (saetze && saetzeBloecke.length) {
 // Telefon. Die Geraete fahren die Seiten nur ab, solange sie im Bild sind.
 // Der Schnitt zwischen Bauplan und Seite folgt am Zeiger der Maus ohne Klick,
 // am Finger dem waagrechten Ziehen; senkrecht scrollt die Seite normal weiter.
-function werkbankEinrichten(werkbank, eigen = {}) {
+function werkbankEinrichten(werkbank) {
   werkbank.querySelectorAll('.brett-desktop .sicht').forEach((sicht) => {
     const griff = sicht.querySelector('.griff');
     if (!griff) return; // Blatt und Telefon haben keinen Bauplan
@@ -2096,24 +2016,24 @@ function werkbankEinrichten(werkbank, eigen = {}) {
     flaeche.classList.add('ueberlagert');
     tisch.hidden = false;
     werkbank.dataset.ansicht = 'uebersicht';
-    // Der Tisch darf sich auf die Rueckkehr einstellen (die Bereiche holen das
-    // Objekt des Stands nach vorn), und zwar bevor gemessen wird.
-    if (eigen.vorHinaus) eigen.vorHinaus(aktiv);
     const neu = buehne.offsetHeight;
     const karte = karten[aktiv];
+    // Am Handy ist der Tisch eine Wischreihe: die Karte, in die das Objekt
+    // zurueckfliegt, muss im Bild stehen, sonst landet der Zoom im Leeren
+    // (etwa nach dem Blaettern im Stand). Ohne Uebergang, vor dem Messen.
+    if (tisch.scrollWidth > tisch.clientWidth + 1) tisch.scrollLeft = karte.offsetLeft - (tisch.clientWidth - karte.offsetWidth) / 2;
     const m = ankerKlein(aktiv).getBoundingClientRect();
     const g = gross.getBoundingClientRect();
     const t = tisch.getBoundingClientRect();
     // Jetzt scrollen, nicht nach dem Start der Animation: sobald der Tisch
     // gezoomt ist, liegen seine Masse nicht mehr dort, wo die Seite hinsoll.
-    (eigen.insBildHinaus || insBild)(aktiv);
+    insBild();
     const fertig = einmal(() => {
       flaeche.hidden = true; flaeche.classList.remove('ueberlagert');
       st.getAnimations({ subtree: true }).forEach(a => a.cancel());
       werkbank.classList.remove('zoomt'); beschaeftigt = false;
-      if (eigen.nachHinaus) eigen.nachHinaus();
     });
-    karte.querySelector('.chip').focus({ preventScroll: true });
+    karte.querySelector('.chip, .hin').focus({ preventScroll: true });
     if (reduziert) { fertig(); return; }
     beschaeftigt = true;
     werkbank.classList.add('zoomt');
@@ -2151,14 +2071,12 @@ function werkbankEinrichten(werkbank, eigen = {}) {
     staende[i].querySelectorAll('img').forEach((b) => { const x = new Image(); x.src = b.currentSrc || b.src; });
   };
   const maus = matchMedia('(hover: hover) and (pointer: fine)');
-  // Die Karte selbst ist mit Maus anklickbar, am Finger nur die Pille; die
-  // Bereiche entscheiden das selbst (nur das vordere Objekt, mit jedem Zeiger).
-  const karteKlickbar = eigen.karteKlickbar || (() => maus.matches);
+  // Die Karte selbst ist mit Maus anklickbar, am Finger nur Pille oder Link.
   karten.forEach((k, i) => {
-    const knopf = k.querySelector('.chip');
+    const knopf = k.querySelector('.chip, .hin');
     knopf.addEventListener('click', (e) => { e.stopPropagation(); hinein(i); });
     knopf.addEventListener('focus', () => vorholen(i));
-    k.addEventListener('click', () => { if (karteKlickbar(k)) hinein(i); });
+    k.addEventListener('click', () => { if (maus.matches) hinein(i); });
     k.addEventListener('pointerenter', () => vorholen(i));
     k.addEventListener('touchstart', () => vorholen(i), { passive: true });
   });
@@ -2181,73 +2099,8 @@ function werkbankEinrichten(werkbank, eigen = {}) {
 const werkbank = document.getElementById('werkbank');
 if (werkbank) werkbankEinrichten(werkbank);
 
-// Bereiche: die Szene klebt, die Kapitel laufen vorbei. Das Kapitel, das die
-// Mitte des Bildschirms kreuzt, holt sein Objekt nach vorn. Am Handy klebt die
-// Szene oben, darum liegt das Leseband dort tiefer.
+// Bereiche: dieselbe Werkbank, nur mit Link statt Pille auf der Karte.
 const bereiche = document.getElementById('bereiche');
-if (bereiche) {
-  const szene = bereiche.querySelector('.szene');
-  const zaehler = bereiche.querySelector('.zaehler');
-  const bildzeile = bereiche.querySelector('.bildzeile');
-  const objekte = [...szene.querySelectorAll('.objekt')];
-  const kapitel = [...bereiche.querySelectorAll('.kap')];
-  const schmal = matchMedia('(max-width:819px)');
-  let gesperrt = false; // waehrend des Zooms zurueck entscheidet der Stand, nicht das Scrollen
-
-  function schalten(n) {
-    objekte.forEach(o => o.classList.toggle('vorn', o.dataset.schritt === n));
-    kapitel.forEach(k => k.classList.toggle('aktiv', k.dataset.schritt === n));
-    zaehler.querySelectorAll('i').forEach((i, idx) => i.classList.toggle('an', idx < +n));
-    zaehler.querySelector('span').textContent = '0' + n + ' / 03';
-    const kap = kapitel.find(k => k.dataset.schritt === n), objekt = objekte.find(o => o.dataset.schritt === n);
-    if (kap && objekt) {
-      bildzeile.querySelector('b').textContent = kap.querySelector('.brettname b').textContent;
-      bildzeile.querySelector('em').textContent = objekt.querySelector('.mass').textContent;
-    }
-  }
-  // Das Kapitel im Leseband, aus den Massen statt aus dem Beobachter: der
-  // meldet nur Wechsel, hier braucht es den Stand von jetzt.
-  function imBand() {
-    const [oben, unten] = schmal.matches ? [innerHeight * .6, innerHeight * .8] : [innerHeight * .45, innerHeight * .55];
-    return kapitel.find(k => { const r = k.getBoundingClientRect(); return r.top < unten && r.bottom > oben; });
-  }
-  if ('IntersectionObserver' in window) {
-    const leseband = new IntersectionObserver(eintraege => {
-      if (gesperrt) return;
-      eintraege.forEach(e => { if (e.isIntersecting) schalten(e.target.dataset.schritt); });
-    }, { rootMargin: schmal.matches ? '-60% 0px -20% 0px' : '-45% 0px -45% 0px', threshold: 0 });
-    kapitel.forEach(k => leseband.observe(k));
-  }
-  schalten('1');
-
-  const bank = werkbankEinrichten(bereiche, {
-    karteKlickbar: (k) => k.classList.contains('vorn'),
-    // Beim Zoom zurueck landet das Objekt des Stands vorn, und zwar sofort:
-    // mit laufendem Uebergang wuerde die Messung das Objekt noch am alten Platz
-    // finden und der Zoom daneben landen.
-    vorHinaus: (i) => {
-      gesperrt = true;
-      szene.classList.add('sofort');
-      schalten(String(i + 1));
-      void szene.offsetWidth;
-      requestAnimationFrame(() => szene.classList.remove('sofort'));
-    },
-    nachHinaus: () => {
-      gesperrt = false;
-      const k = imBand();
-      if (k) schalten(k.dataset.schritt);
-    },
-    // Zurueck zum Kapitel des Stands, nicht zum Anfang der Werkbank.
-    insBildHinaus: (i) => {
-      const k = kapitel[i];
-      if (!k) return;
-      const r = k.getBoundingClientRect();
-      const mitte = schmal.matches ? innerHeight * .7 : innerHeight * .5;
-      const ziel = scrollY + r.top + r.height / 2 - mitte;
-      if (Math.abs(ziel - scrollY) > 40) scrollTo({ top: ziel, behavior: reduziert ? 'auto' : 'smooth' });
-    }
-  });
-  bereiche.querySelectorAll('.kap .hin').forEach(b => b.addEventListener('click', () => bank.hinein(+b.dataset.ziel)));
-}
+if (bereiche) werkbankEinrichten(bereiche);
 </script>
 
