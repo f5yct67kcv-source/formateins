@@ -1003,6 +1003,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .zaehler{position:absolute;left:18px;top:16px;display:flex;gap:8px;align-items:center;font-size:.66rem;letter-spacing:.06em;color:var(--ringschrift);font-variant-numeric:tabular-nums}
 .zaehler i{width:28px;height:2px;background:var(--linie-hell);transition:background .3s ease}
 .zaehler i.an{background:var(--signal)}
+.bildzeile{display:none}
 
 .fenster-objekt .fenster{display:block}
 .fenster-objekt .fensterleiste{display:flex;height:22px;padding:0 9px;gap:5px}
@@ -1117,18 +1118,38 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
      Zeile kleben. Als Block klebt sie ueber die ganze Laenge der Kapitel. */
   .szenenraum{display:block;padding:0 16px}
   /* 61 = die mitlaufende Leiste; darunter bleibt die Szene sichtbar. Die
-     Kapitel laufen unter ihr durch, darum traegt sie den Grund der Buehne. */
+     Kapitel laufen unter ihr durch, darum traegt sie den Grund der Buehne und
+     einen Schatten nach unten. Feste Proportion statt Bildschirmhoehe: so
+     bleibt unter der Szene beim ersten Blick Platz fuer Kapitelzeile und
+     Titel, und die Objekte wachsen nicht ueber den Rand. */
   .klebt{
-    top:61px;height:46vh;z-index:3;
+    top:61px;height:auto;aspect-ratio:16/11;z-index:3;
     background:
       radial-gradient(60% 55% at 42% 45%, rgba(46,69,87,.45), transparent 75%),
       radial-gradient(circle, rgba(117,144,159,.26) 1px, transparent 1.5px) 0 0/22px 22px,
       var(--grund-tief);
+    box-shadow:0 24px 30px -22px rgba(0,0,0,.85);
   }
-  .kapitel{padding-top:10px}
-  .szene .fenster-objekt{width:70%;left:15%;top:13%}
-  .szene .blatt-objekt{width:30%}
-  .szene .tel-objekt{width:19%}
+  .kapitel{padding-top:14px}
+  .szene{bottom:34px}
+  .szene .fenster-objekt{width:56%;left:22%;top:17%}
+  .szene .blatt-objekt{width:23%;left:9%;bottom:14%}
+  .szene .tel-objekt{width:14%;right:9%;bottom:11%}
+  .szene .blatt-objekt.vorn{transform:translate(42%,4%) scale(1.08)}
+  .szene .tel-objekt.vorn{transform:translate(-130%,-2%) scale(1.2)}
+  /* Mass und Pille haengen am Handy nicht unter dem Objekt (sie lagen ueber
+     dem Text); das Mass steht in der Bildzeile, hinein geht es ueber das
+     vordere Objekt oder den Link im Kapitel. */
+  .szene .objekt .mass,.szene .objekt .chip{display:none}
+  /* Bildzeile am Fuss der Szene: Kapitelname links, Mass rechts, wechselt mit. */
+  .bildzeile{
+    position:absolute;left:0;right:0;bottom:0;height:34px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 14px;
+    border-top:1px solid var(--linie);background:rgba(22,35,44,.9);
+    font-size:.7rem;letter-spacing:.03em;color:var(--ringschrift);white-space:nowrap;
+  }
+  .bildzeile b{color:var(--auf-grund-still);font-weight:600;overflow:hidden;text-overflow:ellipsis}
+  .bildzeile em{font-style:normal;font-variant-numeric:tabular-nums;color:var(--signal);font-weight:700}
   .kap{min-height:54vh;padding:30px 0}
   .kap h3{font-size:1.5rem}
   .auswahl.blatt-rahmen{max-width:88%}
@@ -1232,6 +1253,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
                 </span>
               </div>
               <div class="zaehler" id="zaehler" aria-hidden="true"><i></i><i></i><i></i><span>01 / 03</span></div>
+              <div class="bildzeile" aria-hidden="true"><b></b><em></em></div>
             </div>
 
             <div class="kapitel">
@@ -2166,6 +2188,7 @@ const bereiche = document.getElementById('bereiche');
 if (bereiche) {
   const szene = bereiche.querySelector('.szene');
   const zaehler = bereiche.querySelector('.zaehler');
+  const bildzeile = bereiche.querySelector('.bildzeile');
   const objekte = [...szene.querySelectorAll('.objekt')];
   const kapitel = [...bereiche.querySelectorAll('.kap')];
   const schmal = matchMedia('(max-width:819px)');
@@ -2176,6 +2199,11 @@ if (bereiche) {
     kapitel.forEach(k => k.classList.toggle('aktiv', k.dataset.schritt === n));
     zaehler.querySelectorAll('i').forEach((i, idx) => i.classList.toggle('an', idx < +n));
     zaehler.querySelector('span').textContent = '0' + n + ' / 03';
+    const kap = kapitel.find(k => k.dataset.schritt === n), objekt = objekte.find(o => o.dataset.schritt === n);
+    if (kap && objekt) {
+      bildzeile.querySelector('b').textContent = kap.querySelector('.brettname b').textContent;
+      bildzeile.querySelector('em').textContent = objekt.querySelector('.mass').textContent;
+    }
   }
   // Das Kapitel im Leseband, aus den Massen statt aus dem Beobachter: der
   // meldet nur Wechsel, hier braucht es den Stand von jetzt.
