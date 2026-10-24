@@ -1138,6 +1138,87 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .direkt a{color:inherit;text-decoration:none;transition:color .2s ease}
 .direkt a:hover{color:var(--signal)}
 .direkt span{font-weight:400;color:var(--auf-grund-still)}
+
+/* ---------- Richtwerk: die Werkbank nur im Zoom ----------
+   In der Uebersicht ist die Buehne unsichtbar (kein Rand, kein Raster), die
+   drei Richtungen stehen wie eine normale Reihe. Erst im Zoom blendet das
+   Punktraster ein, der Rand kommt, die Werkzeugleiste liegt oben auf. Das
+   Objekt in der Richtung ist der Knopf; keine Pille, kein "Hineinzoomen". */
+.richtwerk{margin-top:clamp(28px,4vh,44px)}
+.richtwerk .richtungen{margin-top:0}
+.richtwerk .richtungen[hidden]{display:none}
+.richtwerk .buehne{isolation:isolate;border-color:transparent;background:none;transition:border-color .5s ease}
+.richtwerk .buehne::before{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:0;pointer-events:none;transition:opacity .5s ease;
+  background:
+    radial-gradient(60% 55% at 42% 45%, rgba(46,69,87,.55), transparent 75%),
+    radial-gradient(circle, rgba(117,144,159,.26) 1px, transparent 1.5px) 0 0/22px 22px,
+    var(--grund-tief);
+}
+.richtwerk[data-ansicht="projekt"] .buehne{border-color:var(--linie)}
+.richtwerk[data-ansicht="projekt"] .buehne::before{opacity:1}
+.richtwerk .werkzeugleiste{position:absolute;top:0;left:0;right:0;z-index:6;border:0;border-bottom:1px solid var(--linie)}
+.richtwerk[data-ansicht="uebersicht"] .werkzeugleiste{display:none}
+.richtwerk .flaeche{padding-top:calc(50px + clamp(44px,6vw,80px))}
+.richtung .lupe{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-align:inherit;cursor:zoom-in;-webkit-tap-highlight-color:transparent}
+.richtung .lupe:focus-visible{outline-offset:10px}
+.richtung .blatt-objekt{width:72%;margin-right:0}
+/* Ohne Telefon neben dem Text darf der Text die ganze Breite haben. */
+@media(max-width:899px){
+  .richtwerk .flaeche .projekt{grid-column:1/3;padding-top:52px}
+  .richtwerk .brett-desktop .auswahl::after{left:50%;bottom:-38px}
+}
+
+/* Die Website faehrt im kleinen Fenster langsam durch, solange die Richtung
+   im Bild ist (Klasse imbild, Skript); unter dem Zeiger haelt sie an. Dieselbe
+   Bahn wie im Stand, nur ohne Bauplan. */
+.fenster-objekt .sicht{aspect-ratio:1/var(--v)}
+.fenster-objekt .bahn{display:block}
+.fenster-objekt .bahn img{width:100%;height:auto;display:block}
+@media(prefers-reduced-motion:no-preference){
+  .fenster-objekt .bahn{--tempo:9s}
+  .imbild .fenster-objekt .bahn{animation-play-state:running}
+  .fenster-objekt .sicht:hover .bahn{animation-play-state:paused}
+}
+
+/* Das Konstruktionsblatt (Fassung B, 25.10.2026): Wortmarke als SVG-Text,
+   damit Grundlinie, x-Hoehe, Schutzraum und Masse exakt sitzen. Die Linien
+   zeichnen sich, sobald das Blatt ins Bild kommt (imbild) oder der Stand
+   gezeigt wird (zeichnet). */
+.konstruktionsblatt{padding:7% 7% 6%;rotate:0deg}
+.konstruktionsblatt small{font-size:.46rem}
+.konstruktionsblatt .konstruktionslinien{display:block;width:100%;height:auto;margin-top:4%;overflow:visible}
+.konstruktionsblatt .konstruktionslinien .linien{stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1.6s cubic-bezier(.65,0,.25,1) .2s}
+.konstruktionsblatt .konstruktionslinien .text{opacity:0;transition:opacity .6s ease 1.2s}
+.imbild .konstruktionslinien .linien,.zeichnet .konstruktionslinien .linien{stroke-dashoffset:0}
+.imbild .konstruktionslinien .text,.zeichnet .konstruktionslinien .text{opacity:1}
+.konstruktionsblatt .farben{margin-top:5%;gap:3%}
+.konstruktionsblatt .farben i{position:relative;aspect-ratio:1/.62}
+.konstruktionsblatt .farben i::after{content:attr(data-hex);position:absolute;left:0;top:112%;font-size:.36rem;letter-spacing:.02em;color:var(--tinte-still)}
+.konstruktionsblatt .schriften{margin-top:12%;padding-top:5%}
+.konstruktionsblatt .regeln{display:block;margin-top:6%;padding-top:4%;border-top:1px solid rgba(21,32,42,.14)}
+.konstruktionsblatt .regeln span{display:block;font-size:.44rem;line-height:1.5;color:var(--tinte-still);padding:2px 0;border-bottom:1px dashed rgba(21,32,42,.14)}
+.konstruktionsblatt .regeln span:last-child{border-bottom:0}
+.konstruktionsblatt .regeln b{color:var(--tinte);font-weight:700}
+.konstruktionsblatt .dunkelprobe{display:flex;align-items:center;justify-content:space-between;margin-top:7%;padding:5% 6%;background:var(--grund-tief);color:var(--papier);border-radius:2px}
+.konstruktionsblatt .dunkelprobe .wortmarke{margin:0;font-size:clamp(.9rem,1.6vw,1.3rem)}
+.konstruktionsblatt .dunkelprobe small{color:var(--ringschrift);margin:0}
+/* Im Stand ist das Blatt gross; die Regeln fuer das alte Markenblatt
+   (Schutzraum-Kasten um die Wortmarke) gelten hier nicht. */
+.stand .brett-desktop .konstruktionsblatt{padding:7% 7% 6%;font-size:1rem}
+.stand .brett-desktop .konstruktionsblatt small{font-size:.62rem}
+.stand .brett-desktop .konstruktionsblatt .wortmarke{display:block;margin:0;outline:0;font-size:inherit}
+.stand .brett-desktop .konstruktionsblatt .wortmarke::after{content:none}
+.stand .brett-desktop .konstruktionsblatt .farben{margin-top:5%;gap:3%}
+.stand .brett-desktop .konstruktionsblatt .farben i::after{font-size:.58rem;top:112%}
+.stand .brett-desktop .konstruktionsblatt .schriften{margin-top:12%}
+.stand .brett-desktop .konstruktionsblatt .regeln{margin-top:6%;padding-top:4%}
+.stand .brett-desktop .konstruktionsblatt .regeln span{font-size:.72rem;padding:5px 0}
+.stand .brett-desktop .konstruktionsblatt .dunkelprobe .wortmarke{font-size:2rem}
+.stand .brett-desktop .konstruktionsblatt .dunkelprobe small{font-size:.6rem}
+.stand .brett-desktop .telefon video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.schnittleiste i{left:calc(var(--t) / var(--dauer,18) * 100%)}
+@media(max-width:760px){.richtung .blatt-objekt{width:70%}}
 </style>
 
 <!-- Die Leiste (Fassung A, 24.10.2026): vier Ziele und der Knopf, oben wie in
@@ -1211,46 +1292,216 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
     <p class="still ortszeile">Webdesign in Olten und der Region. Website, Marke und Video aus einer Hand, für Selbstständige und kleine Unternehmen zwischen Aarau, Zofingen und Solothurn.</p>
 
     <!-- Drei Richtungen nebeneinander (Fassung A, 24.10.2026): Nummer,
-         Beweis, grosses Wort, eine Zeile, der Weg auf die Bereichsseite. Kein
-         Zoom mehr, die Tiefe gehoert auf die Bereichsseiten. Im Telefon laeuft
-         der Spot ohne Ton, solange er im Bild ist (Skript unten); wer Bewegung
-         abgeschaltet hat, sieht das Standbild. -->
+         Beweis, grosses Wort, eine Zeile, der Weg auf die Bereichsseite. Das
+         Objekt ist ein Knopf: ein Klick zoomt wie auf der Live-Seite in die
+         Werkbank-Flaeche (Punktraster, Auswahl mit Massen, Inspektor), die
+         es nur im Zoom gibt; die Uebersicht bleibt die Reihe ohne Kasten.
+         Mechanik: richtwerkEinrichten im Skript unten, Zoom als FLIP; welches
+         Objekt fliegt, sagt data-anker an Richtung und Stand. Im Telefon
+         laeuft der Spot ohne Ton, solange er im Bild ist; wer Bewegung
+         abgeschaltet hat, sieht das Standbild. Die Website faehrt im Fenster
+         langsam durch, unter dem Zeiger haelt sie an. -->
+    <div class="werkbank richtwerk" id="richtwerk" data-ansicht="uebersicht">
+    <div class="buehne">
     <div class="richtungen">
-      <article class="richtung">
+      <article class="richtung" data-anker=".fenster">
         <p class="nr">01 · Website</p>
         <div class="beweis">
-          <span class="objekt fenster-objekt"><span class="fenster"><span class="fensterleiste"><i></i><i></i><i></i><span>formateins.ch</span></span><span class="sicht"><img src="entwurf-seite-vorschau.webp" alt="" width="960" height="600" loading="lazy" decoding="async"></span></span></span>
+          <button class="objekt fenster-objekt lupe" type="button" aria-label="Website in der Werkbank ansehen"><span class="fenster"><span class="fensterleiste"><i></i><i></i><i></i><span>formateins.ch</span></span><span class="sicht" style="--b:1440;--h:6278;--v:.625"><span class="bahn"><img src="entwurf-seite-desktop.webp" alt="" width="1440" height="6278" loading="lazy" decoding="async"></span></span></span></button>
         </div>
         <h3>Website.</h3>
         <p class="text">Die Seite, die zeigt, was du machst, und auf jedem Gerät sitzt. Von Hand gebaut, zum Festpreis, in drei Grössen.</p>
         <a class="hin" href="entwurf-website.html">Website ansehen →</a>
       </article>
-      <article class="richtung">
+      <article class="richtung" data-anker=".blatt">
         <p class="nr">02 · Marke</p>
         <div class="beweis">
-          <span class="objekt blatt-objekt">
-            <span class="blatt">
-              <small>Markenblatt</small>
-              <span class="wortmarke">format<b>eins</b></span>
-              <span class="farben"><i style="--f:#1b2a33"></i><i style="--f:#0e1820"></i><i style="--f:#ff8a4c"></i><i style="--f:#f2ede2"></i><i style="--f:#ddd4c3"></i></span>
+          <button class="objekt blatt-objekt lupe" type="button" aria-label="Markenblatt in der Werkbank ansehen">
+            <span class="blatt konstruktionsblatt">
+              <small>Markenblatt · Blatt 1 von 4 · Konstruktion</small>
+              <svg class="konstruktionslinien" viewBox="0 0 300 150" aria-hidden="true">
+                <defs><pattern id="mm" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M10 0H0V10" fill="none" stroke="#15202a" stroke-opacity=".07" stroke-width=".6"/></pattern></defs>
+                <rect width="300" height="150" fill="url(#mm)"/>
+                <g class="linien" fill="none" stroke="#ff8a4c" stroke-width=".9">
+                  <line x1="6" y1="104" x2="294" y2="104"/>
+                  <line x1="6" y1="78" x2="294" y2="78" stroke-dasharray="3 3"/>
+                  <line x1="6" y1="66" x2="294" y2="66" stroke-dasharray="3 3"/>
+                  <line x1="22" y1="40" x2="22" y2="128"/>
+                  <line x1="252" y1="40" x2="252" y2="128"/>
+                  <path d="M22 122h230" stroke-dasharray="2 2"/>
+                  <circle cx="206" cy="91" r="16"/>
+                  <path d="M206 75v-28h-18"/>
+                  <path d="M14 104v-26M12 102l2 2 2-2M12 80l2-2 2 2"/>
+                  <path d="M262 104v-38M260 102l2 2 2-2M260 68l2-2 2 2"/>
+                </g>
+                <g class="text" font-family="Schibsted Grotesk, sans-serif" font-size="6.5" fill="#565f6a" letter-spacing=".3">
+                  <text x="10" y="92" transform="rotate(-90 10 92)">x</text>
+                  <text x="261" y="86">1.46 x</text>
+                  <text x="22" y="134">Schutzraum = x, rundum</text>
+                  <text x="184" y="49" text-anchor="end">Signal nur im Zweiten</text>
+                  <text x="22" y="34">Wortmarke, Playfair Display 900</text>
+                </g>
+                <text x="22" y="104" font-family="Playfair Display, serif" font-weight="900" font-size="44" letter-spacing="-.5" fill="#15202a">format<tspan fill="#ff8a4c">eins</tspan></text>
+              </svg>
+              <span class="farben"><i style="--f:#1b2a33" data-hex="#1B2A33"></i><i style="--f:#0e1820" data-hex="#0E1820"></i><i style="--f:#ff8a4c" data-hex="#FF8A4C"></i><i style="--f:#f2ede2" data-hex="#F2EDE2"></i><i style="--f:#ddd4c3" data-hex="#DDD4C3"></i></span>
               <span class="schriften"><span class="serif">Playfair Display</span><span class="sans">Schibsted Grotesk</span></span>
+              <span class="regeln"><span><b>Schutzraum</b> eine x-Höhe rundum</span><span><b>Kleinste Grösse</b> 24 mm Breite</span><span><b>Auf Dunkel</b> Papier statt Tinte</span></span>
+              <span class="dunkelprobe"><span class="wortmarke">format<b>eins</b></span><small>Auf Dunkel</small></span>
             </span>
-            <span class="visit"><span class="wortmarke">format<b>eins</b></span><span>Adrian von Arb<br>079 686 84 86</span></span>
-          </span>
+          </button>
         </div>
         <h3>Marke.</h3>
         <p class="text">Logo, Farben, zwei Schriften und die Regeln dazu. Daraus folgen Visitenkarte, Briefbogen, Offerte und alles, was danach kommt.</p>
         <a class="hin" href="entwurf-marke.html">Marke ansehen →</a>
       </article>
-      <article class="richtung">
+      <article class="richtung" data-anker=".telefon">
         <p class="nr">03 · Video</p>
         <div class="beweis">
-          <span class="objekt tel-objekt"><span class="telefon"><span class="sicht"><video poster="entwurf-video-spot.jpg" width="406" height="720" muted loop playsinline preload="metadata" aria-label="Spot für formateins: ein Preisschild, sieben Fragen, zwei Minuten, null Verkaufsgespräche"><source src="entwurf-video-spot.mp4" type="video/mp4"><source src="entwurf-video-spot.webm" type="video/webm"></video></span></span></span>
+          <button class="objekt tel-objekt lupe" type="button" aria-label="Spot in der Werkbank ansehen"><span class="telefon"><span class="sicht"><video poster="entwurf-video-spot.jpg" width="406" height="720" muted loop playsinline preload="metadata" aria-label="Spot für formateins: ein Preisschild, sieben Fragen, zwei Minuten, null Verkaufsgespräche"><source src="entwurf-video-spot.mp4" type="video/mp4"><source src="entwurf-video-spot.webm" type="video/webm"></video></span></span></button>
         </div>
         <h3>Video.</h3>
         <p class="text">Werbe- und Erklärvideos, animiert, mit Schrift, Licht und Rhythmus. Für Social Media, die Website und die Präsentation.</p>
         <a class="hin" href="entwurf-video.html">Video ansehen →</a>
       </article>
+    </div>
+
+    <!-- Die Flaeche: Werkzeugleiste und ein Stand je Richtung, im Raster der
+         Arbeiten-Flaeche von frueher. Wo bei den Arbeiten der Inspektor
+         stand, steht hier das Angebot. Die Texte in den Staenden sind
+         Entwurfstext. -->
+    <div class="flaeche" hidden>
+      <div class="werkzeugleiste">
+        <div class="teil"><button class="zurueck" type="button">Übersicht</button><span class="trenner">/</span><b class="projekttitel"></b></div>
+        <div class="teil"><span class="leise breit">Richtung <span class="nummer">1</span> von 3</span><button class="blaettern" type="button" data-richtung="-1" aria-label="Vorherige Richtung">‹</button><button class="blaettern" type="button" data-richtung="1" aria-label="Nächste Richtung">›</button><span class="prozent breit">100 %</span></div>
+      </div>
+
+      <div class="stand" data-titel="Website" data-anker=".fenster" role="group" aria-label="Website" hidden>
+        <div class="brett-desktop">
+          <p class="brettname" aria-hidden="true"><b>Desktop</b> · 1440 × 900</p>
+          <div class="auswahl" data-mass="1440 × 6278">
+            <div class="fenster">
+              <div class="fensterleiste" aria-hidden="true"><i></i><i></i><i></i><span>formateins.ch</span></div>
+              <div class="sicht" style="--v:.625;--vorschau:url(entwurf-seite-vorschau.webp)">
+                <div class="bahn" style="--b:1440;--h:6278">
+                  <img src="entwurf-seite-desktop.webp" alt="Diese Seite, ganze Länge am Desktop" width="1440" height="6278" loading="lazy" decoding="async">
+                  <img class="plan" src="entwurf-seite-bauplan.webp" alt="" width="1440" height="6278" loading="lazy" decoding="async">
+                </div>
+                <div class="schnitt">
+                  <span class="griff" role="slider" tabindex="0" aria-label="Bauplan aufdecken" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38" aria-valuetext="38 Prozent Bauplan"><span>Bauplan</span><span>Seite</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="inspektor" aria-label="Drei Grössen">
+          <h3>Drei Grössen</h3>
+          <ul class="angebot">
+            <li><a href="entwurf-website-kosten.html"><b>Eine Seite</b><span>Was du machst, für wen, wie man dich erreicht. Auf einer Länge, ohne Umwege. Für die meisten Betriebe reicht genau das.</span><em>Was sie kostet →</em></a></li>
+            <li><a href="entwurf-website-kosten.html"><b>Firmenwebsite</b><span>Drei bis fünf Seiten, wenn Leistungen, Team oder Standorte wirklich getrennt gehören und nicht nur, weil ein Menü sonst leer aussieht.</span><em>Was sie kostet →</em></a></li>
+            <li><a href="entwurf-website-kosten.html"><b>Bestehendes erneuern</b><span>Deine Seite steht, sieht aber aus wie 2016 und lädt wie 2011. Ich schaue zuerst hin und sage dir dann ehrlich: aufhübschen oder neu bauen.</span><em>Was das kostet →</em></a></li>
+          </ul>
+        </aside>
+        <div class="projekt">
+          <p class="brettname"><b>Richtung 01</b> · Website</p>
+          <h3>Drei Grössen, ein Festpreis.</h3>
+          <p>Von Hand gebaut, zum Festpreis, ohne Baukasten. Wie gross sie sein muss, hängt vom Betrieb ab und nicht davon, was ein Menü hergibt. Den Rahmen bekommst du in sieben Fragen, ohne Konto und ohne Telefonnummer.</p>
+          <p class="beweiszeile">
+            <span>Festpreis statt „ab“</span>
+            <span>Direkt mit dem, der sie baut</span>
+            <span>Rahmen in zwei Minuten</span>
+          </p>
+          <div class="handeln">
+            <a class="knopf" href="kostenrechner">Was kostet meine Website?<span class="pfeil">→</span></a>
+            <a class="knopf umriss" href="entwurf-website.html">Wie ich Websites baue<span class="pfeil">→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="stand" data-titel="Marke" data-anker=".blatt" role="group" aria-label="Marke" hidden>
+        <div class="brett-desktop">
+          <p class="brettname" aria-hidden="true"><b>Markenblatt</b> · 210 × 297 mm</p>
+          <div class="auswahl blatt-rahmen" data-mass="210 × 297 mm">
+            <span class="blatt konstruktionsblatt">
+              <small>Markenblatt · Blatt 1 von 4 · Konstruktion</small>
+              <svg class="konstruktionslinien" viewBox="0 0 300 150" aria-hidden="true">
+                <defs><pattern id="mm-gross" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M10 0H0V10" fill="none" stroke="#15202a" stroke-opacity=".07" stroke-width=".6"/></pattern></defs>
+                <rect width="300" height="150" fill="url(#mm-gross)"/>
+                <g class="linien" fill="none" stroke="#ff8a4c" stroke-width=".9">
+                  <line x1="6" y1="104" x2="294" y2="104"/>
+                  <line x1="6" y1="78" x2="294" y2="78" stroke-dasharray="3 3"/>
+                  <line x1="6" y1="66" x2="294" y2="66" stroke-dasharray="3 3"/>
+                  <line x1="22" y1="40" x2="22" y2="128"/>
+                  <line x1="252" y1="40" x2="252" y2="128"/>
+                  <path d="M22 122h230" stroke-dasharray="2 2"/>
+                  <circle cx="206" cy="91" r="16"/>
+                  <path d="M206 75v-28h-18"/>
+                  <path d="M14 104v-26M12 102l2 2 2-2M12 80l2-2 2 2"/>
+                  <path d="M262 104v-38M260 102l2 2 2-2M260 68l2-2 2 2"/>
+                </g>
+                <g class="text" font-family="Schibsted Grotesk, sans-serif" font-size="6.5" fill="#565f6a" letter-spacing=".3">
+                  <text x="10" y="92" transform="rotate(-90 10 92)">x</text>
+                  <text x="261" y="86">1.46 x</text>
+                  <text x="22" y="134">Schutzraum = x, rundum</text>
+                  <text x="184" y="49" text-anchor="end">Signal nur im Zweiten</text>
+                  <text x="22" y="34">Wortmarke, Playfair Display 900</text>
+                </g>
+                <text x="22" y="104" font-family="Playfair Display, serif" font-weight="900" font-size="44" letter-spacing="-.5" fill="#15202a">format<tspan fill="#ff8a4c">eins</tspan></text>
+              </svg>
+              <span class="farben"><i style="--f:#1b2a33" data-hex="#1B2A33"></i><i style="--f:#0e1820" data-hex="#0E1820"></i><i style="--f:#ff8a4c" data-hex="#FF8A4C"></i><i style="--f:#f2ede2" data-hex="#F2EDE2"></i><i style="--f:#ddd4c3" data-hex="#DDD4C3"></i></span>
+              <span class="schriften"><span class="serif">Playfair Display</span><span class="sans">Schibsted Grotesk</span></span>
+              <span class="regeln"><span><b>Schutzraum</b> eine x-Höhe rundum</span><span><b>Kleinste Grösse</b> 24 mm Breite</span><span><b>Auf Dunkel</b> Papier statt Tinte</span></span>
+              <span class="dunkelprobe"><span class="wortmarke">format<b>eins</b></span><small>Auf Dunkel</small></span>
+            </span>
+          </div>
+        </div>
+        <aside class="inspektor" aria-label="Was dazugehört">
+          <h3>Was dazugehört</h3>
+          <ul class="angebot">
+            <li><a href="entwurf-marke.html"><b>Markenblatt</b><span>Logo, Farben mit Hex und CMYK, Schriften, Regeln. Ein Blatt, das du jedem Drucker und jedem Gestalter in die Hand geben kannst.</span></a></li>
+            <li><a href="entwurf-marke.html"><b>Geschäftsdokumente</b><span>Visitenkarte, Briefbogen, Offertenkopf, Beitragsvorlagen. Fertig aufgebaut, du füllst nur noch aus.</span></a></li>
+            <li><a href="entwurf-marke.html"><b>Wenn noch nichts da ist</b><span>Wir fangen beim Namen an und bauen das Logo. Das ist eigene Arbeit und steht bewusst nicht im Rahmen der Website.</span></a></li>
+          </ul>
+        </aside>
+        <div class="projekt">
+          <p class="brettname"><b>Richtung 02</b> · Marke</p>
+          <h3>Damit alles nach dir aussieht.</h3>
+          <p>Ein Logo ist der Anfang. Dazu gehören Farben, zwei Schriften und ein paar Regeln. Erst dann sehen die Offerte, die Visitenkarte und der Beitrag auf Instagram nach demselben Betrieb aus.</p>
+          <p class="hinweis">Entwurfstext. Hier stehen später deine Worte und die Paketpreise.</p>
+          <div class="handeln"><a class="knopf" href="entwurf-marke.html">Marke ansehen<span class="pfeil">→</span></a></div>
+        </div>
+      </div>
+
+      <div class="stand" data-titel="Video" data-anker=".telefon" role="group" aria-label="Video" hidden>
+        <div class="brett-desktop">
+          <p class="brettname" aria-hidden="true"><b>Spot</b> · 9 : 16 · 0:19</p>
+          <div class="auswahl telefon-rahmen" data-mass="9 : 16 · 0:19">
+            <span class="telefon"><span class="sicht"><video poster="entwurf-video-spot.jpg" width="406" height="720" muted loop playsinline preload="metadata" aria-label="Spot für formateins: ein Preisschild, sieben Fragen, zwei Minuten, null Verkaufsgespräche"><source src="entwurf-video-spot.mp4" type="video/mp4"><source src="entwurf-video-spot.webm" type="video/webm"></video></span></span>
+          </div>
+          <!-- Die Szenen des Spots, gemessen mit ffmpeg (Szenenwechsel ab 0.2):
+               bei 1.5, 6.4 und 7.7 Sekunden, Laenge 18.7 s. -->
+          <span class="schnittleiste" style="--dauer:18.7" aria-hidden="true">
+            <i style="--t:0"></i><i style="--t:1.5"></i><i style="--t:6.4"></i><i style="--t:7.7"></i>
+            <b>4 Szenen</b><em>0:19</em>
+          </span>
+        </div>
+        <aside class="inspektor" aria-label="Formate">
+          <h3>Formate</h3>
+          <ul class="angebot">
+            <li><a href="entwurf-video.html"><b>Erklärvideo</b><span>Was dein Betrieb macht, in zwei Minuten erklärt. Schrift, Grafik und Stimme, ohne Dreh.</span></a></li>
+            <li><a href="entwurf-video.html"><b>Werbespot</b><span>Fünfzehn bis dreissig Sekunden für Social Media und die Website. Ein Gedanke, ein Rhythmus.</span></a></li>
+            <li><a href="entwurf-video.html"><b>Für die Präsentation</b><span>Der Film, der am Anfang des Gesprächs läuft, bevor du ein Wort sagst.</span></a></li>
+          </ul>
+        </aside>
+        <div class="projekt">
+          <p class="brettname"><b>Richtung 03</b> · Video</p>
+          <h3>Bewegtbild, das nach dir aussieht.</h3>
+          <p>Werbe- und Erklärvideos, animiert: Schrift, Licht, Rhythmus, jede Sekunde gesetzt. In deiner Gestaltung, nicht in der Vorlage einer App. Für Social Media, die Website und die Präsentation.</p>
+          <p class="hinweis">Entwurfstext. Hier stehen später deine Worte, die Formate und was ein Video kostet.</p>
+          <div class="handeln"><a class="knopf" href="entwurf-video.html">Video ansehen<span class="pfeil">→</span></a></div>
+        </div>
+      </div>
+    </div>
+    </div>
     </div>
     <p class="still" style="margin-top:1.6em">Eine einzelne Leistung oder ein gemeinsamer Start, je nachdem, was dem Betrieb gerade fehlt.</p>
   </div>
@@ -1862,5 +2113,229 @@ if (spot && !reduziert && 'IntersectionObserver' in window) {
     if (e.isIntersecting) spot.play().catch(() => {}); else spot.pause();
   }, { threshold: .4 }).observe(spot);
 }
+
+// Richtungen melden, wenn sie im Bild sind: dann faehrt die Website im
+// kleinen Fenster, und die Linien des Konstruktionsblatts zeichnen sich.
+(() => {
+  const richtungen = [...document.querySelectorAll('.richtung')];
+  if (!('IntersectionObserver' in window)) { richtungen.forEach(r => r.classList.add('imbild')); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('imbild', e.isIntersecting)), { threshold: .3 });
+  richtungen.forEach(r => io.observe(r));
+})();
+
+// Das Richtwerk: die drei Richtungen sind der Tisch, ein Klick auf ein Objekt
+// zoomt in den Stand der Richtung, wie bei der Werkbank auf der Live-Seite.
+// Hinein und hinaus laufen als FLIP: Lage vorher und nachher messen, dann vom
+// einen zum anderen animieren. Die Reihe wird dabei so mitgezoomt, dass ihr
+// kleines Objekt genau auf dem grossen landet, und blendet aus; darunter
+// steht schon die echte Flaeche.
+function richtwerkEinrichten(werkbank) {
+  werkbank.querySelectorAll('.brett-desktop .sicht').forEach((sicht) => {
+    const griff = sicht.querySelector('.griff');
+    if (!griff) return; // Blatt und Telefon haben keinen Bauplan
+    let anteil = 38, zieht = false;
+    const setzen = (wert) => {
+      anteil = Math.min(100, Math.max(0, wert));
+      sicht.style.setProperty('--schnitt', anteil.toFixed(1) + '%');
+      griff.setAttribute('aria-valuenow', Math.round(anteil));
+      griff.setAttribute('aria-valuetext', Math.round(anteil) + ' Prozent Bauplan');
+    };
+    const ausZeiger = (e) => {
+      const r = sicht.getBoundingClientRect();
+      setzen((e.clientX - r.left) / r.width * 100);
+    };
+    sicht.addEventListener('pointermove', (e) => {
+      if (e.pointerType === 'mouse' || zieht) ausZeiger(e);
+    });
+    sicht.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse') return;
+      zieht = true; ausZeiger(e);
+    });
+    addEventListener('pointerup', () => { zieht = false; });
+    addEventListener('pointercancel', () => { zieht = false; });
+    griff.addEventListener('keydown', (e) => {
+      const schritt = e.shiftKey ? 10 : 4;
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') setzen(anteil - schritt);
+      else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') setzen(anteil + schritt);
+      else if (e.key === 'Home') setzen(0);
+      else if (e.key === 'End') setzen(100);
+      else return;
+      e.preventDefault();
+    });
+  });
+
+  const buehne = werkbank.querySelector('.buehne');
+  const tisch = werkbank.querySelector('.richtungen');
+  const flaeche = werkbank.querySelector('.flaeche');
+  const karten = [...werkbank.querySelectorAll('.richtung')];
+  const staende = [...werkbank.querySelectorAll('.stand')];
+  const zurueck = werkbank.querySelector('.zurueck');
+  const titel = werkbank.querySelector('.projekttitel');
+  const nummer = werkbank.querySelector('.nummer');
+  const zeit = 750, kurve = 'cubic-bezier(.65,0,.25,1)';
+  let aktiv = -1, beschaeftigt = false;
+
+  // Was fliegt: in der Richtung das kleine, im Stand das grosse Objekt.
+  const ankerKlein = (i) => karten[i].querySelector(karten[i].dataset.anker || '.fenster');
+  const ankerGross = (i) => staende[i].querySelector('.brett-desktop ' + (staende[i].dataset.anker || '.fenster'));
+
+  // Der Spot im Stand laeuft nur, solange sein Stand zu sehen ist.
+  const spotSchalten = () => staende.forEach((s, k) => {
+    const v = s.querySelector('video');
+    if (!v) return;
+    if (k === aktiv && !s.hidden && !reduziert) v.play().catch(() => {}); else v.pause();
+  });
+  const standZeigen = (i) => {
+    staende.forEach((s, k) => { s.hidden = k !== i; s.classList.remove('zeichnet'); });
+    aktiv = i;
+    titel.textContent = staende[i].dataset.titel;
+    nummer.textContent = i + 1;
+    spotSchalten();
+    // Erst sichtbar, dann zeichnen: aus display:none heraus laeuft kein Uebergang.
+    requestAnimationFrame(() => requestAnimationFrame(() => staende[i].classList.add('zeichnet')));
+  };
+  const hoehe = (von, nach) => {
+    if (!reduziert && von !== nach) buehne.animate([{ height: von + 'px' }, { height: nach + 'px' }], { duration: zeit, easing: kurve });
+  };
+  // Zoom auf eine Richtung: Verschiebung und Massstab, die das kleine Objekt m
+  // auf das grosse g legen, gerechnet im Koordinatensystem der Reihe t.
+  const tischZoom = (m, g, t) => {
+    const k = g.width / m.width;
+    return `translate(${(g.left - t.left) - (m.left - t.left) * k}px,${(g.top - t.top) - (m.top - t.top) * k}px) scale(${k})`;
+  };
+  const insBild = () => {
+    const oben = werkbank.getBoundingClientRect().top;
+    // 84 = Hoehe der mitlaufenden Leiste plus Luft; darunter laege die
+    // Werkzeugleiste und mit ihr der Weg zurueck verdeckt.
+    if (oben < 76 || oben > innerHeight * .45) scrollTo({ top: scrollY + oben - 84, behavior: reduziert ? 'auto' : 'smooth' });
+  };
+  // Abschluss eines Zooms. Laeuft am Ende der Animation, und zur Sicherheit
+  // kurz danach noch einmal per Zeitgeber: haelt der Browser die Animation an,
+  // etwa in einem Tab im Hintergrund, bliebe die Werkbank sonst blockiert.
+  const einmal = (f) => { let erledigt = false; return () => { if (!erledigt) { erledigt = true; f(); } }; };
+  const beiwerk = (st) => [werkbank.querySelector('.werkzeugleiste'), ...st.querySelectorAll('.brett-desktop > .brettname, .brett-desktop > .schnittleiste, .inspektor, .projekt')];
+
+  function hinein(i) {
+    if (beschaeftigt || !staende[i]) return;
+    const m = ankerKlein(i).getBoundingClientRect();
+    const alt = buehne.offsetHeight;
+    tisch.classList.add('ueberlagert');
+    flaeche.hidden = false;
+    standZeigen(i);
+    werkbank.dataset.ansicht = 'projekt';
+    const neu = buehne.offsetHeight;
+    const gross = ankerGross(i);
+    const g = gross.getBoundingClientRect();
+    const t = tisch.getBoundingClientRect();
+    const fertig = einmal(() => {
+      tisch.hidden = true; tisch.classList.remove('ueberlagert');
+      werkbank.classList.remove('zoomt'); beschaeftigt = false;
+    });
+    zurueck.focus({ preventScroll: true });
+    if (reduziert) { fertig(); return; }
+    beschaeftigt = true;
+    werkbank.classList.add('zoomt');
+    setTimeout(fertig, zeit + 300);
+    gross.animate([
+      { transformOrigin: '0 0', transform: `translate(${m.left - g.left}px,${m.top - g.top}px) scale(${m.width / g.width})` },
+      { transformOrigin: '0 0', transform: 'none' }
+    ], { duration: zeit, easing: kurve });
+    tisch.animate([
+      { transformOrigin: '0 0', transform: 'none', opacity: 1 },
+      { opacity: 1, offset: .3 },
+      { transformOrigin: '0 0', transform: tischZoom(m, g, t), opacity: 0 }
+    ], { duration: zeit, easing: kurve }).onfinish = fertig;
+    beiwerk(staende[i]).forEach((el, n) => el.animate(
+      [{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }],
+      { duration: 550, delay: zeit * .6 + n * 60, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' }));
+    hoehe(alt, neu);
+    insBild();
+  }
+
+  function hinaus() {
+    if (beschaeftigt || aktiv < 0) return;
+    const st = staende[aktiv];
+    const gross = ankerGross(aktiv);
+    const alt = buehne.offsetHeight;
+    flaeche.classList.add('ueberlagert');
+    tisch.hidden = false;
+    werkbank.dataset.ansicht = 'uebersicht';
+    const neu = buehne.offsetHeight;
+    const karte = karten[aktiv];
+    const m = ankerKlein(aktiv).getBoundingClientRect();
+    const g = gross.getBoundingClientRect();
+    const t = tisch.getBoundingClientRect();
+    // Jetzt scrollen, nicht nach dem Start der Animation: sobald die Reihe
+    // gezoomt ist, liegen ihre Masse nicht mehr dort, wo die Seite hinsoll.
+    insBild();
+    const fertig = einmal(() => {
+      flaeche.hidden = true; flaeche.classList.remove('ueberlagert');
+      st.getAnimations({ subtree: true }).forEach(a => a.cancel());
+      // Die Werkzeugleiste liegt ausserhalb des Stands und wuerde sonst
+      // ausgeblendet bleiben (fill: forwards).
+      werkbank.querySelector('.werkzeugleiste').getAnimations().forEach(a => a.cancel());
+      werkbank.classList.remove('zoomt'); beschaeftigt = false;
+      aktiv = -1; spotSchalten();
+    });
+    karte.querySelector('.lupe').focus({ preventScroll: true });
+    if (reduziert) { fertig(); return; }
+    beschaeftigt = true;
+    werkbank.classList.add('zoomt');
+    setTimeout(fertig, zeit + 300);
+    beiwerk(st).forEach(el => el.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, fill: 'forwards' }));
+    gross.animate([
+      { transformOrigin: '0 0', transform: 'none', opacity: 1 },
+      { opacity: 1, offset: .7 },
+      { transformOrigin: '0 0', transform: `translate(${m.left - g.left}px,${m.top - g.top}px) scale(${m.width / g.width})`, opacity: 0 }
+    ], { duration: zeit, easing: kurve, fill: 'forwards' }).onfinish = fertig;
+    tisch.animate([
+      { transformOrigin: '0 0', transform: tischZoom(m, g, t), opacity: 0 },
+      { opacity: 1, offset: .5 },
+      { transformOrigin: '0 0', transform: 'none', opacity: 1 }
+    ], { duration: zeit, easing: kurve });
+    hoehe(alt, neu);
+  }
+
+  function blaettern(richtung) {
+    if (beschaeftigt || aktiv < 0) return;
+    const alt = buehne.offsetHeight;
+    standZeigen((aktiv + richtung + staende.length) % staende.length);
+    hoehe(alt, buehne.offsetHeight);
+    if (!reduziert) staende[aktiv].querySelectorAll('.brett-desktop, .inspektor, .projekt').forEach((el, n) => el.animate(
+      [{ opacity: 0, transform: `translateX(${richtung * 28}px)` }, { opacity: 1, transform: 'none' }],
+      { duration: 600, delay: n * 50, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' }));
+  }
+
+  // Die grossen Aufnahmen vorholen, sobald jemand auf eine Richtung zeigt.
+  const vorgeholt = new Set();
+  const vorholen = (i) => {
+    if (vorgeholt.has(i) || !staende[i]) return;
+    vorgeholt.add(i);
+    staende[i].querySelectorAll('img').forEach((b) => { const x = new Image(); x.src = b.currentSrc || b.src; });
+  };
+  karten.forEach((k, i) => {
+    const knopf = k.querySelector('.lupe');
+    knopf.addEventListener('click', () => hinein(i));
+    knopf.addEventListener('focus', () => vorholen(i));
+    k.addEventListener('pointerenter', () => vorholen(i));
+    k.addEventListener('touchstart', () => vorholen(i), { passive: true });
+  });
+  zurueck.addEventListener('click', hinaus);
+  werkbank.querySelectorAll('.blaettern').forEach(b => b.addEventListener('click', () => blaettern(+b.dataset.richtung)));
+  werkbank.addEventListener('keydown', (e) => {
+    if (werkbank.dataset.ansicht !== 'projekt') return;
+    if (e.key === 'Escape') hinaus();
+  });
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => werkbank.classList.toggle('laeuft', e.isIntersecting),
+      { threshold: .25 }).observe(werkbank);
+  } else {
+    werkbank.classList.add('laeuft');
+  }
+  return { hinein, hinaus };
+}
+const richtwerk = document.getElementById('richtwerk');
+if (richtwerk) richtwerkEinrichten(richtwerk);
 </script>
 <script src="entwurf-leiste.js" defer></script>
