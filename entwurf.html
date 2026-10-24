@@ -53,6 +53,7 @@
 <link rel="preload" href="schriften/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="schriften/playfair-display.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="schriften.css">
+<link rel="stylesheet" href="entwurf-leiste.css">
 <!-- Banner und Messung. Tut nichts, solange in messung.js keine Kennung steht. -->
 <script src="messung.js" defer></script>
 
@@ -1153,16 +1154,29 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .direkt span{font-weight:400;color:var(--auf-grund-still)}
 </style>
 
+<!-- Die Leiste (Fassung A, 24.10.2026): vier Ziele und der Knopf, oben wie in
+     der Mitlaufleiste. Am Handy der Menueknopf; das offene Menue steht am
+     Ende der Seite (#menuoffen). Gestaltung in entwurf-leiste.css, Skript in
+     entwurf-leiste.js, beides auch auf den Unterseiten. -->
 <header class="kopf">
   <div class="spalte">
     <div class="logo"><span class="s">format</span><span class="p">eins</span></div>
+    <nav class="rechts" aria-label="Seite">
+      <ul class="menu"><li><a href="#leistungen">Bereiche</a></li><li><a href="#arbeiten">Arbeiten</a></li><li><a href="entwurf-website-kosten.html">Preise</a></li><li><a href="#fragen">Fragen</a></li></ul>
+      <button class="menuknopf" type="button" aria-expanded="false" aria-controls="menuoffen" aria-label="Menü"><i aria-hidden="true"></i><span>Menü</span></button>
+      <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
+    </nav>
   </div>
 </header>
 
 <div class="mitlauf" id="mitlauf" inert>
   <div class="spalte">
     <a class="logo" href="#" aria-label="formateins, zum Seitenanfang"><span class="s">format</span><span class="p">eins</span></a>
-    <a class="knopf klein" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
+    <nav class="rechts" aria-label="Seite">
+      <ul class="menu"><li><a href="#leistungen">Bereiche</a></li><li><a href="#arbeiten">Arbeiten</a></li><li><a href="entwurf-website-kosten.html">Preise</a></li><li><a href="#fragen">Fragen</a></li></ul>
+      <button class="menuknopf" type="button" aria-expanded="false" aria-controls="menuoffen" aria-label="Menü"><i aria-hidden="true"></i><span>Menü</span></button>
+      <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
+    </nav>
   </div>
 </div>
 
@@ -1548,6 +1562,13 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 </section>
 
 </main>
+
+<div class="menuoffen" id="menuoffen" hidden>
+  <div class="zeile"><span class="logo"><span class="s">format</span><span class="p">eins</span></span><button class="zu" type="button" aria-label="Menü schliessen">×</button></div>
+  <ul><li><a href="#leistungen">Bereiche</a></li><li><a href="#arbeiten">Arbeiten</a></li><li><a href="entwurf-website-kosten.html">Preise</a></li><li><a href="#fragen">Fragen</a></li><li><a href="gespraech">Gespräch vereinbaren</a></li></ul>
+  <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
+  <p class="leise"><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a> · <a href="tel:+41796868486">079 686 84 86</a></p>
+</div>
 
 <footer>
   <div class="spalte">
@@ -2191,4 +2212,4 @@ if (pruefstand) {
 const bereiche = document.getElementById('bereiche');
 if (bereiche) werkbankEinrichten(bereiche);
 </script>
-
+<script src="entwurf-leiste.js" defer></script>

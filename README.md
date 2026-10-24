@@ -22,6 +22,7 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
 | `schriften/`, `schriften.css` | Selbst ausgelieferte Schriften, siehe `schriften/LIZENZ.md` |
 | `quellen/` | Vorlagen fuer Teilen-Bild und Favicon, siehe unten |
 | `archiv/` | Frühere Entwurfsrichtungen, nicht mehr aktuell |
+| `entwurf*.html`, `entwurf-leiste.css`, `entwurf-leiste.js` | Entwürfe, nur auf Pages sichtbar (siehe CLAUDE.md). Die Leiste: Menü mit Bereiche, Arbeiten, Preise, Fragen und Knopf, in Kopfzeile und Mitlaufleiste, am Handy als Menüknopf mit offener Liste; auf allen Entwurfsseiten dieselbe. Beim Livegang in `leiste.css`/`leiste.js` umbenennen oder in die Seiten nehmen |
 
 ## Noch offen
 
