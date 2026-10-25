@@ -983,6 +983,29 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .schnittleiste{max-width:86%}
 }
 
+/* Der Webdesign-Stand (Fassung W1, 25.10.2026): Titel und Einleitung mittig
+   oben, das Fenster ueber die ganze Breite, die drei Groessen als Reihe
+   darunter, die Knoepfe zuletzt und mittig. Die Fussleiste rueckt dafuer in
+   die fuenfte Zeile; bei den anderen Staenden bleibt die vierte Zeile leer
+   und ohne Hoehe. */
+.stand[data-titel="Webdesign"] .projekt p:not(.brettname){max-width:60ch}
+@media(min-width:900px){
+  .stand[data-titel="Webdesign"] .projekt{grid-column:1/13;grid-row:1;padding-top:0;text-align:center;justify-self:center;max-width:72ch}
+  .stand[data-titel="Webdesign"] .projekt p:not(.brettname){margin-inline:auto}
+  .stand[data-titel="Webdesign"] .projekt .beweiszeile{justify-content:center;flex-wrap:nowrap;white-space:nowrap;margin-top:26px}
+  .stand[data-titel="Webdesign"] .brett-desktop{grid-column:1/13;grid-row:2;margin-top:40px}
+  .stand[data-titel="Webdesign"] .inspektor{grid-column:1/13;grid-row:3;margin:52px 0 0;padding:22px 26px 24px}
+  .stand[data-titel="Webdesign"] .angebot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
+  .stand[data-titel="Webdesign"] .angebot li{border-bottom:0;border-right:1px solid var(--linie);padding:6px 32px 6px 0}
+  .stand[data-titel="Webdesign"] .angebot li:last-child{border-right:0;padding-right:0}
+  .stand[data-titel="Webdesign"] .standhandeln{grid-column:1/13;grid-row:4;margin-top:44px;justify-content:center}
+}
+@media(max-width:899px){
+  .stand[data-titel="Webdesign"] .projekt{grid-column:1/3;grid-row:1;padding-top:0}
+  .stand[data-titel="Webdesign"] .brett-desktop{grid-row:2;margin-top:28px}
+  .stand[data-titel="Webdesign"] .standhandeln{grid-column:1/3;grid-row:4;margin-top:28px}
+}
+
 /* ---------- Ortszeile, Passung, Direktkontakt ---------- */
 .ortszeile{margin-top:1.2em;max-width:58ch}
 /* Der einzige mittige Abschnitt der Seite: Titel und Satz stehen auf der Achse
@@ -1057,8 +1080,8 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 .fussleiste .weiter .leise{color:var(--ringschrift);font-weight:400}
 .fussleiste .weiter::after{content:"→";color:var(--signal);transition:transform .2s ease}
 .fussleiste .weiter:hover::after{transform:translateX(3px)}
-@media(min-width:900px){.richtwerk .fussleiste{grid-column:1/13;grid-row:4}}
-@media(max-width:899px){.richtwerk .fussleiste{grid-column:1/3;grid-row:4}}
+@media(min-width:900px){.richtwerk .fussleiste{grid-column:1/13;grid-row:5}}
+@media(max-width:899px){.richtwerk .fussleiste{grid-column:1/3;grid-row:5}}
 .richtung .lupe{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-align:inherit;cursor:zoom-in;-webkit-tap-highlight-color:transparent}
 .richtung .lupe:focus-visible{outline-offset:10px}
 /* Das Zeichen am Objekt (Fassung C, 25.10.2026): eine kleine Scheibe in
@@ -1416,6 +1439,20 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
     <div class="flaeche" hidden>
 
       <div class="stand" data-titel="Webdesign" data-anker=".fenster" role="group" aria-label="Webdesign" hidden>
+        <!-- Webdesign-Stand (Fassung W1, 25.10.2026): Titel und Einleitung
+             mittig oben, das Fenster ueber die ganze Breite, die drei Groessen
+             als Reihe darunter, die Knoepfe zuletzt. Die Anordnung steht im CSS
+             unter «Der Webdesign-Stand». -->
+        <div class="projekt">
+          <p class="brettname"><b>Richtung 01</b> · Webdesign</p>
+          <h3>Drei Grössen, ein Festpreis.</h3>
+          <p>Zum Festpreis, ohne Baukasten und ohne Abo. Wie gross sie sein muss, hängt von dir ab und nicht davon, was ein Menü hergibt. Den Rahmen bekommst du in sieben Fragen, ohne Konto und ohne Telefonnummer.</p>
+          <p class="beweiszeile">
+            <span>Festpreis statt „ab“</span>
+            <span>Direkt mit dem, der sie baut</span>
+            <span>Rahmen in zwei Minuten</span>
+          </p>
+        </div>
         <div class="brett-desktop">
           <p class="brettname" aria-hidden="true"><b>Desktop</b> · 1440 × 900</p>
           <div class="auswahl" data-mass="1440 × 6278">
@@ -1441,19 +1478,10 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
             <li><a href="entwurf-website-kosten.html"><b>Bestehendes erneuern</b><span>Deine Seite steht, sieht aber aus wie 2016 und lädt wie 2011. Ich schaue zuerst hin und sage dir dann ehrlich: aufhübschen oder neu bauen.</span><em>Was das kostet →</em></a></li>
           </ul>
         </aside>
-        <div class="projekt">
-          <p class="brettname"><b>Richtung 01</b> · Webdesign</p>
-          <h3>Drei Grössen, ein Festpreis.</h3>
-          <p>Zum Festpreis, ohne Baukasten und ohne Abo. Wie gross sie sein muss, hängt von dir ab und nicht davon, was ein Menü hergibt. Den Rahmen bekommst du in sieben Fragen, ohne Konto und ohne Telefonnummer.</p>
-          <p class="beweiszeile">
-            <span>Festpreis statt „ab“</span>
-            <span>Direkt mit dem, der sie baut</span>
-            <span>Rahmen in zwei Minuten</span>
-          </p>
-          <div class="handeln">
+        <!-- Die Knoepfe stehen am Ende des Stands, nach den drei Groessen. -->
+        <div class="handeln standhandeln">
             <a class="knopf" href="entwurf-kostenrechner.html">Was kostet meine Website?<span class="pfeil">→</span></a>
             <a class="knopf umriss" href="entwurf-website.html">Wie ich Websites baue<span class="pfeil">→</span></a>
-          </div>
         </div>
       </div>
 
@@ -2233,7 +2261,7 @@ function richtwerkEinrichten(werkbank) {
   // kurz danach noch einmal per Zeitgeber: haelt der Browser die Animation an,
   // etwa in einem Tab im Hintergrund, bliebe die Werkbank sonst blockiert.
   const einmal = (f) => { let erledigt = false; return () => { if (!erledigt) { erledigt = true; f(); } }; };
-  const beiwerk = (st) => [...werkbank.querySelectorAll('.werkzeugleiste, .fussleiste'), ...st.querySelectorAll('.brett-desktop > .brettname, .brett-desktop > .schnittleiste, .inspektor, .projekt')];
+  const beiwerk = (st) => [...werkbank.querySelectorAll('.werkzeugleiste, .fussleiste'), ...st.querySelectorAll('.brett-desktop > .brettname, .brett-desktop > .schnittleiste, .inspektor, .projekt, .standhandeln')];
 
   function hinein(i) {
     if (beschaeftigt || !staende[i]) return;
