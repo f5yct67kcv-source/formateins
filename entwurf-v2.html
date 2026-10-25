@@ -927,7 +927,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .richtung .objekt{display:block;position:relative}
 .richtung .fenster-objekt{width:100%}
 .richtung .blatt-objekt{width:64%;margin-right:12%}
-.richtung .tel-objekt{width:40%}
+.richtung .tel-objekt{width:38%}
 /* Obergrenze 2.85rem statt 3rem: so bleibt "Motion Design." bei 1440 auf einer Zeile. */
 .richtung h3{font-family:var(--serif);font-weight:900;font-size:clamp(2rem,3.4vw,2.85rem);letter-spacing:-.02em;line-height:1;color:var(--auf-grund)}
 .richtung .text{margin-top:.6em;font-size:var(--txt-m);color:var(--auf-grund-still);max-width:38ch}
@@ -1163,7 +1163,12 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .richtwerk .flaeche{padding-top:calc(50px + clamp(44px,6vw,80px))}
 .richtung .lupe{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-align:inherit;cursor:zoom-in;-webkit-tap-highlight-color:transparent}
 .richtung .lupe:focus-visible{outline-offset:10px}
-.richtung .blatt-objekt{width:72%;margin-right:0}
+/* Das Blatt als Ganzes auf 82 % (zoom nimmt die Schrift mit; nur schmaler
+   liesse "Playfair Display" umbrechen). 59 % Breite = 72 % mal .82. */
+.richtung .blatt-objekt{width:59%;margin-right:0;zoom:.82}
+/* Bis das Objekt zur Haelfte im Bild steht, stehen die Linien ohne Uebergang
+   auf Anfang; so zeichnen sie sich bei jedem Eintritt von vorn. */
+.richtung:not(.imbild) .konstruktionslinien .linien,.richtung:not(.imbild) .konstruktionslinien .text{transition:none}
 /* Ohne Telefon neben dem Text darf der Text die ganze Breite haben. */
 @media(max-width:899px){
   .richtwerk .flaeche .projekt{grid-column:1/3;padding-top:52px}
@@ -1219,7 +1224,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .stand .brett-desktop .konstruktionsblatt .dunkelprobe small{font-size:.6rem}
 .stand .brett-desktop .telefon video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
 .schnittleiste i{left:calc(var(--t) / var(--dauer,18) * 100%)}
-@media(max-width:760px){.richtung .blatt-objekt{width:70%}}
+@media(max-width:760px){.richtung .blatt-objekt{width:57%}}
 </style>
 
 <!-- Die Leiste (Fassung A, 24.10.2026): vier Ziele und der Knopf, oben wie in
@@ -1308,7 +1313,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
       <article class="richtung" data-anker=".fenster">
         <p class="nr">01 · Webdesign</p>
         <div class="beweis">
-          <button class="objekt fenster-objekt lupe" type="button" aria-label="Webdesign in der Werkbank ansehen"><span class="fenster"><span class="fensterleiste"><i></i><i></i><i></i><span>formateins.ch</span></span><span class="sicht" style="--b:1440;--h:6278;--v:.625"><span class="bahn"><img src="entwurf-seite-desktop.webp" alt="" width="1440" height="6278" loading="lazy" decoding="async"></span></span></span></button>
+          <button class="objekt fenster-objekt lupe" type="button" aria-label="Webdesign in der Werkbank ansehen"><span class="fenster"><span class="fensterleiste"><i></i><i></i><i></i><span>formateins.ch</span></span><span class="sicht" style="--b:1440;--h:6278;--v:.72"><span class="bahn"><img src="entwurf-seite-desktop.webp" alt="" width="1440" height="6278" loading="lazy" decoding="async"></span></span></span></button>
         </div>
         <h3>Webdesign.</h3>
         <p class="text">Die Seite, die zeigt, was du machst, und auf jedem Gerät sitzt. Von Hand gebaut, zum Festpreis, in drei Grössen.</p>
@@ -1925,8 +1930,18 @@ if (reduziert || !('IntersectionObserver' in window)) {
   }, { threshold: .12 });
   aufElemente.forEach(el => auftritt.observe(el));
 
-  // Sicherung: nach zwei Sekunden ist alles sichtbar, egal was der Beobachter tut.
-  setTimeout(() => aufElemente.forEach(zeigen), 2000);
+  // Sicherung: nach zwei Sekunden ist sichtbar, was im Fenster steht, egal was
+  // der Beobachter tut. Was noch unterhalb liegt, wartet auf den Beobachter,
+  // sonst stuende es schon da, wenn man vom Hero herunterscrollt. "Im Fenster"
+  // heisst dasselbe wie beim Beobachter: ein Achtel des Elements ist zu sehen;
+  // bei 1440 x 900 ragt der Bereich Leistungen sonst mit 80 Pixeln herein und
+  // gilt als gesehen.
+  const imFenster = el => { const r = el.getBoundingClientRect(); return r.top + r.height * .12 < innerHeight && r.bottom > 0; };
+  setTimeout(() => aufElemente.forEach(el => { if (imFenster(el)) zeigen(el); }), 2000);
+  // Zweite Sicherung beim Scrollen: was ins Fenster kommt und noch fehlt, wird gezeigt.
+  addEventListener('scroll', () => aufElemente.forEach(el => {
+    if (!el.classList.contains('da') && imFenster(el)) zeigen(el);
+  }), { passive: true });
 }
 
 // Die Haarlinie schliesst genau die Luecke, die die Schrift unten frei laesst.
@@ -2111,17 +2126,27 @@ if (pruefstand) {
 const spot = document.querySelector('.richtung video');
 if (spot && !reduziert && 'IntersectionObserver' in window) {
   new IntersectionObserver(([e]) => {
-    if (e.isIntersecting) spot.play().catch(() => {}); else spot.pause();
+    if (e.isIntersecting) { try { spot.currentTime = 0; } catch (fehler) {} spot.play().catch(() => {}); } else spot.pause();
   }, { threshold: .4 }).observe(spot);
 }
 
-// Richtungen melden, wenn sie im Bild sind: dann faehrt die Website im
+// Richtungen melden, wenn ihr Objekt im Bild ist: dann faehrt die Website im
 // kleinen Fenster, und die Linien des Konstruktionsblatts zeichnen sich.
+// Beobachtet wird das Objekt, nicht die ganze Spalte, und erst ab der Haelfte:
+// vorher liefe die Fahrt schon, waehrend man noch beim Hero steht, und die
+// Linien waeren gezeichnet, bevor man sie sieht. Bei jedem Eintritt faengt
+// die Fahrt von vorn an.
 (() => {
   const richtungen = [...document.querySelectorAll('.richtung')];
   if (!('IntersectionObserver' in window)) { richtungen.forEach(r => r.classList.add('imbild')); return; }
-  const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('imbild', e.isIntersecting)), { threshold: .3 });
-  richtungen.forEach(r => io.observe(r));
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const richtung = e.target.closest('.richtung');
+    const bahn = richtung.querySelector('.bahn');
+    if (!e.isIntersecting) { richtung.classList.remove('imbild'); return; }
+    if (bahn) { bahn.style.animation = 'none'; void bahn.offsetWidth; bahn.style.animation = ''; }
+    richtung.classList.add('imbild');
+  }), { threshold: .5 });
+  richtungen.forEach(r => io.observe(r.querySelector('.beweis') || r));
 })();
 
 // Das Richtwerk: die drei Richtungen sind der Tisch, ein Klick auf ein Objekt
