@@ -3,3 +3,5 @@ __pycache__/
 # Nur fuer den Schritt, der die Kommentare aus der Auslieferung nimmt.
 node_modules/
 package-lock.json
+# Lokales WordPress, siehe README (WordPress lokal).
+wordpress-lokal/
