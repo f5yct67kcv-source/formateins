@@ -1169,6 +1169,24 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .richtwerk .flaeche{padding-top:calc(50px + clamp(44px,6vw,80px))}
 .richtung .lupe{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-align:inherit;cursor:zoom-in;-webkit-tap-highlight-color:transparent}
 .richtung .lupe:focus-visible{outline-offset:10px}
+/* Das Zeichen am Objekt (Fassung C, 25.10.2026): eine kleine Scheibe in
+   Signal mit Plus unten rechts, die sagt, dass man hineinkommt. Kein Knopf,
+   kein Text. Sobald die Richtung im Bild ist, schlaegt sie zweimal einen Ring
+   nach aussen und ruht dann. Unter dem Zeiger waechst sie leicht. */
+.richtung .lupe{overflow:visible}
+.richtung .lupe::before,.richtung .lupe::after{content:"";position:absolute;right:-12px;bottom:-12px;width:30px;height:30px;border-radius:50%;pointer-events:none}
+.richtung .lupe::after{
+  z-index:3;background:var(--signal) no-repeat center / 14px 14px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M7 2v10M2 7h10' stroke='%230e1820' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  box-shadow:0 8px 20px -6px rgba(0,0,0,.7),0 0 0 3px var(--grund);
+  transition:transform .3s cubic-bezier(.16,1,.3,1),background-color .2s;
+}
+.richtung .lupe::before{z-index:2;border:2px solid var(--signal);opacity:0}
+.richtung .blatt-objekt::before,.richtung .blatt-objekt::after{right:-10px;bottom:-10px}
+.richtung .tel-objekt::before,.richtung .tel-objekt::after{right:-14px;bottom:4px}
+@media(hover:hover) and (pointer:fine){.richtung .lupe:hover::after{transform:scale(1.12);background-color:var(--signal-hell)}}
+@media(prefers-reduced-motion:no-preference){.richtung.imbild .lupe::before{animation:puls 1.6s ease-out .6s 2}}
+@keyframes puls{0%{transform:scale(1);opacity:.9}100%{transform:scale(2.4);opacity:0}}
 /* Das Blatt als Ganzes auf 82 % (zoom nimmt die Schrift mit; nur schmaler
    liesse "Playfair Display" umbrechen). 59 % Breite = 72 % mal .82. */
 .richtung .blatt-objekt{width:59%;margin-right:0;zoom:.82}
