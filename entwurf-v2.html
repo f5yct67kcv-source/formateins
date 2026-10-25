@@ -1100,6 +1100,9 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 
 /* ---------- Ortszeile, Passung, Direktkontakt ---------- */
 .ortszeile{margin-top:1.2em;max-width:58ch}
+/* Der einzige mittige Abschnitt der Seite: Titel und Satz stehen auf der Achse
+   zwischen den zwei Listen. Am Handy bleibt das so, die Listen stehen links. */
+#passung .spalte>h2,#passung .spalte>p{text-align:center;margin-inline:auto}
 .passung{display:grid;grid-template-columns:1fr;gap:34px clamp(28px,5vw,72px);margin-top:clamp(28px,4vh,44px)}
 @media(min-width:760px){.passung{grid-template-columns:1fr 1fr}}
 .passung h3{display:flex;align-items:center;gap:12px;margin:0 0 4px;font-family:var(--sans);font-size:var(--txt-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--signal)}
