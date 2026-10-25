@@ -478,59 +478,32 @@ footer{--licht-x:10%;--licht-y:4%}
   .saetze > div:nth-child(even){padding-right:0}
 }
 
-/* ---------- Ablauf ---------- */
-.ablauf{position:relative;margin-top:clamp(34px,5vh,58px)}
-.ablauf .leitung{
-  position:absolute;left:15.15px;top:12px;bottom:12px;width:1.7px;
-  background:var(--linie);transform-origin:top;
+/* ---------- Ablauf ----------
+   Links Titel, Satz und Knopf, rechts die vier Schritte. Der orange Balken
+   neben den Schritten fuellt sich mit dem Scrollen, nicht mit der Zeit: er
+   steht so weit, wie die Leselinie (72 Prozent der Fensterhoehe) in der Liste
+   steht. Die Nummern faerben sich, sobald der Balken sie erreicht hat. Das
+   Skript setzt --fuell in Pixeln und die Klasse erreicht. Ab 900 Pixeln dockt
+   die linke Spalte an und faehrt mit, bis die Liste vorbei ist. */
+.ablauf{display:grid;grid-template-columns:1fr;gap:clamp(30px,4vw,70px);align-items:start}
+.ablaufkopf .still{margin-top:1.2em;max-width:40ch}
+.ablaufkopf .knopf{margin-top:clamp(22px,3vh,34px)}
+.stufen{position:relative;padding-left:clamp(22px,3vw,40px)}
+.stufen::before,.stufen::after{content:"";position:absolute;left:0;top:6px;width:1.5px}
+.stufen::before{bottom:6px;background:var(--linie)}
+.stufen::after{height:var(--fuell,0px);background:var(--signal)}
+.stufe{display:grid;grid-template-columns:2.2em 1fr;column-gap:clamp(10px,1.5vw,20px);row-gap:6px;align-items:start;padding:clamp(20px,3vh,30px) 0;border-bottom:1px solid var(--linie)}
+.stufe:first-child{padding-top:0}
+.stufe:last-child{border-bottom:0;padding-bottom:0}
+.stufe .nr{grid-row:1/3;font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.15;padding-top:.08em;font-variant-numeric:tabular-nums;color:var(--auf-grund-still);transition:color .5s ease}
+.stufe.erreicht .nr{color:var(--signal)}
+.stufe h3{font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.15}
+.stufe p{color:var(--auf-grund-still);max-width:50ch}
+@media(min-width:900px){
+  .ablauf{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+  .ablaufkopf{position:sticky;top:clamp(72px,10vh,110px);transition:top .4s cubic-bezier(.16,1,.3,1)}
+  html.leiste-da .ablaufkopf{top:calc(clamp(72px,10vh,110px) + 60px)}
 }
-.ablauf .leitung i{
-  position:absolute;inset:0;background:var(--signal);
-  transform:scaleY(0);transform-origin:top;
-  transition:transform 1.5s cubic-bezier(.16,1,.3,1);
-}
-.ablauf.laeuft .leitung i{transform:scaleY(1)}
-@media(min-width:820px){.ablauf .leitung{left:19.15px}}
-
-.schritt{
-  position:relative;display:grid;grid-template-columns:1fr;gap:8px;
-  padding:0 0 clamp(30px,4vh,46px) clamp(46px,5vw,62px);
-}
-.schritt:last-child{padding-bottom:0}
-/* Ein Viertel kleiner als zuvor, dafür ausgefüllt. Die Zahlen sind gebrochen,
-   weil Punkt und Leitung auf derselben Achse sitzen müssen: Achse bei 16px,
-   Punkt 13.5px breit, also beginnt er bei 16 minus der halben Breite. */
-.schritt .punkt{
-  position:absolute;left:9.25px;top:6.25px;width:13.5px;height:13.5px;
-  background:var(--grund);border:1.5px solid var(--linie);border-radius:50%;
-  transition:border-color .4s ease,background .4s ease;
-}
-.ablauf.laeuft .schritt .punkt{
-  border-color:var(--signal);background:var(--signal);
-  animation:punktpuls 2s ease infinite;
-}
-
-/* Der Ring ist ein Schatten ohne Weichzeichnung, also eine harte Scheibe, die
-   sich aufweitet. Er startet deckend direkt am Punktrand und wird durchsichtig,
-   während er wächst — die Leuchtkraft steckt im Zeitverlauf, nicht in einem
-   weichen Verlauf. Der Punkt selbst atmet mit, 0.95 auf 1.
-   Die Aufweitung ist auf die Punktbreite abgestimmt: 14 Pixel auf 13.5 Pixel
-   Punkt, damit die Scheibe knapp doppelt so breit wird wie er selbst. */
-@keyframes punktpuls{
-  0%  {transform:scale(.95);box-shadow:0 0 0 0    rgba(255,138,76,1)}
-  70% {transform:scale(1);  box-shadow:0 0 0 14px rgba(255,138,76,0)}
-  100%{transform:scale(.95);box-shadow:0 0 0 0    rgba(255,138,76,0)}
-}
-/* Auf dem Desktop stand der Titel früher in einer eigenen Spalte links. Die war
-   auf die Breite des längsten Titels ausgelegt und damit für die kurzen viel zu
-   breit — zwischen Titel und Text lagen bis zu 142 Pixel Leere, und der Text
-   sass 242 Pixel von seinem eigenen Knoten entfernt. Jetzt steht er direkt
-   unter dem Titel, also nah an dem Punkt, zu dem er gehört. */
-@media(min-width:820px){
-  .schritt{gap:11px;padding-bottom:clamp(38px,4.6vh,54px)}
-  .schritt .punkt{left:13.25px}
-}
-.schritt p{color:var(--auf-grund-still);max-width:56ch}
 
 /* ---------- Angebot ---------- */
 .zeilen{margin-top:clamp(28px,4vh,48px);border-top:1px solid var(--linie)}
@@ -620,9 +593,9 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   html.auftritt-laeuft .auf.da{opacity:1;transform:none}
 }
 @media(prefers-reduced-motion:reduce){
-  .ablauf .leitung i{transform:scaleY(1);transition:none}
-  /* Der Punkt bleibt, nur der Puls hoert auf. */
-  .ablauf.laeuft .schritt .punkt{animation:none}
+  /* Der Balken steht voll, die Nummern sind orange, nichts bewegt sich. */
+  .stufen::after{height:auto;bottom:6px}
+  .stufe .nr{color:var(--signal);transition:none}
 }
 
 /* Auf schmalen Schirmen steht der zweite Weg direkt unter dem Knopf, nicht
@@ -1775,6 +1748,40 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
   </div>
 </section>
 
+<!-- Ablauf: vier Schritte vom Gespraech bis live. Die Nummern sind Schmuck, die
+     Reihenfolge steckt im Markup. -->
+<section id="ablauf">
+  <div class="spalte auf ablauf">
+    <div class="ablaufkopf">
+      <h2>So läuft es ab.<span class="zweite">Vier Schritte.</span></h2>
+      <p class="still">Keine Überraschungen dazwischen. Du weisst vor dem ersten Gespräch, woran du bist.</p>
+      <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
+    </div>
+    <div class="stufen">
+      <div class="stufe">
+        <span class="nr" aria-hidden="true">01</span>
+        <h3>Wir reden</h3>
+        <p>Dreissig Minuten, kostet nichts. Du sagst, was dein Betrieb macht und was dem Auftritt fehlt. Ich sage, was es braucht und was nicht.</p>
+      </div>
+      <div class="stufe">
+        <span class="nr" aria-hidden="true">02</span>
+        <h3>Du bekommst ein Angebot</h3>
+        <p>Ein Festpreis für das, was wirklich nötig ist. Brauchst du weniger, als du denkst, sage ich dir das, auch wenn es mich Geld kostet.</p>
+      </div>
+      <div class="stufe">
+        <span class="nr" aria-hidden="true">03</span>
+        <h3>Wir bauen</h3>
+        <p>Du siehst den Stand zwischendurch und sagst, was nicht stimmt. Kurze Wege statt langer Sitzungen.</p>
+      </div>
+      <div class="stufe">
+        <span class="nr" aria-hidden="true">04</span>
+        <h3>Es geht live</h3>
+        <p>Seite, Markenblatt oder Film sind fertig und im Einsatz. Willst du später etwas ändern, meldest du dich und bezahlst genau das.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Passung: wer hier richtig ist und wer nicht. Die Nein-Liste ist der
      wertvolle Teil, sie spart beiden Seiten Gespraeche. Jeder Punkt steht
      schon irgendwo auf der Seite (FAQ, Wer das macht, Kostenrechner). -->
@@ -2077,48 +2084,33 @@ if (mitlauf && heroKnopf && 'IntersectionObserver' in window) {
   }, { passive: true });
 }
 
-// Ein einziger inszenierter Moment: die Leitung des Ablaufs zeichnet sich,
-// wenn der Abschnitt ins Bild kommt. Alles andere bewegt sich nur auf Bedienung.
+// Der Ablauf: der Balken neben den Schritten folgt dem Scrollen. Massstab ist
+// eine Leselinie bei 72 Prozent der Fensterhoehe. Steht sie oberhalb der Liste,
+// ist der Balken leer; faehrt sie durch die Liste, waechst er mit; eine Nummer
+// ist erreicht, sobald ihre Mitte ueber der Leselinie liegt. Kein Zeitgeber,
+// darum senkt sich nichts von allein, bevor man dort ist.
 const reduziert = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const ablauf = document.getElementById('ablauf');
-if (ablauf) {
-  // Die Leitung soll vom ersten bis zum letzten Knoten laufen und dort enden.
-  // In CSS geht das nicht: wo der letzte Knoten sitzt, haengt von der Hoehe des
-  // letzten Absatzes ab, und die kennt erst der Umbruch. Ohne das Nachrechnen
-  // haengen unter dem letzten Knoten rund 90 Pixel Leitung ins Leere, was
-  // aussieht, als ginge der Ablauf noch weiter.
-  const leitung = ablauf.querySelector('.leitung');
-  const knoten = ablauf.querySelectorAll('.schritt .punkt');
-  function leitungSpannen() {
-    if (!leitung || knoten.length < 2) return;
-    const bezug = ablauf.getBoundingClientRect();
-    const ersterKasten = knoten[0].getBoundingClientRect();
-    const letzterKasten = knoten[knoten.length - 1].getBoundingClientRect();
-    const oben = (ersterKasten.top + ersterKasten.height / 2) - bezug.top;
-    const unten = (letzterKasten.top + letzterKasten.height / 2) - bezug.top;
-    leitung.style.top = oben.toFixed(1) + 'px';
-    leitung.style.bottom = 'auto';
-    leitung.style.height = Math.max(0, unten - oben).toFixed(1) + 'px';
-  }
-  leitungSpannen();
-  addEventListener('resize', leitungSpannen);
-  // Schriften aendern die Zeilenumbrueche und damit die Knotenabstaende.
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(leitungSpannen);
-
-  if (reduziert) {
-    ablauf.classList.add('laeuft');
-  } else {
-    const leitungBeobachter = new IntersectionObserver((eintraege) => {
-      eintraege.forEach(e => {
-        if (!e.isIntersecting) return;
-        ablauf.classList.add('laeuft');
-        leitungBeobachter.unobserve(e.target);
-      });
-    }, { threshold: .3 });
-    leitungBeobachter.observe(ablauf);
-    setTimeout(() => ablauf.classList.add('laeuft'), 2000);
-  }
+const stufen = document.querySelector('.stufen');
+if (stufen && !reduziert) {
+  const nummern = [...stufen.querySelectorAll('.stufe')];
+  let angemeldet = false;
+  const fuellen = () => {
+    angemeldet = false;
+    const kasten = stufen.getBoundingClientRect();
+    const linie = innerHeight * .72;
+    const oben = kasten.top + 6, unten = kasten.bottom - 6;
+    const fuell = Math.min(Math.max(linie - oben, 0), unten - oben);
+    stufen.style.setProperty('--fuell', fuell.toFixed(1) + 'px');
+    nummern.forEach(s => {
+      const r = s.querySelector('.nr').getBoundingClientRect();
+      s.classList.toggle('erreicht', r.top + r.height / 2 < linie);
+    });
+  };
+  const anstossen = () => { if (!angemeldet) { angemeldet = true; requestAnimationFrame(fuellen); } };
+  addEventListener('scroll', anstossen, { passive: true });
+  addEventListener('resize', anstossen);
+  fuellen();
 }
 
 // Auftritt der Abschnitte. Grundregel: der Inhalt ist sichtbar, die Animation ist
