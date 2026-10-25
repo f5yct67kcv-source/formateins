@@ -62,6 +62,50 @@ main .spalte > .breit{max-width:none}
 .knopf{display:inline-flex;align-items:center;gap:11px;background:var(--signal);color:#15202a;font-weight:700;padding:16px 26px;text-decoration:none;border-radius:2px}
 .knopf:hover{color:#15202a;background:#ff9f6d}
 .zweitweg{font-size:var(--txt-s);font-weight:500;color:var(--auf-grund-still);text-underline-offset:5px}
+
+/* ---------- Pruefstand ----------
+   Die Seite selbst in einem Rahmen, der sich schmaler ziehen laesst; --w ist
+   die Breite, die die Seite sieht, --s der Massstab, mit dem der Rahmen ins
+   Feld passt (Skript). Von der Startseite hierher gewandert, wo er Platz hat. */
+.pruefstand{--hoehe:640px;--ringschrift:#75909f;--linie-hell:#3f5e70;--tinte:#15202a;--signal-hell:#ff9f6d;margin-top:1.4em}
+.pruefkasten{border:1px solid var(--linie);border-radius:10px;background:var(--grund-tief);overflow:hidden}
+.pruefleiste{display:flex;align-items:center;gap:8px 16px;padding:10px 14px;border-bottom:1px solid var(--linie);background:#16232c;font-size:var(--txt-xs);color:var(--ringschrift);flex-wrap:wrap}
+.pruefleiste button{font-family:var(--sans);font-size:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pruefleiste .adresse{font-weight:600;color:var(--auf-grund-still)}
+.breiten{margin-left:auto;display:flex;gap:6px;align-items:center}
+.breiten button{padding:6px 11px;border-radius:99px;border:1px solid var(--linie);background:none;color:var(--ringschrift);font-variant-numeric:tabular-nums;transition:background .2s,color .2s}
+.breiten button.an{background:var(--signal);color:var(--tinte);border-color:var(--signal);font-weight:700}
+.breiten .messung{font-variant-numeric:tabular-nums;color:var(--signal);font-weight:700;margin-left:8px;min-width:4.5em;text-align:right}
+.prueffeld{position:relative;padding:36px 60px 44px;background:radial-gradient(circle,rgba(117,144,159,.22) 1px,transparent 1.5px) 0 0/22px 22px}
+.pruefrahmen{position:relative;margin:0 auto;height:var(--hoehe);width:calc(var(--w) * var(--s) * 1px);max-width:100%;border-radius:8px;background:#fff;box-shadow:0 50px 90px -40px rgba(0,0,0,.9),0 0 0 1px rgba(117,144,159,.2);transition:width .45s cubic-bezier(.65,0,.25,1),border-radius .3s,padding .3s}
+.pruefrahmen.zieht{transition:none}
+.pruefkante{height:100%;overflow:hidden;border-radius:inherit}
+.pruefsicht{width:calc(var(--w) * 1px);height:calc(var(--hoehe) / var(--s));transform:scale(var(--s));transform-origin:0 0}
+.pruefsicht iframe{display:block;width:100%;height:100%;border:0;background:#fff}
+.pruefrahmen.handy{border-radius:26px;padding:7px;background:#0a1117;height:calc(var(--hoehe) + 14px)}
+.pruefrahmen.handy .pruefkante{border-radius:19px}
+.griff-breite{position:absolute;right:-26px;top:50%;translate:0 -50%;width:14px;height:64px;padding:0;border:0;border-radius:7px;background:var(--signal);box-shadow:0 8px 22px -8px rgba(0,0,0,.6);cursor:ew-resize;touch-action:none}
+.griff-breite::before{content:"";position:absolute;left:5px;right:5px;top:18px;bottom:18px;border-left:1px solid rgba(21,32,42,.5);border-right:1px solid rgba(21,32,42,.5)}
+.griff-breite:hover{background:var(--signal-hell)}
+.griff-breite:focus-visible{outline-offset:4px}
+.pruefrahmen.handy .griff-breite{right:-34px}
+.massband{position:absolute;left:60px;right:60px;bottom:16px;height:1px;background:var(--linie-hell);margin:0;max-width:none}
+.massband::before,.massband::after{content:"";position:absolute;top:-5px;width:1px;height:11px;background:var(--linie-hell)}
+.massband::after{right:0}
+.massband i{display:none}
+.massband b,.massband i{position:absolute;left:50%;top:-9px;translate:-50% 0;background:var(--grund-tief);padding:0 8px;font-size:.66rem;color:var(--ringschrift);font-weight:400;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+@media(max-width:699px){
+  .pruefstand{--hoehe:min(520px,66vh)}
+  .prueffeld{padding:22px 16px 40px}
+  .massband{left:16px;right:16px}
+  .breiten{margin-left:0}
+  .breiten button span{display:none}
+  .breiten .messung{margin-left:auto}
+  .griff-breite{display:none}
+  .massband b{display:none}
+  .massband i{display:block;font-style:normal}
+}
+@media(prefers-reduced-motion:reduce){.pruefrahmen{transition:none}}
 </style>
 
 <header class="kopf">
@@ -120,6 +164,34 @@ main .spalte > .breit{max-width:none}
       <li><b>Kontaktblock mit Anfahrt.</b> Adresse, Telefon, E-Mail, Termine nach Vereinbarung, erreichbar aus Olten, Zofingen, Aarburg und Murgenthal.</li>
       <li><b>Für die Suche gebaut.</b> «Craniosacral Therapie Fulenbach» im Titel, in der Überschrift und in der Beschreibung, Ortsangaben im Code, Teilen-Bild für Nachrichten-Apps.</li>
     </ul>
+
+    <h2>Die Seite selbst</h2>
+    <p>Kein Bild, sondern die Seite im Rahmen. Zieh am Griff oder wähl eine Breite: Die Seite ordnet sich neu, bis zum Handy. So sieht man, dass sie auf jedem Gerät sitzt.</p>
+    <!-- Pruefstand: die Seite selbst in einem Rahmen, der sich schmaler ziehen
+         laesst. Breiter als das Feld wird der Rahmen nicht: dann wird die Seite
+         im Rahmen verkleinert (Skript, --s), so sieht man am Handy auch die
+         Desktop-Ansicht. Die Seite muss das Einbetten erlauben (kein
+         X-Frame-Options, kein frame-ancestors ohne formateins.ch). -->
+    <div class="pruefstand breit" id="pruefstand">
+      <div class="pruefkasten">
+        <div class="pruefleiste">
+          <span class="adresse">Craniosacral Praxis, Vorschau</span>
+          <div class="breiten" role="group" aria-label="Breite des Fensters">
+            <button class="an" type="button" data-breite="1440">1440<span> · Desktop</span></button>
+            <button type="button" data-breite="820">820<span> · Tablet</span></button>
+            <button type="button" data-breite="390">390<span> · Handy</span></button>
+            <output class="messung" aria-live="polite">1440 px</output>
+          </div>
+        </div>
+        <div class="prueffeld">
+          <div class="pruefrahmen" style="--w:1440;--s:1">
+            <div class="pruefkante"><div class="pruefsicht"><iframe src="https://f5yct67kcv-source.github.io/webseite-johann-vonarb/" title="Craniosacral Praxis Johann von Arb, die Seite selbst" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
+            <button class="griff-breite" type="button" role="slider" aria-label="Breite des Fensters" aria-valuemin="390" aria-valuemax="1440" aria-valuenow="1440" aria-valuetext="1440 Pixel"></button>
+          </div>
+          <p class="massband"><b>Zieh am Griff, die Seite baut sich um</b><i>Drei Breiten, dieselbe Seite</i></p>
+        </div>
+      </div>
+    </div>
 
     <h2>Bauplan</h2>
     <p>Dieselbe Seite ohne Farben und Bilder: Text als Balken, Abschnitte gestrichelt. So sieht man die Ordnung, die unter der Gestaltung liegt.</p>
@@ -201,5 +273,58 @@ main .spalte > .breit{max-width:none}
     "creator": { "@type": "ProfessionalService", "name": "formateins", "url": "https://www.formateins.ch" }
   },
   "isPartOf": { "@type": "WebSite", "name": "formateins", "url": "https://www.formateins.ch" }
+}
+</script>
+
+<script>
+// Pruefstand: die Seite selbst im Rahmen. --w ist die Breite, die die Seite
+// sieht, --s der Massstab, damit der Rahmen ins Feld passt. Ziehen am Griff
+// aendert --w, solange der Rahmen kleiner als das Feld ist; die drei Knoepfe
+// setzen feste Breiten, auch groessere, dann wird verkleinert.
+const pruefstand = document.getElementById('pruefstand');
+if (pruefstand) {
+  const feld = pruefstand.querySelector('.prueffeld');
+  const rahmen = pruefstand.querySelector('.pruefrahmen');
+  const griff = pruefstand.querySelector('.griff-breite');
+  const messung = pruefstand.querySelector('.messung');
+  const breiten = [...pruefstand.querySelectorAll('.breiten button')];
+  const min = 390, max = 1440;
+  let w = max;
+  const feldbreite = () => feld.clientWidth - parseFloat(getComputedStyle(feld).paddingLeft) - parseFloat(getComputedStyle(feld).paddingRight);
+  function setzen(neu, ziehen) {
+    w = Math.round(Math.min(max, Math.max(min, neu)));
+    const s = Math.min(1, feldbreite() / w);
+    rahmen.style.setProperty('--w', w);
+    rahmen.style.setProperty('--s', s.toFixed(4));
+    rahmen.classList.toggle('handy', w <= 430);
+    rahmen.classList.toggle('zieht', !!ziehen);
+    messung.value = w + ' px';
+    griff.setAttribute('aria-valuenow', w);
+    griff.setAttribute('aria-valuetext', w + ' Pixel');
+    breiten.forEach(b => b.classList.toggle('an', +b.dataset.breite === w));
+  }
+  breiten.forEach(b => b.addEventListener('click', () => setzen(+b.dataset.breite)));
+  // Ziehen: die rechte Kante folgt dem Zeiger, der Rahmen bleibt mittig.
+  griff.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    griff.setPointerCapture(e.pointerId);
+    const start = e.clientX, anfang = w;
+    const bewegen = (e) => setzen(anfang + (e.clientX - start) * 2, true);
+    const loslassen = () => { griff.removeEventListener('pointermove', bewegen); setzen(w); };
+    griff.addEventListener('pointermove', bewegen);
+    griff.addEventListener('pointerup', loslassen, { once: true });
+    griff.addEventListener('pointercancel', loslassen, { once: true });
+  });
+  griff.addEventListener('keydown', (e) => {
+    const schritt = e.shiftKey ? 100 : 20;
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') setzen(w - schritt);
+    else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') setzen(w + schritt);
+    else if (e.key === 'Home') setzen(min);
+    else if (e.key === 'End') setzen(max);
+    else return;
+    e.preventDefault();
+  });
+  addEventListener('resize', () => setzen(w));
+  setzen(w);
 }
 </script>
