@@ -23,7 +23,21 @@
   }
   document.querySelectorAll('.menuknopf').forEach(k => k.addEventListener('click', () => oeffnen(k)));
   zu.addEventListener('click', schliessen);
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', schliessen));
+  // Ein Ziel auf derselben Seite: Menue zu und ohne Fahrt hinspringen. Das
+  // weiche Scrollen der Seite liefe sonst ueber die ganze Laenge, waehrend
+  // das Menue zuklappt und die Leiste kommt und geht; das wirkt unruhig.
+  // Was am Ziel noch auf seinen Auftritt wartet (.auf), steht sofort da.
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', (e) => {
+    const ziel = a.hash && a.origin === location.origin && a.pathname === location.pathname && document.querySelector(a.hash);
+    schliessen();
+    if (!ziel) return;
+    e.preventDefault();
+    const auf = [...ziel.querySelectorAll('.auf')]; if (ziel.classList.contains('auf')) auf.push(ziel);
+    auf.forEach(el => { el.style.transition = 'none'; el.classList.add('da'); void el.offsetWidth; el.style.transition = ''; });
+    // instant, nicht auto: auto hiesse scroll-behavior der Seite, und die ist smooth.
+    ziel.scrollIntoView({ behavior: 'instant', block: 'start' });
+    history.pushState(null, '', a.hash);
+  }));
   addEventListener('keydown', e => { if (e.key === 'Escape') schliessen(); });
   // Wird das Fenster breit, ist das Menue in der Leiste, das offene braucht es nicht mehr.
   matchMedia('(min-width:761px)').addEventListener('change', e => { if (e.matches) schliessen(); });

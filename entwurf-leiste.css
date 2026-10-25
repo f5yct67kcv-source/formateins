@@ -47,11 +47,14 @@
   .mitlauf .rechts .knopf{display:none}
 }
 
-/* Das offene Menue am Handy: ganze Flaeche, fuenf Zeilen in der Serif,
-   darunter der Knopf, zuunterst Mail und Telefon. */
+/* Das offene Menue am Handy: ganze Flaeche, vier Zeilen in der Serif,
+   darunter der Knopf (25.10.2026: die Zeile "Gespraech vereinbaren" ist weg,
+   sie fuehrte zum selben Ziel), zuunterst Mail und Telefon. Die Kopfzeile
+   heisst menukopf, nicht zeile: .zeile ist auf der Startseite die Preiszeile
+   mit Linie darunter, das gab oben zwei Linien. */
 .menuoffen{position:fixed;inset:0;z-index:50;background:var(--grund-tief);padding:0 clamp(22px,5vw,56px);display:flex;flex-direction:column;overflow:auto}
 .menuoffen[hidden]{display:none}
-.menuoffen .zeile{display:flex;align-items:center;justify-content:space-between;height:64px;flex:none}
+.menuoffen .menukopf{display:flex;align-items:center;justify-content:space-between;height:64px;flex:none}
 .menuoffen .zu{background:none;border:0;color:var(--auf-grund);font:inherit;font-size:1.9rem;line-height:1;padding:4px 0 8px;min-width:44px;text-align:right;cursor:pointer}
 .menuoffen ul{list-style:none;margin:24px 0 0;padding:0}
 .menuoffen li{margin:0;border-top:1px solid var(--linie)}
