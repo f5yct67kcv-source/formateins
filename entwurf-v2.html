@@ -983,27 +983,38 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .schnittleiste{max-width:86%}
 }
 
-/* Der Webdesign-Stand (Fassung W1, 25.10.2026): Titel und Einleitung mittig
-   oben, das Fenster ueber die ganze Breite, die drei Groessen als Reihe
-   darunter, die Knoepfe zuletzt und mittig. Die Fussleiste rueckt dafuer in
-   die fuenfte Zeile; bei den anderen Staenden bleibt die vierte Zeile leer
-   und ohne Hoehe. */
-.stand[data-titel="Webdesign"] .projekt p:not(.brettname){max-width:60ch}
+/* Die Staende (25.10.2026): Titel und Einleitung mittig oben, die Knoepfe
+   zuletzt und mittig. Beim Webdesign liegt das Fenster ueber die ganze
+   Breite, die drei Groessen stehen als Reihe darunter. Bei Branding und
+   Motion stehen Blatt und Telefon links unter ihrer Zeile, das Angebot
+   daneben. Die Fussleiste sitzt in der fuenften Rasterzeile; leere Zeilen
+   davor haben keine Hoehe. */
+.stand .projekt p:not(.brettname){max-width:60ch}
 @media(min-width:900px){
-  .stand[data-titel="Webdesign"] .projekt{grid-column:1/13;grid-row:1;padding-top:0;text-align:center;justify-self:center;max-width:72ch}
-  .stand[data-titel="Webdesign"] .projekt p:not(.brettname){margin-inline:auto}
-  .stand[data-titel="Webdesign"] .projekt .beweiszeile{justify-content:center;flex-wrap:nowrap;white-space:nowrap;margin-top:26px}
-  .stand[data-titel="Webdesign"] .brett-desktop{grid-column:1/13;grid-row:2;margin-top:40px}
+  .stand .projekt{grid-column:1/13;grid-row:1;padding-top:0;text-align:center;justify-self:center;max-width:72ch}
+  .stand .projekt p:not(.brettname){margin-inline:auto}
+  .stand .projekt .beweiszeile{justify-content:center;flex-wrap:nowrap;white-space:nowrap;margin-top:26px}
+  .stand .brett-desktop{grid-row:2;margin-top:40px}
+  .stand .standhandeln{grid-column:1/13;margin-top:44px;justify-content:center}
+  /* Webdesign: Fenster breit, Groessen als Reihe */
+  .stand[data-titel="Webdesign"] .brett-desktop{grid-column:1/13}
   .stand[data-titel="Webdesign"] .inspektor{grid-column:1/13;grid-row:3;margin:52px 0 0;padding:22px 26px 24px}
   .stand[data-titel="Webdesign"] .angebot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
   .stand[data-titel="Webdesign"] .angebot li{border-bottom:0;border-right:1px solid var(--linie);padding:6px 32px 6px 0}
   .stand[data-titel="Webdesign"] .angebot li:last-child{border-right:0;padding-right:0}
-  .stand[data-titel="Webdesign"] .standhandeln{grid-column:1/13;grid-row:4;margin-top:44px;justify-content:center}
+  .stand[data-titel="Webdesign"] .standhandeln{grid-row:4}
+  /* Branding und Motion: Objekt links, Angebot daneben */
+  .stand[data-titel="Branding"] .brett-desktop,.stand[data-titel="Motion Design"] .brett-desktop{grid-column:1/7}
+  .stand[data-titel="Branding"] .inspektor,.stand[data-titel="Motion Design"] .inspektor{grid-column:8/13;grid-row:2;align-self:start;margin:71px 0 0}
+  .stand[data-titel="Branding"] .standhandeln,.stand[data-titel="Motion Design"] .standhandeln{grid-row:3}
+  .auswahl.blatt-rahmen{margin:0;max-width:88%}
+  .auswahl.telefon-rahmen{margin:0;max-width:52%}
+  .schnittleiste{margin:44px 0 0;max-width:52%}
 }
 @media(max-width:899px){
-  .stand[data-titel="Webdesign"] .projekt{grid-column:1/3;grid-row:1;padding-top:0}
-  .stand[data-titel="Webdesign"] .brett-desktop{grid-row:2;margin-top:28px}
-  .stand[data-titel="Webdesign"] .standhandeln{grid-column:1/3;grid-row:4;margin-top:28px}
+  .stand .projekt{grid-column:1/3;grid-row:1;padding-top:0}
+  .stand .brett-desktop{grid-row:2;margin-top:28px}
+  .stand .standhandeln{grid-column:1/3;grid-row:4;margin-top:28px}
 }
 
 /* ---------- Ortszeile, Passung, Direktkontakt ---------- */
@@ -1439,10 +1450,11 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
     <div class="flaeche" hidden>
 
       <div class="stand" data-titel="Webdesign" data-anker=".fenster" role="group" aria-label="Webdesign" hidden>
-        <!-- Webdesign-Stand (Fassung W1, 25.10.2026): Titel und Einleitung
-             mittig oben, das Fenster ueber die ganze Breite, die drei Groessen
-             als Reihe darunter, die Knoepfe zuletzt. Die Anordnung steht im CSS
-             unter «Der Webdesign-Stand». -->
+        <!-- Alle Staende (25.10.2026): Titel und Einleitung mittig oben, die
+             Knoepfe zuletzt. Dazwischen beim Webdesign das Fenster ueber die
+             ganze Breite mit den drei Groessen als Reihe darunter, bei Branding
+             und Motion das Objekt links und das Angebot daneben. Die Anordnung
+             steht im CSS unter «Die Staende». -->
         <div class="projekt">
           <p class="brettname"><b>Richtung 01</b> · Webdesign</p>
           <h3>Drei Grössen, ein Festpreis.</h3>
@@ -1486,6 +1498,12 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
       </div>
 
       <div class="stand" data-titel="Branding" data-anker=".blatt" role="group" aria-label="Branding" hidden>
+        <div class="projekt">
+          <p class="brettname"><b>Richtung 02</b> · Branding</p>
+          <h3>Damit alles nach dir aussieht.</h3>
+          <p>Ein Logo ist der Anfang. Dazu gehören Farben, zwei Schriften und ein paar Regeln. Erst dann sehen die Offerte, die Visitenkarte und der Beitrag auf Instagram nach dir aus.</p>
+          <p class="hinweis">Entwurfstext. Hier stehen später deine Worte und die Paketpreise.</p>
+        </div>
         <div class="brett-desktop">
           <p class="brettname" aria-hidden="true"><b>Markenblatt</b> · 210 × 297 mm</p>
           <div class="auswahl blatt-rahmen" data-mass="210 × 297 mm">
@@ -1557,16 +1575,16 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
             <li><a href="entwurf-branding.html"><b>Wenn noch nichts da ist</b><span>Wir fangen beim Namen an und bauen das Logo. Das ist eigene Arbeit und steht bewusst nicht im Rahmen der Website.</span></a></li>
           </ul>
         </aside>
-        <div class="projekt">
-          <p class="brettname"><b>Richtung 02</b> · Branding</p>
-          <h3>Damit alles nach dir aussieht.</h3>
-          <p>Ein Logo ist der Anfang. Dazu gehören Farben, zwei Schriften und ein paar Regeln. Erst dann sehen die Offerte, die Visitenkarte und der Beitrag auf Instagram nach dir aus.</p>
-          <p class="hinweis">Entwurfstext. Hier stehen später deine Worte und die Paketpreise.</p>
-          <div class="handeln"><a class="knopf" href="entwurf-branding.html">Branding ansehen<span class="pfeil">→</span></a></div>
-        </div>
+        <div class="handeln standhandeln"><a class="knopf" href="entwurf-branding.html">Branding ansehen<span class="pfeil">→</span></a></div>
       </div>
 
       <div class="stand" data-titel="Motion Design" data-anker=".telefon" role="group" aria-label="Motion Design" hidden>
+        <div class="projekt">
+          <p class="brettname"><b>Richtung 03</b> · Motion Design</p>
+          <h3>Animiert statt gefilmt.</h3>
+          <p>Spots und Erklärvideos aus Schrift, Licht und Rhythmus, jede Sekunde gesetzt. In deiner Gestaltung, nicht in der Vorlage einer App. Für Instagram, die Website und die Präsentation.</p>
+          <p class="hinweis">Entwurfstext. Hier stehen später deine Worte, die Formate und was ein Spot kostet.</p>
+        </div>
         <div class="brett-desktop">
           <p class="brettname" aria-hidden="true"><b>Spot</b> · 9 : 16 · 0:19</p>
           <div class="auswahl telefon-rahmen" data-mass="9 : 16 · 0:19">
@@ -1587,13 +1605,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
             <li><a href="entwurf-motion.html"><b>Für die Präsentation</b><span>Der Film, der am Anfang des Gesprächs läuft, bevor du ein Wort sagst.</span></a></li>
           </ul>
         </aside>
-        <div class="projekt">
-          <p class="brettname"><b>Richtung 03</b> · Motion Design</p>
-          <h3>Animiert statt gefilmt.</h3>
-          <p>Spots und Erklärvideos aus Schrift, Licht und Rhythmus, jede Sekunde gesetzt. In deiner Gestaltung, nicht in der Vorlage einer App. Für Instagram, die Website und die Präsentation.</p>
-          <p class="hinweis">Entwurfstext. Hier stehen später deine Worte, die Formate und was ein Spot kostet.</p>
-          <div class="handeln"><a class="knopf" href="entwurf-motion.html">Motion Design ansehen<span class="pfeil">→</span></a></div>
-        </div>
+        <div class="handeln standhandeln"><a class="knopf" href="entwurf-motion.html">Motion Design ansehen<span class="pfeil">→</span></a></div>
       </div>
 
       <!-- Abschluss des Stands: zurueck zur Uebersicht oder gleich zur
