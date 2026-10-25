@@ -978,8 +978,8 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .stand .projekt .handeln{margin-top:18px}
 
 @media(max-width:819px){
-  .auswahl.blatt-rahmen{max-width:88%}
-  .auswahl.telefon-rahmen{max-width:52%}
+  .auswahl.blatt-rahmen{max-width:100%}
+  .auswahl.telefon-rahmen{max-width:72%}
   .schnittleiste{max-width:86%}
 }
 
@@ -1015,6 +1015,15 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand .projekt{grid-column:1/3;grid-row:1;padding-top:0}
   .stand .brett-desktop{grid-row:2;margin-top:28px}
   .stand .standhandeln{grid-column:1/3;grid-row:4;margin-top:28px}
+  /* Am Handy weniger Luft oben, das Objekt breiter, die Schrift eine Stufe
+     groesser: die Stufen xs und s sind auf dem kleinen Bildschirm zu klein. */
+  .flaeche{padding-top:24px}
+  .stand .projekt p:not(.brettname){font-size:1rem;max-width:none}
+  .stand .projekt .hinweis{font-size:.875rem}
+  .stand .projekt .beweiszeile{font-size:.875rem}
+  .inspektor{font-size:1rem}
+  .angebot b{font-size:1.15rem}
+  .angebot span,.angebot em{font-size:.875rem}
 }
 
 /* ---------- Ortszeile, Passung, Direktkontakt ---------- */
@@ -1118,7 +1127,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 .richtung .blatt-objekt{width:59%;margin-right:0;zoom:.82}
 /* Ohne Telefon neben dem Text darf der Text die ganze Breite haben. */
 @media(max-width:899px){
-  .richtwerk .flaeche .projekt{grid-column:1/3;padding-top:52px}
+  .richtwerk .flaeche .projekt{grid-column:1/3;padding-top:0}
   .richtwerk .brett-desktop .auswahl::after{left:50%;bottom:-38px}
 }
 
