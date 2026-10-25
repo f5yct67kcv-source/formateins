@@ -25,11 +25,15 @@
 .rechts .knopf .pfeil{transition:transform .2s ease}
 .rechts .knopf:hover .pfeil{transform:translateX(4px)}
 
-/* Menueknopf: drei Striche, ohne Wort (25.10.2026, das Zeichen erklaert sich
-   selbst; der Name steht im aria-label). Erst am Handy sichtbar, 44 Pixel
-   Tastflaeche. */
+/* Menueknopf (25.10.2026): drei Striche, der mittlere kurz und in Signal,
+   rechtsbuendig, wie eine Textzeile mit Absatz. Ohne Wort, das Zeichen
+   erklaert sich selbst; der Name steht im aria-label. Erst am Handy
+   sichtbar, 44 Pixel Tastflaeche. */
 .menuknopf{display:none;align-items:center;justify-content:center;background:none;border:0;color:var(--auf-grund);cursor:pointer;padding:0;width:44px;height:44px;margin-right:-8px}
-.menuknopf i{display:block;width:26px;height:2px;background:currentColor;box-shadow:0 8px 0 currentColor,0 -8px 0 currentColor}
+.menuknopf i{display:block;position:relative;width:26px;height:2px;background:currentColor;transform:translateY(-8px)}
+.menuknopf i::before,.menuknopf i::after{content:"";position:absolute;right:0;height:2px;background:currentColor}
+.menuknopf i::before{top:8px;width:14px;background:var(--signal)}
+.menuknopf i::after{top:16px;width:26px}
 
 @media(max-width:760px){
   .menu{display:none}
@@ -37,8 +41,10 @@
   /* Oben steht der orange Knopf schon im Hero, einmal reicht. In der
      Mitlaufleiste bleibt er, dort ist der Hero aus dem Bild. */
   .kopf .rechts .knopf{display:none}
+  /* In der Mitlaufleiste am Handy ohne den orangen Knopf: Logo und Menue
+     reichen, der Knopf steht im Menue und im Hero. */
   .mitlauf .rechts{gap:16px}
-  .mitlauf .rechts .knopf{padding:9px 13px;white-space:nowrap}
+  .mitlauf .rechts .knopf{display:none}
 }
 
 /* Das offene Menue am Handy: ganze Flaeche, fuenf Zeilen in der Serif,

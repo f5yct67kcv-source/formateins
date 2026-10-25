@@ -1164,12 +1164,13 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 }
 .richtwerk[data-ansicht="projekt"] .buehne{border-color:var(--linie)}
 .richtwerk[data-ansicht="projekt"] .buehne::before{opacity:1}
-/* Die Werkzeugleiste klebt unter der mitlaufenden Kopfzeile (60 Pixel),
-   solange die Buehne im Bild ist. Dafuer clip statt hidden auf der Buehne:
+/* Die Werkzeugleiste klebt oben, solange die Buehne im Bild ist; zeigt sich
+   die mitlaufende Kopfzeile (Klasse leiste-da, 60 Pixel), rueckt sie darunter. Dafuer clip statt hidden auf der Buehne:
    hidden macht sie zum Scrollkasten, und sticky klebt dann an ihm statt am
    Fenster. */
 .richtwerk .buehne{overflow:clip}
-.richtwerk .werkzeugleiste{position:sticky;top:60px;z-index:6;border:0;border-bottom:1px solid var(--linie)}
+.richtwerk .werkzeugleiste{position:sticky;top:0;z-index:6;border:0;border-bottom:1px solid var(--linie);transition:top .4s cubic-bezier(.16,1,.3,1)}
+html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 .richtwerk[data-ansicht="uebersicht"] .werkzeugleiste{display:none}
 /* Fussleiste am Ende des Stands: Uebersicht links, naechste Richtung rechts. */
 .fussleiste{
@@ -2048,16 +2049,30 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 
 
 <script>
-// Die Leiste kommt, sobald der Knopf im Hero oben aus dem Bild ist, und geht,
-// wenn er wieder sichtbar wird.
+// Die Leiste kommt nur beim Hochscrollen, und nur, wenn der Knopf im Hero
+// oben aus dem Bild ist. Beim Runterscrollen verschwindet sie (25.10.2026):
+// wer liest, braucht sie nicht, wer zurueck will, bekommt sie sofort.
 const mitlauf = document.getElementById('mitlauf');
 const heroKnopf = document.querySelector('.hero .handeln');
 if (mitlauf && heroKnopf && 'IntersectionObserver' in window) {
-  new IntersectionObserver(([e]) => {
-    const zeigen = !e.isIntersecting && e.boundingClientRect.top < 0;
+  let heroWeg = false, letztesY = scrollY, hoch = false;
+  const setzen = () => {
+    const zeigen = heroWeg && hoch;
     mitlauf.classList.toggle('zeigen', zeigen);
     mitlauf.inert = !zeigen;
+    document.documentElement.classList.toggle('leiste-da', zeigen);
+  };
+  new IntersectionObserver(([e]) => {
+    heroWeg = !e.isIntersecting && e.boundingClientRect.top < 0;
+    setzen();
   }).observe(heroKnopf);
+  addEventListener('scroll', () => {
+    const y = scrollY, d = y - letztesY;
+    if (Math.abs(d) < 4) return;          // Zittern am Daumen ignorieren
+    hoch = d < 0;
+    letztesY = y;
+    setzen();
+  }, { passive: true });
 }
 
 // Ein einziger inszenierter Moment: die Leitung des Ablaufs zeichnet sich,
