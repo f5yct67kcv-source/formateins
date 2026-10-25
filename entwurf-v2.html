@@ -1195,15 +1195,13 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 
 /* Das Konstruktionsblatt (Fassung B, 25.10.2026): Wortmarke als SVG-Text,
    damit Grundlinie, x-Hoehe, Schutzraum und Masse exakt sitzen. Die Linien
-   zeichnen sich im Stand, sobald er gezeigt wird (zeichnet); in der Reihe
-   steuert der Aufbau unten (baut) die Reihenfolge. */
+   zeichnen sich beim Aufbau (Klasse baut, siehe unten), in der Reihe wie im
+   Stand. */
 .konstruktionsblatt{padding:7% 7% 6%;rotate:0deg}
 .konstruktionsblatt small{font-size:.46rem}
 .konstruktionsblatt .konstruktionslinien{display:block;width:100%;height:auto;margin-top:4%;overflow:visible}
 .konstruktionsblatt .konstruktionslinien .linien{stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1.6s cubic-bezier(.65,0,.25,1) .2s}
 .konstruktionsblatt .konstruktionslinien .text{opacity:0;transition:opacity .6s ease 1.2s}
-.zeichnet .konstruktionslinien .linien{stroke-dashoffset:0}
-.zeichnet .konstruktionslinien .text{opacity:1}
 .konstruktionsblatt .farben{margin-top:5%;gap:3%}
 .konstruktionsblatt .farben i{position:relative;aspect-ratio:1/.62}
 .konstruktionsblatt .farben i::after{content:attr(data-hex);position:absolute;left:0;top:112%;font-size:.36rem;letter-spacing:.02em;color:var(--tinte-still)}
@@ -1215,33 +1213,33 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .konstruktionsblatt .dunkelprobe{display:flex;align-items:center;justify-content:space-between;margin-top:7%;padding:5% 6%;background:var(--grund-tief);color:var(--papier);border-radius:2px}
 .konstruktionsblatt .dunkelprobe .wortmarke{margin:0;font-size:clamp(.9rem,1.6vw,1.3rem)}
 .konstruktionsblatt .dunkelprobe small{color:var(--ringschrift);margin:0}
-/* Aufbau des ersten Blatts (Klasse baut, Skript): Wortmarke wischt herein,
+/* Aufbau des ersten Blatts (Klasse baut, Skript), in der Reihe wie im Stand: Wortmarke wischt herein,
    Linien zeichnen sich, Masse, Farben, Schriften, Regeln, Dunkelprobe folgen
    in dieser Reihenfolge. Ohne baut steht alles ohne Uebergang auf Anfang. */
-.richtung .konstruktionsblatt .konstruktionslinien > text{clip-path:inset(-10% 100% -10% 0);transition:clip-path .7s cubic-bezier(.65,0,.25,1) .1s}
-.richtung .konstruktionsblatt.baut .konstruktionslinien > text{clip-path:inset(-10% -2% -10% 0)}
-.richtung .konstruktionsblatt .konstruktionslinien .linien{transition-duration:1.1s;transition-delay:0.63s}
-.richtung .konstruktionsblatt.baut .konstruktionslinien .linien{stroke-dashoffset:0}
-.richtung .konstruktionsblatt .konstruktionslinien .text{transition-delay:1.4s}
-.richtung .konstruktionsblatt.baut .konstruktionslinien .text{opacity:1}
-.richtung .konstruktionsblatt .farben i{opacity:0;transform:scale(.4);transition:opacity .4s ease,transform .5s cubic-bezier(.16,1,.3,1)}
-.richtung .konstruktionsblatt .farben i::after{opacity:0;transition:opacity .4s ease;transition-delay:inherit}
-.richtung .konstruktionsblatt.baut .farben i{opacity:1;transform:none}
-.richtung .konstruktionsblatt.baut .farben i::after{opacity:1}
-.richtung .konstruktionsblatt .farben i:nth-child(1){transition-delay:1.54s}
-.richtung .konstruktionsblatt .farben i:nth-child(2){transition-delay:1.62s}
-.richtung .konstruktionsblatt .farben i:nth-child(3){transition-delay:1.71s}
-.richtung .konstruktionsblatt .farben i:nth-child(4){transition-delay:1.79s}
-.richtung .konstruktionsblatt .farben i:nth-child(5){transition-delay:1.88s}
-.richtung .konstruktionsblatt .schriften span,.richtung .konstruktionsblatt .regeln span,.richtung .konstruktionsblatt .dunkelprobe{opacity:0;transform:translateY(6px);transition:opacity .5s ease,transform .6s cubic-bezier(.16,1,.3,1)}
-.richtung .konstruktionsblatt.baut .schriften span,.richtung .konstruktionsblatt.baut .regeln span,.richtung .konstruktionsblatt.baut .dunkelprobe{opacity:1;transform:none}
-.richtung .konstruktionsblatt .schriften .serif{transition-delay:2.1s}
-.richtung .konstruktionsblatt .schriften .sans{transition-delay:2.2s}
-.richtung .konstruktionsblatt .regeln span:nth-child(1){transition-delay:2.38s}
-.richtung .konstruktionsblatt .regeln span:nth-child(2){transition-delay:2.46s}
-.richtung .konstruktionsblatt .regeln span:nth-child(3){transition-delay:2.55s}
-.richtung .konstruktionsblatt .dunkelprobe{transition-delay:2.73s}
-.richtung .konstruktionsblatt:not(.baut) *{transition:none!important}
+.konstruktionsblatt .konstruktionslinien > text{clip-path:inset(-10% 100% -10% 0);transition:clip-path .7s cubic-bezier(.65,0,.25,1) .1s}
+.konstruktionsblatt.baut .konstruktionslinien > text{clip-path:inset(-10% -2% -10% 0)}
+.konstruktionsblatt .konstruktionslinien .linien{transition-duration:1.1s;transition-delay:0.63s}
+.konstruktionsblatt.baut .konstruktionslinien .linien{stroke-dashoffset:0}
+.konstruktionsblatt .konstruktionslinien .text{transition-delay:1.4s}
+.konstruktionsblatt.baut .konstruktionslinien .text{opacity:1}
+.konstruktionsblatt .farben i{opacity:0;transform:scale(.4);transition:opacity .4s ease,transform .5s cubic-bezier(.16,1,.3,1)}
+.konstruktionsblatt .farben i::after{opacity:0;transition:opacity .4s ease;transition-delay:inherit}
+.konstruktionsblatt.baut .farben i{opacity:1;transform:none}
+.konstruktionsblatt.baut .farben i::after{opacity:1}
+.konstruktionsblatt .farben i:nth-child(1){transition-delay:1.54s}
+.konstruktionsblatt .farben i:nth-child(2){transition-delay:1.62s}
+.konstruktionsblatt .farben i:nth-child(3){transition-delay:1.71s}
+.konstruktionsblatt .farben i:nth-child(4){transition-delay:1.79s}
+.konstruktionsblatt .farben i:nth-child(5){transition-delay:1.88s}
+.konstruktionsblatt .schriften span,.konstruktionsblatt .regeln span,.konstruktionsblatt .dunkelprobe{opacity:0;transform:translateY(6px);transition:opacity .5s ease,transform .6s cubic-bezier(.16,1,.3,1)}
+.konstruktionsblatt.baut .schriften span,.konstruktionsblatt.baut .regeln span,.konstruktionsblatt.baut .dunkelprobe{opacity:1;transform:none}
+.konstruktionsblatt .schriften .serif{transition-delay:2.1s}
+.konstruktionsblatt .schriften .sans{transition-delay:2.2s}
+.konstruktionsblatt .regeln span:nth-child(1){transition-delay:2.38s}
+.konstruktionsblatt .regeln span:nth-child(2){transition-delay:2.46s}
+.konstruktionsblatt .regeln span:nth-child(3){transition-delay:2.55s}
+.konstruktionsblatt .dunkelprobe{transition-delay:2.73s}
+.konstruktionsblatt:not(.baut) *{transition:none!important}
 
 /* Die vier Blaetter: das erste liegt im Fluss und gibt die Hoehe, die
    anderen darueber. Das Skript setzt data-seite und die Klassen aktiv und
@@ -1249,44 +1247,44 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
    von unten auf. */
 /* clip statt hidden: hidden macht das Blatt zum Scrollkasten und das Seitenverhaeltnis
    wuerde die Dunkelprobe unten abschneiden. */
-.richtung .konstruktionsblatt{overflow:clip}
-.richtung .konstruktionsblatt .seite{display:block}
-.richtung .konstruktionsblatt .seite.erste{transition:opacity .4s ease,transform .55s cubic-bezier(.65,0,.35,1)}
-.richtung .konstruktionsblatt:not([data-seite="1"]) .seite.erste{opacity:0;transform:translateY(-10%) rotate(-2deg)}
-.richtung .konstruktionsblatt[data-seite="1"] .seite.erste{transition:none}
-.richtung .konstruktionsblatt .seite.weitere{position:absolute;inset:0;padding:7% 7% 6%;background:var(--papier);opacity:0;transform:translateY(6%) scale(.97);transition:opacity .45s ease,transform .55s cubic-bezier(.16,1,.3,1)}
-.richtung .konstruktionsblatt .seite.weitere small{position:absolute;top:7%;left:7%;right:7%}
-.richtung .konstruktionsblatt .seite.weitere .inhalt{display:block;margin-top:14%}
-.richtung .konstruktionsblatt .seite.weitere.aktiv{opacity:1;transform:none;z-index:2}
-.richtung .konstruktionsblatt .seite.weitere.weg{opacity:0;transform:translateY(-10%) rotate(-2deg);transition:opacity .4s ease,transform .55s cubic-bezier(.65,0,.35,1)}
-.richtung .konstruktionsblatt .seite.weitere.sofort{transition:none}
-.richtung .konstruktionsblatt .farbzeilen{display:block}
-.richtung .konstruktionsblatt .farbzeilen > span{display:grid;grid-template-columns:28% 1fr;gap:6%;align-items:center;padding:3.5% 0;border-bottom:1px dashed rgba(21,32,42,.14)}
-.richtung .konstruktionsblatt .farbzeilen > span > span{display:block}
-.richtung .konstruktionsblatt .farbzeilen i{display:block;aspect-ratio:1/.62;background:var(--f);border:1px solid rgba(21,32,42,.12);border-radius:1px}
-.richtung .konstruktionsblatt .farbzeilen b{display:block;font-size:.5rem;color:var(--tinte)}
-.richtung .konstruktionsblatt .farbzeilen em{display:block;font-style:normal;font-size:.4rem;color:var(--tinte-still);letter-spacing:.02em}
-.richtung .konstruktionsblatt .probe{display:block;border-bottom:1px solid rgba(21,32,42,.14);padding:4% 0 6%}
-.richtung .konstruktionsblatt .probe .gross{display:block;font-size:2.4rem;line-height:1;letter-spacing:-.02em}
-.richtung .konstruktionsblatt .probe.serif .gross{font-family:var(--serif);font-weight:900}
-.richtung .konstruktionsblatt .probe.sans .gross{font-weight:700}
-.richtung .konstruktionsblatt .probe .abc{display:block;font-size:.5rem;letter-spacing:.06em;color:var(--tinte-still);margin-top:4%;white-space:nowrap;overflow:hidden}
-.richtung .konstruktionsblatt .probe .rolle{display:block;font-size:.44rem;color:var(--tinte-still);margin-top:3%}
-.richtung .konstruktionsblatt .probe .rolle b{color:var(--tinte)}
-.richtung .konstruktionsblatt .seite.dunkel{background:var(--grund-tief);color:var(--papier)}
-.richtung .konstruktionsblatt .seite.dunkel small{color:var(--ringschrift)}
-.richtung .konstruktionsblatt .seite.dunkel .wortmarke{display:block;font-family:var(--serif);font-weight:900;font-size:1.7rem;line-height:1;letter-spacing:-.01em;margin-top:34%}
-.richtung .konstruktionsblatt .seite.dunkel .wortmarke b{color:var(--signal)}
-.richtung .konstruktionsblatt .seite.dunkel .regel{display:block;font-size:.44rem;line-height:1.5;color:var(--ringschrift);margin-top:14%;padding-top:5%;border-top:1px solid rgba(242,237,226,.16)}
-.richtung .konstruktionsblatt .seite.dunkel .regel b{color:var(--papier)}
-.richtung .konstruktionsblatt .seite.dunkel .falsch{display:flex;gap:6%;margin-top:8%}
-.richtung .konstruktionsblatt .seite.dunkel .falsch > span{flex:1;padding:8% 6%;border-radius:2px;font-family:var(--serif);font-weight:900;font-size:.72rem;position:relative;background:rgba(242,237,226,.06)}
-.richtung .konstruktionsblatt .seite.dunkel .falsch > span b{color:var(--signal)}
-.richtung .konstruktionsblatt .seite.dunkel .falsch .ja{color:var(--papier)}
-.richtung .konstruktionsblatt .seite.dunkel .falsch .nein{color:#15202a}
-.richtung .konstruktionsblatt .seite.dunkel .falsch small{position:static;display:block;font-family:var(--sans);font-weight:400;font-size:.36rem;margin-top:10%;color:var(--ringschrift)}
-.richtung .konstruktionsblatt .seite.dunkel .falsch .nein::after{content:"";position:absolute;left:8%;right:8%;top:38%;border-top:1.5px solid var(--signal);transform:rotate(-8deg)}
-@media(prefers-reduced-motion:reduce){.richtung .konstruktionsblatt *{transition:none!important}}
+.konstruktionsblatt{overflow:clip}
+.konstruktionsblatt .seite{display:block}
+.konstruktionsblatt .seite.erste{transition:opacity .4s ease,transform .55s cubic-bezier(.65,0,.35,1)}
+.konstruktionsblatt:not([data-seite="1"]) .seite.erste{opacity:0;transform:translateY(-10%) rotate(-2deg)}
+.konstruktionsblatt[data-seite="1"] .seite.erste{transition:none}
+.konstruktionsblatt .seite.weitere{position:absolute;inset:0;padding:7% 7% 6%;background:var(--papier);opacity:0;transform:translateY(6%) scale(.97);transition:opacity .45s ease,transform .55s cubic-bezier(.16,1,.3,1)}
+.konstruktionsblatt .seite.weitere small{position:absolute;top:7%;left:7%;right:7%}
+.konstruktionsblatt .seite.weitere .inhalt{display:block;margin-top:14%}
+.konstruktionsblatt .seite.weitere.aktiv{opacity:1;transform:none;z-index:2}
+.konstruktionsblatt .seite.weitere.weg{opacity:0;transform:translateY(-10%) rotate(-2deg);transition:opacity .4s ease,transform .55s cubic-bezier(.65,0,.35,1)}
+.konstruktionsblatt .seite.weitere.sofort{transition:none}
+.konstruktionsblatt .farbzeilen{display:block}
+.konstruktionsblatt .farbzeilen > span{display:grid;grid-template-columns:28% 1fr;gap:6%;align-items:center;padding:3.5% 0;border-bottom:1px dashed rgba(21,32,42,.14)}
+.konstruktionsblatt .farbzeilen > span > span{display:block}
+.konstruktionsblatt .farbzeilen i{display:block;aspect-ratio:1/.62;background:var(--f);border:1px solid rgba(21,32,42,.12);border-radius:1px}
+.konstruktionsblatt .farbzeilen b{display:block;font-size:.5rem;color:var(--tinte)}
+.konstruktionsblatt .farbzeilen em{display:block;font-style:normal;font-size:.4rem;color:var(--tinte-still);letter-spacing:.02em}
+.konstruktionsblatt .probe{display:block;border-bottom:1px solid rgba(21,32,42,.14);padding:4% 0 6%}
+.konstruktionsblatt .probe .gross{display:block;font-size:2.4rem;line-height:1;letter-spacing:-.02em}
+.konstruktionsblatt .probe.serif .gross{font-family:var(--serif);font-weight:900}
+.konstruktionsblatt .probe.sans .gross{font-weight:700}
+.konstruktionsblatt .probe .abc{display:block;font-size:.5rem;letter-spacing:.06em;color:var(--tinte-still);margin-top:4%;white-space:nowrap;overflow:hidden}
+.konstruktionsblatt .probe .rolle{display:block;font-size:.44rem;color:var(--tinte-still);margin-top:3%}
+.konstruktionsblatt .probe .rolle b{color:var(--tinte)}
+.konstruktionsblatt .seite.dunkel{background:var(--grund-tief);color:var(--papier)}
+.konstruktionsblatt .seite.dunkel small{color:var(--ringschrift)}
+.konstruktionsblatt .seite.dunkel .wortmarke{display:block;font-family:var(--serif);font-weight:900;font-size:1.7rem;line-height:1;letter-spacing:-.01em;margin-top:34%}
+.konstruktionsblatt .seite.dunkel .wortmarke b{color:var(--signal)}
+.konstruktionsblatt .seite.dunkel .regel{display:block;font-size:.44rem;line-height:1.5;color:var(--ringschrift);margin-top:14%;padding-top:5%;border-top:1px solid rgba(242,237,226,.16)}
+.konstruktionsblatt .seite.dunkel .regel b{color:var(--papier)}
+.konstruktionsblatt .seite.dunkel .falsch{display:flex;gap:6%;margin-top:8%}
+.konstruktionsblatt .seite.dunkel .falsch > span{flex:1;padding:8% 6%;border-radius:2px;font-family:var(--serif);font-weight:900;font-size:.72rem;position:relative;background:rgba(242,237,226,.06)}
+.konstruktionsblatt .seite.dunkel .falsch > span b{color:var(--signal)}
+.konstruktionsblatt .seite.dunkel .falsch .ja{color:var(--papier)}
+.konstruktionsblatt .seite.dunkel .falsch .nein{color:#15202a}
+.konstruktionsblatt .seite.dunkel .falsch small{position:static;display:block;font-family:var(--sans);font-weight:400;font-size:.36rem;margin-top:10%;color:var(--ringschrift)}
+.konstruktionsblatt .seite.dunkel .falsch .nein::after{content:"";position:absolute;left:8%;right:8%;top:38%;border-top:1.5px solid var(--signal);transform:rotate(-8deg)}
+@media(prefers-reduced-motion:reduce){.konstruktionsblatt *{transition:none!important}}
 /* Im Stand ist das Blatt gross; die Regeln fuer das alte Markenblatt
    (Schutzraum-Kasten um die Wortmarke) gelten hier nicht. */
 .stand .brett-desktop .konstruktionsblatt{padding:7% 7% 6%;font-size:1rem}
@@ -1300,6 +1298,21 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .stand .brett-desktop .konstruktionsblatt .regeln span{font-size:.72rem;padding:5px 0}
 .stand .brett-desktop .konstruktionsblatt .dunkelprobe .wortmarke{font-size:2rem}
 .stand .brett-desktop .konstruktionsblatt .dunkelprobe small{font-size:.6rem}
+/* Blatt 2 bis 4 im Stand: dieselben Blaetter wie in der Reihe, die Grade
+   an der Blattbreite (cqw), damit es am Handy mit 330 Pixeln genauso sitzt
+   wie am Desktop mit 550. */
+.stand .brett-desktop .konstruktionsblatt{container-type:inline-size}
+.stand .brett-desktop .konstruktionsblatt small{font-size:clamp(.46rem,1.9cqw,.62rem)}
+.stand .brett-desktop .konstruktionsblatt .seite.weitere .inhalt{margin-top:17%}
+.stand .brett-desktop .konstruktionsblatt .farbzeilen b{font-size:clamp(.7rem,3cqw,1rem)}
+.stand .brett-desktop .konstruktionsblatt .farbzeilen em{font-size:clamp(.56rem,2.2cqw,.72rem)}
+.stand .brett-desktop .konstruktionsblatt .probe .gross{font-size:15cqw}
+.stand .brett-desktop .konstruktionsblatt .probe .abc{font-size:clamp(.6rem,2.8cqw,.95rem)}
+.stand .brett-desktop .konstruktionsblatt .probe .rolle{font-size:clamp(.6rem,2.4cqw,.78rem)}
+.stand .brett-desktop .konstruktionsblatt .seite.dunkel .wortmarke{font-size:10cqw;margin-top:34%}
+.stand .brett-desktop .konstruktionsblatt .seite.dunkel .regel{font-size:clamp(.6rem,2.5cqw,.82rem)}
+.stand .brett-desktop .konstruktionsblatt .seite.dunkel .falsch > span{font-size:4.6cqw}
+.stand .brett-desktop .konstruktionsblatt .seite.dunkel .falsch small{font-size:clamp(.46rem,1.9cqw,.62rem)}
 .stand .brett-desktop .telefon video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
 .schnittleiste i{left:calc(var(--t) / var(--dauer,18) * 100%)}
 @media(max-width:760px){.richtung .blatt-objekt{width:57%}}
@@ -1537,6 +1550,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
           <p class="brettname" aria-hidden="true"><b>Markenblatt</b> · 210 × 297 mm</p>
           <div class="auswahl blatt-rahmen" data-mass="210 × 297 mm">
             <span class="blatt konstruktionsblatt">
+            <span class="seite erste">
               <small>Markenblatt · Blatt 1 von 4 · Konstruktion</small>
               <svg class="konstruktionslinien" viewBox="0 0 300 150" aria-hidden="true">
                 <defs><pattern id="mm-gross" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M10 0H0V10" fill="none" stroke="#15202a" stroke-opacity=".07" stroke-width=".6"/></pattern></defs>
@@ -1567,6 +1581,32 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
               <span class="regeln"><span><b>Schutzraum</b> eine x-Höhe rundum</span><span><b>Kleinste Grösse</b> 24 mm Breite</span><span><b>Auf Dunkel</b> Papier statt Tinte</span></span>
               <span class="dunkelprobe"><span class="wortmarke">format<b>eins</b></span><small>Auf Dunkel</small></span>
             </span>
+            <span class="seite weitere farbblatt">
+              <small>Markenblatt · Blatt 2 von 4 · Farben</small>
+              <span class="inhalt farbzeilen">
+                <span><i style="--f:#1b2a33"></i><span><b>Grund</b><em>#1B2A33 · C 82 M 60 Y 45 K 50</em></span></span>
+                <span><i style="--f:#0e1820"></i><span><b>Grund, tief</b><em>#0E1820 · C 88 M 70 Y 55 K 70</em></span></span>
+                <span><i style="--f:#ff8a4c"></i><span><b>Signal</b><em>#FF8A4C · C 0 M 55 Y 70 K 0</em></span></span>
+                <span><i style="--f:#f2ede2"></i><span><b>Papier</b><em>#F2EDE2 · C 4 M 5 Y 10 K 0</em></span></span>
+                <span><i style="--f:#ddd4c3"></i><span><b>Papier, still</b><em>#DDD4C3 · C 12 M 14 Y 22 K 0</em></span></span>
+              </span>
+            </span>
+            <span class="seite weitere schriftblatt">
+              <small>Markenblatt · Blatt 3 von 4 · Schriften</small>
+              <span class="inhalt">
+                <span class="probe serif"><span class="gross">Aa</span><span class="abc">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</span><span class="rolle"><b>Playfair Display 900</b> · Titel und Wortmarke</span></span>
+                <span class="probe sans"><span class="gross">Aa</span><span class="abc">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</span><span class="rolle"><b>Schibsted Grotesk 400 / 700</b> · Text, Zahlen, Beschriftung</span></span>
+              </span>
+            </span>
+            <span class="seite weitere dunkel">
+              <small>Markenblatt · Blatt 4 von 4 · Auf Dunkel</small>
+              <span class="inhalt">
+                <span class="wortmarke">format<b>eins</b></span>
+                <span class="regel"><b>Auf Dunkel:</b> Papier statt Tinte, Signal bleibt Signal. Nie Tinte auf Dunkel.</span>
+                <span class="falsch"><span class="ja">format<b>eins</b><small>So</small></span><span class="nein">format<b>eins</b><small>Nicht so</small></span></span>
+              </span>
+            </span>
+          </span>
           </div>
         </div>
         <aside class="inspektor" aria-label="Was dazugehört">
@@ -2258,16 +2298,14 @@ if (spot && !reduziert && 'IntersectionObserver' in window) {
   richtungen.forEach(r => io.observe(r.querySelector('.beweis') || r));
 })();
 
-// Das Markenblatt blaettert, solange es im Bild ist: das erste Blatt baut
+// Das Markenblatt blaettert, solange es zu sehen ist: das erste Blatt baut
 // sich auf (Klasse baut), nach knapp fuenf Sekunden hebt es sich ab und die
 // Blaetter 2 bis 4 folgen im Takt von 2,4 Sekunden, dann baut sich Blatt 1
-// wieder auf. Verlaesst
-// das Blatt das Bild, steht wieder Blatt 1 auf Anfang. Wer Bewegung
-// abgeschaltet hat, sieht Blatt 1 fertig und ohne Wechsel.
-(() => {
-  const blatt = document.querySelector('.richtung .konstruktionsblatt');
-  if (!blatt) return;
-  const richtung = blatt.closest('.richtung');
+// wieder auf. In der Reihe gilt "zu sehen" = Klasse imbild auf der Richtung,
+// im Stand = Klasse zeichnet auf dem Stand (Skript unten). Ausser Sicht steht
+// alles auf Anfang. Wer Bewegung abgeschaltet hat, sieht Blatt 1 fertig und
+// ohne Wechsel.
+const blattwerk = (blatt, traeger, klasse) => {
   const weitere = [...blatt.querySelectorAll('.seite.weitere')];
   let timer = 0;
   const zeigen = (n) => {
@@ -2278,21 +2316,20 @@ if (spot && !reduziert && 'IntersectionObserver' in window) {
       else { seite.classList.remove('aktiv'); seite.classList.toggle('weg', k < n || n === 1); }
     });
   };
-  const anfang = () => { clearTimeout(timer); zeigen(1); blatt.classList.remove('baut'); };
+  const anfang = () => { clearTimeout(timer); timer = 0; zeigen(1); blatt.classList.remove('baut'); };
   const weiter = (n) => {
     zeigen(n);
     if (n === 1) { blatt.classList.remove('baut'); void blatt.offsetWidth; blatt.classList.add('baut'); }
     timer = setTimeout(() => weiter(n % 4 + 1), n === 1 ? 4800 : 2400);
   };
-  const lauf = () => { anfang(); weiter(1); };
   zeigen(1);
   if (reduziert) { blatt.classList.add('baut'); return; }
-  new MutationObserver(() => {
-    if (richtung.classList.contains('imbild')) { if (!timer) lauf(); }
-    else { anfang(); timer = 0; }
-  }).observe(richtung, { attributes: true, attributeFilter: ['class'] });
-  if (richtung.classList.contains('imbild')) lauf();
-})();
+  const pruefen = () => { if (traeger.classList.contains(klasse)) { if (!timer) { anfang(); weiter(1); } } else if (timer) anfang(); };
+  new MutationObserver(pruefen).observe(traeger, { attributes: true, attributeFilter: ['class'] });
+  pruefen();
+};
+document.querySelectorAll('.richtung .konstruktionsblatt').forEach(b => blattwerk(b, b.closest('.richtung'), 'imbild'));
+document.querySelectorAll('.stand .konstruktionsblatt').forEach(b => blattwerk(b, b.closest('.stand'), 'zeichnet'));
 
 // Das Richtwerk: die drei Richtungen sind der Tisch, ein Klick auf ein Objekt
 // zoomt in den Stand der Richtung, wie bei der Werkbank auf der Live-Seite.
@@ -2446,6 +2483,7 @@ function richtwerkEinrichten(werkbank) {
       // ausgeblendet bleiben (fill: forwards).
       werkbank.querySelector('.werkzeugleiste').getAnimations().forEach(a => a.cancel());
       werkbank.classList.remove('zoomt'); beschaeftigt = false;
+      staende.forEach(s => s.classList.remove('zeichnet'));
       aktiv = -1; spotSchalten();
     });
     karte.querySelector('.lupe').focus({ preventScroll: true });
