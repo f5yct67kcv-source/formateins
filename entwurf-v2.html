@@ -1164,9 +1164,27 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 }
 .richtwerk[data-ansicht="projekt"] .buehne{border-color:var(--linie)}
 .richtwerk[data-ansicht="projekt"] .buehne::before{opacity:1}
-.richtwerk .werkzeugleiste{position:absolute;top:0;left:0;right:0;z-index:6;border:0;border-bottom:1px solid var(--linie)}
+/* Die Werkzeugleiste klebt unter der mitlaufenden Kopfzeile (60 Pixel),
+   solange die Buehne im Bild ist. Dafuer clip statt hidden auf der Buehne:
+   hidden macht sie zum Scrollkasten, und sticky klebt dann an ihm statt am
+   Fenster. */
+.richtwerk .buehne{overflow:clip}
+.richtwerk .werkzeugleiste{position:sticky;top:60px;z-index:6;border:0;border-bottom:1px solid var(--linie)}
 .richtwerk[data-ansicht="uebersicht"] .werkzeugleiste{display:none}
-.richtwerk .flaeche{padding-top:calc(50px + clamp(44px,6vw,80px))}
+/* Fussleiste am Ende des Stands: Uebersicht links, naechste Richtung rechts. */
+.fussleiste{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  margin-top:clamp(40px,5vw,64px);padding-top:14px;border-top:1px solid var(--linie);
+  font-size:var(--txt-s);color:var(--auf-grund-still);
+}
+.fussleiste button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.fussleiste .zurueck{display:inline-flex;align-items:center;gap:8px;padding:10px 0;color:var(--auf-grund);font-weight:600}
+.fussleiste .weiter{display:inline-flex;align-items:center;gap:8px;padding:10px 0;color:var(--auf-grund);font-weight:600;text-align:right}
+.fussleiste .weiter .leise{color:var(--ringschrift);font-weight:400}
+.fussleiste .weiter::after{content:"→";color:var(--signal);transition:transform .2s ease}
+.fussleiste .weiter:hover::after{transform:translateX(3px)}
+@media(min-width:900px){.richtwerk .fussleiste{grid-column:1/13;grid-row:4}}
+@media(max-width:899px){.richtwerk .fussleiste{grid-column:1/3;grid-row:4}}
 .richtung .lupe{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-align:inherit;cursor:zoom-in;-webkit-tap-highlight-color:transparent}
 .richtung .lupe:focus-visible{outline-offset:10px}
 /* Das Zeichen am Objekt (Fassung C, 25.10.2026): eine kleine Scheibe in
@@ -1515,11 +1533,13 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
          Arbeiten-Flaeche von frueher. Wo bei den Arbeiten der Inspektor
          stand, steht hier das Angebot. Die Texte in den Staenden sind
          Entwurfstext. -->
+    <!-- Die Werkzeugleiste klebt unter der Kopfzeile, solange der Stand im
+         Bild ist; der Weg zurueck bleibt so immer sichtbar. -->
+    <div class="werkzeugleiste">
+      <div class="teil"><button class="zurueck" type="button">Übersicht</button><span class="trenner">/</span><b class="projekttitel"></b></div>
+      <div class="teil"><span class="leise breit">Richtung <span class="nummer">1</span> von 3</span><button class="blaettern" type="button" data-richtung="-1" aria-label="Vorherige Richtung">‹</button><button class="blaettern" type="button" data-richtung="1" aria-label="Nächste Richtung">›</button><span class="prozent breit">100 %</span></div>
+    </div>
     <div class="flaeche" hidden>
-      <div class="werkzeugleiste">
-        <div class="teil"><button class="zurueck" type="button">Übersicht</button><span class="trenner">/</span><b class="projekttitel"></b></div>
-        <div class="teil"><span class="leise breit">Richtung <span class="nummer">1</span> von 3</span><button class="blaettern" type="button" data-richtung="-1" aria-label="Vorherige Richtung">‹</button><button class="blaettern" type="button" data-richtung="1" aria-label="Nächste Richtung">›</button><span class="prozent breit">100 %</span></div>
-      </div>
 
       <div class="stand" data-titel="Webdesign" data-anker=".fenster" role="group" aria-label="Webdesign" hidden>
         <div class="brett-desktop">
@@ -1672,6 +1692,13 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
           <p class="hinweis">Entwurfstext. Hier stehen später deine Worte, die Formate und was ein Spot kostet.</p>
           <div class="handeln"><a class="knopf" href="entwurf-motion.html">Motion Design ansehen<span class="pfeil">→</span></a></div>
         </div>
+      </div>
+
+      <!-- Abschluss des Stands: zurueck zur Uebersicht oder gleich zur
+           naechsten Richtung, ohne nach oben zu muessen. -->
+      <div class="fussleiste">
+        <button class="zurueck" type="button">Übersicht</button>
+        <button class="weiter" type="button" data-richtung="1"><span class="leise">Weiter</span><b class="weiterziel"></b></button>
       </div>
     </div>
     </div>
@@ -2396,6 +2423,8 @@ function richtwerkEinrichten(werkbank) {
   const karten = [...werkbank.querySelectorAll('.richtung')];
   const staende = [...werkbank.querySelectorAll('.stand')];
   const zurueck = werkbank.querySelector('.zurueck');
+  const weiterLeise = werkbank.querySelector('.fussleiste .weiter .leise');
+  const weiterZiel = werkbank.querySelector('.fussleiste .weiterziel');
   const titel = werkbank.querySelector('.projekttitel');
   const nummer = werkbank.querySelector('.nummer');
   const zeit = 750, kurve = 'cubic-bezier(.65,0,.25,1)';
@@ -2416,6 +2445,9 @@ function richtwerkEinrichten(werkbank) {
     aktiv = i;
     titel.textContent = staende[i].dataset.titel;
     nummer.textContent = i + 1;
+    const n = (i + 1) % staende.length;
+    weiterLeise.textContent = n === 0 ? 'Von vorn' : 'Weiter';
+    weiterZiel.textContent = `0${n + 1} · ${staende[n].dataset.titel}`;
     spotSchalten();
     // Erst sichtbar, dann zeichnen: aus display:none heraus laeuft kein Uebergang.
     requestAnimationFrame(() => requestAnimationFrame(() => staende[i].classList.add('zeichnet')));
@@ -2439,7 +2471,7 @@ function richtwerkEinrichten(werkbank) {
   // kurz danach noch einmal per Zeitgeber: haelt der Browser die Animation an,
   // etwa in einem Tab im Hintergrund, bliebe die Werkbank sonst blockiert.
   const einmal = (f) => { let erledigt = false; return () => { if (!erledigt) { erledigt = true; f(); } }; };
-  const beiwerk = (st) => [werkbank.querySelector('.werkzeugleiste'), ...st.querySelectorAll('.brett-desktop > .brettname, .brett-desktop > .schnittleiste, .inspektor, .projekt')];
+  const beiwerk = (st) => [...werkbank.querySelectorAll('.werkzeugleiste, .fussleiste'), ...st.querySelectorAll('.brett-desktop > .brettname, .brett-desktop > .schnittleiste, .inspektor, .projekt')];
 
   function hinein(i) {
     if (beschaeftigt || !staende[i]) return;
@@ -2497,9 +2529,9 @@ function richtwerkEinrichten(werkbank) {
     const fertig = einmal(() => {
       flaeche.hidden = true; flaeche.classList.remove('ueberlagert');
       st.getAnimations({ subtree: true }).forEach(a => a.cancel());
-      // Die Werkzeugleiste liegt ausserhalb des Stands und wuerde sonst
-      // ausgeblendet bleiben (fill: forwards).
-      werkbank.querySelector('.werkzeugleiste').getAnimations().forEach(a => a.cancel());
+      // Werkzeug- und Fussleiste liegen ausserhalb des Stands und wuerden
+      // sonst ausgeblendet bleiben (fill: forwards).
+      werkbank.querySelectorAll('.werkzeugleiste, .fussleiste').forEach(el => el.getAnimations().forEach(a => a.cancel()));
       werkbank.classList.remove('zoomt'); beschaeftigt = false;
       staende.forEach(s => s.classList.remove('zeichnet'));
       aktiv = -1; spotSchalten();
@@ -2547,8 +2579,10 @@ function richtwerkEinrichten(werkbank) {
     k.addEventListener('pointerenter', () => vorholen(i));
     k.addEventListener('touchstart', () => vorholen(i), { passive: true });
   });
-  zurueck.addEventListener('click', hinaus);
+  werkbank.querySelectorAll('.zurueck').forEach(z => z.addEventListener('click', hinaus));
   werkbank.querySelectorAll('.blaettern').forEach(b => b.addEventListener('click', () => blaettern(+b.dataset.richtung)));
+  // Aus der Fussleiste weiter: Stand wechseln und zu seinem Anfang scrollen.
+  werkbank.querySelectorAll('.fussleiste .weiter').forEach(b => b.addEventListener('click', () => { blaettern(+b.dataset.richtung); insBild(); }));
   werkbank.addEventListener('keydown', (e) => {
     if (werkbank.dataset.ansicht !== 'projekt') return;
     if (e.key === 'Escape') hinaus();
