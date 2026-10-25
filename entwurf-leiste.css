@@ -25,9 +25,11 @@
 .rechts .knopf .pfeil{transition:transform .2s ease}
 .rechts .knopf:hover .pfeil{transform:translateX(4px)}
 
-/* Menueknopf: drei Striche und das Wort. Erst am Handy sichtbar. */
-.menuknopf{display:none;align-items:center;gap:10px;background:none;border:0;color:var(--auf-grund);font:inherit;font-size:var(--txt-s);font-weight:600;cursor:pointer;padding:10px 0;min-height:44px}
-.menuknopf i{display:block;width:22px;height:2px;background:currentColor;box-shadow:0 7px 0 currentColor,0 -7px 0 currentColor}
+/* Menueknopf: drei Striche, ohne Wort (25.10.2026, das Zeichen erklaert sich
+   selbst; der Name steht im aria-label). Erst am Handy sichtbar, 44 Pixel
+   Tastflaeche. */
+.menuknopf{display:none;align-items:center;justify-content:center;background:none;border:0;color:var(--auf-grund);cursor:pointer;padding:0;width:44px;height:44px;margin-right:-8px}
+.menuknopf i{display:block;width:26px;height:2px;background:currentColor;box-shadow:0 8px 0 currentColor,0 -8px 0 currentColor}
 
 @media(max-width:760px){
   .menu{display:none}
@@ -37,11 +39,6 @@
   .kopf .rechts .knopf{display:none}
   .mitlauf .rechts{gap:16px}
   .mitlauf .rechts .knopf{padding:9px 13px;white-space:nowrap}
-}
-@media(max-width:430px){
-  /* Logo, Menue und Knopf passen nur ohne das Wort nebeneinander. Die drei
-     Striche bleiben, der Name steht im aria-label. */
-  .mitlauf .menuknopf span{display:none}
 }
 
 /* Das offene Menue am Handy: ganze Flaeche, fuenf Zeilen in der Serif,
