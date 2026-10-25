@@ -540,21 +540,3 @@ php -S 127.0.0.1:8000 -t . quellen/lokal.php
 Dann `http://localhost:8000` öffnen. Der Router `quellen/lokal.php` liefert die
 Seiten wie Hostpoint ohne `.html` aus; ein einfacher `python3 -m http.server`
 kennt `/gespraech` nicht. Formular und Terminbuchung schicken lokal nichts ab.
-
-## WordPress lokal
-
-Für die WordPress-Demo (Kunden, die lieber auf WordPress arbeiten) läuft
-WordPress lokal ohne MySQL und ohne Docker, mit PHP 8 und SQLite:
-
-```bash
-quellen/wordpress-lokal.sh            # Standard: ../wordpress-lokal, neben dem Repo
-```
-
-Holt Kern und SQLite-Treiber von GitHub (wordpress.org ist aus der
-Cloud-Sitzung nicht erreichbar), richtet die Seite ein und startet
-`php -S` auf `http://127.0.0.1:8080`. Redaktion: `/wp-login.php`, Anmeldung
-`adrian` / `demo-lokal-2026`. Themes kommen nach `wp/wp-content/themes`.
-Alles ohne Verbindung nach draussen, Updates und Gravatar sind abgeschaltet.
-Nur zum Bauen und Rendern gedacht, nicht fuer den Betrieb; live gehoert
-WordPress auf ein eigenes Hosting (Hostpoint bietet es fertig an), nicht in
-diese Auslieferung.
