@@ -400,82 +400,6 @@ footer{--licht-x:10%;--licht-y:4%}
 @media(min-width:820px){
   .mitte{text-align:center}
   .mitte .gross{margin-inline:auto}
-  /* Das Raster darunter bleibt linksbuendig — zentrierter Fliesstext in vier
-     Zellen waere nur schwerer zu lesen. */
-  .mitte .saetze{text-align:left}
-}
-
-/* ---------- Was am Ende dasteht ----------
-   Kein Kartenraster: vier Textblöcke, nur durch Haarlinien getrennt. Dieselbe
-   Linienlogik wie bei .zeilen, aber zweispaltig — dadurch liest es sich als
-   Datenblatt und nicht als Leistungskacheln. */
-.saetze{
-  position:relative;
-  margin-top:clamp(28px,4vh,48px);
-  display:grid;grid-template-columns:1fr;
-  border-top:1px solid var(--linie);
-}
-
-/* Ein einziges Leitlicht statt vier gleicher Marken. Es steht am linken Rand des
-   aktiven Blocks und gleitet zum naechsten — dadurch gibt es nichts, was sich
-   wiederholen koennte, und die Bewegung dazwischen wird selbst zum Effekt.
-   Es faehrt in beiden Achsen, muss also im zweispaltigen Raster auch die Spalte
-   wechseln koennen. Groesse und Position kommen aus einer einzigen
-   transform-Eigenschaft, damit die Bewegung auf dem Compositor laeuft. */
-.saetze > div{position:relative}
-.leitlicht{
-  position:absolute;top:0;left:0;width:2px;height:0;
-  transform:translate(0,0);
-  opacity:0;pointer-events:none;
-  /* Die weichen Enden sind in Pixeln gesetzt, nicht in Prozent. Mit scaleY
-     wuerden sie beim Wechsel mitgestreckt und gestaucht — das las sich wie
-     Spitzen, die herunterschiessen. So bleiben sie immer gleich weich. */
-  background:linear-gradient(180deg,
-    transparent 0, var(--signal) 18px,
-    var(--signal) calc(100% - 18px), transparent 100%);
-  transition:transform .5s cubic-bezier(.4,0,.2,1),
-             height .5s cubic-bezier(.4,0,.2,1),
-             opacity .3s ease;
-}
-.saetze.leuchtet .leitlicht{opacity:1}
-
-/* Taschenlampe, nur am Zeiger. Ein Lichtkegel fester Groesse, der per transform
-   bewegt wird — eine wandernde Gradient-Position wuerde die ganze Flaeche bei
-   jeder Mausbewegung neu zeichnen lassen. Der Kegel liegt ueber den Haarlinien
-   und waermt sie dort, wo er steht. */
-.fackel{
-  position:absolute;top:0;left:0;width:460px;height:460px;
-  margin:-230px 0 0 -230px;
-  pointer-events:none;opacity:0;
-  background:radial-gradient(circle closest-side,
-    rgba(255,138,76,.19) 0%,
-    rgba(255,138,76,.07) 46%,
-    rgba(255,138,76,0) 74%);
-  transition:opacity .35s ease;
-  will-change:transform;
-}
-.saetze.fackel-an .fackel{opacity:1}
-@media(min-width:820px) and (hover:hover){
-  /* Der Kegel darf nicht in die Nachbarabschnitte auslaufen. */
-  .saetze{overflow:hidden}
-  /* Auf dem Desktop uebernimmt die Fackel, das Leitlicht bleibt fuer Mobil. */
-  .leitlicht{display:none}
-}
-/* Auf dem Desktop andere Strategie: dort zeigt der Zeiger schon, wo du bist —
-   das Licht soll nicht quer ueber zwei Spalten gleiten, sondern sofort am
-   richtigen Block stehen. Nur die Deckkraft blendet. */
-@media(min-width:820px) and (hover:hover){
-  .leitlicht{transition:opacity .25s ease}
-}
-@media(prefers-reduced-motion:reduce){.leitlicht{transition:none}}
-.saetze > div{padding-block:clamp(20px,2.6vw,28px);border-bottom:1px solid var(--linie)}
-.saetze h3{margin-bottom:.45em}
-.saetze p{color:var(--auf-grund-still);font-size:var(--txt-m);max-width:46ch}
-@media(min-width:820px){
-  .saetze{grid-template-columns:1fr 1fr}
-  .saetze > div{padding-inline:clamp(24px,3vw,40px)}
-  .saetze > div:nth-child(odd){padding-left:0;border-right:1px solid var(--linie)}
-  .saetze > div:nth-child(even){padding-right:0}
 }
 
 /* ---------- Ablauf ----------
@@ -1101,20 +1025,32 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 /* ---------- Ortszeile, Passung, Direktkontakt ---------- */
 .ortszeile{margin-top:1.2em;max-width:58ch}
 /* Der einzige mittige Abschnitt der Seite: Titel und Satz stehen auf der Achse
-   zwischen den zwei Listen. Am Handy bleibt das so, die Listen stehen links. */
+   zwischen den zwei Boxen. Am Handy bleibt das so, die Listen stehen links.
+   Zwei Boxen, vier Punkte je Seite, jeder eine Zeile: der Kopf «wenn du …»
+   traegt den Satzanfang, die Punkte nur den Rest. Die Passt-Box ist orange
+   gerahmt mit einem leisen Schein; am Zeiger laeuft darin die Taschenlampe
+   (Klasse fackel, Skript unten), am Handy bleibt der Schein. */
 #passung .spalte>h2,#passung .spalte>p{text-align:center;margin-inline:auto}
-.passung{display:grid;grid-template-columns:1fr;gap:34px clamp(28px,5vw,72px);margin-top:clamp(28px,4vh,44px)}
+.passung{display:grid;grid-template-columns:1fr;gap:20px clamp(20px,2.5vw,32px);margin-top:clamp(28px,4vh,44px)}
 @media(min-width:760px){.passung{grid-template-columns:1fr 1fr}}
-.passung h3{display:flex;align-items:center;gap:12px;margin:0 0 4px;font-family:var(--sans);font-size:var(--txt-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--signal)}
-.passung h3::before{content:"";width:26px;height:1.5px;background:currentColor}
-.passung .nein h3{color:var(--ringschrift)}
+.passung>div{position:relative;padding:clamp(22px,3vw,34px) clamp(22px,3vw,36px) clamp(18px,2.5vw,28px);border:1px solid var(--linie);border-radius:14px;background:rgba(255,255,255,.025);overflow:hidden}
+.passung .ja{border-color:rgba(255,138,76,.55);box-shadow:0 0 0 1px rgba(255,138,76,.08),0 0 38px rgba(255,138,76,.14),inset 0 0 50px rgba(255,138,76,.05)}
+.passung h3{font-family:var(--serif);font-size:clamp(1.25rem,1.9vw,1.55rem);font-weight:700;letter-spacing:-.015em;line-height:1.15;margin:0 0 10px;color:var(--auf-grund)}
 .passung ul{list-style:none;padding:0;margin:0}
-.passung li{position:relative;padding:14px 0 14px 34px;border-bottom:1px solid var(--linie);font-size:var(--txt-m);max-width:none}
+.passung li{position:relative;padding:12px 0 12px 34px;border-bottom:1px solid var(--linie);font-size:var(--txt-m);max-width:none}
 .passung li:last-child{border-bottom:0}
-.passung li::before{position:absolute;left:2px;top:13px;font-weight:700;color:var(--signal);line-height:1.5}
+.passung li b{font-weight:700;color:var(--auf-grund)}
+.passung li::before{position:absolute;left:2px;top:11px;font-weight:700;color:var(--signal);line-height:1.5}
 .passung .ja li::before{content:"✓"}
 .passung .nein li{color:var(--auf-grund-still)}
-.passung .nein li::before{content:"×";color:var(--ringschrift);font-size:1.25em;top:11px}
+.passung .nein li::before{content:"×";color:var(--ringschrift);font-size:1.25em;top:9px}
+/* Taschenlampe, nur am Zeiger. Ein Lichtkegel fester Groesse, der per transform
+   bewegt wird; eine wandernde Gradient-Position liesse die ganze Box bei jeder
+   Mausbewegung neu zeichnen. Der Kegel liegt ueber den Haarlinien und waermt
+   sie dort, wo er steht. */
+.passung .fackel{position:absolute;top:0;left:0;width:420px;height:420px;margin:-210px 0 0 -210px;pointer-events:none;opacity:0;border-radius:50%;background:radial-gradient(circle closest-side,rgba(255,138,76,.22) 0%,rgba(255,138,76,.08) 46%,rgba(255,138,76,0) 74%);transition:opacity .35s ease;will-change:transform}
+.passung .ja.fackel-an .fackel{opacity:1}
+@media(prefers-reduced-motion:reduce){.passung .fackel{display:none}}
 .direkt{list-style:none;padding:0;margin:1.6em 0 0;display:flex;flex-direction:column;gap:12px}
 .direkt li{display:flex;align-items:center;gap:14px;font-weight:600}
 .direkt svg{flex:none;width:22px;height:22px;fill:none;stroke:var(--signal);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
@@ -1794,23 +1730,21 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
     <p class="still" style="margin-top:1.2em;max-width:58ch">Lieber jetzt ehrlich als in Woche sechs.</p>
     <div class="passung">
       <div class="ja">
-        <h3>Passt</h3>
+        <h3>Passt, wenn du …</h3>
         <ul>
-          <li>Du bist selbstständig oder führst einen kleinen Betrieb in Olten oder der Region.</li>
-          <li>Deine Seite soll zeigen, was du machst, und man soll dich erreichen. Mehr muss sie nicht.</li>
-          <li>Du willst eine Ansprechperson, die deinen Betrieb kennt, statt ein Projektbüro.</li>
-          <li>Du hast Texte und Bilder oder lässt sie machen, und du weisst, dass sie am meisten Zeit brauchen.</li>
-          <li>Du willst keinen Baukasten, keine Updates und kein Abo.</li>
+          <li>einen <b>persönlichen Ansprechpartner</b> willst, keinen Ticketschalter</li>
+          <li><b>alles aus einer Hand</b> willst: Webdesign, Branding, Motion Design</li>
+          <li>eine Seite willst, die <b>zeigt, was du machst und kannst</b></li>
+          <li><b>selbstständig bist</b> oder ein kleines Unternehmen führst</li>
         </ul>
       </div>
       <div class="nein">
-        <h3>Passt nicht</h3>
+        <h3>Passt nicht, wenn du …</h3>
         <ul>
-          <li>Du brauchst einen Shop oder ein Bestellsystem. Das baue ich nicht.</li>
-          <li>Du willst täglich selbst Inhalte einpflegen, mit Login. Dafür ist ein Baukasten das bessere Werkzeug.</li>
-          <li>Du brauchst ein Portal mit Kundenkonten oder einen Mitgliederbereich.</li>
-          <li>Du suchst eine Website für unter tausend Franken.</li>
-          <li>Du willst Platz eins bei Google garantiert haben. Das garantiert dir niemand ehrlich.</li>
+          <li>eine Website <b>unter tausend Franken</b> suchst</li>
+          <li>einen <b>Shop oder ein Bestellsystem</b> brauchst</li>
+          <li><b>täglich selbst</b> Inhalte einpflegen willst</li>
+          <li><b>Platz eins bei Google</b> garantiert willst</li>
         </ul>
       </div>
     </div>
@@ -2176,92 +2110,29 @@ function ringLinieSetzen(){
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(ringLinieSetzen);
 else addEventListener('load', ringLinieSetzen);
 
-// Die Hervorhebung per Zeiger macht CSS allein. Hier geht es nur um Geraete
-// ohne Zeiger: dort uebernimmt die Scrollposition. Der Block, der gerade das
-// mittlere Zehntel des Bildschirms kreuzt, ist der aktive — und die Klasse geht
-// beim Herausscrollen wieder weg, in beide Richtungen, beliebig oft.
-// Ein Leitlicht fuer beide Welten, aber mit unterschiedlichem Auslöser: am
-// Zeiger springt es zum Block, auf den du zeigst, ohne Zeiger wandert es mit
-// der Scrollposition. Die Bewegung selbst regelt CSS (siehe .leitlicht).
-const saetze = document.querySelector('.saetze');
-const saetzeBloecke = saetze ? [...saetze.querySelectorAll(':scope > div')] : [];
+// Taschenlampe in der Passt-Box. Nur am Zeiger, und die Position wird auf einen
+// Frame gedrosselt: pointermove feuert oefter als der Bildschirm zeichnet,
+// ungedrosselt waeren das Aktualisierungen, die nie zu sehen sind.
+const passtBox = document.querySelector('.passung .ja');
+if (passtBox && matchMedia('(hover: hover)').matches) {
+  const fackel = document.createElement('span');
+  fackel.className = 'fackel';
+  fackel.setAttribute('aria-hidden', 'true');
+  passtBox.appendChild(fackel);
 
-if (saetze && saetzeBloecke.length) {
-  const licht = document.createElement('span');
-  licht.className = 'leitlicht';
-  licht.setAttribute('aria-hidden', 'true');
-  saetze.appendChild(licht);
-
-  const zeiger = matchMedia('(hover: hover)');
-  let ziel = null;
-
-  // Position und Hoehe stecken in einer einzigen transform-Eigenschaft. Die
-  // Grundhoehe von 100px wird auf die echte Blockhoehe skaliert.
-  function lichtStellen(){
-    if (!ziel) { saetze.classList.remove('leuchtet'); return; }
-    const r = saetze.getBoundingClientRect();
-    const c = ziel.getBoundingClientRect();
-    const einzug = parseFloat(getComputedStyle(ziel).paddingLeft) || 0;
-    const x = (c.left - r.left) + einzug - 14;   // knapp links neben dem Text
-    const y = c.top - r.top;
-    licht.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
-    licht.style.height = c.height.toFixed(1) + 'px';
-    saetze.classList.add('leuchtet');
-  }
-  const zielSetzen = (b) => { ziel = b; lichtStellen(); };
-
-  saetzeBloecke.forEach(b => b.addEventListener('pointerenter', () => {
-    if (zeiger.matches) zielSetzen(b);
-  }));
-  saetze.addEventListener('pointerleave', () => { if (zeiger.matches) zielSetzen(null); });
-
-  // Taschenlampe. Nur am Zeiger, und die Position wird auf einen Frame gedrosselt:
-  // pointermove feuert oefter als der Bildschirm zeichnet, ungedrosselt waeren das
-  // Aktualisierungen, die nie zu sehen sind.
-  if (zeiger.matches) {
-    const fackel = document.createElement('span');
-    fackel.className = 'fackel';
-    fackel.setAttribute('aria-hidden', 'true');
-    saetze.appendChild(fackel);
-
-    let x = 0, y = 0, wartet = false;
-    saetze.addEventListener('pointermove', (e) => {
-      const r = saetze.getBoundingClientRect();
-      x = e.clientX - r.left; y = e.clientY - r.top;
-      if (wartet) return;
-      wartet = true;
-      requestAnimationFrame(() => {
-        fackel.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
-        wartet = false;
-      });
+  let x = 0, y = 0, wartet = false;
+  passtBox.addEventListener('pointermove', (e) => {
+    const r = passtBox.getBoundingClientRect();
+    x = e.clientX - r.left; y = e.clientY - r.top;
+    if (wartet) return;
+    wartet = true;
+    requestAnimationFrame(() => {
+      fackel.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+      wartet = false;
     });
-    saetze.addEventListener('pointerenter', () => saetze.classList.add('fackel-an'));
-    saetze.addEventListener('pointerleave', () => saetze.classList.remove('fackel-an'));
-  }
-
-  // Ohne Zeiger: der Block, dessen Mitte der Bildschirmmitte am naechsten liegt.
-  // Genau einer, nicht alle, die das Band schneiden.
-  function ausScrollposition(){
-    if (zeiger.matches) return;
-    const mitte = innerHeight / 2;
-    let bester = null, kleinster = Infinity;
-    saetzeBloecke.forEach(b => {
-      const r = b.getBoundingClientRect();
-      const abstand = Math.abs(r.top + r.height / 2 - mitte);
-      if (abstand < kleinster) { kleinster = abstand; bester = b; }
-    });
-    zielSetzen(kleinster < innerHeight * 0.35 ? bester : null);
-  }
-
-  if ('IntersectionObserver' in window) {
-    const leseband = new IntersectionObserver(ausScrollposition,
-      { rootMargin: '-35% 0px -35% 0px', threshold: 0 });
-    saetzeBloecke.forEach(b => leseband.observe(b));
-  }
-
-  zeiger.addEventListener('change', () => { zielSetzen(null); ausScrollposition(); });
-  addEventListener('resize', lichtStellen);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(lichtStellen);
+  });
+  passtBox.addEventListener('pointerenter', () => passtBox.classList.add('fackel-an'));
+  passtBox.addEventListener('pointerleave', () => passtBox.classList.remove('fackel-an'));
 }
 
 
