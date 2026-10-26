@@ -1012,11 +1012,19 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand[data-titel="Webdesign"] .angebot li{border-bottom:0;border-right:1px solid var(--linie);padding:6px 32px 6px 0}
   .stand[data-titel="Webdesign"] .angebot li:last-child{border-right:0;padding-right:0}
   .stand[data-titel="Webdesign"] .standhandeln{grid-row:4}
-  /* Branding: Blatt links, Angebot daneben */
-  .stand[data-titel="Branding"] .brett-desktop{grid-column:1/7}
-  .stand[data-titel="Branding"] .inspektor{grid-column:8/13;grid-row:2;align-self:start;margin:71px 0 0}
+  /* Branding (26.10.2026): aufgebaut wie Motion. Links die drei Schlagwoerter
+     mit Pfeilen aufs Blatt, in der Mitte das Blatt, rechts der Kasten auf
+     der Hoehe der Blattmitte. */
+  .stand[data-titel="Branding"] .brett-desktop{grid-column:4/9}
+  .stand[data-titel="Branding"] .auswahl.blatt-rahmen{margin:0;max-width:100%}
+  .stand[data-titel="Branding"] .wirkung{grid-column:1/4;grid-row:2;margin:71px 44px 0 0;justify-content:center;gap:118px;padding-bottom:40px}
+  .stand[data-titel="Branding"] .inspektor{grid-column:9/13;grid-row:2;align-self:center;margin:71px 0 0 36px}
   .stand[data-titel="Branding"] .standhandeln,.stand[data-titel="Motion Design"] .standhandeln{grid-row:3}
-  .auswahl.blatt-rahmen{margin:0;max-width:88%}
+  /* Die Schlagwoerter beider Staende: rechtsbuendig, Pfeil nach rechts aufs Objekt. */
+  .stand .wirkung b{font-size:1.22rem}
+  .stand .wirkung li{text-align:right;margin-left:auto}
+  .stand .wirkung li::after{content:"";position:absolute;left:calc(100% + 10px);top:.7em;width:34px;height:1px;background:var(--signal)}
+  .stand .wirkung li::before{content:"";position:absolute;left:calc(100% + 40px);top:calc(.7em - 3.5px);border:4px solid transparent;border-left:6px solid var(--signal);border-right:0}
   /* Motion (26.10.2026): Telefon in der Mitte der linken Haelfte, links die
      drei Schlagwoerter mit Pfeilen aufs Telefon, rechts die Formate als kompakter
      Kasten auf der Hoehe der Telefonmitte. */
@@ -1024,10 +1032,6 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand[data-titel="Motion Design"] .auswahl.telefon-rahmen{margin:0;max-width:100%}
   .stand[data-titel="Motion Design"] .schnittleiste{margin:44px 0 0;max-width:100%}
   .stand[data-titel="Motion Design"] .wirkung{grid-column:1/4;grid-row:2;margin:112px 44px 0 0;justify-content:center;gap:118px;padding-bottom:100px}
-  .stand[data-titel="Motion Design"] .wirkung b{font-size:1.22rem}
-  .stand[data-titel="Motion Design"] .wirkung li{text-align:right;margin-left:auto}
-  .stand[data-titel="Motion Design"] .wirkung li::after{content:"";position:absolute;left:calc(100% + 10px);top:.7em;width:34px;height:1px;background:var(--signal)}
-  .stand[data-titel="Motion Design"] .wirkung li::before{content:"";position:absolute;left:calc(100% + 40px);top:calc(.7em - 3.5px);border:4px solid transparent;border-left:6px solid var(--signal);border-right:0}
   .stand[data-titel="Motion Design"] .inspektor{grid-column:8/12;grid-row:2;align-self:center;margin:71px 0 74px}
 }
 /* Die Wirkung: drei Schlagwoerter in der Serif, ohne Erklaersatz (26.10.2026).
@@ -1042,6 +1046,9 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand .standhandeln{grid-column:1/3;grid-row:5;margin-top:28px}
   .stand .inspektor{grid-row:4}
   .stand .wirkung{grid-column:1/3;grid-row:3;margin-top:36px;gap:20px}
+  /* Beim Blatt haengt das Mass-Schild direkt darueber, beim Telefon liegt
+     die Schnittleiste dazwischen. */
+  .stand[data-titel="Branding"] .wirkung{margin-top:66px}
   .stand .wirkung li{padding-left:26px;max-width:none}
   .stand .wirkung li::before{content:"→";position:absolute;left:0;top:0;color:var(--signal);font-weight:700}
   /* Am Handy weniger Luft oben, das Objekt breiter, die Schrift eine Stufe
@@ -1541,9 +1548,8 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
       <div class="stand" data-titel="Branding" data-anker=".blatt" role="group" aria-label="Branding" hidden>
         <div class="projekt">
           <p class="brettname"><b>Richtung 02</b> · Branding</p>
-          <h3>Damit alles nach dir aussieht.</h3>
-          <p>Ein Logo ist der Anfang. Dazu gehören Farben, zwei Schriften und ein paar Regeln. Erst dann sehen die Offerte, die Visitenkarte und der Beitrag auf Instagram nach dir aus.</p>
-          <p class="hinweis">Entwurfstext. Hier stehen später deine Worte und die Paketpreise.</p>
+          <h3>Erkennbar auf den ersten Blick.</h3>
+          <p>Das Logo hast du irgendwann selbst gebastelt, und die Visitenkarte sieht anders aus als die Website? Dann wirkst du kleiner, als du bist. Zusammen klären wir, wofür du stehst und wen du ansprechen willst. Daraus gestalte ich ein Erscheinungsbild, an dem man dich überall wiedererkennt.</p>
         </div>
         <div class="brett-desktop">
           <p class="brettname" aria-hidden="true"><b>Markenblatt</b> · 4 Blätter</p>
@@ -1608,6 +1614,13 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
           </span>
           </div>
         </div>
+        <!-- Die Wirkung wie im Motion-Stand: drei Schlagwoerter mit Pfeil
+             aufs Blatt, ab zwei Spalten links davon, am Handy darunter. -->
+        <ul class="wirkung" aria-label="Was ein Markenblatt bringt">
+          <li><b>Überall auf einen Blick erkennbar.</b></li>
+          <li><b>Professionell vom ersten Kontakt an.</b></li>
+          <li><b>Einmal festgelegt, nie mehr diskutiert.</b></li>
+        </ul>
         <aside class="inspektor" aria-label="Was dazugehört">
           <h3>Was dazugehört</h3>
           <ul class="angebot">
