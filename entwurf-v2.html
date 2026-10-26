@@ -1003,18 +1003,39 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand[data-titel="Webdesign"] .angebot li{border-bottom:0;border-right:1px solid var(--linie);padding:6px 32px 6px 0}
   .stand[data-titel="Webdesign"] .angebot li:last-child{border-right:0;padding-right:0}
   .stand[data-titel="Webdesign"] .standhandeln{grid-row:4}
-  /* Branding und Motion: Objekt links, Angebot daneben */
-  .stand[data-titel="Branding"] .brett-desktop,.stand[data-titel="Motion Design"] .brett-desktop{grid-column:1/7}
-  .stand[data-titel="Branding"] .inspektor,.stand[data-titel="Motion Design"] .inspektor{grid-column:8/13;grid-row:2;align-self:start;margin:71px 0 0}
+  /* Branding: Blatt links, Angebot daneben */
+  .stand[data-titel="Branding"] .brett-desktop{grid-column:1/7}
+  .stand[data-titel="Branding"] .inspektor{grid-column:8/13;grid-row:2;align-self:start;margin:71px 0 0}
   .stand[data-titel="Branding"] .standhandeln,.stand[data-titel="Motion Design"] .standhandeln{grid-row:3}
   .auswahl.blatt-rahmen{margin:0;max-width:88%}
-  .auswahl.telefon-rahmen{margin:0;max-width:52%}
-  .schnittleiste{margin:44px 0 0;max-width:52%}
+  /* Motion (26.10.2026): Telefon in der Mitte der linken Haelfte, links die
+     Wirkung mit Pfeilen aufs Telefon, rechts die Formate so hoch wie das
+     Telefon (71 Pixel Zeile oben, Schnittleiste unten abgezogen). */
+  .stand[data-titel="Motion Design"] .brett-desktop{grid-column:4/7}
+  .stand[data-titel="Motion Design"] .auswahl.telefon-rahmen{margin:0;max-width:100%}
+  .stand[data-titel="Motion Design"] .schnittleiste{margin:44px 0 0;max-width:100%}
+  .stand[data-titel="Motion Design"] .wirkung{grid-column:1/4;grid-row:2;margin:112px 44px 0 0;justify-content:space-between;padding-bottom:70px}
+  .stand[data-titel="Motion Design"] .wirkung li{text-align:right;margin-left:auto}
+  .stand[data-titel="Motion Design"] .wirkung li::after{content:"";position:absolute;left:calc(100% + 10px);top:.7em;width:34px;height:1px;background:var(--signal)}
+  .stand[data-titel="Motion Design"] .wirkung li::before{content:"";position:absolute;left:calc(100% + 40px);top:calc(.7em - 3.5px);border:4px solid transparent;border-left:6px solid var(--signal);border-right:0}
+  .stand[data-titel="Motion Design"] .inspektor{grid-column:8/12;grid-row:2;align-self:stretch;margin:71px 0 74px;display:flex;flex-direction:column}
+  .stand[data-titel="Motion Design"] .angebot{flex:1;display:flex;flex-direction:column;justify-content:space-evenly}
+  .stand[data-titel="Motion Design"] .angebot li{padding:0}
 }
+/* Die Wirkung: Serif-Zeile und stille Erklaerung, drei Stueck. */
+.wirkung{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:30px}
+.wirkung li{position:relative;max-width:30ch}
+.wirkung b{display:block;font-family:var(--serif);font-weight:700;font-size:1.12rem;color:var(--auf-grund);line-height:1.2}
+.wirkung span{display:block;font-size:var(--txt-xs);color:var(--ringschrift);margin-top:4px;max-width:none}
 @media(max-width:899px){
   .stand .projekt{grid-column:1/3;grid-row:1;padding-top:0}
   .stand .brett-desktop{grid-row:2;margin-top:28px}
-  .stand .standhandeln{grid-column:1/3;grid-row:4;margin-top:28px}
+  .stand .standhandeln{grid-column:1/3;grid-row:5;margin-top:28px}
+  .stand .inspektor{grid-row:4}
+  .stand .wirkung{grid-column:1/3;grid-row:3;margin-top:36px;gap:20px}
+  .stand .wirkung li{padding-left:26px;max-width:none}
+  .stand .wirkung li::before{content:"→";position:absolute;left:0;top:0;color:var(--signal);font-weight:700}
+  .stand .wirkung span{font-size:.875rem}
   /* Am Handy weniger Luft oben, das Objekt breiter, die Schrift eine Stufe
      groesser: die Stufen xs und s sind auf dem kleinen Bildschirm zu klein. */
   .flaeche{padding-top:24px;padding-inline:16px}
@@ -1103,8 +1124,8 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 .fussleiste .weiter .leise{color:var(--ringschrift);font-weight:400}
 .fussleiste .weiter::after{content:"→";color:var(--signal);transition:transform .2s ease}
 .fussleiste .weiter:hover::after{transform:translateX(3px)}
-@media(min-width:900px){.richtwerk .fussleiste{grid-column:1/13;grid-row:5}}
-@media(max-width:899px){.richtwerk .fussleiste{grid-column:1/3;grid-row:5}}
+@media(min-width:900px){.richtwerk .fussleiste{grid-column:1/13;grid-row:6}}
+@media(max-width:899px){.richtwerk .fussleiste{grid-column:1/3;grid-row:6}}
 .richtung .lupe{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-align:inherit;cursor:zoom-in;-webkit-tap-highlight-color:transparent}
 .richtung .lupe:focus-visible{outline-offset:10px}
 /* Das Zeichen am Objekt (Fassung C, 25.10.2026): eine kleine Scheibe in
@@ -1609,6 +1630,14 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
             <b>4 Szenen</b><em>0:19</em>
           </span>
         </div>
+        <!-- Die Wirkung: drei Punkte mit Pfeil aufs Telefon, wie Beschriftungen
+             an einem Exponat. Ab zwei Spalten links vom Telefon, am Handy
+             darunter. -->
+        <ul class="wirkung" aria-label="Was ein Spot bringt">
+          <li><b>Mehr Sichtbarkeit auf Social Media</b><span>Reels und Stories laufen weiter, wo Bilder längst weggewischt sind.</span></li>
+          <li><b>Bleibt hängen</b><span>Bewegung hält den Daumen an. Ein Satz reicht, wenn er sitzt.</span></li>
+          <li><b>Ein Spot, alle Kanäle</b><span>Hochkant für Instagram, breit für die Website, als Einstieg in die Präsentation.</span></li>
+        </ul>
         <aside class="inspektor" aria-label="Formate">
           <h3>Formate</h3>
           <ul class="angebot">
@@ -2285,7 +2314,7 @@ function richtwerkEinrichten(werkbank) {
   // kurz danach noch einmal per Zeitgeber: haelt der Browser die Animation an,
   // etwa in einem Tab im Hintergrund, bliebe die Werkbank sonst blockiert.
   const einmal = (f) => { let erledigt = false; return () => { if (!erledigt) { erledigt = true; f(); } }; };
-  const beiwerk = (st) => [...werkbank.querySelectorAll('.werkzeugleiste, .fussleiste'), ...st.querySelectorAll('.brett-desktop > .brettname, .brett-desktop > .schnittleiste, .inspektor, .projekt, .standhandeln')];
+  const beiwerk = (st) => [...werkbank.querySelectorAll('.werkzeugleiste, .fussleiste'), ...st.querySelectorAll('.brett-desktop > .brettname, .brett-desktop > .schnittleiste, .inspektor, .projekt, .standhandeln, .wirkung')];
 
   function hinein(i) {
     if (beschaeftigt || !staende[i]) return;
