@@ -1628,10 +1628,13 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
         <div class="brett-desktop">
           <p class="brettname" aria-hidden="true"><b>Spot</b> · Instagram Reel</p>
           <div class="auswahl telefon-rahmen" data-mass="9 : 16 · 0:19">
-            <span class="telefon"><span class="sicht"><video poster="entwurf-video-spot.jpg" width="406" height="720" muted loop playsinline preload="metadata" aria-label="Spot für formateins: ein Preisschild, sieben Fragen, zwei Minuten, null Verkaufsgespräche"><source src="entwurf-video-spot.mp4" type="video/mp4"><source src="entwurf-video-spot.webm" type="video/webm"></video></span></span>
+            <span class="telefon"><span class="sicht"><video poster="entwurf-video-spot.jpg" width="406" height="720" muted loop playsinline preload="metadata" data-ton aria-label="Spot für formateins: ein Preisschild, sieben Fragen, zwei Minuten, null Verkaufsgespräche"><source src="entwurf-video-spot-ton.mp4" type="video/mp4"><source src="entwurf-video-spot-ton.webm" type="video/webm"></video></span></span>
             <!-- Ton nur auf Wunsch: der Spot laeuft stumm, der Knopf schaltet
                  den Ton zu. Er erscheint erst, wenn das Video data-ton traegt,
-                 also eine Tonspur hat; ohne Ton waere er ein leeres Versprechen. -->
+                 also eine Tonspur hat; ohne Ton waere er ein leeres Versprechen.
+                 Darum zwei Fassungen: hier im Stand entwurf-video-spot-ton
+                 (AAC und Opus, 96 kbit/s), in der Richtung oben die stumme
+                 entwurf-video-spot, die nie Ton spielt und so leichter laedt. -->
             <button class="ton-knopf" type="button" aria-pressed="false" aria-label="Ton einschalten" hidden><svg class="aus" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9l4 6M21 9l-4 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg><svg class="an" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></button>
           </div>
           <!-- Der Spot Bild fuer Bild (Viertelsekunden), Laenge 18.7 s.
