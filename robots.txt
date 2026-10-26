@@ -1,9 +1,3 @@
-# LIVEGANG: Disallow-Zeile entfernen und den Block unten verwenden.
-# Solange sie steht, bleibt der Entwurf aus dem Suchindex.
 User-agent: *
-Disallow: /
-
-# LIVEGANG: stattdessen dies verwenden —
-# User-agent: *
-# Allow: /
-# Sitemap: https://www.formateins.ch/sitemap.xml
+Allow: /
+Sitemap: https://www.formateins.ch/sitemap.xml

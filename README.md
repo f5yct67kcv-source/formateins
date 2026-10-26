@@ -317,11 +317,10 @@ etwas an Cookies, Anbieter oder Datenübermittlung, dort nachführen.
 Die SEO-Grundlage steht, aber sie ist bewusst stillgelegt. Alle Schalter sind
 im Code mit `LIVEGANG` markiert — `grep -rn LIVEGANG .` findet sie alle.
 
-1. **noindex entfernen** in `index.html`, `kostenrechner.html` und `gespraech.html`. Solange die
-   Zeile steht, bleibt die Seite aus dem Suchindex. Das ist Absicht: mit
-   Platzhalterpreisen und toten Links waere eine Indexierung schaedlich, weil
-   Google die Entwurfsfassung behaelt und sie spaeter gegen die echte Domain
-   antreten laesst.
+1. ~~**noindex entfernen**~~ erledigt am 26.10.2026: `index.html`,
+   `kostenrechner.html` und `gespraech.html` sind indexierbar, `robots.txt`
+   erlaubt alles und nennt die Sitemap, `canonical`, `og:url` und `og:image`
+   stehen mit voller Adresse. Impressum und Datenschutz bleiben `noindex`.
 2. **Domain einschalten.** `formateins.ch` ist registriert (22.10.2026, bei
    Hostpoint). Adresse der Seite ist `https://www.formateins.ch`; sie steht
    schon in `sitemap.xml`, im auskommentierten Block in `robots.txt`, im
@@ -378,9 +377,8 @@ und mit formateins verglichen. Sieben Massnahmen wurden daraus abgeleitet und
 hier festgehalten. Was ohne Adrian geht, ist im Entwurf gebaut; der Rest
 wartet auf ihn. Alles liegt in `entwurf*`-Dateien, bis er es abnimmt.
 
-Zuerst das, was alles andere aushebelt: solange `robots.txt` auf `Disallow: /`
-steht und die Seiten `noindex,nofollow` tragen, zaehlt keine der Massnahmen.
-Beides ist Absicht bis zum Livegang (siehe oben).
+Die Sperre fuer Suchmaschinen (`robots.txt` mit `Disallow: /`, `noindex` auf
+den Seiten) ist seit dem 26.10.2026 aufgehoben.
 
 1. **Je Arbeit eine eigene Seite.** Gebaut: `entwurf-arbeiten-guardops.html`
    und `entwurf-arbeiten-craniosacral-praxis.html`, je mit Steckbrief,
