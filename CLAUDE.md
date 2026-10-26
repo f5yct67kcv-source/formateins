@@ -99,8 +99,8 @@ Festgelegt von Adrian am 26.10.2026. Gilt fuer alle Texte auf formateins.ch
 und fuer Folgeprojekte: Startseite, Bereichsseiten, Arbeiten, FAQ, Offerten,
 Instagram. Neue Texte zuerst an diesen Regeln pruefen.
 
-**Der Titel ist der Hook.** Er verspricht ein Ergebnis, das die Leserin oder
-der Leser will (mehr Reichweite, ein Auftritt, der auffaellt, Kunden, die
+**Der Titel ist der Hook.** Er verspricht ein Ergebnis, das der Kunde will
+(mehr Reichweite, ein Auftritt, der auffaellt, Kunden, die
 anrufen), nicht eine Technik oder ein Verfahren. Er darf zupacken und den
 heutigen Zustand deutlich benennen, etwa einen verstaubten oder
 eingeschlafenen Social-Media-Auftritt. Beispiel fuer die Richtung: «Wir
