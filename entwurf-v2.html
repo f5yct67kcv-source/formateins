@@ -1009,8 +1009,8 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand[data-titel="Branding"] .standhandeln,.stand[data-titel="Motion Design"] .standhandeln{grid-row:3}
   .auswahl.blatt-rahmen{margin:0;max-width:88%}
   /* Motion (26.10.2026): Telefon in der Mitte der linken Haelfte, links die
-     Wirkung mit Pfeilen aufs Telefon, rechts die Formate so hoch wie das
-     Telefon (71 Pixel Zeile oben, Schnittleiste unten abgezogen). */
+     Wirkung mit Pfeilen aufs Telefon, rechts die Formate als kompakter
+     Kasten auf der Hoehe der Telefonmitte. */
   .stand[data-titel="Motion Design"] .brett-desktop{grid-column:4/7}
   .stand[data-titel="Motion Design"] .auswahl.telefon-rahmen{margin:0;max-width:100%}
   .stand[data-titel="Motion Design"] .schnittleiste{margin:44px 0 0;max-width:100%}
@@ -1018,9 +1018,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand[data-titel="Motion Design"] .wirkung li{text-align:right;margin-left:auto}
   .stand[data-titel="Motion Design"] .wirkung li::after{content:"";position:absolute;left:calc(100% + 10px);top:.7em;width:34px;height:1px;background:var(--signal)}
   .stand[data-titel="Motion Design"] .wirkung li::before{content:"";position:absolute;left:calc(100% + 40px);top:calc(.7em - 3.5px);border:4px solid transparent;border-left:6px solid var(--signal);border-right:0}
-  .stand[data-titel="Motion Design"] .inspektor{grid-column:8/12;grid-row:2;align-self:stretch;margin:71px 0 74px;display:flex;flex-direction:column}
-  .stand[data-titel="Motion Design"] .angebot{flex:1;display:flex;flex-direction:column;justify-content:space-evenly}
-  .stand[data-titel="Motion Design"] .angebot li{padding:0}
+  .stand[data-titel="Motion Design"] .inspektor{grid-column:8/12;grid-row:2;align-self:center;margin:71px 0 74px}
 }
 /* Die Wirkung: Serif-Zeile und stille Erklaerung, drei Stueck. */
 .wirkung{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:30px}
