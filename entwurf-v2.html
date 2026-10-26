@@ -1018,22 +1018,24 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand[data-titel="Branding"] .standhandeln,.stand[data-titel="Motion Design"] .standhandeln{grid-row:3}
   .auswahl.blatt-rahmen{margin:0;max-width:88%}
   /* Motion (26.10.2026): Telefon in der Mitte der linken Haelfte, links die
-     Wirkung mit Pfeilen aufs Telefon, rechts die Formate als kompakter
+     drei Schlagwoerter mit Pfeilen aufs Telefon, rechts die Formate als kompakter
      Kasten auf der Hoehe der Telefonmitte. */
   .stand[data-titel="Motion Design"] .brett-desktop{grid-column:4/7}
   .stand[data-titel="Motion Design"] .auswahl.telefon-rahmen{margin:0;max-width:100%}
   .stand[data-titel="Motion Design"] .schnittleiste{margin:44px 0 0;max-width:100%}
-  .stand[data-titel="Motion Design"] .wirkung{grid-column:1/4;grid-row:2;margin:112px 44px 0 0;justify-content:space-between;padding-bottom:70px}
+  .stand[data-titel="Motion Design"] .wirkung{grid-column:1/4;grid-row:2;margin:112px 44px 0 0;justify-content:center;gap:118px;padding-bottom:100px}
+  .stand[data-titel="Motion Design"] .wirkung b{font-size:1.22rem}
   .stand[data-titel="Motion Design"] .wirkung li{text-align:right;margin-left:auto}
   .stand[data-titel="Motion Design"] .wirkung li::after{content:"";position:absolute;left:calc(100% + 10px);top:.7em;width:34px;height:1px;background:var(--signal)}
   .stand[data-titel="Motion Design"] .wirkung li::before{content:"";position:absolute;left:calc(100% + 40px);top:calc(.7em - 3.5px);border:4px solid transparent;border-left:6px solid var(--signal);border-right:0}
   .stand[data-titel="Motion Design"] .inspektor{grid-column:8/12;grid-row:2;align-self:center;margin:71px 0 74px}
 }
-/* Die Wirkung: Serif-Zeile und stille Erklaerung, drei Stueck. */
+/* Die Wirkung: drei Schlagwoerter in der Serif, ohne Erklaersatz (26.10.2026).
+   Am Desktop als Gruppe auf der Telefonmitte, mit Luft dazwischen; die Zeilen
+   brechen gleichmaessig, damit kein Wort allein auf der zweiten steht. */
 .wirkung{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:30px}
 .wirkung li{position:relative;max-width:30ch}
-.wirkung b{display:block;font-family:var(--serif);font-weight:700;font-size:1.12rem;color:var(--auf-grund);line-height:1.2}
-.wirkung span{display:block;font-size:var(--txt-xs);color:var(--ringschrift);margin-top:4px;max-width:none}
+.wirkung b{display:block;font-family:var(--serif);font-weight:700;font-size:1.12rem;color:var(--auf-grund);line-height:1.2;text-wrap:balance}
 @media(max-width:899px){
   .stand .projekt{grid-column:1/3;grid-row:1;padding-top:0}
   .stand .brett-desktop{grid-row:2;margin-top:28px}
@@ -1042,7 +1044,6 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand .wirkung{grid-column:1/3;grid-row:3;margin-top:36px;gap:20px}
   .stand .wirkung li{padding-left:26px;max-width:none}
   .stand .wirkung li::before{content:"→";position:absolute;left:0;top:0;color:var(--signal);font-weight:700}
-  .stand .wirkung span{font-size:.875rem}
   /* Am Handy weniger Luft oben, das Objekt breiter, die Schrift eine Stufe
      groesser: die Stufen xs und s sind auf dem kleinen Bildschirm zu klein. */
   .flaeche{padding-top:24px;padding-inline:16px}
@@ -1654,9 +1655,9 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
              an einem Exponat. Ab zwei Spalten links vom Telefon, am Handy
              darunter. -->
         <ul class="wirkung" aria-label="Was ein Spot bringt">
-          <li><b>Mehr Sichtbarkeit auf Social Media</b><span>Reels und Stories laufen weiter, wo Bilder längst weggewischt sind.</span></li>
-          <li><b>Bleibt hängen</b><span>Bewegung hält den Daumen an. Ein Satz reicht, wenn er sitzt.</span></li>
-          <li><b>Ein Spot, alle Kanäle</b><span>Hochkant für Instagram, breit für die Website, als Einstieg in die Präsentation.</span></li>
+          <li><b>Inhalt, optimiert für deine Ziele.</b></li>
+          <li><b>Heb dich von der Masse ab.</b></li>
+          <li><b>Reichweite über deine Follower hinaus.</b></li>
         </ul>
         <aside class="inspektor" aria-label="Formate">
           <h3>Formate</h3>
