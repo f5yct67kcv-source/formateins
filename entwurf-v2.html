@@ -1205,16 +1205,15 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 .konstruktionsblatt .dunkelprobe{display:flex;align-items:center;justify-content:space-between;margin-top:7%;padding:5% 6%;background:var(--grund-tief);color:var(--papier);border-radius:2px}
 .konstruktionsblatt .dunkelprobe .wortmarke{margin:0;font-size:clamp(.9rem,1.6vw,1.3rem)}
 .konstruktionsblatt .dunkelprobe small{color:var(--ringschrift);margin:0}
-/* Das Blatt entsteht (26.10.2026). Statt vier Blaetter zu zeigen, erzaehlt
-   das eine Blatt, wie es gemacht wird. Sekunden ab dem Moment, in dem es im
-   Bild ist (Klasse baut, Skript):
-     0.0  Raster, die Wortmarke in Playfair normal
-     1.3  Playfair 900 steht, Beschriftung «Wortmarke, …»
-     1.9  Signal: «eins» wird orange, Kreis und Hinweis zeichnen sich
-     2.9  Konstruktion: Grundlinie, x-Hoehe, Schutzraum, Masse
-     4.3  Farben: fuenf Felder probieren Blau, Gruen, Ocker und rasten ein
-     6.7  Schriften, Regeln, Dunkelprobe
-   Danach steht das Blatt, nach 11.5 Sekunden beginnt es von vorn. Der fertige
+/* Das Blatt entsteht (26.10.2026, gekuerzt). Es beginnt nie leer: Raster,
+   Wortmarke in Playfair 900 und ihre Beschriftung stehen sofort. Der Rest
+   baut sich in rund vier Sekunden darum herum auf, Sekunden ab dem Moment,
+   in dem das Blatt im Bild ist (Klasse baut, Skript):
+     0.2  Signal: «eins» wird orange, Kreis und Hinweis zeichnen sich
+     0.7  Konstruktion: Grundlinie, x-Hoehe, Schutzraum, Masse
+     1.2  Farben: fuenf Felder probieren Blau, Gruen, Ocker und rasten ein
+     2.8  Schriften, Regeln, Dunkelprobe
+   Danach steht das Blatt, nach 9 Sekunden beginnt es von vorn. Der fertige
    Zustand ist der Zustand ohne Animation: wer Bewegung abschaltet, sieht
    ihn sofort, und ohne baut wartet das Blatt leer auf seinen Auftritt. */
 .konstruktionsblatt .konstruktionslinien .linien{stroke-dasharray:400}
@@ -1222,49 +1221,39 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 @media(prefers-reduced-motion:no-preference){
   .konstruktionsblatt:not(.baut) .seite.erste > :not(small),
   .konstruktionsblatt:not(.baut) .seite.erste .farben i::after{opacity:0}
-  .konstruktionsblatt.baut .konstruktionslinien > rect{animation:kb-ein .5s ease both}
-  .konstruktionsblatt.baut .marke-svg{animation:kb-schrift 1.5s linear .2s both}
-  .konstruktionsblatt.baut .marke-svg tspan{animation:kb-signal 2.4s linear .2s both}
-  .konstruktionsblatt.baut .konstruktionslinien .wahl{animation:kb-ein .5s ease 1.4s both}
-  .konstruktionsblatt.baut .konstruktionslinien .sig{animation:kb-sig .7s cubic-bezier(.65,0,.25,1) 2.1s both}
-  .konstruktionsblatt.baut .konstruktionslinien text.sig{animation:kb-ein .5s ease 2.5s both}
-  .konstruktionsblatt.baut .konstruktionslinien .linien{animation:kb-zeichnen 1.3s cubic-bezier(.65,0,.25,1) 2.9s both,kb-ein .2s linear 2.9s both}
-  .konstruktionsblatt.baut .konstruktionslinien .text text:nth-child(-n+3){animation:kb-ein .5s ease 3.8s both}
-  .konstruktionsblatt.baut .farben i{animation:kb-feld .45s cubic-bezier(.16,1,.3,1) both,kb-farbe 1.9s linear both}
+  .konstruktionsblatt.baut .marke-svg tspan{animation:kb-signal .7s linear both}
+  .konstruktionsblatt.baut .konstruktionslinien .sig{animation:kb-sig .6s cubic-bezier(.65,0,.25,1) .4s both}
+  .konstruktionsblatt.baut .konstruktionslinien text.sig{animation:kb-ein .4s ease .7s both}
+  .konstruktionsblatt.baut .konstruktionslinien .linien{animation:kb-zeichnen 1s cubic-bezier(.65,0,.25,1) .7s both,kb-ein .2s linear .7s both}
+  .konstruktionsblatt.baut .konstruktionslinien .text text:nth-child(-n+3){animation:kb-ein .4s ease 1.4s both}
+  .konstruktionsblatt.baut .farben i{animation:kb-feld .4s cubic-bezier(.16,1,.3,1) both,kb-farbe 1.2s linear both}
   .konstruktionsblatt.baut .farben i::after{animation:kb-ein .4s ease both}
-  .konstruktionsblatt.baut .farben i:nth-child(1){animation-delay:4.3s,4.3s}
-  .konstruktionsblatt.baut .farben i:nth-child(2){animation-delay:4.4s,4.4s}
-  .konstruktionsblatt.baut .farben i:nth-child(3){animation-delay:4.5s,4.5s}
-  .konstruktionsblatt.baut .farben i:nth-child(4){animation-delay:4.6s,4.6s}
-  .konstruktionsblatt.baut .farben i:nth-child(5){animation-delay:4.7s,4.7s}
-  .konstruktionsblatt.baut .farben i:nth-child(1)::after{animation-delay:6.2s}
-  .konstruktionsblatt.baut .farben i:nth-child(2)::after{animation-delay:6.3s}
-  .konstruktionsblatt.baut .farben i:nth-child(3)::after{animation-delay:6.4s}
-  .konstruktionsblatt.baut .farben i:nth-child(4)::after{animation-delay:6.5s}
-  .konstruktionsblatt.baut .farben i:nth-child(5)::after{animation-delay:6.6s}
-  .konstruktionsblatt.baut .schriften span,.konstruktionsblatt.baut .regeln span,.konstruktionsblatt.baut .dunkelprobe{animation:kb-hoch .6s cubic-bezier(.16,1,.3,1) both}
-  .konstruktionsblatt.baut .schriften .serif{animation-delay:6.7s}
-  .konstruktionsblatt.baut .schriften .sans{animation-delay:6.85s}
-  .konstruktionsblatt.baut .regeln span:nth-child(1){animation-delay:7.1s}
-  .konstruktionsblatt.baut .regeln span:nth-child(2){animation-delay:7.2s}
-  .konstruktionsblatt.baut .regeln span:nth-child(3){animation-delay:7.3s}
-  .konstruktionsblatt.baut .dunkelprobe{animation-delay:7.6s}
+  .konstruktionsblatt.baut .farben i:nth-child(1){animation-delay:1.2s,1.2s}
+  .konstruktionsblatt.baut .farben i:nth-child(2){animation-delay:1.3s,1.3s}
+  .konstruktionsblatt.baut .farben i:nth-child(3){animation-delay:1.4s,1.4s}
+  .konstruktionsblatt.baut .farben i:nth-child(4){animation-delay:1.5s,1.5s}
+  .konstruktionsblatt.baut .farben i:nth-child(5){animation-delay:1.6s,1.6s}
+  .konstruktionsblatt.baut .farben i:nth-child(1)::after{animation-delay:2.3s}
+  .konstruktionsblatt.baut .farben i:nth-child(2)::after{animation-delay:2.4s}
+  .konstruktionsblatt.baut .farben i:nth-child(3)::after{animation-delay:2.5s}
+  .konstruktionsblatt.baut .farben i:nth-child(4)::after{animation-delay:2.6s}
+  .konstruktionsblatt.baut .farben i:nth-child(5)::after{animation-delay:2.7s}
+  .konstruktionsblatt.baut .schriften span,.konstruktionsblatt.baut .regeln span,.konstruktionsblatt.baut .dunkelprobe{animation:kb-hoch .5s cubic-bezier(.16,1,.3,1) both}
+  .konstruktionsblatt.baut .schriften .serif{animation-delay:2.8s}
+  .konstruktionsblatt.baut .schriften .sans{animation-delay:2.9s}
+  .konstruktionsblatt.baut .regeln span:nth-child(1){animation-delay:3.1s}
+  .konstruktionsblatt.baut .regeln span:nth-child(2){animation-delay:3.2s}
+  .konstruktionsblatt.baut .regeln span:nth-child(3){animation-delay:3.3s}
+  .konstruktionsblatt.baut .dunkelprobe{animation-delay:3.5s}
 }
 @keyframes kb-ein{from{opacity:0}to{opacity:1}}
 @keyframes kb-hoch{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @keyframes kb-zeichnen{from{stroke-dashoffset:400}to{stroke-dashoffset:0}}
 @keyframes kb-sig{from{stroke-dashoffset:160}to{stroke-dashoffset:0}}
 @keyframes kb-feld{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
-/* Die Wortmarke beginnt in der Playfair normal und springt auf 900. */
-@keyframes kb-schrift{
-  0%{opacity:0;font-weight:400}
-  15%{opacity:1}
-  70%{font-weight:400}
-  71%,100%{opacity:1;font-weight:900}
-}
-/* «eins» bleibt Tinte, bis die Schrift steht, dann wird es orange. */
+/* «eins» steht kurz in Tinte, dann wird es orange. */
 @keyframes kb-signal{
-  0%,70%{fill:#15202a}
+  0%,30%{fill:#15202a}
   100%{fill:#ff8a4c}
 }
 /* Die Farbfelder probieren drei Toene und rasten auf ihrer Farbe ein. */
@@ -2167,7 +2156,7 @@ if (spot && !reduziert && 'IntersectionObserver' in window) {
 })();
 
 // Das Markenblatt entsteht, solange es zu sehen ist: Klasse baut startet den
-// Aufbau (Ablauf im CSS unter «Das Blatt entsteht»), nach 11,5 Sekunden
+// Aufbau (Ablauf im CSS unter «Das Blatt entsteht»), nach 9 Sekunden
 // beginnt er von vorn. In der Reihe gilt "zu sehen" = Klasse imbild auf der Richtung,
 // im Stand = Klasse zeichnet auf dem Stand (Skript unten). Ausser Sicht wartet
 // das Blatt leer. Wer Bewegung abgeschaltet hat, sieht es fertig.
@@ -2176,7 +2165,7 @@ const blattwerk = (blatt, traeger, klasse) => {
   const bauen = () => { blatt.classList.remove('baut'); void blatt.offsetWidth; blatt.classList.add('baut'); };
   if (reduziert) { blatt.classList.add('baut'); return; }
   const pruefen = () => {
-    if (traeger.classList.contains(klasse)) { if (!timer) { bauen(); timer = setInterval(bauen, 11500); } }
+    if (traeger.classList.contains(klasse)) { if (!timer) { bauen(); timer = setInterval(bauen, 9000); } }
     else if (timer) { clearInterval(timer); timer = 0; blatt.classList.remove('baut'); }
   };
   new MutationObserver(pruefen).observe(traeger, { attributes: true, attributeFilter: ['class'] });
