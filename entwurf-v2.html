@@ -1213,8 +1213,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
      0.7  Konstruktion: Grundlinie, x-Hoehe, Schutzraum, Masse
      1.2  Farben: fuenf Felder probieren Blau, Gruen, Ocker und rasten ein
      2.8  Schriften, Regeln, Dunkelprobe
-   Danach steht das Blatt gut zwei Sekunden, nach 6,5 Sekunden beginnt es
-   von vorn. Der fertige
+   Die Dunkelprobe steht nach 4.0 Sekunden, nach 4.3 beginnt es von vorn. Der fertige
    Zustand ist der Zustand ohne Animation: wer Bewegung abschaltet, sieht
    ihn sofort, und ohne baut wartet das Blatt leer auf seinen Auftritt. */
 .konstruktionsblatt .konstruktionslinien .linien{stroke-dasharray:400}
@@ -2157,8 +2156,8 @@ if (spot && !reduziert && 'IntersectionObserver' in window) {
 })();
 
 // Das Markenblatt entsteht, solange es zu sehen ist: Klasse baut startet den
-// Aufbau (Ablauf im CSS unter «Das Blatt entsteht»), nach 6,5 Sekunden
-// beginnt er von vorn. In der Reihe gilt "zu sehen" = Klasse imbild auf der Richtung,
+// Aufbau (Ablauf im CSS unter «Das Blatt entsteht»), sobald er durch ist
+// (4,3 Sekunden), beginnt er von vorn. In der Reihe gilt "zu sehen" = Klasse imbild auf der Richtung,
 // im Stand = Klasse zeichnet auf dem Stand (Skript unten). Ausser Sicht wartet
 // das Blatt leer. Wer Bewegung abgeschaltet hat, sieht es fertig.
 const blattwerk = (blatt, traeger, klasse) => {
@@ -2166,7 +2165,7 @@ const blattwerk = (blatt, traeger, klasse) => {
   const bauen = () => { blatt.classList.remove('baut'); void blatt.offsetWidth; blatt.classList.add('baut'); };
   if (reduziert) { blatt.classList.add('baut'); return; }
   const pruefen = () => {
-    if (traeger.classList.contains(klasse)) { if (!timer) { bauen(); timer = setInterval(bauen, 6500); } }
+    if (traeger.classList.contains(klasse)) { if (!timer) { bauen(); timer = setInterval(bauen, 4300); } }
     else if (timer) { clearInterval(timer); timer = 0; blatt.classList.remove('baut'); }
   };
   new MutationObserver(pruefen).observe(traeger, { attributes: true, attributeFilter: ['class'] });
