@@ -961,6 +961,15 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .schnittleiste::before{content:"";position:absolute;left:0;right:0;top:11px;height:1px;background:var(--linie-hell)}
 .schnittleiste i{position:absolute;top:6px;width:1px;height:11px;background:var(--signal);left:calc(var(--t) / 18 * 100%)}
 .schnittleiste i.ein{height:6px;top:8px;background:var(--ringschrift)}
+/* Der Tonknopf, rund unten rechts im Bild wie bei Instagram. 44 Pixel, damit
+   er auch am Handy sicher zu treffen ist. */
+.ton-knopf{position:absolute;right:18px;bottom:18px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;padding:0;display:grid;place-items:center;background:rgba(10,17,23,.72);color:#fff;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 0 0 1px rgba(255,255,255,.18);cursor:pointer;transition:opacity .3s ease,background-color .2s ease}
+.ton-knopf[hidden]{display:none}
+.ton-knopf svg{width:20px;height:20px;grid-area:1/1}
+.ton-knopf .an,.ton-knopf[aria-pressed="true"] .aus{display:none}
+.ton-knopf[aria-pressed="true"] .an{display:block}
+.ton-knopf[aria-pressed="true"]{background:var(--signal);color:var(--tinte);box-shadow:none}
+.ton-knopf:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 .schnittleiste em{position:absolute;right:0;top:20px;font-style:normal;font-size:.62rem;letter-spacing:.04em;color:var(--ringschrift);font-variant-numeric:tabular-nums}
 .schnittleiste b{position:absolute;left:0;top:20px;font-size:.62rem;letter-spacing:.04em;color:var(--ringschrift);font-weight:600}
 
@@ -1620,6 +1629,10 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
           <p class="brettname" aria-hidden="true"><b>Spot</b> · Instagram Reel</p>
           <div class="auswahl telefon-rahmen" data-mass="9 : 16 · 0:19">
             <span class="telefon"><span class="sicht"><video poster="entwurf-video-spot.jpg" width="406" height="720" muted loop playsinline preload="metadata" aria-label="Spot für formateins: ein Preisschild, sieben Fragen, zwei Minuten, null Verkaufsgespräche"><source src="entwurf-video-spot.mp4" type="video/mp4"><source src="entwurf-video-spot.webm" type="video/webm"></video></span></span>
+            <!-- Ton nur auf Wunsch: der Spot laeuft stumm, der Knopf schaltet
+                 den Ton zu. Er erscheint erst, wenn das Video data-ton traegt,
+                 also eine Tonspur hat; ohne Ton waere er ein leeres Versprechen. -->
+            <button class="ton-knopf" type="button" aria-pressed="false" aria-label="Ton einschalten" hidden><svg class="aus" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9l4 6M21 9l-4 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg><svg class="an" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></button>
           </div>
           <!-- Der Spot Bild fuer Bild (Viertelsekunden), Laenge 18.7 s.
                Lange Striche: die sechs Szenen (Weltpremiere 0, Satz 1.6,
@@ -2286,7 +2299,28 @@ function richtwerkEinrichten(werkbank) {
   const spotSchalten = () => staende.forEach((s, k) => {
     const v = s.querySelector('video');
     if (!v) return;
-    if (k === aktiv && !s.hidden && !reduziert) v.play().catch(() => {}); else v.pause();
+    if (k === aktiv && !s.hidden && !reduziert) v.play().catch(() => {});
+    else { v.pause(); tonAus(s); }
+  });
+  // Ton nur auf Knopfdruck, und beim Verlassen des Stands wieder aus: wer
+  // zurueckkommt, wird nicht von Ton ueberrascht. Bei abgeschalteter Bewegung
+  // steht sonst das Standbild; wer den Ton will, startet damit auch das Video.
+  const tonAus = (s) => {
+    const v = s.querySelector('video'), k = s.querySelector('.ton-knopf');
+    if (!v || !k) return;
+    v.muted = true; k.setAttribute('aria-pressed', 'false'); k.setAttribute('aria-label', 'Ton einschalten');
+  };
+  staende.forEach(s => {
+    const v = s.querySelector('video'), k = s.querySelector('.ton-knopf');
+    if (!v || !k || !v.hasAttribute('data-ton')) return;
+    k.hidden = false;
+    k.addEventListener('click', () => {
+      const an = v.muted;
+      v.muted = !an;
+      k.setAttribute('aria-pressed', String(an));
+      k.setAttribute('aria-label', an ? 'Ton ausschalten' : 'Ton einschalten');
+      if (an && v.paused) v.play().catch(() => {});
+    });
   });
   const standZeigen = (i) => {
     staende.forEach((s, k) => { s.hidden = k !== i; s.classList.remove('zeichnet'); });
@@ -2319,7 +2353,7 @@ function richtwerkEinrichten(werkbank) {
   // kurz danach noch einmal per Zeitgeber: haelt der Browser die Animation an,
   // etwa in einem Tab im Hintergrund, bliebe die Werkbank sonst blockiert.
   const einmal = (f) => { let erledigt = false; return () => { if (!erledigt) { erledigt = true; f(); } }; };
-  const beiwerk = (st) => [...werkbank.querySelectorAll('.werkzeugleiste, .fussleiste'), ...st.querySelectorAll('.brett-desktop > .brettname, .brett-desktop > .schnittleiste, .inspektor, .projekt, .standhandeln, .wirkung')];
+  const beiwerk = (st) => [...werkbank.querySelectorAll('.werkzeugleiste, .fussleiste'), ...st.querySelectorAll('.brett-desktop > .brettname, .brett-desktop > .schnittleiste, .ton-knopf, .inspektor, .projekt, .standhandeln, .wirkung')];
 
   function hinein(i) {
     if (beschaeftigt || !staende[i]) return;
