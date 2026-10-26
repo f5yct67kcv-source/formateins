@@ -92,3 +92,39 @@ Das gilt fuer die **Gestaltung**, nicht fuer den **Text**. Steht nur eine
 Formulierung zur Wahl, kommen die Varianten als Text in den Chat — kein Umbau,
 kein Rendern. Bilder erst, wenn die Form zur Frage gehoert (Umbruch, Hoehe,
 Abstaende) oder Adrian sie verlangt.
+
+## Schreibstil der Seite
+
+Festgelegt von Adrian am 26.10.2026. Gilt fuer alle Texte auf formateins.ch
+und fuer Folgeprojekte: Startseite, Bereichsseiten, Arbeiten, FAQ, Offerten,
+Instagram. Neue Texte zuerst an diesen Regeln pruefen.
+
+**Der Titel ist der Hook.** Er verspricht ein Ergebnis, das die Leserin oder
+der Leser will (mehr Reichweite, ein Auftritt, der auffaellt, Kunden, die
+anrufen), nicht eine Technik oder ein Verfahren. Er darf zupacken und den
+heutigen Zustand deutlich benennen, etwa einen verstaubten oder
+eingeschlafenen Social-Media-Auftritt. Beispiel fuer die Richtung: «Wir
+bringen deinen Social-Media-Auftritt aufs naechste Level.»
+
+**Der Text darunter ist persoenlich.** Ich-Form von Adrian, Anrede du. Vorne
+steht die gemeinsam erarbeitete Strategie: zuerst zuhoeren und zusammen
+festlegen, wen du erreichen willst und was haengen bleiben soll, dann
+gestalten. Danach der Nutzen in konkreten Worten: moderne Inhalte, mehr
+Reichweite, Reels, Spots, Seiten, die wirken. Keine Leistungsliste ohne
+Wirkung.
+
+**Konkret statt Floskel.** Kurze Saetze, ein Gedanke pro Satz, Schweizer
+Rechtschreibung ohne ß, Betraege als CHF 2'400. Keine leeren Werbewoerter
+(«einzigartig», «massgeschneidert», «ganzheitlich»), stattdessen sagen, was
+passiert und was es bringt.
+
+**Fuer wen.** Selbststaendige, kleine Unternehmen und Vereine. Nicht
+«Betrieb», sondern du und dich. Nicht gendern.
+
+**Was nicht mehr vorkommt.** «Von Hand gebaut» und «animiert statt gefilmt».
+Foto und Video vor Ort sind eine Zusatzoption in jedem Bereich, auch im
+Motion Design: separat offeriert, nie ausgeschlossen.
+
+**KI offen und positiv.** Die KI ist ein Werkzeug wie die Kamera. Sie macht
+das Technische schneller und den Preis attraktiver. Adrians Zeit gehoert dem
+Hinschauen, Zuhoeren und Gestalten.
