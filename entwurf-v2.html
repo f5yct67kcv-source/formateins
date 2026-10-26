@@ -1194,8 +1194,6 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 .konstruktionsblatt{padding:7% 7% 6%;rotate:0deg}
 .konstruktionsblatt small{font-size:.46rem}
 .konstruktionsblatt .konstruktionslinien{display:block;width:100%;height:auto;margin-top:4%;overflow:visible}
-.konstruktionsblatt .konstruktionslinien .linien{stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1.6s cubic-bezier(.65,0,.25,1) .2s}
-.konstruktionsblatt .konstruktionslinien .text{opacity:0;transition:opacity .6s ease 1.2s}
 .konstruktionsblatt .farben{margin-top:5%;gap:3%}
 .konstruktionsblatt .farben i{position:relative;aspect-ratio:1/.62}
 .konstruktionsblatt .farben i::after{content:attr(data-hex);position:absolute;left:0;top:112%;font-size:.36rem;letter-spacing:.02em;color:var(--tinte-still)}
@@ -1207,78 +1205,81 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 .konstruktionsblatt .dunkelprobe{display:flex;align-items:center;justify-content:space-between;margin-top:7%;padding:5% 6%;background:var(--grund-tief);color:var(--papier);border-radius:2px}
 .konstruktionsblatt .dunkelprobe .wortmarke{margin:0;font-size:clamp(.9rem,1.6vw,1.3rem)}
 .konstruktionsblatt .dunkelprobe small{color:var(--ringschrift);margin:0}
-/* Aufbau des ersten Blatts (Klasse baut, Skript), in der Reihe wie im Stand: Wortmarke wischt herein,
-   Linien zeichnen sich, Masse, Farben, Schriften, Regeln, Dunkelprobe folgen
-   in dieser Reihenfolge. Ohne baut steht alles ohne Uebergang auf Anfang. */
-.konstruktionsblatt .konstruktionslinien > text{clip-path:inset(-10% 100% -10% 0);transition:clip-path .7s cubic-bezier(.65,0,.25,1) .1s}
-.konstruktionsblatt.baut .konstruktionslinien > text{clip-path:inset(-10% -2% -10% 0)}
-.konstruktionsblatt .konstruktionslinien .linien{transition-duration:1.1s;transition-delay:0.63s}
-.konstruktionsblatt.baut .konstruktionslinien .linien{stroke-dashoffset:0}
-.konstruktionsblatt .konstruktionslinien .text{transition-delay:1.4s}
-.konstruktionsblatt.baut .konstruktionslinien .text{opacity:1}
-.konstruktionsblatt .farben i{opacity:0;transform:scale(.4);transition:opacity .4s ease,transform .5s cubic-bezier(.16,1,.3,1)}
-.konstruktionsblatt .farben i::after{opacity:0;transition:opacity .4s ease;transition-delay:inherit}
-.konstruktionsblatt.baut .farben i{opacity:1;transform:none}
-.konstruktionsblatt.baut .farben i::after{opacity:1}
-.konstruktionsblatt .farben i:nth-child(1){transition-delay:1.54s}
-.konstruktionsblatt .farben i:nth-child(2){transition-delay:1.62s}
-.konstruktionsblatt .farben i:nth-child(3){transition-delay:1.71s}
-.konstruktionsblatt .farben i:nth-child(4){transition-delay:1.79s}
-.konstruktionsblatt .farben i:nth-child(5){transition-delay:1.88s}
-.konstruktionsblatt .schriften span,.konstruktionsblatt .regeln span,.konstruktionsblatt .dunkelprobe{opacity:0;transform:translateY(6px);transition:opacity .5s ease,transform .6s cubic-bezier(.16,1,.3,1)}
-.konstruktionsblatt.baut .schriften span,.konstruktionsblatt.baut .regeln span,.konstruktionsblatt.baut .dunkelprobe{opacity:1;transform:none}
-.konstruktionsblatt .schriften .serif{transition-delay:2.1s}
-.konstruktionsblatt .schriften .sans{transition-delay:2.2s}
-.konstruktionsblatt .regeln span:nth-child(1){transition-delay:2.38s}
-.konstruktionsblatt .regeln span:nth-child(2){transition-delay:2.46s}
-.konstruktionsblatt .regeln span:nth-child(3){transition-delay:2.55s}
-.konstruktionsblatt .dunkelprobe{transition-delay:2.73s}
-.konstruktionsblatt:not(.baut) *{transition:none!important}
+/* Das Blatt entsteht (26.10.2026). Statt vier Blaetter zu zeigen, erzaehlt
+   das eine Blatt, wie es gemacht wird. Sekunden ab dem Moment, in dem es im
+   Bild ist (Klasse baut, Skript):
+     0.0  Raster, die Wortmarke in Playfair normal
+     1.3  Playfair 900 steht, Beschriftung «Wortmarke, …»
+     1.9  Signal: «eins» wird orange, Kreis und Hinweis zeichnen sich
+     2.9  Konstruktion: Grundlinie, x-Hoehe, Schutzraum, Masse
+     4.3  Farben: fuenf Felder probieren Blau, Gruen, Ocker und rasten ein
+     6.7  Schriften, Regeln, Dunkelprobe
+   Danach steht das Blatt, nach 11.5 Sekunden beginnt es von vorn. Der fertige
+   Zustand ist der Zustand ohne Animation: wer Bewegung abschaltet, sieht
+   ihn sofort, und ohne baut wartet das Blatt leer auf seinen Auftritt. */
+.konstruktionsblatt .konstruktionslinien .linien{stroke-dasharray:400}
+.konstruktionsblatt .konstruktionslinien .sig{stroke-dasharray:160}
+@media(prefers-reduced-motion:no-preference){
+  .konstruktionsblatt:not(.baut) .seite.erste > :not(small),
+  .konstruktionsblatt:not(.baut) .seite.erste .farben i::after{opacity:0}
+  .konstruktionsblatt.baut .konstruktionslinien > rect{animation:kb-ein .5s ease both}
+  .konstruktionsblatt.baut .marke-svg{animation:kb-schrift 1.5s linear .2s both}
+  .konstruktionsblatt.baut .marke-svg tspan{animation:kb-signal 2.4s linear .2s both}
+  .konstruktionsblatt.baut .konstruktionslinien .wahl{animation:kb-ein .5s ease 1.4s both}
+  .konstruktionsblatt.baut .konstruktionslinien .sig{animation:kb-sig .7s cubic-bezier(.65,0,.25,1) 2.1s both}
+  .konstruktionsblatt.baut .konstruktionslinien text.sig{animation:kb-ein .5s ease 2.5s both}
+  .konstruktionsblatt.baut .konstruktionslinien .linien{animation:kb-zeichnen 1.3s cubic-bezier(.65,0,.25,1) 2.9s both,kb-ein .2s linear 2.9s both}
+  .konstruktionsblatt.baut .konstruktionslinien .text text:nth-child(-n+3){animation:kb-ein .5s ease 3.8s both}
+  .konstruktionsblatt.baut .farben i{animation:kb-feld .45s cubic-bezier(.16,1,.3,1) both,kb-farbe 1.9s linear both}
+  .konstruktionsblatt.baut .farben i::after{animation:kb-ein .4s ease both}
+  .konstruktionsblatt.baut .farben i:nth-child(1){animation-delay:4.3s,4.3s}
+  .konstruktionsblatt.baut .farben i:nth-child(2){animation-delay:4.4s,4.4s}
+  .konstruktionsblatt.baut .farben i:nth-child(3){animation-delay:4.5s,4.5s}
+  .konstruktionsblatt.baut .farben i:nth-child(4){animation-delay:4.6s,4.6s}
+  .konstruktionsblatt.baut .farben i:nth-child(5){animation-delay:4.7s,4.7s}
+  .konstruktionsblatt.baut .farben i:nth-child(1)::after{animation-delay:6.2s}
+  .konstruktionsblatt.baut .farben i:nth-child(2)::after{animation-delay:6.3s}
+  .konstruktionsblatt.baut .farben i:nth-child(3)::after{animation-delay:6.4s}
+  .konstruktionsblatt.baut .farben i:nth-child(4)::after{animation-delay:6.5s}
+  .konstruktionsblatt.baut .farben i:nth-child(5)::after{animation-delay:6.6s}
+  .konstruktionsblatt.baut .schriften span,.konstruktionsblatt.baut .regeln span,.konstruktionsblatt.baut .dunkelprobe{animation:kb-hoch .6s cubic-bezier(.16,1,.3,1) both}
+  .konstruktionsblatt.baut .schriften .serif{animation-delay:6.7s}
+  .konstruktionsblatt.baut .schriften .sans{animation-delay:6.85s}
+  .konstruktionsblatt.baut .regeln span:nth-child(1){animation-delay:7.1s}
+  .konstruktionsblatt.baut .regeln span:nth-child(2){animation-delay:7.2s}
+  .konstruktionsblatt.baut .regeln span:nth-child(3){animation-delay:7.3s}
+  .konstruktionsblatt.baut .dunkelprobe{animation-delay:7.6s}
+}
+@keyframes kb-ein{from{opacity:0}to{opacity:1}}
+@keyframes kb-hoch{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes kb-zeichnen{from{stroke-dashoffset:400}to{stroke-dashoffset:0}}
+@keyframes kb-sig{from{stroke-dashoffset:160}to{stroke-dashoffset:0}}
+@keyframes kb-feld{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+/* Die Wortmarke beginnt in der Playfair normal und springt auf 900. */
+@keyframes kb-schrift{
+  0%{opacity:0;font-weight:400}
+  15%{opacity:1}
+  70%{font-weight:400}
+  71%,100%{opacity:1;font-weight:900}
+}
+/* «eins» bleibt Tinte, bis die Schrift steht, dann wird es orange. */
+@keyframes kb-signal{
+  0%,70%{fill:#15202a}
+  100%{fill:#ff8a4c}
+}
+/* Die Farbfelder probieren drei Toene und rasten auf ihrer Farbe ein. */
+@keyframes kb-farbe{
+  0%,22%{background-color:#3d6fa3}
+  23%,44%{background-color:#5b8a5e}
+  45%,66%{background-color:#c49a3a}
+  67%,100%{background-color:var(--f)}
+}
 
-/* Die vier Blaetter: das erste liegt im Fluss und gibt die Hoehe, die
-   anderen darueber. Das Skript setzt data-seite und die Klassen aktiv und
-   weg; ein abgehendes Blatt hebt sich nach oben, ein kommendes legt sich
-   von unten auf. */
 /* clip statt hidden: hidden macht das Blatt zum Scrollkasten und das Seitenverhaeltnis
    wuerde die Dunkelprobe unten abschneiden. */
 .konstruktionsblatt{overflow:clip}
 .konstruktionsblatt .seite{display:block}
-.konstruktionsblatt .seite.erste{transition:opacity .4s ease,transform .55s cubic-bezier(.65,0,.35,1)}
-.konstruktionsblatt:not([data-seite="1"]) .seite.erste{opacity:0;transform:translateY(-10%) rotate(-2deg)}
-.konstruktionsblatt[data-seite="1"] .seite.erste{transition:none}
-.konstruktionsblatt .seite.weitere{position:absolute;inset:0;padding:7% 7% 6%;background:var(--papier);opacity:0;transform:translateY(6%) scale(.97);transition:opacity .45s ease,transform .55s cubic-bezier(.16,1,.3,1)}
-.konstruktionsblatt .seite.weitere small{position:absolute;top:7%;left:7%;right:7%}
-.konstruktionsblatt .seite.weitere .inhalt{display:block;margin-top:14%}
-.konstruktionsblatt .seite.weitere.aktiv{opacity:1;transform:none;z-index:2}
-.konstruktionsblatt .seite.weitere.weg{opacity:0;transform:translateY(-10%) rotate(-2deg);transition:opacity .4s ease,transform .55s cubic-bezier(.65,0,.35,1)}
-.konstruktionsblatt .seite.weitere.sofort{transition:none}
-.konstruktionsblatt .farbzeilen{display:block}
-.konstruktionsblatt .farbzeilen > span{display:grid;grid-template-columns:28% 1fr;gap:6%;align-items:center;padding:3.5% 0;border-bottom:1px dashed rgba(21,32,42,.14)}
-.konstruktionsblatt .farbzeilen > span > span{display:block}
-.konstruktionsblatt .farbzeilen i{display:block;aspect-ratio:1/.62;background:var(--f);border:1px solid rgba(21,32,42,.12);border-radius:1px}
-.konstruktionsblatt .farbzeilen b{display:block;font-size:.5rem;color:var(--tinte)}
-.konstruktionsblatt .farbzeilen em{display:block;font-style:normal;font-size:.4rem;color:var(--tinte-still);letter-spacing:.02em}
-.konstruktionsblatt .probe{display:block;border-bottom:1px solid rgba(21,32,42,.14);padding:4% 0 6%}
-.konstruktionsblatt .probe .gross{display:block;font-size:2.4rem;line-height:1;letter-spacing:-.02em}
-.konstruktionsblatt .probe.serif .gross{font-family:var(--serif);font-weight:900}
-.konstruktionsblatt .probe.sans .gross{font-weight:700}
-.konstruktionsblatt .probe .abc{display:block;font-size:.5rem;letter-spacing:.06em;color:var(--tinte-still);margin-top:4%;white-space:nowrap;overflow:hidden}
-.konstruktionsblatt .probe .rolle{display:block;font-size:.44rem;color:var(--tinte-still);margin-top:3%}
-.konstruktionsblatt .probe .rolle b{color:var(--tinte)}
-.konstruktionsblatt .seite.dunkel{background:var(--grund-tief);color:var(--papier)}
-.konstruktionsblatt .seite.dunkel small{color:var(--ringschrift)}
-.konstruktionsblatt .seite.dunkel .wortmarke{display:block;font-family:var(--serif);font-weight:900;font-size:1.7rem;line-height:1;letter-spacing:-.01em;margin-top:34%}
-.konstruktionsblatt .seite.dunkel .wortmarke b{color:var(--signal)}
-.konstruktionsblatt .seite.dunkel .regel{display:block;font-size:.44rem;line-height:1.5;color:var(--ringschrift);margin-top:14%;padding-top:5%;border-top:1px solid rgba(242,237,226,.16)}
-.konstruktionsblatt .seite.dunkel .regel b{color:var(--papier)}
-.konstruktionsblatt .seite.dunkel .falsch{display:flex;gap:6%;margin-top:8%}
-.konstruktionsblatt .seite.dunkel .falsch > span{flex:1;padding:8% 6%;border-radius:2px;font-family:var(--serif);font-weight:900;font-size:.72rem;position:relative;background:rgba(242,237,226,.06)}
-.konstruktionsblatt .seite.dunkel .falsch > span b{color:var(--signal)}
-.konstruktionsblatt .seite.dunkel .falsch .ja{color:var(--papier)}
-.konstruktionsblatt .seite.dunkel .falsch .nein{color:#15202a}
-.konstruktionsblatt .seite.dunkel .falsch small{position:static;display:block;font-family:var(--sans);font-weight:400;font-size:.36rem;margin-top:10%;color:var(--ringschrift)}
-.konstruktionsblatt .seite.dunkel .falsch .nein::after{content:"";position:absolute;left:8%;right:8%;top:38%;border-top:1.5px solid var(--signal);transform:rotate(-8deg)}
-@media(prefers-reduced-motion:reduce){.konstruktionsblatt *{transition:none!important}}
+@media(prefers-reduced-motion:reduce){.konstruktionsblatt *{transition:none!important;animation:none!important}}
 /* Im Stand ist das Blatt gross; die Regeln fuer das alte Markenblatt
    (Schutzraum-Kasten um die Wortmarke) gelten hier nicht. */
 .stand .brett-desktop .konstruktionsblatt{padding:7% 7% 6%;font-size:1rem}
@@ -1292,21 +1293,10 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 .stand .brett-desktop .konstruktionsblatt .regeln span{font-size:.72rem;padding:5px 0}
 .stand .brett-desktop .konstruktionsblatt .dunkelprobe .wortmarke{font-size:2rem}
 .stand .brett-desktop .konstruktionsblatt .dunkelprobe small{font-size:.6rem}
-/* Blatt 2 bis 4 im Stand: dieselben Blaetter wie in der Reihe, die Grade
-   an der Blattbreite (cqw), damit es am Handy mit 330 Pixeln genauso sitzt
-   wie am Desktop mit 550. */
+/* Im Stand die Beschriftung an der Blattbreite (cqw), damit sie am Handy mit
+   330 Pixeln genauso sitzt wie am Desktop mit 550. */
 .stand .brett-desktop .konstruktionsblatt{container-type:inline-size}
 .stand .brett-desktop .konstruktionsblatt small{font-size:clamp(.46rem,1.9cqw,.62rem)}
-.stand .brett-desktop .konstruktionsblatt .seite.weitere .inhalt{margin-top:17%}
-.stand .brett-desktop .konstruktionsblatt .farbzeilen b{font-size:clamp(.7rem,3cqw,1rem)}
-.stand .brett-desktop .konstruktionsblatt .farbzeilen em{font-size:clamp(.56rem,2.2cqw,.72rem)}
-.stand .brett-desktop .konstruktionsblatt .probe .gross{font-size:15cqw}
-.stand .brett-desktop .konstruktionsblatt .probe .abc{font-size:clamp(.6rem,2.8cqw,.95rem)}
-.stand .brett-desktop .konstruktionsblatt .probe .rolle{font-size:clamp(.6rem,2.4cqw,.78rem)}
-.stand .brett-desktop .konstruktionsblatt .seite.dunkel .wortmarke{font-size:10cqw;margin-top:34%}
-.stand .brett-desktop .konstruktionsblatt .seite.dunkel .regel{font-size:clamp(.6rem,2.5cqw,.82rem)}
-.stand .brett-desktop .konstruktionsblatt .seite.dunkel .falsch > span{font-size:4.6cqw}
-.stand .brett-desktop .konstruktionsblatt .seite.dunkel .falsch small{font-size:clamp(.46rem,1.9cqw,.62rem)}
 .stand .brett-desktop .telefon video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
 .schnittleiste i{left:calc(var(--t) / var(--dauer,18) * 100%)}
 @media(max-width:760px){.richtung .blatt-objekt{width:57%}}
@@ -1409,12 +1399,12 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
         <div class="beweis">
           <button class="objekt blatt-objekt lupe" type="button" aria-label="Branding in der Werkbank ansehen">
             <span class="blatt konstruktionsblatt">
-              <!-- Vier Blaetter (Fassung B + Aufbau A, 25.10.2026): das erste
-                   baut sich auf, sobald es im Bild ist, danach hebt sich alle
-                   paar Sekunden ein Blatt ab und das naechste liegt darunter.
-                   Blatt 2 bis 4 sind Entwurfstext, die CMYK-Werte geschaetzt. -->
+              <!-- Ein Blatt, das entsteht (26.10.2026): Skizze, Schrift wird
+                   probiert, Signal, Konstruktion, Farben rasten ein, dann
+                   Schriften, Regeln und Dunkelprobe. Zeiten im CSS unter
+                   «Das Blatt entsteht». -->
               <span class="seite erste">
-              <small>Markenblatt · Blatt 1 von 4 · Konstruktion</small>
+              <small>Markenblatt · Konstruktion</small>
               <svg class="konstruktionslinien" viewBox="0 0 300 150" aria-hidden="true">
                 <defs><pattern id="mm" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M10 0H0V10" fill="none" stroke="#15202a" stroke-opacity=".07" stroke-width=".6"/></pattern></defs>
                 <rect width="300" height="150" fill="url(#mm)"/>
@@ -1425,49 +1415,26 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
                   <line x1="22" y1="40" x2="22" y2="128"/>
                   <line x1="252" y1="40" x2="252" y2="128"/>
                   <path d="M22 122h230" stroke-dasharray="2 2"/>
-                  <circle cx="206" cy="91" r="16"/>
-                  <path d="M206 75v-28h-18"/>
                   <path d="M14 104v-26M12 102l2 2 2-2M12 80l2-2 2 2"/>
                   <path d="M262 104v-38M260 102l2 2 2-2M260 68l2-2 2 2"/>
+                </g>
+                <g class="signal" fill="none" stroke="#ff8a4c" stroke-width=".9">
+                  <circle class="sig" cx="206" cy="91" r="16"/>
+                  <path class="sig" d="M206 75v-28h-18"/>
                 </g>
                 <g class="text" font-family="Schibsted Grotesk, sans-serif" font-size="6.5" fill="#565f6a" letter-spacing=".3">
                   <text x="10" y="92" transform="rotate(-90 10 92)">x</text>
                   <text x="261" y="86">1.46 x</text>
                   <text x="22" y="134">Schutzraum = x, rundum</text>
-                  <text x="184" y="49" text-anchor="end">Signal nur im Zweiten</text>
-                  <text x="22" y="34">Wortmarke, Playfair Display 900</text>
+                  <text class="sig" x="184" y="49" text-anchor="end">Signal nur im Zweiten</text>
+                  <text class="wahl" x="22" y="34">Wortmarke, Playfair Display 900</text>
                 </g>
-                <text x="22" y="104" font-family="Playfair Display, serif" font-weight="900" font-size="44" letter-spacing="-.5" fill="#15202a">format<tspan fill="#ff8a4c">eins</tspan></text>
+                <text class="marke-svg" x="22" y="104" font-family="Playfair Display, serif" font-weight="900" font-size="44" letter-spacing="-.5" fill="#15202a">format<tspan fill="#ff8a4c">eins</tspan></text>
               </svg>
               <span class="farben"><i style="--f:#1b2a33" data-hex="#1B2A33"></i><i style="--f:#0e1820" data-hex="#0E1820"></i><i style="--f:#ff8a4c" data-hex="#FF8A4C"></i><i style="--f:#f2ede2" data-hex="#F2EDE2"></i><i style="--f:#ddd4c3" data-hex="#DDD4C3"></i></span>
               <span class="schriften"><span class="serif">Playfair Display</span><span class="sans">Schibsted Grotesk</span></span>
               <span class="regeln"><span><b>Schutzraum</b> eine x-Höhe rundum</span><span><b>Kleinste Grösse</b> 24 mm Breite</span><span><b>Auf Dunkel</b> Papier statt Tinte</span></span>
               <span class="dunkelprobe"><span class="wortmarke">format<b>eins</b></span><small>Auf Dunkel</small></span>
-              </span>
-              <span class="seite weitere farbblatt">
-                <small>Markenblatt · Blatt 2 von 4 · Farben</small>
-                <span class="inhalt farbzeilen">
-                  <span><i style="--f:#1b2a33"></i><span><b>Grund</b><em>#1B2A33 · C 82 M 60 Y 45 K 50</em></span></span>
-                  <span><i style="--f:#0e1820"></i><span><b>Grund, tief</b><em>#0E1820 · C 88 M 70 Y 55 K 70</em></span></span>
-                  <span><i style="--f:#ff8a4c"></i><span><b>Signal</b><em>#FF8A4C · C 0 M 55 Y 70 K 0</em></span></span>
-                  <span><i style="--f:#f2ede2"></i><span><b>Papier</b><em>#F2EDE2 · C 4 M 5 Y 10 K 0</em></span></span>
-                  <span><i style="--f:#ddd4c3"></i><span><b>Papier, still</b><em>#DDD4C3 · C 12 M 14 Y 22 K 0</em></span></span>
-                </span>
-              </span>
-              <span class="seite weitere schriftblatt">
-                <small>Markenblatt · Blatt 3 von 4 · Schriften</small>
-                <span class="inhalt">
-                  <span class="probe serif"><span class="gross">Aa</span><span class="abc">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</span><span class="rolle"><b>Playfair Display 900</b> · Titel und Wortmarke</span></span>
-                  <span class="probe sans"><span class="gross">Aa</span><span class="abc">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</span><span class="rolle"><b>Schibsted Grotesk 400 / 700</b> · Text, Zahlen, Beschriftung</span></span>
-                </span>
-              </span>
-              <span class="seite weitere dunkel">
-                <small>Markenblatt · Blatt 4 von 4 · Auf Dunkel</small>
-                <span class="inhalt">
-                  <span class="wortmarke">format<b>eins</b></span>
-                  <span class="regel"><b>Auf Dunkel:</b> Papier statt Tinte, Signal bleibt Signal. Nie Tinte auf Dunkel.</span>
-                  <span class="falsch"><span class="ja">format<b>eins</b><small>So</small></span><span class="nein">format<b>eins</b><small>Nicht so</small></span></span>
-                </span>
               </span>
             </span>
           </button>
@@ -1554,11 +1521,11 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
           <p>Das Logo hast du irgendwann selbst gebastelt, und die Visitenkarte sieht anders aus als die Website? Dann wirkst du kleiner, als du bist. Zusammen klären wir, wofür du stehst und wen du ansprechen willst. Daraus gestalte ich ein Erscheinungsbild, an dem man dich überall wiedererkennt.</p>
         </div>
         <div class="brett-desktop">
-          <p class="brettname" aria-hidden="true"><b>Markenblatt</b> · 4 Blätter</p>
+          <p class="brettname" aria-hidden="true"><b>Markenblatt</b> · Logo, Farben, Schriften</p>
           <div class="auswahl blatt-rahmen" data-mass="210 × 297 mm">
             <span class="blatt konstruktionsblatt">
             <span class="seite erste">
-              <small>Markenblatt · Blatt 1 von 4 · Konstruktion</small>
+              <small>Markenblatt · Konstruktion</small>
               <svg class="konstruktionslinien" viewBox="0 0 300 150" aria-hidden="true">
                 <defs><pattern id="mm-gross" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M10 0H0V10" fill="none" stroke="#15202a" stroke-opacity=".07" stroke-width=".6"/></pattern></defs>
                 <rect width="300" height="150" fill="url(#mm-gross)"/>
@@ -1569,49 +1536,26 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
                   <line x1="22" y1="40" x2="22" y2="128"/>
                   <line x1="252" y1="40" x2="252" y2="128"/>
                   <path d="M22 122h230" stroke-dasharray="2 2"/>
-                  <circle cx="206" cy="91" r="16"/>
-                  <path d="M206 75v-28h-18"/>
                   <path d="M14 104v-26M12 102l2 2 2-2M12 80l2-2 2 2"/>
                   <path d="M262 104v-38M260 102l2 2 2-2M260 68l2-2 2 2"/>
+                </g>
+                <g class="signal" fill="none" stroke="#ff8a4c" stroke-width=".9">
+                  <circle class="sig" cx="206" cy="91" r="16"/>
+                  <path class="sig" d="M206 75v-28h-18"/>
                 </g>
                 <g class="text" font-family="Schibsted Grotesk, sans-serif" font-size="6.5" fill="#565f6a" letter-spacing=".3">
                   <text x="10" y="92" transform="rotate(-90 10 92)">x</text>
                   <text x="261" y="86">1.46 x</text>
                   <text x="22" y="134">Schutzraum = x, rundum</text>
-                  <text x="184" y="49" text-anchor="end">Signal nur im Zweiten</text>
-                  <text x="22" y="34">Wortmarke, Playfair Display 900</text>
+                  <text class="sig" x="184" y="49" text-anchor="end">Signal nur im Zweiten</text>
+                  <text class="wahl" x="22" y="34">Wortmarke, Playfair Display 900</text>
                 </g>
-                <text x="22" y="104" font-family="Playfair Display, serif" font-weight="900" font-size="44" letter-spacing="-.5" fill="#15202a">format<tspan fill="#ff8a4c">eins</tspan></text>
+                <text class="marke-svg" x="22" y="104" font-family="Playfair Display, serif" font-weight="900" font-size="44" letter-spacing="-.5" fill="#15202a">format<tspan fill="#ff8a4c">eins</tspan></text>
               </svg>
               <span class="farben"><i style="--f:#1b2a33" data-hex="#1B2A33"></i><i style="--f:#0e1820" data-hex="#0E1820"></i><i style="--f:#ff8a4c" data-hex="#FF8A4C"></i><i style="--f:#f2ede2" data-hex="#F2EDE2"></i><i style="--f:#ddd4c3" data-hex="#DDD4C3"></i></span>
               <span class="schriften"><span class="serif">Playfair Display</span><span class="sans">Schibsted Grotesk</span></span>
               <span class="regeln"><span><b>Schutzraum</b> eine x-Höhe rundum</span><span><b>Kleinste Grösse</b> 24 mm Breite</span><span><b>Auf Dunkel</b> Papier statt Tinte</span></span>
               <span class="dunkelprobe"><span class="wortmarke">format<b>eins</b></span><small>Auf Dunkel</small></span>
-            </span>
-            <span class="seite weitere farbblatt">
-              <small>Markenblatt · Blatt 2 von 4 · Farben</small>
-              <span class="inhalt farbzeilen">
-                <span><i style="--f:#1b2a33"></i><span><b>Grund</b><em>#1B2A33 · C 82 M 60 Y 45 K 50</em></span></span>
-                <span><i style="--f:#0e1820"></i><span><b>Grund, tief</b><em>#0E1820 · C 88 M 70 Y 55 K 70</em></span></span>
-                <span><i style="--f:#ff8a4c"></i><span><b>Signal</b><em>#FF8A4C · C 0 M 55 Y 70 K 0</em></span></span>
-                <span><i style="--f:#f2ede2"></i><span><b>Papier</b><em>#F2EDE2 · C 4 M 5 Y 10 K 0</em></span></span>
-                <span><i style="--f:#ddd4c3"></i><span><b>Papier, still</b><em>#DDD4C3 · C 12 M 14 Y 22 K 0</em></span></span>
-              </span>
-            </span>
-            <span class="seite weitere schriftblatt">
-              <small>Markenblatt · Blatt 3 von 4 · Schriften</small>
-              <span class="inhalt">
-                <span class="probe serif"><span class="gross">Aa</span><span class="abc">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</span><span class="rolle"><b>Playfair Display 900</b> · Titel und Wortmarke</span></span>
-                <span class="probe sans"><span class="gross">Aa</span><span class="abc">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</span><span class="rolle"><b>Schibsted Grotesk 400 / 700</b> · Text, Zahlen, Beschriftung</span></span>
-              </span>
-            </span>
-            <span class="seite weitere dunkel">
-              <small>Markenblatt · Blatt 4 von 4 · Auf Dunkel</small>
-              <span class="inhalt">
-                <span class="wortmarke">format<b>eins</b></span>
-                <span class="regel"><b>Auf Dunkel:</b> Papier statt Tinte, Signal bleibt Signal. Nie Tinte auf Dunkel.</span>
-                <span class="falsch"><span class="ja">format<b>eins</b><small>So</small></span><span class="nein">format<b>eins</b><small>Nicht so</small></span></span>
-              </span>
             </span>
           </span>
           </div>
@@ -2222,33 +2166,19 @@ if (spot && !reduziert && 'IntersectionObserver' in window) {
   richtungen.forEach(r => io.observe(r.querySelector('.beweis') || r));
 })();
 
-// Das Markenblatt blaettert, solange es zu sehen ist: das erste Blatt baut
-// sich auf (Klasse baut), nach knapp fuenf Sekunden hebt es sich ab und die
-// Blaetter 2 bis 4 folgen im Takt von 2,4 Sekunden, dann baut sich Blatt 1
-// wieder auf. In der Reihe gilt "zu sehen" = Klasse imbild auf der Richtung,
-// im Stand = Klasse zeichnet auf dem Stand (Skript unten). Ausser Sicht steht
-// alles auf Anfang. Wer Bewegung abgeschaltet hat, sieht Blatt 1 fertig und
-// ohne Wechsel.
+// Das Markenblatt entsteht, solange es zu sehen ist: Klasse baut startet den
+// Aufbau (Ablauf im CSS unter «Das Blatt entsteht»), nach 11,5 Sekunden
+// beginnt er von vorn. In der Reihe gilt "zu sehen" = Klasse imbild auf der Richtung,
+// im Stand = Klasse zeichnet auf dem Stand (Skript unten). Ausser Sicht wartet
+// das Blatt leer. Wer Bewegung abgeschaltet hat, sieht es fertig.
 const blattwerk = (blatt, traeger, klasse) => {
-  const weitere = [...blatt.querySelectorAll('.seite.weitere')];
   let timer = 0;
-  const zeigen = (n) => {
-    blatt.dataset.seite = n;
-    weitere.forEach((seite, i) => {
-      const k = i + 2;
-      if (k === n) { seite.classList.add('sofort'); seite.classList.remove('weg'); void seite.offsetWidth; seite.classList.remove('sofort'); seite.classList.add('aktiv'); }
-      else { seite.classList.remove('aktiv'); seite.classList.toggle('weg', k < n || n === 1); }
-    });
-  };
-  const anfang = () => { clearTimeout(timer); timer = 0; zeigen(1); blatt.classList.remove('baut'); };
-  const weiter = (n) => {
-    zeigen(n);
-    if (n === 1) { blatt.classList.remove('baut'); void blatt.offsetWidth; blatt.classList.add('baut'); }
-    timer = setTimeout(() => weiter(n % 4 + 1), n === 1 ? 4800 : 2400);
-  };
-  zeigen(1);
+  const bauen = () => { blatt.classList.remove('baut'); void blatt.offsetWidth; blatt.classList.add('baut'); };
   if (reduziert) { blatt.classList.add('baut'); return; }
-  const pruefen = () => { if (traeger.classList.contains(klasse)) { if (!timer) { anfang(); weiter(1); } } else if (timer) anfang(); };
+  const pruefen = () => {
+    if (traeger.classList.contains(klasse)) { if (!timer) { bauen(); timer = setInterval(bauen, 11500); } }
+    else if (timer) { clearInterval(timer); timer = 0; blatt.classList.remove('baut'); }
+  };
   new MutationObserver(pruefen).observe(traeger, { attributes: true, attributeFilter: ['class'] });
   pruefen();
 };
