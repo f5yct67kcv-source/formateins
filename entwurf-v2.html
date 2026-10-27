@@ -214,7 +214,7 @@ p{max-width:62ch}
 .logo .s{font-family:var(--sans);font-weight:700;letter-spacing:-.035em}
 .logo .p{font-family:var(--serif);font-weight:900;letter-spacing:-.01em;color:var(--signal)}
 /* In der Kopfzeile groesser als im Fuss: neben der Schlagzeile ging es sonst unter. */
-.kopf .logo{font-size:clamp(1.3rem,1.9vw,1.6rem)}
+.kopf .logo{font-size:clamp(1.3rem,1.9vw,1.6rem);text-decoration:none}
 
 /* Mitlaufende Leiste: taucht erst auf, wenn der Knopf im Hero aus dem Bild ist,
    damit oben nicht zwei gleiche Knoepfe nebeneinander stehen. */
@@ -227,6 +227,7 @@ p{max-width:62ch}
 .mitlauf.zeigen{transform:none}
 .mitlauf .spalte{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
 .mitlauf .logo{font-size:1.3rem;text-decoration:none}
+.menukopf .logo{text-decoration:none}
 .knopf.klein{padding:10px 16px;font-size:var(--txt-s);gap:8px}
 /* Zweite Tuer neben dem Rechner: gleich gross, aber nur als Umriss, damit der
    orange Knopf der erste Weg bleibt. */
@@ -1314,7 +1315,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
      entwurf-leiste.js, beides auch auf den Unterseiten. -->
 <header class="kopf">
   <div class="spalte">
-    <div class="logo"><span class="s">format</span><span class="p">eins</span></div>
+    <a class="logo" href="entwurf-v2.html" aria-label="formateins, zur Startseite"><span class="s">format</span><span class="p">eins</span></a>
     <nav class="rechts" aria-label="Seite">
       <ul class="menu"><li><a href="#leistungen">Bereiche</a></li><li><a href="#arbeiten">Arbeiten</a></li><li><a href="entwurf-website-kosten.html">Preise</a></li><li><a href="#fragen">Fragen</a></li></ul>
       <button class="menuknopf" type="button" aria-expanded="false" aria-controls="menuoffen" aria-label="Menü"><i aria-hidden="true"></i></button>
@@ -1325,7 +1326,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 
 <div class="mitlauf" id="mitlauf" inert>
   <div class="spalte">
-    <a class="logo" href="#" aria-label="formateins, zum Seitenanfang"><span class="s">format</span><span class="p">eins</span></a>
+    <a class="logo" href="entwurf-v2.html" aria-label="formateins, zur Startseite"><span class="s">format</span><span class="p">eins</span></a>
     <nav class="rechts" aria-label="Seite">
       <ul class="menu"><li><a href="#leistungen">Bereiche</a></li><li><a href="#arbeiten">Arbeiten</a></li><li><a href="entwurf-website-kosten.html">Preise</a></li><li><a href="#fragen">Fragen</a></li></ul>
       <button class="menuknopf" type="button" aria-expanded="false" aria-controls="menuoffen" aria-label="Menü"><i aria-hidden="true"></i></button>
@@ -1815,7 +1816,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 </main>
 
 <div class="menuoffen" id="menuoffen" hidden>
-  <div class="menukopf"><span class="logo"><span class="s">format</span><span class="p">eins</span></span><button class="zu" type="button" aria-label="Menü schliessen">×</button></div>
+  <div class="menukopf"><a class="logo" href="entwurf-v2.html" aria-label="formateins, zur Startseite"><span class="s">format</span><span class="p">eins</span></a><button class="zu" type="button" aria-label="Menü schliessen">×</button></div>
   <ul><li><a href="#leistungen">Bereiche</a></li><li><a href="#arbeiten">Arbeiten</a></li><li><a href="entwurf-website-kosten.html">Preise</a></li><li><a href="#fragen">Fragen</a></li></ul>
   <a class="knopf" href="entwurf-gespraech.html">Auftritt besprechen<span class="pfeil">→</span></a>
   <p class="leise"><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a> · <a href="tel:+41796868486">079 686 84 86</a></p>
@@ -1825,7 +1826,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
   <div class="spalte">
     <div class="fussraster">
       <div class="fussmarke">
-        <a class="logo" href="#" aria-label="formateins, zum Seitenanfang"><span class="s">format</span><span class="p">eins</span></a>
+        <a class="logo" href="entwurf-v2.html" aria-label="formateins, zur Startseite"><span class="s">format</span><span class="p">eins</span></a>
         <p>Webdesign, Branding und Video für Selbstständige, kleine Unternehmen und Vereine in Olten und der Region.</p>
       </div>
       <div>
