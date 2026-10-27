@@ -18,7 +18,7 @@ ffmpeg -v error -y \
 ov=""; prev="0:v"; k=1
 for e in "tag-social 0.15 4.4" "tag-erklaer 4.6 7.9" "tag-werbe 8.1 11.9" "tag-betrieb 12.1 15.9"; do
   set -- $e
-  ov="$ov[$k:v]format=rgba,fade=t=out:st=$(python3 -c "print($3-0.2)"):d=0.2:alpha=1[t$k];[$prev][t$k]overlay=x='if(lt(t-$2,0.3),-w+(54+w)*(1-pow(1-(t-$2)/0.3,3)),54)':y=1762:enable='between(t,$2,$3)':eval=frame[o$k];"
+  ov="$ov[$k:v]format=rgba,fade=t=out:st=$(python3 -c "print($3-0.2)"):d=0.2:alpha=1[t$k];[$prev][t$k]overlay=x='if(lt(t-$2,0.3),-w+(150+w)*(1-pow(1-(t-$2)/0.3,3)),150)':y=1762:enable='between(t,$2,$3)':eval=frame[o$k];"
   prev="o$k"; k=$((k+1))
 done
 ffmpeg -v error -y -i bild.mp4 \

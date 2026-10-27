@@ -63,3 +63,11 @@ Nachweise in `sfx-lizenzen.txt`.
 
 - Musikbett für Reel und Spot (Track fehlt, nicht mit Code erzeugen)
 - Betriebsvideo durch den echten Dreh ersetzen
+
+## Sichtbarer Bereich auf der Seite
+
+Das Telefon in `entwurf-v2.html` hat das Format 1:2.164 und schneidet ein
+9:16-Video links und rechts um je etwa 9 % (rund 97 px bei 1080 Breite).
+Darum liegt alles Wichtige im mittleren Bereich: Profil mit 46 px Rand
+(statt 16), Schilder bei x = 150, Erklärvideo auf 84 % verkleinert über
+einer unscharfen Fassung von sich selbst.
