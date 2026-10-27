@@ -1005,15 +1005,17 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand .brett-desktop{grid-row:2;margin-top:40px}
   .stand .standhandeln{grid-column:1/13;margin-top:44px;justify-content:center}
   /* Webdesign (27.10.2026): links die Schlagwoerter wie bei Branding und
-     Video, rechts das Fenster, die drei Groessen als flache Reihe darunter */
+     Video, rechts das Fenster, darunter die drei Groessen ohne Rahmen ueber
+     die ganze Breite, nur mit einer Linie oben. Die Knoepfe stehen mittig
+     zwischen den Groessen und der Linie der Fussleiste. */
   .stand[data-titel="Webdesign"] .brett-desktop{grid-column:4/12}
   .stand[data-titel="Webdesign"] .auswahl{margin:0;max-width:100%}
   .stand[data-titel="Webdesign"] .wirkung{grid-column:1/4;grid-row:2;margin:71px 44px 0 0;justify-content:center;gap:90px;padding-bottom:20px}
-  .stand[data-titel="Webdesign"] .inspektor{grid-column:1/13;grid-row:3;margin:52px 0 0;padding:16px 26px 17px}
+  .stand[data-titel="Webdesign"] .inspektor{grid-column:1/13;grid-row:3;margin:84px 0 0;padding:26px 0 0;background:none;border:0;border-top:1px solid var(--linie);border-radius:0;box-shadow:none}
   .stand[data-titel="Webdesign"] .angebot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
   .stand[data-titel="Webdesign"] .angebot li{border-bottom:0;border-right:1px solid var(--linie);padding:2px 32px 2px 0}
   .stand[data-titel="Webdesign"] .angebot li:last-child{border-right:0;padding-right:0}
-  .stand[data-titel="Webdesign"] .standhandeln{grid-row:4}
+  .stand[data-titel="Webdesign"] .standhandeln{grid-row:4;margin:72px 0 8px}
   /* Branding (26.10.2026): aufgebaut wie Video. Links die drei Schlagwoerter
      mit Pfeilen aufs Blatt, in der Mitte das Blatt, rechts der Kasten auf
      der Hoehe der Blattmitte. */
