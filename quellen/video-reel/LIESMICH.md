@@ -10,6 +10,7 @@ die Detailansicht von Richtung 03 gedacht (`entwurf-v2.html`, Stand «Video»).
 |---|---|
 | `entwurf-video-reel.mp4` / `.webm` | Reel stumm, 540×960 |
 | `entwurf-video-reel-ton.mp4` / `.webm` | Reel mit Ton (AAC / Opus, 96 kbit/s) |
+| `entwurf-video-reel-ohne-titel-ton.mp4` / `.webm` | Reel mit Ton, ohne Titel-Einblender (Desktop, über `data-breit`) |
 | `entwurf-video-reel.jpg` | Poster, Bild bei 2.9 s (Profil lebendig) |
 | `entwurf-video-fulehorn-rohschnitt.mp4` | Spot Fulehorn, Rohschnitt 20 s, noch ohne Musik |
 
