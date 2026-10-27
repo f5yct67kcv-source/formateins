@@ -1,7 +1,7 @@
 # Reel «Video» und Spot «Fulehorn»
 
 Arbeitsstand vom 27.10.2026. Das Reel zeigt in 16 s, was formateins im Bereich
-Video macht: Social Media, Erklärvideo, Werbevideo, Betriebsvideo. Es ist für
+Video macht: Social Media, Erklärvideo, Werbevideo, Imagefilm. Es ist für
 die Detailansicht von Richtung 03 gedacht (`entwurf-v2.html`, Stand «Video»).
 
 ## Dateien im Hauptordner
@@ -20,7 +20,7 @@ die Detailansicht von Richtung 03 gedacht (`entwurf-v2.html`, Stand «Video»).
 | 0–4.5 s | Social Media | `profil.html`, Fulehorn-Profil von blass zu lebendig, Sprung in die Kachel |
 | 4.5–8 s | Erklärvideo | Grantown-Karte (Garden Park Guest House), 16.0–19.5 s, Kunde ist einverstanden |
 | 8–12 s | Werbevideo | Fulehorn Hero, Licht geht auf (shot4v 1.5–5.5 s) |
-| 12–16 s | Betriebsvideo | Praxis-Platzhalter: Wide 1.4 s, Detail 1.2 s, Middle 1.4 s |
+| 12–16 s | Imagefilm | Praxis-Platzhalter: Wide 1.4 s, Detail 1.2 s, Middle 1.4 s |
 
 Fulehorn ist eine erfundene Marke. Auf der Seite als freie Arbeit oder Beispiel
 bezeichnen, nicht als Kundenprojekt. Die Praxis-Szene ist KI-generiert und ein
@@ -62,7 +62,7 @@ Nachweise in `sfx-lizenzen.txt`.
 ## Offen
 
 - Musikbett für Reel und Spot (Track fehlt, nicht mit Code erzeugen)
-- Betriebsvideo durch den echten Dreh ersetzen
+- Imagefilm-Platzhalter (Praxis) durch den echten Dreh ersetzen
 
 ## Sichtbarer Bereich auf der Seite
 
