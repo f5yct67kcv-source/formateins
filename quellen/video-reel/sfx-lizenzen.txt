@@ -1,3 +1,17 @@
+MUSIK IM REEL (ab 27.10.2026)
+
+Rising Forest
+  author: Diego Nava
+  source: Mixkit, https://assets.mixkit.co/music/471/471.mp3
+  licence: Mixkit Stock Music Free License (https://mixkit.co/license/#musicFree)
+           Kommerziell und nicht kommerziell frei, ohne Namensnennung, auf Websites,
+           Social Media, Werbung und Podcasts. Nicht erlaubt: CD/DVD, TV/Radio, Games,
+           als reines Musikstueck remixen, als eigenes ausgeben, bei Content-ID anmelden.
+  verwendet: ab 13.73 s, mit Rubberband von 123.99 auf 120 BPM, 16 s, Musik -3 dB
+             und unter dem O-Ton (8-16 s) weitere -6 dB.
+
+Akzent auf den Schnitten: swish__swosh-13 (qubodup, CC0, siehe unten).
+
 TD-CUT SOUND LIBRARY - SOURCES AND LICENCES
 
 Every sound in this folder comes from an open sound library and is published under CC0 1.0

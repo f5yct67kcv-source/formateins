@@ -9,7 +9,7 @@ die Detailansicht von Richtung 03 gedacht (`entwurf-v2.html`, Stand «Video»).
 | Datei | Inhalt |
 |---|---|
 | `entwurf-video-reel.mp4` / `.webm` | Reel stumm, 540×960 |
-| `entwurf-video-reel-ton.mp4` / `.webm` | Reel mit Ton (AAC / Opus, 96 kbit/s) |
+| `entwurf-video-reel-ton.mp4` / `.webm` | Reel mit Ton (AAC / Opus, 96 kbit/s), Musik dezent, -17.5 LUFS |
 | `entwurf-video-reel-ohne-titel-ton.mp4` / `.webm` | Reel mit Ton, ohne Titel-Einblender (Desktop, über `data-breit`) |
 | `entwurf-video-reel.jpg` | Poster, Bild bei 2.9 s (Profil lebendig) |
 | `entwurf-video-fulehorn-rohschnitt.mp4` | Spot Fulehorn, Rohschnitt 20 s, noch ohne Musik |
@@ -55,14 +55,16 @@ Job-IDs neu laden und die Ordner so anlegen.
 - `endkarte.html` + `render-ek.js` Endkarte des Spots, Bild für Bild mit Playwright
 - `profil.html` + `render-profil.js` Social-Media-Teil, 135 Bilder
 - `titel.html` + `titel.js` Titel-Einblender je Teil («Beispiel» + Bereich) als PNG
-- `reel.sh` Reel zusammensetzen, Schilder, Soundakzente, Lautheit -15.7 LUFS
+- `reel.sh` Reel zusammensetzen (Schritt 1 Bild, 2 Titel)
+- `musik.sh` Ton: Musikbett auf 120 BPM, Einsatz bei 2 s, O-Ton unter der Musik, Swoosh je Schnitt.
+  Aufruf: `MV=0.7 LU=-17.5 ./musik.sh 471.mp3 15.495 123.99 c`
 
-Soundakzente: CC0-Bibliothek von Katana (Kenney, qubodup, Swish-Pack),
-Nachweise in `sfx-lizenzen.txt`.
+Musik: «Rising Forest» von Diego Nava (Mixkit Stock Music Free License).
+Swoosh: CC0-Bibliothek von Katana. Nachweise in `sfx-lizenzen.txt`.
 
 ## Offen
 
-- Musikbett für Reel und Spot (Track fehlt, nicht mit Code erzeugen)
+- Musikbett für den Spot Fulehorn
 - Imagefilm-Platzhalter (Praxis) durch den echten Dreh ersetzen
 
 ## Sichtbarer Bereich auf der Seite
