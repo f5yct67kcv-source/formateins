@@ -1042,6 +1042,16 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand[data-titel="Video"] .schnittleiste{margin:44px 0 0;max-width:100%}
   .stand[data-titel="Video"] .wirkung{grid-column:1/4;grid-row:2;margin:112px 44px 0 0;justify-content:center;gap:118px;padding-bottom:100px}
   .stand[data-titel="Video"] .inspektor{grid-column:8/12;grid-row:2;align-self:center;margin:71px 0 74px}
+  /* Der Kasten laeuft mit dem Reel mit (27.10.2026): das Format, das gerade
+     laeuft, wird orange und bekommt links einen Strich, die anderen treten
+     zurueck. Klasse synchron und laeuft setzt das Skript, nur ab dieser
+     Breite; am Handy steht der Kasten unter dem Video, dort reicht der
+     Einblender im Reel. */
+  .stand[data-titel="Video"] .angebot li{position:relative;transition:opacity .35s ease}
+  .stand[data-titel="Video"] .angebot.synchron li:not(.laeuft){opacity:.55}
+  .stand[data-titel="Video"] .angebot li.laeuft b{color:var(--signal)}
+  .stand[data-titel="Video"] .angebot li::before{content:"";position:absolute;left:-19px;top:14px;bottom:14px;width:2px;background:var(--signal);transform:scaleY(0);transform-origin:top;transition:transform .35s ease}
+  .stand[data-titel="Video"] .angebot li.laeuft::before{transform:scaleY(1)}
 }
 /* Die Wirkung: drei Schlagwoerter in der Serif, ohne Erklaersatz (26.10.2026).
    Am Desktop als Gruppe auf der Telefonmitte, mit Luft dazwischen; die Zeilen
@@ -2183,6 +2193,28 @@ document.querySelectorAll('.stand .konstruktionsblatt').forEach(b => blattwerk(b
 // Die Startseiten im Webdesign-Stand wechseln, solange der Stand zu sehen ist
 // (Klasse zeichnet), alle 3,6 Sekunden. Beim Eintritt beginnt es bei der
 // ersten. Name und Adresse ueber dem Fenster gehen mit.
+// Der Formate-Kasten im Video-Stand folgt dem Reel: jeder Eintrag gehoert zu
+// einem Teil (Beginn in Sekunden wie die langen Striche der Schnittleiste).
+// Nur ab 900 Pixeln, solange das Reel laeuft; steht es, ist der Kasten normal.
+(() => {
+  const stand = document.querySelector('.stand[data-titel="Video"]');
+  const v = stand && stand.querySelector('video');
+  const liste = stand && stand.querySelector('.angebot');
+  if (!v || !liste) return;
+  const eintraege = [...liste.children];
+  const teile = [0, 4.5, 8, 12];
+  const breit = matchMedia('(min-width: 900px)');
+  const folgen = () => {
+    const an = breit.matches && !v.paused;
+    liste.classList.toggle('synchron', an);
+    let k = 0;
+    teile.forEach((t, i) => { if (v.currentTime >= t) k = i; });
+    eintraege.forEach((e, i) => e.classList.toggle('laeuft', an && i === k));
+  };
+  ['timeupdate', 'play', 'pause'].forEach(t => v.addEventListener(t, folgen));
+  breit.addEventListener('change', folgen);
+})();
+
 document.querySelectorAll('.stand .wechsel').forEach((sicht) => {
   const stand = sicht.closest('.stand');
   const refs = [...sicht.querySelectorAll('.ref')];
