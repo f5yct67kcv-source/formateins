@@ -1,5 +1,5 @@
 #!/bin/bash
-# Reel Video: vier Teile hart geschnitten, Bereichs-Schild oben links, Soundakzente, Lautheit -15 LUFS.
+# Reel Video: vier Teile hart geschnitten, kurzer Titel-Einblender je Teil, Soundakzente, Lautheit -15 LUFS.
 set -e
 cd "$(dirname "$0")"
 S=..
@@ -14,15 +14,16 @@ ffmpeg -v error -y \
   -filter_complex "[0:v]$V,trim=0:4.5,setpts=PTS-STARTPTS[a];[1:v]$V,trim=0:3.5,setpts=PTS-STARTPTS[b];[2:v]$V,trim=0:4.0,setpts=PTS-STARTPTS[c];[3:v]$V,trim=0:4.0,setpts=PTS-STARTPTS[d];[a][b][c][d]concat=n=4:v=1:a=0[v]" \
   -map "[v]" -c:v libx264 -crf 14 -pix_fmt yuv420p bild.mp4
 
-# 2) Schilder: je Teil von links hereinschieben (0.3 s), stehen lassen, kurz vor dem Schnitt ausblenden
+# 2) Titel als kurzer Einblender: je Teil ab +0.3 s einblenden (0.35 s, steigt 24 px),
+#    1.2 s stehen, 0.35 s ausblenden. Unten links, im sichtbaren Bereich des Telefons.
 ov=""; prev="0:v"; k=1
-for e in "tag-social 0.15 4.4" "tag-erklaer 4.6 7.9" "tag-werbe 8.1 11.9" "tag-betrieb 12.1 15.9"; do
-  set -- $e
-  ov="$ov[$k:v]format=rgba,fade=t=out:st=$(python3 -c "print($3-0.2)"):d=0.2:alpha=1[t$k];[$prev][t$k]overlay=x='if(lt(t-$2,0.3),-w+(150+w)*(1-pow(1-(t-$2)/0.3,3)),150)':y=1762:enable='between(t,$2,$3)':eval=frame[o$k];"
+for e in "titel-social 0.3" "titel-erklaer 4.8" "titel-werbe 8.3" "titel-betrieb 12.3"; do
+  set -- $e; st=$2; en=$(python3 -c "print($2+1.9)")
+  ov="$ov[$k:v]format=rgba,fade=t=in:st=$st:d=0.35:alpha=1,fade=t=out:st=$(python3 -c "print($en-0.35)"):d=0.35:alpha=1[t$k];[$prev][t$k]overlay=x=0:y='24*(1-min(1,(t-$st)/0.35))':enable='between(t,$st,$en)':eval=frame[o$k];"
   prev="o$k"; k=$((k+1))
 done
 ffmpeg -v error -y -i bild.mp4 \
-  -loop 1 -t 16 -i tag-social.png -loop 1 -t 16 -i tag-erklaer.png -loop 1 -t 16 -i tag-werbe.png -loop 1 -t 16 -i tag-betrieb.png \
+  -loop 1 -t 16 -i titel-social.png -loop 1 -t 16 -i titel-erklaer.png -loop 1 -t 16 -i titel-werbe.png -loop 1 -t 16 -i titel-betrieb.png \
   -filter_complex "${ov%;}" -map "[$prev]" -c:v libx264 -crf 14 -pix_fmt yuv420p -t 16 bild-tags.mp4
 
 # 3) Ton: Originalton von Werbe- und Betriebsvideo, Akzente aus der CC0-Bibliothek

@@ -53,7 +53,7 @@ Job-IDs neu laden und die Ordner so anlegen.
 - `rohschnitt.sh` Spot Fulehorn: Clips trimmen, Übergänge (Blende, Schnitt, über Schwarz)
 - `endkarte.html` + `render-ek.js` Endkarte des Spots, Bild für Bild mit Playwright
 - `profil.html` + `render-profil.js` Social-Media-Teil, 135 Bilder
-- `tags.html` + `tags.js` Bereichs-Schilder als PNG
+- `titel.html` + `titel.js` Titel-Einblender je Teil («Beispiel» + Bereich) als PNG
 - `reel.sh` Reel zusammensetzen, Schilder, Soundakzente, Lautheit -15.7 LUFS
 
 Soundakzente: CC0-Bibliothek von Katana (Kenney, qubodup, Swish-Pack),
@@ -69,5 +69,5 @@ Nachweise in `sfx-lizenzen.txt`.
 Das Telefon in `entwurf-v2.html` hat das Format 1:2.164 und schneidet ein
 9:16-Video links und rechts um je etwa 9 % (rund 97 px bei 1080 Breite).
 Darum liegt alles Wichtige im mittleren Bereich: Profil mit 46 px Rand
-(statt 16), Schilder bei x = 150, Erklärvideo auf 84 % verkleinert über
+(statt 16), Titel bei x = 130, Erklärvideo auf 84 % verkleinert über
 einer unscharfen Fassung von sich selbst.
