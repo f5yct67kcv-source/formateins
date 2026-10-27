@@ -679,10 +679,9 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 /* Ein Stand pro Projekt. display:contents laesst Fenster, Inspektor, Telefon
    und Projekt direkt im Raster der Flaeche stehen. Verborgene Staende laden
    ihre Bilder nicht; das Skript holt sie vor, sobald der Zeiger auf einer
-   Karte steht. Bis sie da sind, zeigt die Sicht das Vorschaubild. */
+   Karte steht. */
 .stand{display:contents}
 .stand[hidden]{display:none}
-.stand .brett-desktop .sicht{background:var(--vorschau) top/100% auto no-repeat}
 .flaeche{
   position:relative;display:grid;gap:44px 0;
   padding:clamp(44px,6vw,80px) clamp(18px,4vw,64px) clamp(40px,5vw,64px);
@@ -745,7 +744,6 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .sicht{position:relative;overflow:hidden;aspect-ratio:1/var(--v);touch-action:pan-y;user-select:none;-webkit-user-select:none}
 .bahn{position:relative;--ende:calc((var(--b) * var(--v) / var(--h) - 1) * 100%)}
 .bahn img{width:100%;height:auto}
-.bahn .plan{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--schnitt,38%)) 0 0)}
 @media(prefers-reduced-motion:no-preference){
   /* Gleiches Tempo fuer jede Seitenlaenge: --tempo ist die Zeit fuer einen
      Bildschirm voll. Der Faktor 1.35 rechnet Halt und An- und Auslaufen ein. */
@@ -769,24 +767,25 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 }
 @media(prefers-reduced-motion:reduce){.sicht{overflow-y:auto}}
 
-/* Schnittlinie: links Bauplan, rechts die fertige Seite. */
-.schnitt{
-  position:absolute;top:0;bottom:0;left:var(--schnitt,38%);width:0;
-  border-left:1.5px solid var(--signal);pointer-events:none;
+/* Startseiten im Wechsel (27.10.2026). Im Stand zeigt das Fenster drei
+   Startseiten nacheinander. Jede steht zuerst als Bauplan da, dann zieht die
+   orange Linie von rechts nach links durch und deckt die fertige Seite auf
+   (--schnitt von 100 % auf 0 %), die Linie blendet aus. Das Skript setzt alle
+   3,6 Sekunden die naechste auf ist und baut, die vorige blendet aus. Ohne
+   Bewegung wechseln die Seiten nur, fertig und ohne Bauplan. */
+@property --schnitt{syntax:'<percentage>';inherits:true;initial-value:100%}
+.wechsel{background:var(--grund-tief)}
+.wechsel .ref{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .45s ease;--schnitt:100%}
+.wechsel .ref.ist{opacity:1}
+.wechsel .ref img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.wechsel .ref .plan{clip-path:inset(0 calc(100% - var(--schnitt)) 0 0)}
+.wechsel .ref .linie{position:absolute;top:0;bottom:0;left:var(--schnitt);border-left:1.5px solid var(--signal)}
+.wechsel .ref.baut{--schnitt:0%;transition:opacity .45s ease,--schnitt 1.1s cubic-bezier(.65,0,.35,1) .35s}
+.wechsel .ref.baut .linie{opacity:0;transition:opacity .3s ease 1.4s}
+@media(prefers-reduced-motion:reduce){
+  .wechsel .ref{--schnitt:0%}
+  .wechsel .ref .plan,.wechsel .ref .linie{display:none}
 }
-.griff{
-  /* Der Griff wandert mit dem Schnitt ueber seine eigene Breite: bei 0 % steht
-     er ganz rechts der Linie, bei 100 % ganz links. So wird er am Rand nie
-     abgeschnitten. */
-  position:absolute;top:50%;left:0;translate:calc(var(--schnitt,38%) * -1) -50%;pointer-events:auto;cursor:ew-resize;
-  display:flex;align-items:center;gap:0;
-  font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  background:var(--signal);color:var(--tinte);border-radius:99px;padding:5px 4px;
-  box-shadow:0 8px 22px -8px rgba(0,0,0,.6);touch-action:none;
-}
-.griff span{padding:0 9px}
-.griff span+span{border-left:1px solid rgba(21,32,42,.35)}
-.griff:focus-visible{outline-offset:4px}
 
 .telefon{
   background:#0a1117;border-radius:30px;padding:7px;
@@ -1005,11 +1004,14 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand .projekt .beweiszeile{justify-content:center;flex-wrap:nowrap;white-space:nowrap;margin-top:26px}
   .stand .brett-desktop{grid-row:2;margin-top:40px}
   .stand .standhandeln{grid-column:1/13;margin-top:44px;justify-content:center}
-  /* Webdesign: Fenster breit, Groessen als Reihe */
-  .stand[data-titel="Webdesign"] .brett-desktop{grid-column:1/13}
-  .stand[data-titel="Webdesign"] .inspektor{grid-column:1/13;grid-row:3;margin:52px 0 0;padding:22px 26px 24px}
+  /* Webdesign (27.10.2026): links die Schlagwoerter wie bei Branding und
+     Video, rechts das Fenster, die drei Groessen als flache Reihe darunter */
+  .stand[data-titel="Webdesign"] .brett-desktop{grid-column:4/12}
+  .stand[data-titel="Webdesign"] .auswahl{margin:0;max-width:100%}
+  .stand[data-titel="Webdesign"] .wirkung{grid-column:1/4;grid-row:2;margin:71px 44px 0 0;justify-content:center;gap:90px;padding-bottom:20px}
+  .stand[data-titel="Webdesign"] .inspektor{grid-column:1/13;grid-row:3;margin:52px 0 0;padding:16px 26px 17px}
   .stand[data-titel="Webdesign"] .angebot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
-  .stand[data-titel="Webdesign"] .angebot li{border-bottom:0;border-right:1px solid var(--linie);padding:6px 32px 6px 0}
+  .stand[data-titel="Webdesign"] .angebot li{border-bottom:0;border-right:1px solid var(--linie);padding:2px 32px 2px 0}
   .stand[data-titel="Webdesign"] .angebot li:last-child{border-right:0;padding-right:0}
   .stand[data-titel="Webdesign"] .standhandeln{grid-row:4}
   /* Branding (26.10.2026): aufgebaut wie Video. Links die drei Schlagwoerter
@@ -1457,37 +1459,37 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 
       <div class="stand" data-titel="Webdesign" data-anker=".fenster" role="group" aria-label="Webdesign" hidden>
         <!-- Alle Staende (25.10.2026): Titel und Einleitung mittig oben, die
-             Knoepfe zuletzt. Dazwischen beim Webdesign das Fenster ueber die
-             ganze Breite mit den drei Groessen als Reihe darunter, bei Branding
+             Knoepfe zuletzt. Dazwischen beim Webdesign links die Schlagwoerter,
+             rechts das Fenster, die drei Groessen als Reihe darunter, bei Branding
              und Video das Objekt links und das Angebot daneben. Die Anordnung
              steht im CSS unter «Die Staende». -->
         <div class="projekt">
           <p class="brettname"><b>Richtung 01</b> · Webdesign</p>
           <h3>Deine Stärken, sichtbar auf deiner Website.</h3>
           <p>Eine Seite, drei oder mehr? Die meisten wissen am Anfang nicht genau, was sie brauchen. Das musst du auch nicht. Zuerst höre ich zu und schaue, was dich ausmacht. Daraus erarbeiten wir gemeinsam einen Webauftritt, der zeigt, was du kannst, zu einem festen Preis.</p>
-          <p class="beweiszeile">
-            <span>Ein fester Preis, kein Kleingedrucktes</span>
-            <span>Mitdenken statt abarbeiten</span>
-            <span>Die Seite gehört dir</span>
-          </p>
         </div>
+        <!-- Das Fenster zeigt Startseiten, keine ganze Website (27.10.2026):
+             drei Arbeiten im Wechsel, jede steht kurz als Bauplan da, dann
+             zieht die Linie durch und die fertige Seite steht. Ablauf im CSS
+             unter «Startseiten im Wechsel», Takt im Skript. -->
         <div class="brett-desktop">
-          <p class="brettname" aria-hidden="true"><b>Desktop</b> · 1440 × 900</p>
-          <div class="auswahl" data-mass="1440 × 6278">
+          <p class="brettname" aria-hidden="true"><b class="ref-name">formateins</b> · Startseite</p>
+          <div class="auswahl" data-mass="1440 × 900">
             <div class="fenster">
-              <div class="fensterleiste" aria-hidden="true"><i></i><i></i><i></i><span>formateins.ch</span></div>
-              <div class="sicht" style="--v:.625;--vorschau:url(entwurf-seite-vorschau.webp)">
-                <div class="bahn" style="--b:1440;--h:6278">
-                  <img src="entwurf-seite-desktop.webp" alt="Diese Seite, ganze Länge am Desktop" width="1440" height="6278" loading="lazy" decoding="async">
-                  <img class="plan" src="entwurf-seite-bauplan.webp" alt="" width="1440" height="6278" loading="lazy" decoding="async">
-                </div>
-                <div class="schnitt">
-                  <span class="griff" role="slider" tabindex="0" aria-label="Bauplan aufdecken" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38" aria-valuetext="38 Prozent Bauplan"><span>Bauplan</span><span>Seite</span></span>
-                </div>
+              <div class="fensterleiste" aria-hidden="true"><i></i><i></i><i></i><span class="ref-url">formateins.ch</span></div>
+              <div class="sicht wechsel" style="--v:.625">
+                <figure class="ref ist" data-name="formateins" data-url="formateins.ch"><img src="entwurf-start-formateins-seite.webp" alt="Startseite von formateins" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="entwurf-start-formateins-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
+                <figure class="ref" data-name="GuardOpS" data-url="guardops.ch"><img src="entwurf-start-guardops-seite.webp" alt="Startseite von GuardOpS" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="entwurf-start-guardops-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
+                <figure class="ref" data-name="Craniosacral Praxis" data-url="Craniosacral Praxis"><img src="entwurf-start-johann-seite.webp" alt="Startseite der Craniosacral Praxis Johann von Arb" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="entwurf-start-johann-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
               </div>
             </div>
           </div>
         </div>
+        <ul class="wirkung" aria-label="Was dir das bringt">
+          <li><b>Ein fester Preis, kein Kleingedrucktes.</b></li>
+          <li><b>Mitdenken statt abarbeiten.</b></li>
+          <li><b>Die Seite gehört dir.</b></li>
+        </ul>
         <aside class="inspektor" aria-label="Drei Grössen">
           <h3>Drei Grössen</h3>
           <ul class="angebot">
@@ -2174,6 +2176,32 @@ const blattwerk = (blatt, traeger, klasse) => {
 document.querySelectorAll('.richtung .konstruktionsblatt').forEach(b => blattwerk(b, b.closest('.richtung'), 'imbild'));
 document.querySelectorAll('.stand .konstruktionsblatt').forEach(b => blattwerk(b, b.closest('.stand'), 'zeichnet'));
 
+// Die Startseiten im Webdesign-Stand wechseln, solange der Stand zu sehen ist
+// (Klasse zeichnet), alle 3,6 Sekunden. Beim Eintritt beginnt es bei der
+// ersten. Name und Adresse ueber dem Fenster gehen mit.
+document.querySelectorAll('.stand .wechsel').forEach((sicht) => {
+  const stand = sicht.closest('.stand');
+  const refs = [...sicht.querySelectorAll('.ref')];
+  const name = stand.querySelector('.ref-name');
+  const adresse = stand.querySelector('.ref-url');
+  let i = 0, timer = 0;
+  const zeigen = (n) => {
+    refs.forEach(r => r.classList.remove('ist', 'baut'));
+    const r = refs[n];
+    r.classList.add('ist'); void r.offsetWidth;
+    requestAnimationFrame(() => r.classList.add('baut'));
+    name.textContent = r.dataset.name;
+    adresse.textContent = r.dataset.url;
+  };
+  const pruefen = () => {
+    if (stand.classList.contains('zeichnet')) {
+      if (!timer) { i = 0; zeigen(0); timer = setInterval(() => { i = (i + 1) % refs.length; zeigen(i); }, 3600); }
+    } else if (timer) { clearInterval(timer); timer = 0; }
+  };
+  new MutationObserver(pruefen).observe(stand, { attributes: true, attributeFilter: ['class'] });
+  pruefen();
+});
+
 // Das Richtwerk: die drei Richtungen sind der Tisch, ein Klick auf ein Objekt
 // zoomt in den Stand der Richtung, wie bei der Werkbank auf der Live-Seite.
 // Hinein und hinaus laufen als FLIP: Lage vorher und nachher messen, dann vom
@@ -2181,40 +2209,6 @@ document.querySelectorAll('.stand .konstruktionsblatt').forEach(b => blattwerk(b
 // kleines Objekt genau auf dem grossen landet, und blendet aus; darunter
 // steht schon die echte Flaeche.
 function richtwerkEinrichten(werkbank) {
-  werkbank.querySelectorAll('.brett-desktop .sicht').forEach((sicht) => {
-    const griff = sicht.querySelector('.griff');
-    if (!griff) return; // Blatt und Telefon haben keinen Bauplan
-    let anteil = 38, zieht = false;
-    const setzen = (wert) => {
-      anteil = Math.min(100, Math.max(0, wert));
-      sicht.style.setProperty('--schnitt', anteil.toFixed(1) + '%');
-      griff.setAttribute('aria-valuenow', Math.round(anteil));
-      griff.setAttribute('aria-valuetext', Math.round(anteil) + ' Prozent Bauplan');
-    };
-    const ausZeiger = (e) => {
-      const r = sicht.getBoundingClientRect();
-      setzen((e.clientX - r.left) / r.width * 100);
-    };
-    sicht.addEventListener('pointermove', (e) => {
-      if (e.pointerType === 'mouse' || zieht) ausZeiger(e);
-    });
-    sicht.addEventListener('pointerdown', (e) => {
-      if (e.pointerType === 'mouse') return;
-      zieht = true; ausZeiger(e);
-    });
-    addEventListener('pointerup', () => { zieht = false; });
-    addEventListener('pointercancel', () => { zieht = false; });
-    griff.addEventListener('keydown', (e) => {
-      const schritt = e.shiftKey ? 10 : 4;
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') setzen(anteil - schritt);
-      else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') setzen(anteil + schritt);
-      else if (e.key === 'Home') setzen(0);
-      else if (e.key === 'End') setzen(100);
-      else return;
-      e.preventDefault();
-    });
-  });
-
   const buehne = werkbank.querySelector('.buehne');
   const tisch = werkbank.querySelector('.richtungen');
   const flaeche = werkbank.querySelector('.flaeche');
