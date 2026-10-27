@@ -979,6 +979,9 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .angebot a{display:block;color:inherit;text-decoration:none}
 .angebot b{display:block;font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--auf-grund);transition:color .2s ease}
 .angebot a:hover b{color:var(--signal)}
+/* Zusatz unter dem Angebot: was in jedem Bereich dazu gebucht werden kann
+   (Schreibstil: Foto und Video vor Ort sind ueberall eine Option). */
+.inspektor .zusatz{margin:12px 0 0;padding-top:12px;border-top:1px solid var(--linie);font-size:var(--txt-xs);color:var(--auf-grund-still)}
 .angebot span{display:block;font-size:var(--txt-xs);color:var(--ringschrift);margin-top:3px;max-width:none}
 .angebot em{display:block;font-style:normal;color:var(--signal);font-size:var(--txt-xs);font-weight:700;margin-top:6px}
 .stand .projekt p.hinweis{font-size:var(--txt-xs);color:var(--ringschrift)}
@@ -1574,11 +1577,11 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
       <div class="stand" data-titel="Video" data-anker=".telefon" role="group" aria-label="Video" hidden>
         <div class="projekt">
           <p class="brettname"><b>Richtung 03</b> · Video</p>
-          <h3>Bring Bewegung in deinen Feed.</h3>
+          <h3>Bring Bewegung in deinen Auftritt.</h3>
           <p>Deine Kanäle plätschern vor sich hin, und der letzte Post ist acht Wochen her? Dann gehörst du zum Durchschnitt. Zusammen arbeiten wir einen Plan aus: wen du erreichen willst und was hängen bleiben soll. Mit modernen Inhalten bringe ich deine Reichweite dorthin, wo deine Stärken sie verdienen.</p>
         </div>
         <div class="brett-desktop">
-          <p class="brettname" aria-hidden="true"><b>Reel</b> · Übersicht Video</p>
+          <p class="brettname" aria-hidden="true"><b>Reel</b> · Vier Formate in 16 Sekunden</p>
           <div class="auswahl telefon-rahmen" data-mass="9 : 16 · 0:16">
             <span class="telefon"><span class="sicht"><video poster="entwurf-video-reel.jpg" width="540" height="960" muted loop playsinline preload="metadata" data-ton aria-label="Reel: vier Beispiele, Social Media, Erklärvideo, Werbevideo und Betriebsvideo"><source src="entwurf-video-reel-ton.mp4" type="video/mp4"><source src="entwurf-video-reel-ton.webm" type="video/webm"></video></span></span>
             <!-- Ton nur auf Wunsch: der Spot laeuft stumm, der Knopf schaltet
@@ -1603,7 +1606,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
         <!-- Die Wirkung: drei Punkte mit Pfeil aufs Telefon, wie Beschriftungen
              an einem Exponat. Ab zwei Spalten links vom Telefon, am Handy
              darunter. -->
-        <ul class="wirkung" aria-label="Was ein Spot bringt">
+        <ul class="wirkung" aria-label="Was ein Video bringt">
           <li><b>Inhalt, optimiert für deine Ziele.</b></li>
           <li><b>Heb dich von der Masse ab.</b></li>
           <li><b>Reichweite über deine Follower hinaus.</b></li>
@@ -1614,7 +1617,9 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
             <li><a href="entwurf-video.html"><b>Content für Social Media</b><span>Kurz, laut, modern. Damit dein Feed wieder Schwung bekommt.</span></a></li>
             <li><a href="entwurf-video.html"><b>Erklärvideo</b><span>Was du machst, in kurzer Zeit verstanden. Auf Wunsch mit Dreh.</span></a></li>
             <li><a href="entwurf-video.html"><b>Werbevideo</b><span>Dein Produkt oder deine Dienstleistung, ins richtige Licht gesetzt. Für Website, Werbung und Präsentation.</span></a></li>
+            <li><a href="entwurf-video.html"><b>Imagefilm</b><span>Wer hinter deiner Arbeit steht und wie du arbeitest. Für den ersten Eindruck, bevor jemand anruft.</span></a></li>
           </ul>
+          <p class="zusatz">Dazu buchbar: Dreh vor Ort und Fotos.</p>
         </aside>
         <div class="handeln standhandeln"><a class="knopf" href="entwurf-video.html">Video ansehen<span class="pfeil">→</span></a></div>
       </div>
