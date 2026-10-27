@@ -1593,7 +1593,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
         <div class="brett-desktop">
           <p class="brettname" aria-hidden="true"><b>Reel</b> · Vier Formate in 16 Sekunden</p>
           <div class="auswahl telefon-rahmen" data-mass="9 : 16 · 0:16">
-            <span class="telefon"><span class="sicht"><video poster="entwurf-video-reel.jpg" width="540" height="960" muted loop playsinline preload="metadata" data-ton aria-label="Reel: vier Beispiele, Social Media, Erklärvideo, Werbevideo und Imagefilm"><source src="entwurf-video-reel-ton.mp4" type="video/mp4"><source src="entwurf-video-reel-ton.webm" type="video/webm"></video></span></span>
+            <span class="telefon"><span class="sicht"><video poster="entwurf-video-reel.jpg" width="540" height="960" muted loop playsinline preload="metadata" data-ton data-breit="entwurf-video-reel-ohne-titel-ton" aria-label="Reel: vier Beispiele, Social Media, Erklärvideo, Werbevideo und Imagefilm"><source src="entwurf-video-reel-ton.mp4" type="video/mp4"><source src="entwurf-video-reel-ton.webm" type="video/webm"></video></span></span>
             <!-- Ton nur auf Wunsch: der Spot laeuft stumm, der Knopf schaltet
                  den Ton zu. Er erscheint erst, wenn das Video data-ton traegt,
                  also eine Tonspur hat; ohne Ton waere er ein leeres Versprechen.
@@ -2193,6 +2193,33 @@ document.querySelectorAll('.stand .konstruktionsblatt').forEach(b => blattwerk(b
 // Die Startseiten im Webdesign-Stand wechseln, solange der Stand zu sehen ist
 // (Klasse zeichnet), alle 3,6 Sekunden. Beim Eintritt beginnt es bei der
 // ersten. Name und Adresse ueber dem Fenster gehen mit.
+// Zwei Fassungen des Reels (27.10.2026): am Handy mit Titel-Einblender
+// («Beispiel Werbevideo»), ab 900 Pixeln ohne, dort zeigt der Formate-Kasten,
+// welcher Teil laeuft. In den source-Tags steht die Fassung mit Titel,
+// data-breit nennt die ohne (Name ohne Endung, als .mp4 und .webm, gleiche
+// Laenge und Schnitte). Fehlt sie, bleibt es bei der Fassung mit Titel.
+// Wechselt die Breite, laeuft das Reel an derselben Stelle weiter.
+document.querySelectorAll('video[data-breit]').forEach((v) => {
+  const quellen = [...v.querySelectorAll('source')];
+  const schmal = quellen.map(q => q.getAttribute('src'));
+  const breit = schmal.map(s => v.dataset.breit + s.slice(s.lastIndexOf('.')));
+  const mq = matchMedia('(min-width: 900px)');
+  let fehlt = false;
+  const setzen = () => {
+    const ziel = mq.matches && !fehlt ? breit : schmal;
+    if (quellen[0].getAttribute('src') === ziel[0]) return;
+    const zeit = v.currentTime, lief = !v.paused;
+    quellen.forEach((q, i) => q.setAttribute('src', ziel[i]));
+    v.load();
+    v.addEventListener('loadedmetadata', () => { v.currentTime = zeit; if (lief) v.play().catch(() => {}); }, { once: true });
+  };
+  quellen[quellen.length - 1].addEventListener('error', () => {
+    if (!fehlt && quellen[0].getAttribute('src') === breit[0]) { fehlt = true; setzen(); }
+  });
+  mq.addEventListener('change', setzen);
+  setzen();
+});
+
 // Der Formate-Kasten im Video-Stand folgt dem Reel: jeder Eintrag gehoert zu
 // einem Teil (Beginn in Sekunden wie die langen Striche der Schnittleiste).
 // Nur ab 900 Pixeln, solange das Reel laeuft; steht es, ist der Kasten normal.
