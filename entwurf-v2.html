@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>ENTWURF v2 · Webdesign, Branding, Motion Design | formateins</title>
+<title>ENTWURF v2 · Webdesign, Branding, Video | formateins</title>
 <meta name="description" content="Webdesign in Olten und der Region: Websites für Selbstständige, kleine Unternehmen und Vereine, ohne Baukasten, zum Festpreis. Kostenrahmen in sieben Fragen, ohne Konto und ohne Telefonnummer.">
 
 <!-- ============================================================
@@ -842,7 +842,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .richtung .fenster-objekt{width:100%}
 .richtung .blatt-objekt{width:64%;margin-right:12%}
 .richtung .tel-objekt{width:38%}
-/* Obergrenze 2.85rem statt 3rem: so bleibt "Motion Design." bei 1440 auf einer Zeile. */
+/* Obergrenze 2.85rem statt 3rem (stammt aus der Zeit von "Motion Design.", das bei 1440 auf eine Zeile musste). */
 .richtung h3{font-family:var(--serif);font-weight:900;font-size:clamp(2rem,3.4vw,2.85rem);letter-spacing:-.02em;line-height:1;color:var(--auf-grund)}
 .richtung .text{margin-top:.6em;font-size:var(--txt-m);color:var(--auf-grund-still);max-width:38ch}
 .richtung .hin{display:inline-block;margin-top:18px;color:var(--signal);font-size:var(--txt-s);font-weight:700;text-decoration:none;transition:color .2s ease}
@@ -995,7 +995,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 /* Die Staende (25.10.2026): Titel und Einleitung mittig oben, die Knoepfe
    zuletzt und mittig. Beim Webdesign liegt das Fenster ueber die ganze
    Breite, die drei Groessen stehen als Reihe darunter. Bei Branding und
-   Motion stehen Blatt und Telefon links unter ihrer Zeile, das Angebot
+   Video stehen Blatt und Telefon links unter ihrer Zeile, das Angebot
    daneben. Die Fussleiste sitzt in der fuenften Rasterzeile; leere Zeilen
    davor haben keine Hoehe. */
 .stand .projekt p:not(.brettname){max-width:60ch}
@@ -1012,14 +1012,14 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand[data-titel="Webdesign"] .angebot li{border-bottom:0;border-right:1px solid var(--linie);padding:6px 32px 6px 0}
   .stand[data-titel="Webdesign"] .angebot li:last-child{border-right:0;padding-right:0}
   .stand[data-titel="Webdesign"] .standhandeln{grid-row:4}
-  /* Branding (26.10.2026): aufgebaut wie Motion. Links die drei Schlagwoerter
+  /* Branding (26.10.2026): aufgebaut wie Video. Links die drei Schlagwoerter
      mit Pfeilen aufs Blatt, in der Mitte das Blatt, rechts der Kasten auf
      der Hoehe der Blattmitte. */
   .stand[data-titel="Branding"] .brett-desktop{grid-column:4/9}
   .stand[data-titel="Branding"] .auswahl.blatt-rahmen{margin:0;max-width:100%}
   .stand[data-titel="Branding"] .wirkung{grid-column:1/4;grid-row:2;margin:71px 44px 0 0;justify-content:center;gap:118px;padding-bottom:40px}
   .stand[data-titel="Branding"] .inspektor{grid-column:9/13;grid-row:2;align-self:center;margin:71px 0 0 36px}
-  .stand[data-titel="Branding"] .standhandeln,.stand[data-titel="Motion Design"] .standhandeln{grid-row:3}
+  .stand[data-titel="Branding"] .standhandeln,.stand[data-titel="Video"] .standhandeln{grid-row:3}
   /* Der Knopf steht unter der Blattmitte, mit Luft zum Mass-Schild darueber. */
   .stand[data-titel="Branding"] .standhandeln{grid-column:4/9;margin-top:84px}
   /* Die Schlagwoerter beider Staende: rechtsbuendig, Pfeil nach rechts aufs Objekt. */
@@ -1027,14 +1027,14 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   .stand .wirkung li{text-align:right;margin-left:auto}
   .stand .wirkung li::after{content:"";position:absolute;left:calc(100% + 10px);top:.7em;width:34px;height:1px;background:var(--signal)}
   .stand .wirkung li::before{content:"";position:absolute;left:calc(100% + 40px);top:calc(.7em - 3.5px);border:4px solid transparent;border-left:6px solid var(--signal);border-right:0}
-  /* Motion (26.10.2026): Telefon in der Mitte der linken Haelfte, links die
+  /* Video (26.10.2026, damals Motion): Telefon in der Mitte der linken Haelfte, links die
      drei Schlagwoerter mit Pfeilen aufs Telefon, rechts die Formate als kompakter
      Kasten auf der Hoehe der Telefonmitte. */
-  .stand[data-titel="Motion Design"] .brett-desktop{grid-column:4/7}
-  .stand[data-titel="Motion Design"] .auswahl.telefon-rahmen{margin:0;max-width:100%}
-  .stand[data-titel="Motion Design"] .schnittleiste{margin:44px 0 0;max-width:100%}
-  .stand[data-titel="Motion Design"] .wirkung{grid-column:1/4;grid-row:2;margin:112px 44px 0 0;justify-content:center;gap:118px;padding-bottom:100px}
-  .stand[data-titel="Motion Design"] .inspektor{grid-column:8/12;grid-row:2;align-self:center;margin:71px 0 74px}
+  .stand[data-titel="Video"] .brett-desktop{grid-column:4/7}
+  .stand[data-titel="Video"] .auswahl.telefon-rahmen{margin:0;max-width:100%}
+  .stand[data-titel="Video"] .schnittleiste{margin:44px 0 0;max-width:100%}
+  .stand[data-titel="Video"] .wirkung{grid-column:1/4;grid-row:2;margin:112px 44px 0 0;justify-content:center;gap:118px;padding-bottom:100px}
+  .stand[data-titel="Video"] .inspektor{grid-column:8/12;grid-row:2;align-self:center;margin:71px 0 74px}
 }
 /* Die Wirkung: drei Schlagwoerter in der Serif, ohne Erklaersatz (26.10.2026).
    Am Desktop als Gruppe auf der Telefonmitte, mit Luft dazwischen; die Zeilen
@@ -1342,7 +1342,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
         <div class="rund"><img src="foto.webp" alt="Adrian von Arb" width="480" height="480"></div>
         </div>
       </div>
-      <p class="gross">Ich baue den Auftritt, den deine Arbeit verdient: Webdesign, Branding und Motion Design. Alles kommt vom selben Tisch, darum erkennt man dich überall wieder, auf dem Bildschirm wie auf Papier.</p>
+      <p class="gross">Ich baue den Auftritt, den deine Arbeit verdient: Webdesign, Branding und Video. Alles kommt vom selben Tisch, darum erkennt man dich überall wieder, auf dem Bildschirm wie auf Papier.</p>
     </div>
 
     <div class="handeln">
@@ -1359,7 +1359,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
     <h2>Drei Richtungen.<span class="zweite">Eine Handschrift.</span></h2>
     <!-- Der Suchbegriff steht sichtbar im Text, nicht nur im Titel und im
          Schriftring: eine Zeile, kein Keyword-H1. -->
-    <p class="still ortszeile">Webdesign in Olten und der Region. Website, Branding und Motion Design aus einer Hand, für Selbstständige, kleine Unternehmen und Vereine zwischen Aarau, Zofingen und Solothurn.</p>
+    <p class="still ortszeile">Webdesign in Olten und der Region. Website, Branding und Video aus einer Hand, für Selbstständige, kleine Unternehmen und Vereine zwischen Aarau, Zofingen und Solothurn.</p>
 
     <!-- Drei Richtungen nebeneinander (Fassung A, 24.10.2026): Nummer,
          Beweis, grosses Wort, eine Zeile, der Weg auf die Bereichsseite. Das
@@ -1433,13 +1433,13 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
         <a class="hin" href="entwurf-branding.html">Branding ansehen →</a>
       </article>
       <article class="richtung" data-anker=".telefon">
-        <p class="nr">03 · Motion Design</p>
+        <p class="nr">03 · Video</p>
         <div class="beweis">
-          <button class="objekt tel-objekt lupe" type="button" aria-label="Motion Design in der Werkbank ansehen"><span class="telefon"><span class="sicht"><video poster="entwurf-video-spot.jpg" width="406" height="720" muted loop playsinline preload="auto" aria-label="Spot für formateins: ein Preisschild, sieben Fragen, zwei Minuten, null Verkaufsgespräche"><source src="entwurf-video-spot.mp4" type="video/mp4"><source src="entwurf-video-spot.webm" type="video/webm"></video></span></span></button>
+          <button class="objekt tel-objekt lupe" type="button" aria-label="Video in der Werkbank ansehen"><span class="telefon"><span class="sicht"><video poster="entwurf-video-spot.jpg" width="406" height="720" muted loop playsinline preload="auto" aria-label="Spot für formateins: ein Preisschild, sieben Fragen, zwei Minuten, null Verkaufsgespräche"><source src="entwurf-video-spot.mp4" type="video/mp4"><source src="entwurf-video-spot.webm" type="video/webm"></video></span></span></button>
         </div>
-        <h3>Motion Design.</h3>
+        <h3>Video.</h3>
         <p class="text">Reels, Spots und Erklärvideos, die deinen Auftritt in Bewegung bringen. Animiert, auf Wunsch mit eigenem Dreh.</p>
-        <a class="hin" href="entwurf-motion.html">Motion Design ansehen →</a>
+        <a class="hin" href="entwurf-video.html">Video ansehen →</a>
       </article>
     </div>
 
@@ -1459,7 +1459,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
         <!-- Alle Staende (25.10.2026): Titel und Einleitung mittig oben, die
              Knoepfe zuletzt. Dazwischen beim Webdesign das Fenster ueber die
              ganze Breite mit den drei Groessen als Reihe darunter, bei Branding
-             und Motion das Objekt links und das Angebot daneben. Die Anordnung
+             und Video das Objekt links und das Angebot daneben. Die Anordnung
              steht im CSS unter «Die Staende». -->
         <div class="projekt">
           <p class="brettname"><b>Richtung 01</b> · Webdesign</p>
@@ -1549,7 +1549,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
           </span>
           </div>
         </div>
-        <!-- Die Wirkung wie im Motion-Stand: drei Schlagwoerter mit Pfeil
+        <!-- Die Wirkung wie im Video-Stand: drei Schlagwoerter mit Pfeil
              aufs Blatt, ab zwei Spalten links davon, am Handy darunter. -->
         <ul class="wirkung" aria-label="Was ein Markenblatt bringt">
           <li><b>Überall auf einen Blick erkennbar.</b></li>
@@ -1567,9 +1567,9 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
         <div class="handeln standhandeln"><a class="knopf" href="entwurf-branding.html">Branding ansehen<span class="pfeil">→</span></a></div>
       </div>
 
-      <div class="stand" data-titel="Motion Design" data-anker=".telefon" role="group" aria-label="Motion Design" hidden>
+      <div class="stand" data-titel="Video" data-anker=".telefon" role="group" aria-label="Video" hidden>
         <div class="projekt">
-          <p class="brettname"><b>Richtung 03</b> · Motion Design</p>
+          <p class="brettname"><b>Richtung 03</b> · Video</p>
           <h3>Bring Bewegung in deinen Feed.</h3>
           <p>Deine Kanäle plätschern vor sich hin, und der letzte Post ist acht Wochen her? Dann gehörst du zum Durchschnitt. Zusammen arbeiten wir einen Plan aus: wen du erreichen willst und was hängen bleiben soll. Mit modernen Inhalten bringe ich deine Reichweite dorthin, wo deine Stärken sie verdienen.</p>
         </div>
@@ -1610,12 +1610,12 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
         <aside class="inspektor" aria-label="Formate">
           <h3>Formate</h3>
           <ul class="angebot">
-            <li><a href="entwurf-motion.html"><b>Content für Social Media</b><span>Kurz, laut, modern. Damit dein Feed wieder Schwung bekommt.</span></a></li>
-            <li><a href="entwurf-motion.html"><b>Erklärvideo</b><span>Was du machst, in kurzer Zeit verstanden. Auf Wunsch mit Dreh.</span></a></li>
-            <li><a href="entwurf-motion.html"><b>Werbevideo</b><span>Dein Produkt oder deine Dienstleistung, ins richtige Licht gesetzt. Für Website, Werbung und Präsentation.</span></a></li>
+            <li><a href="entwurf-video.html"><b>Content für Social Media</b><span>Kurz, laut, modern. Damit dein Feed wieder Schwung bekommt.</span></a></li>
+            <li><a href="entwurf-video.html"><b>Erklärvideo</b><span>Was du machst, in kurzer Zeit verstanden. Auf Wunsch mit Dreh.</span></a></li>
+            <li><a href="entwurf-video.html"><b>Werbevideo</b><span>Dein Produkt oder deine Dienstleistung, ins richtige Licht gesetzt. Für Website, Werbung und Präsentation.</span></a></li>
           </ul>
         </aside>
-        <div class="handeln standhandeln"><a class="knopf" href="entwurf-motion.html">Motion Design ansehen<span class="pfeil">→</span></a></div>
+        <div class="handeln standhandeln"><a class="knopf" href="entwurf-video.html">Video ansehen<span class="pfeil">→</span></a></div>
       </div>
 
       <!-- Abschluss des Stands: zurueck zur Uebersicht oder gleich zur
@@ -1708,7 +1708,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
         <h3>Passt, wenn du …</h3>
         <ul>
           <li>einen <b>persönlichen Ansprechpartner</b> willst, kein Support-Ticket</li>
-          <li><b>alles aus einer Hand</b> willst: Webdesign, Branding, Motion Design</li>
+          <li><b>alles aus einer Hand</b> willst: Webdesign, Branding, Video</li>
           <li>eine Seite willst, die <b>zeigt, was du machst und kannst</b></li>
           <li><b>selbstständig bist</b>, ein kleines Unternehmen oder einen Verein führst</li>
         </ul>
@@ -1810,14 +1810,14 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
     <div class="fussraster">
       <div class="fussmarke">
         <a class="logo" href="#" aria-label="formateins, zum Seitenanfang"><span class="s">format</span><span class="p">eins</span></a>
-        <p>Webdesign, Branding und Motion Design für Selbstständige, kleine Unternehmen und Vereine in Olten und der Region.</p>
+        <p>Webdesign, Branding und Video für Selbstständige, kleine Unternehmen und Vereine in Olten und der Region.</p>
       </div>
       <div>
         <p class="fusstitel"><i aria-hidden="true"></i>Leistungen</p>
         <ul class="fussliste">
           <li><a href="entwurf-website.html">Website</a></li>
           <li><a href="entwurf-branding.html">Branding</a></li>
-          <li><a href="entwurf-motion.html">Motion Design</a></li>
+          <li><a href="entwurf-video.html">Video</a></li>
           <li><a href="entwurf-kostenrechner.html">Kostenrechner</a></li>
           <li><a href="entwurf-website-kosten.html">Was kostet eine Website?</a></li>
         </ul>
@@ -1886,7 +1886,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Firmenwebsite" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bestehende Website erneuern" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Branding" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Motion Design: Spots und Erklärvideos" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Video: Reels, Spots und Erklärvideos" } }
     ]
   }
 }
