@@ -68,7 +68,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
 - [x] **ENT-023** · 28.10.2026 · Preisseite mit strukturierten Daten: alle
   Einzelpreise und Pakete als Angebote mit Preisrahmen in CHF, verknüpft mit
   formateins auf der Startseite (`@id`). Beleg für ENT-023 bis ENT-025: der
-  Commit mit diesen Nummern im Titel (`git log --grep ENT-023`).
+  Commit `71e189d`, Lauf #33 («Sync complete»).
 - [x] **ENT-024** · 28.10.2026 · `llms.txt`: die Seite als kurzer Text für
   KI-Suchen, mit Kontakt, Preisen, Ablauf und Links. Als UTF-8 ausgeliefert.
 - [x] **ENT-025** · 28.10.2026 · IndexNow: Nach jedem Upload meldet der Workflow
@@ -76,4 +76,5 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
 - [ ] **ENT-026** · offen · In etwa einer Woche prüfen, ob KI-Suchen die Seite
   lesen: ChatGPT oder Perplexity fragen «Was kostet eine Website bei
   formateins.ch?». Stimmen die Zahlen, lassen Hostpoint und robots.txt die
-  Crawler durch. Dazu im ersten IndexNow-Lauf die Antwort 200 oder 202 prüfen.
+  Crawler durch. IndexNow ist schon bestätigt: Lauf #33 meldete Startseite und
+  Preisseite, Antwort 202 (angenommen).
