@@ -128,3 +128,31 @@ Motion Design: separat offeriert, nie ausgeschlossen.
 **KI offen und positiv.** Die KI ist ein Werkzeug wie die Kamera. Sie macht
 das Technische schneller und den Preis attraktiver. Adrians Zeit gehoert dem
 Hinschauen, Zuhoeren und Gestalten.
+
+## Technik pro Projekt waehlen: reines HTML oder Astro
+
+formateins.ch selbst bleibt **reines HTML** (Entscheid vom 27.10.2026): wenige
+Seiten, kein Build-Schritt, der Deploy kopiert die Dateien unveraendert auf
+Hostpoint.
+
+Bei jedem **neuen Projekt** (Kundenseite, neuer Auftritt, grosser Umbau) wird die
+Technik nicht einfach uebernommen, sondern zuerst abgewogen. Vor dem ersten
+Bauschritt eine kurze Empfehlung in den Chat, Adrian entscheidet:
+
+| Spricht fuer reines HTML | Spricht fuer Astro |
+|---|---|
+| bis etwa 5–8 Seiten, die selten wachsen | viele oder laufend neue Seiten (Blog, Referenzen, Fallstudien) |
+| Kopf, Fuss und Navigation aendern sich kaum | gemeinsame Bausteine, die auf allen Seiten gleich sein muessen |
+| Texte pflegt Adrian direkt im HTML | Inhalte sollen als Markdown gepflegt werden |
+| Auslieferung soll ohne Build gehen (Dateien hochladen) | Bilder sollen automatisch verkleinert und als WebP/AVIF ausgegeben werden |
+| Seite soll jahrelang ohne Pflege laufen | jemand kuemmert sich um Node und die Paket-Updates |
+
+Beide liefern am Ende statisches HTML, beim Tempo nehmen sie sich nichts. Die
+Frage ist nur, wie viel Wiederholung das Projekt bringt und ob sich dafuer ein
+Build-Schritt mit Abhaengigkeiten lohnt. Faellt die Wahl auf Astro, braucht der
+Deploy einen Bauschritt (`npm ci && npm run build`) und laedt `dist/` statt der
+Quelldateien hoch.
+
+Ein Projekt, das mit HTML begonnen hat, wechselt erst zu Astro, wenn die
+Wiederholung spuerbar Fehler macht (vergessene Menuepunkte, abweichende
+Fusszeilen), nicht vorsorglich.
