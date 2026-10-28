@@ -75,6 +75,19 @@ h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1
 .karte{display:flex;flex-direction:column;border:1px solid var(--linie);background:rgba(14,24,32,.35);padding:30px 26px 26px}
 /* Die dritte Karte spart am meisten, darum der Rand. Nicht "die beliebteste". */
 .karte.voll{border-color:var(--signal);background:rgba(255,138,76,.05)}
+/* Abzeichen oben auf dem Rand. Zwei Fassungen zur Wahl (28.10.2026), umschalten
+   mit ?abzeichen=1 (Groesste Ersparnis auf 03, Standard) oder ?abzeichen=2
+   (Meine Empfehlung auf 02, mit Begruendung). Kein "Beliebt": stimmt noch nicht. */
+.karte{position:relative}
+.abzeichen{display:none;position:absolute;top:0;left:26px;transform:translateY(-50%);
+  padding:4px 12px;border-radius:99px;background:var(--signal);color:var(--tinte);
+  font-size:var(--txt-xs);font-weight:700;letter-spacing:.06em;white-space:nowrap}
+.karte .warum{display:none;margin-top:8px;font-size:var(--txt-s);color:var(--signal)}
+[data-abzeichen="1"] .abzeichen[data-fassung="1"],
+[data-abzeichen="2"] .abzeichen[data-fassung="2"]{display:inline-block}
+[data-abzeichen="2"] .karte .warum{display:block}
+/* Die Begruendung macht 02 eine Zeile laenger; die Preise sollen trotzdem auf einer Hoehe stehen. */
+@media (min-width:901px){ [data-abzeichen="2"] .karte .wen{min-height:6.4em} }
 .karte .nr{font-size:var(--txt-xs);letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--signal);margin-bottom:10px}
 .karte .zeit{margin-top:6px;font-size:var(--txt-s);color:var(--auf-grund-still)}
 .karte .wen{margin-top:16px;font-size:var(--txt-m);min-height:4.8em}
@@ -200,7 +213,7 @@ html{scroll-behavior:smooth}
   </div>
 </section>
 
-<section class="abschnitt" id="pakete">
+<section class="abschnitt" id="pakete" data-abzeichen="1">
   <div class="spalte">
     <p class="oben"><b>Pakete</b><i></i>Aus einer Hand</p>
     <h2>Alles vom selben Tisch.<br>Und günstiger als einzeln.</h2>
@@ -232,10 +245,11 @@ html{scroll-behavior:smooth}
       </article>
 
       <article class="karte" data-paket="auftritt" data-marke="drucksachen" data-website="firma">
+        <span class="abzeichen" data-fassung="2">Meine Empfehlung</span>
         <p class="nr">02 · Marke und Website</p>
         <h3>Der ganze Auftritt</h3>
         <p class="zeit">Fertig in 5 bis 7 Wochen</p>
-        <p class="wen">Für Betriebe, die überall gleich auftreten wollen: im Netz, auf Papier, in jeder Offerte.</p>
+        <p class="wen">Für Betriebe, die überall gleich auftreten wollen: im Netz, auf Papier, in jeder Offerte.<span class="warum">Für die meisten Betriebe der richtige Umfang.</span></p>
         <div class="preis" aria-live="polite">
           <small>Aus einer Hand</small>
           <span class="betrag hand">CHF 4'800 – 6'200</span>
@@ -256,6 +270,7 @@ html{scroll-behavior:smooth}
       </article>
 
       <article class="karte voll" data-paket="film" data-marke="drucksachen" data-website="firma" data-video="imagefilm mittel">
+        <span class="abzeichen" data-fassung="1">Grösste Ersparnis</span>
         <p class="nr">03 · Marke, Website, Film</p>
         <h3>Der Auftritt mit Film</h3>
         <p class="zeit">Fertig in 6 bis 8 Wochen</p>
@@ -285,3 +300,16 @@ html{scroll-behavior:smooth}
   </div>
 </section>
 </main>
+
+<script>
+// Nur im Entwurf: Fassung des Abzeichens waehlen. Bei Fassung 2 wandert auch der
+// orange Rand mit Knopf von 03 auf 02, sonst zeigen zwei Karten zugleich "hier".
+{
+  const wahl = new URLSearchParams(location.search).get('abzeichen') === '2' ? '2' : '1';
+  document.getElementById('pakete').dataset.abzeichen = wahl;
+  if (wahl === '2') {
+    document.querySelector('[data-paket=film]').classList.remove('voll');
+    document.querySelector('[data-paket=auftritt]').classList.add('voll');
+  }
+}
+</script>
