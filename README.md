@@ -148,6 +148,59 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
   Hostpoint ist. Wird an Hotmail oder einen anderen Anbieter weitergeleitet,
   muss dieser dort genannt werden.
 
+## Offen am Entwurf v2
+
+Stand 28.10.2026. Was hier steht, wartet auf Adrians Entscheid oder auf
+Material. Erledigtes streichen, nicht löschen, bis der Entwurf live ist.
+
+**Entscheide**
+
+- **Reel-Ton abnehmen.** Seit 06ddf28 neu gemischt, mit Musikbett statt
+  einzelner Klicks. Am Desktop mit Ton anhören. Gemischt wird in der
+  Reel-Sitzung (`quellen/video-reel/` auf `claude/pensive-albattani-870hom`),
+  die Seite braucht dafür keine Änderung.
+- **Webdesign-Text, Schluss.** «… zu einem festen Preis.» wiederholt das
+  Schlagwort daneben («Ein fester Preis, kein Kleingedrucktes.»). Eins von
+  beiden kürzen oder bewusst stehen lassen.
+- **Preislinks für Branding und Video.** Webdesign hat «Was sie kostet →»,
+  die beiden anderen Stände noch nicht. Dafür braucht es Richtwerte von
+  Adrian (ab CHF …).
+
+**Gestaltung**
+
+- **Markenblatt am Handy.** Die Dunkelprobe prüfen und den Umbruch von
+  «Playfair Display» in der Schriftzeile.
+- **Reel nach Breitenwechsel.** Wechselt das Fenster über 900 Pixel, tauscht
+  die Seite die Fassung und soll an derselben Stelle weiterlaufen. Lokal nicht
+  prüfbar (der Testserver kann nicht im Video springen), auf Pages einmal von
+  Hand prüfen: Fenster während des Reels schmal und wieder breit ziehen.
+
+**Material**
+
+- **Craniosacral Praxis** kommt zurück ins Webdesign-Fenster, sobald ihre
+  Fotos da sind; bis dahin steht dort die Demo Shiro (keine Kundenreferenz,
+  kein Link). Dann auch die Aufnahmen unter Arbeiten erneuern.
+- **Bereichsseiten** `entwurf-website.html`, `entwurf-branding.html` und
+  `entwurf-video.html` sind noch Platzhalter. Vor dem Livegang füllen oder
+  die Links «ansehen →» auf der Startseite herausnehmen.
+- **Fotos neu schneiden** aus dem Original (siehe oben unter Noch offen).
+
+**Vor dem Livegang des Entwurfs**
+
+- **`main` einarbeiten.** Auf `main` liegt 3a957bb (nur CLAUDE.md), der
+  Arbeitszweig hat ihn noch nicht. Vor der Übernahme `git rebase origin/main`.
+- **Entwurf in die echten Dateien.** `entwurf-v2.html` wird `index.html`;
+  Logo-Links von `entwurf-v2.html` auf `/` stellen; `entwurf-leiste.css`/`.js`
+  umbenennen oder in die Seiten nehmen; die Kopien `entwurf-kostenrechner.html`
+  und `entwurf-gespraech.html` fallen weg, ihre Rückwege führen dann wieder
+  auf `/`. Bilder ohne `entwurf`-Präfix umbenennen, sonst lädt der Deploy sie
+  nicht hoch (`--exclude 'entwurf*'`).
+- **Neue Adressen** (`/website-kosten`, Bereichsseiten, `/arbeiten/…`) in
+  `htaccess-hostpoint` und `sitemap.xml` eintragen.
+- **FAQ-Daten** neu erzeugen: `python3 quellen/faq-daten.py index.html …`
+  mit allen Seiten, die Fragen tragen.
+- Danach **Search Console** wie unten unter «Nach dem Livegang des Entwurfs».
+
 ## Auslieferung auf Hostpoint
 
 Jeder Push auf `main` lädt die Seite per GitHub Action auf Hostpoint
@@ -356,6 +409,27 @@ im Code mit `LIVEGANG` markiert — `grep -rn LIVEGANG .` findet sie alle.
 8. **Vermerk auf Kundenseiten**, zum Beispiel „Website: formateins“ mit Link im
    Fuss, nur mit Einverständnis des Kunden. Jede Kundenseite wird so zu einer
    Erwähnung, für Suchmaschinen wie für KI. Bei Johann und GuardOpS zuerst.
+
+### Nach dem Livegang des Entwurfs: Search Console
+
+Sobald die neue Seite auf formateins.ch steht und der Lauf «Website zu
+Hostpoint» grün ist, Google und Bing nachführen. Sonst zeigen sie wochenlang
+den alten Titel und die alte Beschreibung, und neue Seiten bleiben unbekannt.
+
+1. **Sitemap neu einreichen.** In der Google Search Console unter Sitemaps
+   `https://www.formateins.ch/sitemap.xml` erneut senden, mit allen neuen
+   Adressen darin. Dasselbe in den Bing Webmaster Tools.
+2. **Startseite neu prüfen lassen.** URL-Prüfung für
+   `https://www.formateins.ch/`, dann «Live-URL testen» und «Indexierung
+   beantragen». Ebenso für jede neue Seite (Preise, Bereichsseiten, Arbeiten).
+3. **Weggefallene Adressen.** Gibt es eine alte Adresse nicht mehr, in
+   `htaccess-hostpoint` mit 301 auf die neue umleiten, nicht ins Leere laufen
+   lassen. In der Search Console unter Seiten nach «Nicht gefunden (404)»
+   schauen.
+4. **Strukturierte Daten prüfen.** Rich-Results-Test für Startseite und
+   Preise (FAQ und Unternehmen), Fehler unter «Verbesserungen» beheben.
+5. **Nach einer Woche nachsehen.** Unter Seiten: Sind die neuen Adressen
+   indexiert? Unter Leistung: Erscheint der neue Titel in den Suchergebnissen?
 
 Bewusst weggelassen: `llms.txt`. Kein grosser KI-Anbieter nutzt die Datei
 nachweislich (Stand Oktober 2026).
