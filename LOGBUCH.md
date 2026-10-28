@@ -52,9 +52,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
 - [ ] **ENT-017** · offen · Craniosacral: «Hosting: Schweiz» und die Kennzahl
   «CH» wieder einsetzen, sobald die Praxisseite auf Hostpoint liegt. Hinweis
   als Kommentar in `arbeiten/craniosacral-praxis.html`.
-- [ ] **ENT-018** · offen · `sameAs` in den strukturierten Daten der Startseite
-  ergänzen: Google-Unternehmensprofil, local.ch, search.ch. Braucht die
-  Adressen der Einträge.
+- [x] **ENT-018** · 28.10.2026 · `sameAs` in den strukturierten Daten der
+  Startseite: Google-Unternehmensprofil als feste Maps-Adresse
+  `https://maps.google.com/?cid=11383681249379744707`. Die Kunden-ID stammt aus
+  Adrians Suchlink. local.ch und search.ch folgen in ENT-027. Beleg: Commit mit
+  ENT-018 im Titel.
 - [ ] **ENT-019** · offen · Bereichsseiten Website, Branding und Video als
   `entwurf-*`, jede geht einzeln live.
 - [ ] **ENT-020** · offen · Zweite Sitzung (v2-Zweig) ist pausiert. Sie hat in
@@ -78,3 +80,6 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   formateins.ch?». Stimmen die Zahlen, lassen Hostpoint und robots.txt die
   Crawler durch. IndexNow ist schon bestätigt: Lauf #33 meldete Startseite und
   Preisseite, Antwort 202 (angenommen).
+- [ ] **ENT-027** · offen · Einträge bei local.ch und search.ch anlegen (Adrian),
+  mit demselben Namen, derselben Adresse und Telefonnummer wie auf der Seite.
+  Danach die Adressen in `sameAs` auf der Startseite ergänzen.

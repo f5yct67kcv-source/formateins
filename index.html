@@ -1848,8 +1848,9 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
      Adresse wie im Handelsregister und wie im Google-Unternehmensprofil,
      ueberall gleich, auch die Telefonnummer.
      ============================================================ -->
-<!-- LIVEGANG: "sameAs" ergaenzen, sobald es die Eintraege gibt: Google-Unternehmensprofil,
-     local.ch, search.ch. Ueberall derselbe Name, dieselbe Adresse, dieselbe Telefonnummer. -->
+<!-- "sameAs": Google-Unternehmensprofil seit 28.10.2026 (ENT-018), als feste Maps-Adresse
+     mit der Kunden-ID, nicht als Suchlink. local.ch und search.ch ergaenzen, sobald es die
+     Eintraege gibt (ENT-027). Ueberall derselbe Name, dieselbe Adresse, dieselbe Telefonnummer. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1872,6 +1873,9 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
   },
   "telephone": "+41 79 686 84 86",
   "email": "adrian@formateins.ch",
+  "sameAs": [
+    "https://maps.google.com/?cid=11383681249379744707"
+  ],
   "areaServed": [
     { "@type": "City", "name": "Olten" },
     { "@type": "AdministrativeArea", "name": "Kanton Solothurn" },
