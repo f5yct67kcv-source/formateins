@@ -234,6 +234,10 @@ Material. Erledigtes streichen, nicht löschen, bis der Entwurf live ist.
 - Paketnamen (28.10.2026): **Startformat**, **Vollformat**, **Breitbild**, aus
   «formateins» und der Sprache von Foto und Film. Was drin ist, sagt die Zeile
   darüber («01 · Branding und Seite»). Verworfen: «Erster/Ganzer/Grosser Auftritt».
+- Craniosacral Praxis: Die Praxisseite liegt noch auf GitHub Pages. Darum fehlen
+  «Hosting: Schweiz» im Steckbrief, die Kennzahl «CH» auf der Projektseite und der
+  Chip «CH gehostet» auf der Startseite. Nach dem Umzug zu Hostpoint wieder
+  einsetzen (Hinweis als Kommentar in `arbeiten/craniosacral-praxis.html`).
 - Danach **Search Console** wie unten unter «Nach dem Livegang des Entwurfs».
 
 ## Auslieferung auf Hostpoint
