@@ -56,6 +56,8 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
   was man am Ende bekommt: alles auf einem Blatt statt eines CD-Manuals,
   Styleguides oder Brand Guidelines, wie die Konkurrenz es nennt. Als Name der
   Leistung allein liess „Blatt“ den Preis zu klein wirken.
+  Die Richtung heisst auf Preisseite und im Rechner „Branding“ wie auf v2
+  (entschieden 28.10.2026); im Code bleibt der Schlüssel `marke`.
 - **Laufende Kosten** stehen im Ergebnis als feste Zeile: rund CHF 200–250 im
   Jahr fuer Hosting und Domain (Hostpoint Standard ab CHF 15.90/Monat plus Domain), beim Anbieter auf den Namen des Kunden. Betrag
   steht im HTML (`class="laufend"`), pruefen wenn der Hoster die Preise aendert.
