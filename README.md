@@ -231,6 +231,9 @@ Material. Erledigtes streichen, nicht löschen, bis der Entwurf live ist.
   `php -S` und einem Sendmail-Ersatz, der die Mails in eine Datei schreibt.
 - FAQ-Daten neu erzeugt (`python3 quellen/faq-daten.py`, jetzt mit
   `website-kosten.html`).
+- Paketnamen (28.10.2026): **Startformat**, **Vollformat**, **Breitbild**, aus
+  «formateins» und der Sprache von Foto und Film. Was drin ist, sagt die Zeile
+  darüber («01 · Branding und Seite»). Verworfen: «Erster/Ganzer/Grosser Auftritt».
 - Danach **Search Console** wie unten unter «Nach dem Livegang des Entwurfs».
 
 ## Auslieferung auf Hostpoint
