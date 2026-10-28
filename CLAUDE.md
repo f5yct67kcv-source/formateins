@@ -1,5 +1,15 @@
 # Arbeitsweise in diesem Projekt
 
+## Logbuch: jeder Entscheid bekommt eine ENT-Nummer
+
+Seit dem 28.10.2026 auf Adrians Wunsch: Jeder Entscheid und jede Aufgabe kommt
+in `LOGBUCH.md`, mit fortlaufender Nummer **ENT-…**, Datum, kurzem Satz und
+Beleg (Commit, Lauf). `[x]` = erledigt und belegt, `[ ]` = offen. Nummern nie
+neu vergeben; ein geänderter Entscheid bekommt eine neue Nummer mit Verweis.
+Eintrag im selben Commit wie die Änderung, im Chat die Nummer nennen. Vor der
+Arbeit `LOGBUCH.md` lesen: offene Punkte stehen dort, nicht nur im README.
+Die Datei geht nicht auf den Webserver (Ausnahme im Workflow).
+
 ## Vor jedem Push
 
 An `main` arbeiten mehrere Sitzungen parallel. Deshalb vor **jedem** Push:
