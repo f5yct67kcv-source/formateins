@@ -10,25 +10,21 @@
 <link rel="preload" href="schriften/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="schriften/playfair-display.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="schriften.css">
+<script src="entwurf-preise.js" defer></script>
 
-<!-- Preistabelle der Kombi-Pakete, zwei Varianten zur Wahl (28.10.2026).
-     A: drei Karten nebeneinander. B: eine Tabelle, Leistungen in Zeilen.
-     Die Zahlen sind Punktwerte aus den vorgeschlagenen Ansaetzen, der Rahmen
-     wie im Rechner -10 % bis +15 %, auf hundert gerundet:
-       Markenblatt 1900, Markenblatt mit Drucksachen 2900,
-       Eine Seite 1650, Firmenwebsite 3050, Imagefilm 30-60 s 2700.
-     Kombi: die teuerste Richtung voll, jede weitere -20 %.
-       1: einzeln 3550, aus einer Hand 3220, Ersparnis 330
-       2: einzeln 5950, aus einer Hand 5370, Ersparnis 580
-       3: einzeln 8650, aus einer Hand 7530, Ersparnis 1120
-     Paketnamen sind noch offen, darum stehen hier nur die Inhalte. -->
+<!-- Paketkarten, Fassung A (Karten) gewaehlt am 28.10.2026. Nach dem Muster
+     von beyondweb.ch: fuer wen, Lieferzeit, "Alles aus 01, plus" statt
+     Wiederholung. Neu: je Karte ein paar Optionen zum Dazunehmen, Preis und
+     Ersparnis laufen mit. Was das Paket ausmacht, laesst sich nicht abwaehlen,
+     sonst verschwimmen die Pakete.
+     Rechnen tut entwurf-preise.js, die Zahlen im HTML sind nur der Stand ohne
+     Skript. Paketnamen und Lieferzeiten sind Platzhalter. -->
 
 <style>
 :root{
   --grund:#1b2a33;
   --grund-tief:#0e1820;
   --grund-licht:#2e4557;
-  --grund-hoch:#263a47;
   --signal:#ff8a4c;
   --auf-grund:#e4eaee;
   --auf-grund-still:#a8b8c4;
@@ -41,7 +37,7 @@
   --txt-l:1.06rem;
   --serif:"Playfair Display",Georgia,serif;
   --sans:"Schibsted Grotesk",system-ui,-apple-system,sans-serif;
-  --spalte:min(1080px,calc(100% - 2 * clamp(16px,5vw,56px)));
+  --spalte:min(1120px,calc(100% - 2 * clamp(16px,5vw,56px)));
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:var(--grund-tief);-webkit-text-size-adjust:100%}
@@ -52,9 +48,10 @@ body{
   -webkit-font-smoothing:antialiased;min-height:100svh;
 }
 a{color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px}
 .spalte{width:var(--spalte);margin-inline:auto}
 h2{font-family:var(--serif);font-weight:900;letter-spacing:-.022em;line-height:1.1;font-size:clamp(1.7rem,3vw,2.4rem)}
-h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1.15;font-size:1.3rem}
+h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1.15;font-size:1.35rem}
 .still{color:var(--auf-grund-still)}
 
 .kopf{background:var(--grund-tief);border-bottom:1px solid var(--linie)}
@@ -64,12 +61,7 @@ h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1
 .logo .p{font-family:var(--serif);font-weight:900;color:var(--signal)}
 .marke-entwurf{font-size:var(--txt-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--auf-grund-still);font-weight:700}
 
-/* Variantenschild, nur im Entwurf. */
-.variante{display:inline-block;margin-bottom:28px;padding:4px 10px;border:1px dashed var(--linie-hell);
-  font-size:var(--txt-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--auf-grund-still);font-weight:700}
-
 .abschnitt{padding:clamp(56px,8vw,96px) 0}
-.abschnitt + .abschnitt{border-top:1px solid var(--linie)}
 .oben{display:flex;align-items:center;gap:14px;margin-bottom:18px;
   font-size:var(--txt-xs);letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--auf-grund-still)}
 .oben b{color:var(--signal)}
@@ -77,69 +69,62 @@ h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1
 .lead{margin-top:16px;max-width:58ch;font-size:var(--txt-l);color:var(--auf-grund-still)}
 
 .betrag{font-variant-numeric:tabular-nums;white-space:nowrap}
-.durch{text-decoration:line-through;text-decoration-color:rgba(168,184,196,.7);color:var(--auf-grund-still)}
+
+/* ---------- Karten ---------- */
+.karten{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;align-items:stretch}
+.karte{display:flex;flex-direction:column;border:1px solid var(--linie);background:rgba(14,24,32,.35);padding:30px 26px 26px}
+/* Die dritte Karte spart am meisten, darum der Rand. Nicht "die beliebteste". */
+.karte.voll{border-color:var(--signal);background:rgba(255,138,76,.05)}
+.karte .nr{font-size:var(--txt-xs);letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--signal);margin-bottom:10px}
+.karte .zeit{margin-top:6px;font-size:var(--txt-s);color:var(--auf-grund-still)}
+.karte .wen{margin-top:16px;font-size:var(--txt-m);min-height:4.8em}
+
+/* Preis steht oben, gleich nach dem Satz fuer wen, wie bei beyondweb. */
+.karte .preis{margin-top:18px;padding:16px 0 18px;border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+.karte .preis small{display:block;font-size:var(--txt-xs);letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--auf-grund-still)}
+.karte .hand{display:block;font-family:var(--serif);font-weight:900;font-size:1.75rem;letter-spacing:-.01em;line-height:1.3;border-radius:3px}
+.karte .hand.neu{animation:aufleuchten .9s ease-out}
+@keyframes aufleuchten{from{color:var(--signal);background:rgba(255,138,76,.14)}to{color:inherit;background:transparent}}
+@media (prefers-reduced-motion:reduce){.karte .hand.neu{animation:none}}
+.karte .vergleich{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-top:8px;font-size:var(--txt-s)}
+.karte .einzeln{text-decoration:line-through;text-decoration-color:rgba(168,184,196,.7);color:var(--auf-grund-still)}
 .spar{display:inline-block;padding:3px 10px;border-radius:99px;background:rgba(255,138,76,.12);
   color:var(--signal);font-size:var(--txt-s);font-weight:700;white-space:nowrap}
 
-/* ---------- Variante A: drei Karten ---------- */
-.karten{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;align-items:stretch}
-.karte{display:flex;flex-direction:column;border:1px solid var(--linie);background:rgba(14,24,32,.35);padding:28px 26px 26px}
-.karte .nr{font-size:var(--txt-xs);letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--signal);margin-bottom:12px}
-.karte ul{list-style:none;margin:18px 0 24px;flex:1}
-.karte li{position:relative;padding-left:20px;font-size:var(--txt-m);margin-bottom:8px}
-.karte li::before{content:"";position:absolute;left:0;top:.75em;width:10px;height:1px;background:var(--signal)}
-.karte li.dazu{color:var(--auf-grund-still)}
-.karte li.dazu::before{background:var(--linie-hell)}
-.karte .preis{border-top:1px solid var(--linie);padding-top:18px}
-.karte .zeile{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:var(--txt-s)}
-.karte .haupt{margin-top:10px;display:block}
-.karte .haupt small{display:block;font-size:var(--txt-xs);letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--auf-grund-still)}
-.karte .haupt .betrag{font-family:var(--serif);font-weight:900;font-size:1.7rem;letter-spacing:-.01em;line-height:1.3}
-.karte .spar{margin-top:12px}
-.karte .hin{margin-top:22px;font-size:var(--txt-s);font-weight:700;text-decoration:none;color:var(--auf-grund)}
-.karte .hin span{color:var(--signal)}
-/* Die dritte Karte ist die mit dem groessten Vorteil, nicht "die beliebteste". */
-.karte.voll{border-color:var(--signal);background:rgba(255,138,76,.05)}
-
-/* ---------- Variante B: Tabelle ---------- */
-.tabelle{width:100%;margin-top:44px;border-collapse:collapse;font-size:var(--txt-m)}
-.tabelle th,.tabelle td{padding:14px 16px;text-align:center;border-bottom:1px solid var(--linie)}
-.tabelle th:first-child,.tabelle td:first-child{text-align:left;padding-left:0}
-.tabelle thead th{vertical-align:bottom;font-weight:400;border-bottom-color:var(--linie-hell)}
-.tabelle thead .nr{display:block;font-size:var(--txt-xs);letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--signal);margin-bottom:6px}
-.tabelle thead h3{font-size:1.12rem}
-.tabelle .gruppe td{padding-top:26px;font-size:var(--txt-xs);letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--auf-grund-still);border-bottom:none}
-.tabelle .ja{color:var(--signal);font-weight:700}
-.tabelle .nein{color:var(--linie-hell)}
-.tabelle tfoot td{border-bottom:none}
-.tabelle tfoot tr:first-child td{padding-top:26px;border-top:1px solid var(--linie-hell)}
-.tabelle tfoot .gross{font-family:var(--serif);font-weight:900;font-size:1.35rem;letter-spacing:-.01em}
-.tabelle tfoot .zeilenkopf{font-size:var(--txt-s);color:var(--auf-grund-still)}
-.tabelle col.voll{background:rgba(255,138,76,.05)}
-
-.fuss-notiz{margin-top:28px;font-size:var(--txt-s);color:var(--auf-grund-still);max-width:70ch}
-.knopf{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:14px 26px;
-  background:var(--signal);color:var(--tinte);font-weight:700;text-decoration:none}
-
-/* ---------- Handy ---------- */
-@media (max-width:860px){
-  .karten{grid-template-columns:1fr}
-  /* Die Tabelle wird zu Bloecken: Leistung als Zeile, darunter die drei Werte. */
-  .tabelle thead{display:none}
-  .tabelle,.tabelle tbody,.tabelle tfoot,.tabelle tr{display:block}
-  .tabelle colgroup{display:none}
-  .tabelle tr{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--linie);padding:10px 0}
-  .tabelle td{border:none;padding:4px 2px;font-size:var(--txt-s)}
-  .tabelle td:first-child{grid-column:1/-1;padding:0 0 4px;font-size:var(--txt-m)}
-  .tabelle .gruppe{border-bottom:none;padding:0}
-  .tabelle .gruppe td{padding-top:22px}
-  .tabelle .koepfe{display:grid}
-  .tabelle tfoot tr:first-child td{border-top:none;padding-top:4px}
-  .tabelle tfoot .gross{font-size:1.02rem}
-  .tabelle tfoot td{white-space:normal}
+/* Fester Inhalt: Haekchen im Kreis. */
+.karte .plus{margin-top:20px;font-size:var(--txt-s);font-weight:700;color:var(--signal)}
+.karte ul.inhalt{list-style:none;margin:12px 0 0}
+.karte .inhalt li{position:relative;padding-left:32px;font-size:var(--txt-m);margin-bottom:10px;line-height:1.5}
+.karte .inhalt li::before{
+  content:"";position:absolute;left:0;top:.12em;width:20px;height:20px;border-radius:50%;
+  background:rgba(255,138,76,.14) no-repeat center/11px
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.4l2.6 2.4L10 3.4' fill='none' stroke='%23ff8a4c' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
-@media (min-width:861px){ .tabelle .koepfe{display:none} }
-.koepfe td{font-size:var(--txt-xs);letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--signal)}
+
+/* Dazunehmen: Kaestchen zum Ankreuzen, Preis rechts. */
+.karte .dazu{margin-top:auto;padding-top:22px}
+.karte .dazu-titel{font-size:var(--txt-xs);letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--auf-grund-still);margin:0 0 8px}
+.karte .dazu label{display:flex;align-items:center;gap:12px;padding:9px 10px;margin:0 -10px;cursor:pointer;font-size:var(--txt-s);border-radius:3px}
+.karte .dazu label:hover{background:rgba(255,255,255,.035)}
+.karte .dazu input{appearance:none;flex:none;width:18px;height:18px;border:1.5px solid var(--linie-hell);border-radius:3px;display:grid;place-content:center;cursor:pointer;margin:0}
+.karte .dazu input:checked{background:var(--signal);border-color:var(--signal)}
+.karte .dazu input:checked::after{content:"";width:10px;height:10px;background:no-repeat center/contain
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.4l2.6 2.4L10 3.4' fill='none' stroke='%2315202a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.karte .dazu .was{flex:1}
+.karte .dazu .plusbetrag{color:var(--auf-grund-still);font-variant-numeric:tabular-nums;white-space:nowrap}
+.karte .dazu label:has(input:checked) .was{color:var(--auf-grund)}
+.karte .dazu label:has(input:checked) .plusbetrag{color:var(--signal)}
+
+.karte .hin{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:20px;padding:12px 18px;
+  border:1px solid var(--linie-hell);font-size:var(--txt-s);font-weight:700;text-decoration:none}
+.karte.voll .hin{background:var(--signal);border-color:var(--signal);color:var(--tinte)}
+
+.fuss-notiz{margin-top:28px;font-size:var(--txt-s);color:var(--auf-grund-still);max-width:72ch}
+
+@media (max-width:900px){
+  .karten{grid-template-columns:1fr}
+  .karte .wen{min-height:0}
+}
 </style>
 
 <header class="kopf">
@@ -150,109 +135,88 @@ h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1
 </header>
 
 <main>
-
-<!-- ===================== Variante A ===================== -->
-<section class="abschnitt" id="a">
+<section class="abschnitt" id="pakete">
   <div class="spalte">
-    <span class="variante">Variante A · Karten</span>
     <p class="oben"><b>Pakete</b><i></i>Aus einer Hand</p>
     <h2>Alles vom selben Tisch.<br>Und günstiger als einzeln.</h2>
     <p class="lead">Jede Richtung kannst du einzeln buchen. Nimmst du mehr dazu, kostet jede weitere 20 % weniger, und was doppelt wäre, fällt weg.</p>
 
     <div class="karten">
-      <article class="karte">
+
+      <article class="karte" data-paket="start" data-marke="markenblatt" data-website="eine">
         <p class="nr">01 · Marke und Seite</p>
         <h3>Für den Start</h3>
-        <ul>
-          <li>Markenblatt: Logo, Farben, zwei Schriften, Regeln</li>
-          <li>Website, eine Seite</li>
-        </ul>
-        <div class="preis">
-          <div class="zeile"><span class="still">Einzeln</span><span class="betrag durch">CHF 3'100 – 4'100</span></div>
-          <span class="haupt"><small>Aus einer Hand</small><span class="betrag">CHF 2'800 – 3'800</span></span>
-          <span class="spar">Du sparst rund CHF 300</span>
+        <p class="zeit">Fertig in 3 bis 4 Wochen</p>
+        <p class="wen">Für alle, die gerade gründen und vom ersten Tag an wiedererkannt werden wollen.</p>
+        <div class="preis" aria-live="polite">
+          <small>Aus einer Hand</small>
+          <span class="betrag hand">CHF 2'800 – 3'800</span>
+          <span class="vergleich"><span class="betrag einzeln">CHF 3'100 – 4'100</span><span class="spar">Du sparst rund <b>CHF 300</b></span></span>
         </div>
-        <a class="hin" href="kostenrechner">Im Rechner anpassen <span>→</span></a>
+        <ul class="inhalt">
+          <li>Markenblatt: Logo, Farben, zwei Schriften und die Regeln dazu</li>
+          <li>Website auf einer Seite, auf jedem Gerät</li>
+          <li>Kontaktformular, Impressum, Datenschutz</li>
+        </ul>
+        <div class="dazu">
+          <p class="dazu-titel">Dazunehmen</p>
+          <label><input type="checkbox" data-wert="texte"><span class="was">Texte schreibe ich</span><span class="plusbetrag">+ 700</span></label>
+          <label><input type="checkbox" data-wert="buchung"><span class="was">Online-Termine</span><span class="plusbetrag">+ 350</span></label>
+        </div>
+        <a class="hin" href="kostenrechner?paket=start">Im Rechner weiter →</a>
       </article>
 
-      <article class="karte">
+      <article class="karte" data-paket="auftritt" data-marke="drucksachen" data-website="firma">
         <p class="nr">02 · Marke und Website</p>
         <h3>Der ganze Auftritt</h3>
-        <ul>
-          <li>Markenblatt: Logo, Farben, zwei Schriften, Regeln</li>
-          <li>Visitenkarte, Briefbogen, Vorlage für Offerte und Rechnung</li>
-          <li>Firmenwebsite, 3 bis 5 Seiten</li>
-        </ul>
-        <div class="preis">
-          <div class="zeile"><span class="still">Einzeln</span><span class="betrag durch">CHF 5'300 – 6'900</span></div>
-          <span class="haupt"><small>Aus einer Hand</small><span class="betrag">CHF 4'800 – 6'200</span></span>
-          <span class="spar">Du sparst rund CHF 600</span>
+        <p class="zeit">Fertig in 5 bis 7 Wochen</p>
+        <p class="wen">Für Betriebe, die überall gleich auftreten wollen: im Netz, auf Papier, in jeder Offerte.</p>
+        <div class="preis" aria-live="polite">
+          <small>Aus einer Hand</small>
+          <span class="betrag hand">CHF 4'800 – 6'200</span>
+          <span class="vergleich"><span class="betrag einzeln">CHF 5'300 – 6'900</span><span class="spar">Du sparst rund <b>CHF 600</b></span></span>
         </div>
-        <a class="hin" href="kostenrechner">Im Rechner anpassen <span>→</span></a>
+        <p class="plus">Alles aus 01, dazu</p>
+        <ul class="inhalt">
+          <li>Visitenkarte, Briefbogen, Vorlage für Offerte und Rechnung</li>
+          <li>Firmenwebsite mit 3 bis 5 Seiten statt einer</li>
+        </ul>
+        <div class="dazu">
+          <p class="dazu-titel">Dazunehmen</p>
+          <label><input type="checkbox" data-wert="texte"><span class="was">Texte schreibe ich</span><span class="plusbetrag">+ 1'200</span></label>
+          <label><input type="checkbox" data-wert="sprache"><span class="was">Zweite Sprache</span><span class="plusbetrag">+ 800</span></label>
+          <label><input type="checkbox" data-wert="social"><span class="was">Vorlagen für Social Media</span><span class="plusbetrag">+ 400</span></label>
+        </div>
+        <a class="hin" href="kostenrechner?paket=auftritt">Im Rechner weiter →</a>
       </article>
 
-      <article class="karte voll">
+      <article class="karte voll" data-paket="film" data-marke="drucksachen" data-website="firma" data-video="imagefilm mittel">
         <p class="nr">03 · Marke, Website, Film</p>
         <h3>Der Auftritt mit Film</h3>
-        <ul>
-          <li>Markenblatt: Logo, Farben, zwei Schriften, Regeln</li>
-          <li>Visitenkarte, Briefbogen, Vorlage für Offerte und Rechnung</li>
-          <li>Firmenwebsite, 3 bis 5 Seiten</li>
-          <li>Imagefilm, 30 bis 60 Sekunden, ein Drehtag</li>
-          <li class="dazu">Standbilder aus dem Dreh für die Website</li>
-        </ul>
-        <div class="preis">
-          <div class="zeile"><span class="still">Einzeln</span><span class="betrag durch">CHF 7'700 – 10'000</span></div>
-          <span class="haupt"><small>Aus einer Hand</small><span class="betrag">CHF 6'700 – 8'700</span></span>
-          <span class="spar">Du sparst rund CHF 1'100</span>
+        <p class="zeit">Fertig in 6 bis 8 Wochen</p>
+        <p class="wen">Für Betriebe, die zeigen wollen, wie es bei ihnen aussieht, statt es nur zu beschreiben.</p>
+        <div class="preis" aria-live="polite">
+          <small>Aus einer Hand</small>
+          <span class="betrag hand">CHF 6'700 – 8'700</span>
+          <span class="vergleich"><span class="betrag einzeln">CHF 7'700 – 10'000</span><span class="spar">Du sparst rund <b>CHF 1'100</b></span></span>
         </div>
-        <a class="hin" href="kostenrechner">Im Rechner anpassen <span>→</span></a>
+        <p class="plus">Alles aus 02, dazu</p>
+        <ul class="inhalt">
+          <li>Imagefilm, 30 bis 60 Sekunden, ein Drehtag in deinem Betrieb</li>
+          <li>Standbilder aus dem Dreh für die Website</li>
+        </ul>
+        <div class="dazu">
+          <p class="dazu-titel">Dazunehmen</p>
+          <label><input type="checkbox" data-wert="schnitte"><span class="was">Drei Kurzclips für Social Media</span><span class="plusbetrag">+ 600</span></label>
+          <label><input type="checkbox" data-wert="format"><span class="was">Hoch- und Querformat</span><span class="plusbetrag">+ 400</span></label>
+          <label><input type="checkbox" data-wert="stimme"><span class="was">Professionelle Sprecherstimme</span><span class="plusbetrag">+ 450</span></label>
+        </div>
+        <a class="hin" href="kostenrechner?paket=film">Im Rechner weiter →</a>
       </article>
+
     </div>
 
     <p class="fuss-notiz">Preisrahmen wie im Kostenrechner, der Festpreis folgt nach einem kurzen Gespräch. Mehrwertsteuer kommt keine dazu. Bezahlt wird in Etappen: Marke, Website, Film.</p>
   </div>
 </section>
-
-<!-- ===================== Variante B ===================== -->
-<section class="abschnitt" id="b">
-  <div class="spalte">
-    <span class="variante">Variante B · Tabelle</span>
-    <p class="oben"><b>Pakete</b><i></i>Aus einer Hand</p>
-    <h2>Alles vom selben Tisch.<br>Und günstiger als einzeln.</h2>
-    <p class="lead">Jede Richtung kannst du einzeln buchen. Nimmst du mehr dazu, kostet jede weitere 20 % weniger, und was doppelt wäre, fällt weg.</p>
-
-    <table class="tabelle">
-      <colgroup><col><col><col><col class="voll"></colgroup>
-      <thead>
-        <tr>
-          <th></th>
-          <th><span class="nr">01</span><h3>Für den Start</h3></th>
-          <th><span class="nr">02</span><h3>Der ganze Auftritt</h3></th>
-          <th><span class="nr">03</span><h3>Der Auftritt mit Film</h3></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="koepfe"><td></td><td>01 Start</td><td>02 Auftritt</td><td>03 Mit Film</td></tr>
-        <tr class="gruppe"><td colspan="4">Marke</td></tr>
-        <tr><td>Markenblatt: Logo, Farben, zwei Schriften, Regeln</td><td class="ja">✓</td><td class="ja">✓</td><td class="ja">✓</td></tr>
-        <tr><td>Visitenkarte, Briefbogen, Vorlage für Offerte und Rechnung</td><td class="nein">–</td><td class="ja">✓</td><td class="ja">✓</td></tr>
-        <tr class="gruppe"><td colspan="4">Website</td></tr>
-        <tr><td>Umfang</td><td>1 Seite</td><td>3 bis 5 Seiten</td><td>3 bis 5 Seiten</td></tr>
-        <tr class="gruppe"><td colspan="4">Video</td></tr>
-        <tr><td>Imagefilm, 30 bis 60 Sekunden, ein Drehtag</td><td class="nein">–</td><td class="nein">–</td><td class="ja">✓</td></tr>
-        <tr><td>Standbilder aus dem Dreh für die Website</td><td class="nein">–</td><td class="nein">–</td><td class="ja">✓</td></tr>
-      </tbody>
-      <tfoot>
-        <tr><td class="zeilenkopf">Einzeln gebucht</td><td class="betrag durch">CHF 3'100 – 4'100</td><td class="betrag durch">CHF 5'300 – 6'900</td><td class="betrag durch">CHF 7'700 – 10'000</td></tr>
-        <tr><td class="zeilenkopf">Aus einer Hand</td><td class="betrag gross">CHF 2'800 – 3'800</td><td class="betrag gross">CHF 4'800 – 6'200</td><td class="betrag gross">CHF 6'700 – 8'700</td></tr>
-        <tr><td class="zeilenkopf">Du sparst rund</td><td><span class="spar">CHF 300</span></td><td><span class="spar">CHF 600</span></td><td><span class="spar">CHF 1'100</span></td></tr>
-      </tfoot>
-    </table>
-
-    <p class="fuss-notiz">Preisrahmen wie im Kostenrechner, der Festpreis folgt nach einem kurzen Gespräch. Mehrwertsteuer kommt keine dazu. Bezahlt wird in Etappen: Marke, Website, Film.</p>
-    <a class="knopf" href="kostenrechner">Selbst zusammenstellen →</a>
-  </div>
-</section>
-
 </main>
