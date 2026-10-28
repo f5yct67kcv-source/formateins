@@ -437,9 +437,9 @@ footer nav a:hover{color:var(--signal)}
       <h1>Was gibt es schon?</h1>
       <p class="hilfe">Auch ein altes Logo ist ein Anfang. Manchmal reicht es, es aufzuräumen.</p>
       <div class="antworten">
-        <button class="antwort" data-wert="nichts" data-text="Noch nichts, Markenblatt neu"><span class="kreis"></span><span><b>Noch nichts</b><span>Ich entwerfe Logo, Farben und Schriften und schreibe die Regeln dazu.</span></span></button>
+        <button class="antwort" data-wert="nichts" data-text="Noch nichts, Logo und Erscheinungsbild neu"><span class="kreis"></span><span><b>Noch nichts</b><span>Ich entwerfe Logo, Farben und Schriften und schreibe die Regeln dazu.</span></span></button>
         <button class="antwort" data-wert="auffrischen" data-text="Logo bleibt, wird aufgefrischt"><span class="kreis"></span><span><b>Ein Logo, das bleiben soll</b><span>Ich frische es auf und lege Farben und Schriften dazu fest.</span></span></button>
-        <button class="antwort" data-wert="neu" data-text="Logo passt nicht mehr, Markenblatt neu"><span class="kreis"></span><span><b>Ein Logo, das nicht mehr passt</b><span>Wir fangen neu an, das alte darf mitreden.</span></span></button>
+        <button class="antwort" data-wert="neu" data-text="Logo passt nicht mehr, Logo und Erscheinungsbild neu"><span class="kreis"></span><span><b>Ein Logo, das nicht mehr passt</b><span>Wir fangen neu an, das alte darf mitreden.</span></span></button>
       </div>
     </div>
 
@@ -447,9 +447,9 @@ footer nav a:hover{color:var(--signal)}
       <span class="ziffer" aria-hidden="true"></span>
       <p class="etikett"><b></b><i aria-hidden="true"></i>Marke, Umfang</p>
       <h1>Wo soll die Marke überall auftauchen?</h1>
-      <p class="hilfe">Das Markenblatt ist die Grundlage. Alles Weitere baut darauf auf.</p>
+      <p class="hilfe">Logo und Erscheinungsbild sind die Grundlage. Alles Weitere baut darauf auf.</p>
       <div class="antworten">
-        <button class="antwort" data-wert="blatt" data-text="Markenblatt"><span class="kreis"></span><span><b>Das Markenblatt reicht mir</b><span>Logo, Farben, Schriften und Regeln als Dateien, für dich und deine Druckerei.</span></span></button>
+        <button class="antwort" data-wert="blatt" data-text="Logo und Erscheinungsbild"><span class="kreis"></span><span><b>Logo und Erscheinungsbild reichen mir</b><span>Alles auf einem Markenblatt, für dich und deine Druckerei.</span></span></button>
         <button class="antwort" data-wert="drucksachen" data-text="Mit Drucksachen"><span class="kreis"></span><span><b>Dazu die Drucksachen</b><span>Visitenkarte, Briefbogen, Vorlage für Offerte und Rechnung, Mail-Signatur.</span></span></button>
         <button class="antwort" data-wert="social" data-text="Mit Drucksachen und Vorlagen für Social Media"><span class="kreis"></span><span><b>Drucksachen und Vorlagen für Social Media</b><span>Dazu Vorlagen für Beiträge und Stories, die du selbst füllst.</span></span></button>
       </div>
@@ -941,10 +941,10 @@ function teile(){
   if (r.includes('marke')) {
     const neu = antwort.marke_stand !== 'auffrischen';
     const weit = antwort.marke_reichweite;
-    let kern = neu ? P.marke.markenblatt : P.marke.auffrischung;
-    if (weit === 'drucksachen' || weit === 'social') kern += P.marke.drucksachen - P.marke.markenblatt;
+    let kern = neu ? P.marke.erscheinungsbild : P.marke.auffrischung;
+    if (weit === 'drucksachen' || weit === 'social') kern += P.marke.drucksachen - P.marke.erscheinungsbild;
     t.push({ richtung:'marke', kern, extras: weit === 'social' ? P.marke.social : 0,
-      text: (neu ? 'Markenblatt' : 'Logo auffrischen') + (weit === 'drucksachen' ? ', mit Drucksachen' : weit === 'social' ? ', mit Drucksachen und Social Media' : '') });
+      text: (neu ? 'Logo und Erscheinungsbild' : 'Logo auffrischen') + (weit === 'drucksachen' ? ', mit Drucksachen' : weit === 'social' ? ', mit Drucksachen und Social Media' : '') });
   }
   if (r.includes('website')) {
     const W = P.website, g = W.grund[antwort.umfang] ? antwort.umfang : 'eine';
@@ -1188,7 +1188,7 @@ function empfehlung(r){
     const n = r.map(w => NAMEN[w]);
     return n.slice(0, -1).join(', ') + ' und ' + n[n.length - 1] + ' aus einer Hand.';
   }
-  if (r[0] === 'marke') return antwort.marke_stand === 'auffrischen' ? 'Eine Auffrischung passt zu dir.' : 'Ein Markenblatt passt zu dir.';
+  if (r[0] === 'marke') return antwort.marke_stand === 'auffrischen' ? 'Eine Auffrischung passt zu dir.' : 'Ein neues Logo mit Erscheinungsbild passt zu dir.';
   return EMPFEHLUNG[r[0]][r[0] === 'website' ? antwort.umfang : antwort.video_art] || 'Dein Preisrahmen';
 }
 
@@ -1201,7 +1201,7 @@ function rahmenZahl(el, punkt){
 
 // Was zu einer einzelnen Richtung passt, und was die Kombination spart.
 const PASST = {
-  marke:   ['Marke',   'Logo, Farben und Schriften, auf denen alles Weitere aufbaut.', { kern: P.marke.markenblatt }],
+  marke:   ['Marke',   'Logo, Farben und Schriften, auf denen alles Weitere aufbaut.', { kern: P.marke.erscheinungsbild }],
   website: ['Website', 'Die Seite, auf der alles andere zu Hause ist.',               { kern: P.website.grund.eine }],
   video:   ['Video',   'Ein Imagefilm, aus dem auch die Bilder für die Seite kommen.', { kern: P.video.imagefilm.mittel }]
 };

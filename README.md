@@ -37,7 +37,7 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
   28.10.2026, stehen in `PREISE` in `entwurf-preise.js`). Lage wie bei der
   Website: Mittelfeld, rund 55–60 % vom Einstieg einer Kleinagentur, klar über
   den Billiganbietern (Faustregel aus dem Hochzeitsfilm: 2'500 gegen 4'500 der
-  Profis). Marke: Auffrischung 900, Markenblatt 1'900, mit Drucksachen 2'900,
+  Profis). Marke: Auffrischung 900, Logo und Erscheinungsbild 1'900, mit Drucksachen 2'900,
   Social-Vorlagen +400. Video nach Art und Länge (kurz bis 20 s, mittel 30–60 s,
   lang 60–120 s): Imagefilm 1'800/2'700/3'800, animiert 1'300/2'400/3'500,
   Produktvideo 1'300/2'000/2'900; zweites Format +300/+400/+500,
@@ -48,6 +48,12 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
   Schweizer Freelancern 400–1'500, Agentur 1'500–4'000, Corporate Design
   3'500–9'000; Imagefilm ab 4'500 (Basis), mit Interviews ab 6'500;
   Erklärvideo 60–90 s bei Agenturen 3'900–12'500.
+  **Name der Markenleistung** (28.10.2026, nach Vergleich mit zwölf Schweizer
+  Anbietern): Die Leistung heisst „Logo und Erscheinungsbild“, weil Kunden nach
+  „Logo“ suchen und alle Anbieter das Wort voranstellen. Das „Markenblatt“ ist,
+  was man am Ende bekommt: alles auf einem Blatt statt eines CD-Manuals,
+  Styleguides oder Brand Guidelines, wie die Konkurrenz es nennt. Als Name der
+  Leistung allein liess „Blatt“ den Preis zu klein wirken.
 - **Laufende Kosten** stehen im Ergebnis als feste Zeile: rund CHF 200–250 im
   Jahr fuer Hosting und Domain (Hostpoint Standard ab CHF 15.90/Monat plus Domain), beim Anbieter auf den Namen des Kunden. Betrag
   steht im HTML (`class="laufend"`), pruefen wenn der Hoster die Preise aendert.

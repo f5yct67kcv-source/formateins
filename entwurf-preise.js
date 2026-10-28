@@ -21,8 +21,11 @@ const PREISE = {
     ueberarbeiten:0.8                                  // bestehende Seite ueberarbeiten statt neu bauen
   },
   marke: {
-    // Drucksachen = Markenblatt plus Visitenkarte, Briefbogen, Vorlagen, Signatur.
-    auffrischung:900, markenblatt:1900, drucksachen:2900,
+    // Erscheinungsbild = Logo, Farben, Schriften, Regeln, zusammengefasst auf einem
+    // Markenblatt. Drucksachen = Erscheinungsbild plus Visitenkarte, Briefbogen,
+    // Vorlagen, Signatur. Name entschieden am 28.10.2026: Die Leistung heisst
+    // "Logo und Erscheinungsbild", das Markenblatt ist, was man am Ende bekommt.
+    auffrischung:900, erscheinungsbild:1900, drucksachen:2900,
     social:400                                        // Vorlagen fuer Social Media
   },
   video: {
@@ -107,7 +110,7 @@ function karteRechnen(karte){
   karte.querySelector('.hin').href = RECHNER + '?' + p;
 }
 
-// Einzelpreise: data-punkt zeigt auf einen Ansatz in PREISE, z. B. "marke.markenblatt".
+// Einzelpreise: data-punkt zeigt auf einen Ansatz in PREISE, z. B. "marke.erscheinungsbild".
 document.querySelectorAll('[data-punkt]').forEach(el => {
   const punkt = el.dataset.punkt.split('.').reduce((o, k) => o[k], PREISE);
   el.textContent = chfRahmen(rahmen(punkt));
