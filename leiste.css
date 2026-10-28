@@ -2,7 +2,7 @@
    Seiten gleich. Vier Ziele und der Knopf. Am Handy ein Menueknopf, der die
    Ziele gross untereinander zeigt (Fassung A, gewaehlt am 24.10.2026).
    ENTWURF: beim Livegang wird daraus leiste.css, oder der Block wandert in
-   die Seiten. Variablen kommen aus der jeweiligen Seite (entwurf.html
+   die Seiten. Variablen kommen aus der jeweiligen Seite (index.html
    oder recht.css); beide kennen --signal, --auf-grund, --auf-grund-still,
    --linie, --grund-tief, --txt-xs, --txt-s, --serif. */
 .rechts{display:flex;align-items:center;gap:clamp(22px,3vw,44px)}

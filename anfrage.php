@@ -20,15 +20,26 @@ const MINDESTDAUER_MS = 8000;
 
 // Antworten fuer die Bestaetigung an den Kunden, siehe bestaetigen() unten.
 // Muss zu den data-wert-Angaben in kostenrechner.html passen.
+// Seit dem Rechner fuer Website, Branding und Video (28.10.2026): richtungen und
+// ziel koennen mehrere Werte haben, kommagetrennt (siehe MEHRFACH).
 const ANTWORTEN = [
-  'umfang'     => ['Umfang', ['eine' => 'Eine Seite', 'firma' => 'Firmenwebsite, 3 bis 5 Seiten', 'gross' => 'Grössere Website, ab 6 Seiten']],
-  'bestand'    => ['Ausgangslage', ['nein' => 'Noch keine Website', 'ersetzen' => 'Bestehende ersetzen', 'ueberarbeiten' => 'Bestehende überarbeiten']],
-  'texte'      => ['Texte', ['da' => 'Sind vorhanden', 'teil' => 'Teilweise vorhanden', 'ich' => 'Werden neu geschrieben']],
-  'bilder'     => ['Bilder', ['da' => 'Sind vorhanden', 'teil' => 'Teilweise vorhanden', 'shooting' => 'Neue Fotos vor Ort', 'video' => 'Video vor Ort']],
-  'logo'       => ['Logo und Auftritt', ['da' => 'Beides vorhanden', 'teil' => 'Nur ein Logo', 'neu' => 'Wird neu gestaltet']],
-  'funktionen' => ['Funktionen', ['nein' => 'Keine', 'sprache' => 'Zweite Sprache', 'buchung' => 'Online-Buchung', 'beides' => 'Zweite Sprache und Online-Buchung']],
-  'zeit'       => ['Zeitrahmen', ['offen' => 'Keine Eile', 'normal' => 'In den nächsten zwei Monaten', 'datum' => 'Bis zu einem festen Datum']],
+  'richtungen'       => ['Gewählt', ['website' => 'Website', 'marke' => 'Branding', 'video' => 'Video']],
+  'ziel'             => ['Ziel', ['website' => 'Gefunden werden', 'marke' => 'Wiedererkannt werden', 'video' => 'Zeigen, wie es ist']],
+  'marke_stand'      => ['Branding', ['nichts' => 'Logo und Erscheinungsbild neu', 'auffrischen' => 'Logo auffrischen', 'neu' => 'Logo und Erscheinungsbild neu']],
+  'marke_reichweite' => ['Branding, Umfang', ['blatt' => 'Logo und Erscheinungsbild', 'drucksachen' => 'Mit Drucksachen', 'social' => 'Mit Drucksachen und Social-Media-Vorlagen']],
+  'umfang'           => ['Website, Umfang', ['eine' => 'Eine Seite', 'firma' => 'Firmenwebsite, 3 bis 5 Seiten', 'gross' => 'Grössere Website, ab 6 Seiten']],
+  'bestand'          => ['Ausgangslage', ['nein' => 'Noch keine Website', 'ersetzen' => 'Bestehende ersetzen', 'ueberarbeiten' => 'Bestehende überarbeiten']],
+  'texte'            => ['Texte', ['da' => 'Sind vorhanden', 'teil' => 'Teilweise vorhanden', 'ich' => 'Werden neu geschrieben']],
+  'bilder'           => ['Bilder', ['da' => 'Sind vorhanden', 'teil' => 'Teilweise vorhanden', 'fotos' => 'Fotos vor Ort, halber Tag', 'video' => 'Aus dem Videodreh']],
+  'logo'             => ['Logo und Auftritt', ['da' => 'Beides vorhanden', 'teil' => 'Nur ein Logo', 'marke' => 'Wird neu gestaltet', 'ohne' => 'Ohne Logo, schlichte Farben und Schrift']],
+  'funktionen'       => ['Funktionen', ['nein' => 'Keine', 'sprache' => 'Zweite Sprache', 'buchung' => 'Online-Buchung', 'beides' => 'Zweite Sprache und Online-Buchung']],
+  'video_art'        => ['Video', ['imagefilm' => 'Imagefilm', 'produkt' => 'Produktvideo', 'animiert' => 'Animierter Spot', 'unklar' => 'Form noch offen']],
+  'video_laenge'     => ['Länge', ['kurz' => 'Bis 20 Sekunden', 'mittel' => '30 bis 60 Sekunden', 'lang' => '1 bis 2 Minuten']],
+  'video_ort'        => ['Formate', ['eins' => 'Ein Format', 'beide' => 'Hoch- und Querformat', 'clips' => 'Hoch- und Querformat, drei Kurzclips']],
+  'video_stimme'     => ['Ton', ['musik' => 'Nur Musik', 'profi' => 'Professionelle Stimme', 'selbst' => 'Du sprichst selbst']],
+  'zeit'             => ['Zeitrahmen', ['offen' => 'Keine Eile', 'normal' => 'In den nächsten zwei Monaten', 'datum' => 'Bis zu einem festen Datum']],
 ];
+const MEHRFACH = ['richtungen', 'ziel'];
 
 // Hoechstens eine Bestaetigung pro Adresse und Tag.
 const BESTAETIGUNG_PRO_TAG = 1;
@@ -101,15 +112,9 @@ $telefon   = zeile('tel', 40);
 if (!telefonGueltig($telefon)) ende(400, 'Telefon fehlt');
 $bemerkung = absatz('bemerkung');
 
-$fragen = [
-  'umfang'     => 'Umfang',
-  'bestand'    => 'Ausgangslage',
-  'texte'      => 'Texte',
-  'bilder'     => 'Bilder',
-  'logo'       => 'Logo und Auftritt',
-  'funktionen' => 'Funktionen',
-  'zeit'       => 'Zeitrahmen',
-];
+// Fuer die Mail an mich: die Texte, wie der Rechner sie mitschickt.
+$fragen = ['weiche' => 'Gewählt'] + array_map(fn($a) => $a[0], ANTWORTEN);
+unset($fragen['richtungen']);
 
 $text = [];
 $text[] = 'Preisrahmen: ' . (zeile('rahmen', 60) ?: '–');
@@ -129,7 +134,9 @@ $text[] = $bemerkung ?: '–';
 $text[] = '';
 $text[] = '— gesendet über den Kostenrechner, ' . date('d.m.Y H:i');
 
-$betreff = 'Anfrage Website · ' . ($betrieb ?: $name);
+// Richtungen nur aus der festen Liste, damit nichts Fremdes in den Betreff kommt.
+$richtungen = array_values(array_intersect_key(ANTWORTEN['richtungen'][1], array_flip(explode(',', zeile('wert_richtungen', 40)))));
+$betreff = 'Anfrage ' . (implode(', ', $richtungen) ?: 'Website') . ' · ' . ($betrieb ?: $name);
 $koepfe = [
   'From'                      => 'Kostenrechner <' . ABSENDER . '>',
   'Reply-To'                  => $mail,
@@ -182,7 +189,13 @@ function bestaetigen(string $name, string $mail): void {
 
   $zeilen = [];
   foreach (ANTWORTEN as $schluessel => [$titel, $werte]) {
-    $wert = zeile('wert_' . $schluessel, 20);
+    $wert = zeile('wert_' . $schluessel, 40);
+    if (in_array($schluessel, MEHRFACH, true)) {
+      $texte = array_values(array_intersect_key($werte, array_flip(explode(',', $wert))));
+      if (!$texte) continue;
+      $zeilen[] = [$titel, implode(', ', $texte)];
+      continue;
+    }
     if (!isset($werte[$wert])) continue;
     $text = $werte[$wert];
     if ($schluessel === 'zeit' && $wert === 'datum' && preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', zeile('datum', 10), $d)) {
@@ -190,9 +203,6 @@ function bestaetigen(string $name, string $mail): void {
     }
     $zeilen[] = [$titel, $text];
   }
-  $separat = [];
-  if (in_array(zeile('wert_bilder', 20), ['shooting', 'video'], true)) $separat[] = zeile('wert_bilder', 20) === 'video' ? 'Video vor Ort' : 'Fotos vor Ort';
-  if (zeile('wert_logo', 20) === 'neu') $separat[] = 'Logo und visueller Auftritt';
 
   // Nur ein Rahmen in der Form, wie ihn der Rechner baut.
   $rahmen = zeile('rahmen', 40);
@@ -207,7 +217,6 @@ function bestaetigen(string $name, string $mail): void {
   if ($rahmen !== '') {
     $text[] = 'Dein Preisrahmen: ' . $rahmen;
     $text[] = 'Unverbindlicher Richtwert. Verbindlich ist das Festpreisangebot.';
-    if ($separat) $text[] = 'Separat offeriert: ' . implode(', ', $separat);
     $text[] = '';
   }
   if ($zeilen) {
@@ -228,7 +237,6 @@ function bestaetigen(string $name, string $mail): void {
 
   $rahmenHtml = '';
   if ($rahmen !== '') {
-    $separatHtml = $separat ? '<p style="margin:6px 0 0;font-family:' . $sans . ';font-size:13px;line-height:1.5;color:#6b7a83">Separat offeriert: ' . $h(implode(', ', $separat)) . '</p>' : '';
     $rahmenHtml = <<<HTML
   <tr><td style="padding:28px 36px 0">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f6f4ef;border-left:3px solid #ff7a3d;border-radius:4px">
@@ -236,7 +244,6 @@ function bestaetigen(string $name, string $mail): void {
         <p style="$etikett;color:#6b7a83">Dein Preisrahmen</p>
         <p style="margin:6px 0 0;font-family:$serif;font-size:30px;color:#0f1a21;font-weight:700">{$h($rahmen)}</p>
         <p style="margin:6px 0 0;font-family:$sans;font-size:13px;line-height:1.5;color:#6b7a83">Unverbindlicher Richtwert. Verbindlich ist das Festpreisangebot.</p>
-        $separatHtml
       </td></tr>
     </table>
   </td></tr>

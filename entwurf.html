@@ -53,7 +53,7 @@
 <link rel="preload" href="schriften/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="schriften/playfair-display.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="schriften.css">
-<link rel="stylesheet" href="entwurf-leiste.css">
+<link rel="stylesheet" href="leiste.css">
 <!-- Banner und Messung. Tut nichts, solange in messung.js keine Kennung steht. -->
 <script src="messung.js" defer></script>
 
@@ -1142,13 +1142,13 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 
 <!-- Die Leiste (Fassung A, 24.10.2026): vier Ziele und der Knopf, oben wie in
      der Mitlaufleiste. Am Handy der Menueknopf; das offene Menue steht am
-     Ende der Seite (#menuoffen). Gestaltung in entwurf-leiste.css, Skript in
-     entwurf-leiste.js, beides auch auf den Unterseiten. -->
+     Ende der Seite (#menuoffen). Gestaltung in leiste.css, Skript in
+     leiste.js, beides auch auf den Unterseiten. -->
 <header class="kopf">
   <div class="spalte">
     <div class="logo"><span class="s">format</span><span class="p">eins</span></div>
     <nav class="rechts" aria-label="Seite">
-      <ul class="menu"><li><a href="#leistungen">Bereiche</a></li><li><a href="#arbeiten">Arbeiten</a></li><li><a href="entwurf-website-kosten.html">Preise</a></li><li><a href="#fragen">Fragen</a></li></ul>
+      <ul class="menu"><li><a href="#leistungen">Bereiche</a></li><li><a href="#arbeiten">Arbeiten</a></li><li><a href="website-kosten">Preise</a></li><li><a href="#fragen">Fragen</a></li></ul>
       <button class="menuknopf" type="button" aria-expanded="false" aria-controls="menuoffen" aria-label="Menü"><i aria-hidden="true"></i></button>
       <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
     </nav>
@@ -1159,7 +1159,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
   <div class="spalte">
     <a class="logo" href="#" aria-label="formateins, zum Seitenanfang"><span class="s">format</span><span class="p">eins</span></a>
     <nav class="rechts" aria-label="Seite">
-      <ul class="menu"><li><a href="#leistungen">Bereiche</a></li><li><a href="#arbeiten">Arbeiten</a></li><li><a href="entwurf-website-kosten.html">Preise</a></li><li><a href="#fragen">Fragen</a></li></ul>
+      <ul class="menu"><li><a href="#leistungen">Bereiche</a></li><li><a href="#arbeiten">Arbeiten</a></li><li><a href="website-kosten">Preise</a></li><li><a href="#fragen">Fragen</a></li></ul>
       <button class="menuknopf" type="button" aria-expanded="false" aria-controls="menuoffen" aria-label="Menü"><i aria-hidden="true"></i></button>
       <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
     </nav>
@@ -1245,7 +1245,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
       <article class="richtung">
         <p class="nr">03 · Video</p>
         <div class="beweis">
-          <span class="objekt tel-objekt"><span class="telefon"><span class="sicht"><video poster="entwurf-video-spot.jpg" width="406" height="720" muted loop playsinline preload="metadata" aria-label="Spot für formateins: ein Preisschild, sieben Fragen, zwei Minuten, null Verkaufsgespräche"><source src="entwurf-video-spot.mp4" type="video/mp4"><source src="entwurf-video-spot.webm" type="video/webm"></video></span></span></span>
+          <span class="objekt tel-objekt"><span class="telefon"><span class="sicht"><video poster="video-spot.jpg" width="406" height="720" muted loop playsinline preload="metadata" aria-label="Spot für formateins: ein Preisschild, sieben Fragen, zwei Minuten, null Verkaufsgespräche"><source src="video-spot.mp4" type="video/mp4"><source src="video-spot.webm" type="video/webm"></video></span></span></span>
         </div>
         <h3>Video.</h3>
         <p class="text">Werbe- und Erklärvideos, animiert, mit Schrift, Licht und Rhythmus. Für Social Media, die Website und die Präsentation.</p>
@@ -1274,12 +1274,12 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
       <div class="pruefprojekte">
         <div class="pruefprojekt an" data-seite="https://guardops.ch/">
           <p class="brettname"><span class="nr">01</span><b>GuardOpS</b><span class="meta">Produktwebsite · Software für Schweizer Sicherheitsdienste · 2026</span></p>
-          <a class="zweitweg" href="entwurf-arbeiten-guardops.html">Mehr zur Arbeit →</a>
+          <a class="zweitweg" href="arbeiten/guardops">Mehr zur Arbeit →</a>
           <a class="zweitweg" href="https://guardops.ch/" target="_blank" rel="noopener">guardops.ch ansehen ↗</a>
         </div>
         <div class="pruefprojekt" data-seite="https://f5yct67kcv-source.github.io/webseite-johann-vonarb/">
           <p class="brettname"><span class="nr">02</span><b>Craniosacral Praxis Johann von Arb</b><span class="meta">Fulenbach · eine Seite · von Hand gebaut, ohne Baukasten · 2026</span></p>
-          <a class="zweitweg" href="entwurf-arbeiten-craniosacral-praxis.html">Mehr zur Arbeit →</a>
+          <a class="zweitweg" href="arbeiten/craniosacral-praxis">Mehr zur Arbeit →</a>
           <a class="zweitweg" href="https://f5yct67kcv-source.github.io/webseite-johann-vonarb/" target="_blank" rel="noopener">Seite ansehen ↗</a>
         </div>
       </div>
@@ -1372,7 +1372,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
       </details>
       <details>
         <summary>Was kostet eine Website bei dir?</summary>
-        <p>Das hängt vom Umfang ab und davon, was an Texten und Bildern schon da ist. Einen Startpreis mit „ab“ nenne ich bewusst nicht, er sagt wenig über die Rechnung am Ende. Der <a href="kostenrechner">Kostenrechner</a> zeigt dir in sieben Fragen einen Rahmen, danach bekommst du einen Festpreis. Was die drei Grössen kosten und was den Preis bewegt, steht im Ratgeber <a href="entwurf-website-kosten.html">Was kostet eine Website in Olten?</a> Unter tausend Franken gibt es bei mir keine Website.</p>
+        <p>Das hängt vom Umfang ab und davon, was an Texten und Bildern schon da ist. Einen Startpreis mit „ab“ nenne ich bewusst nicht, er sagt wenig über die Rechnung am Ende. Der <a href="kostenrechner">Kostenrechner</a> zeigt dir in sieben Fragen einen Rahmen, danach bekommst du einen Festpreis. Was die drei Grössen kosten und was den Preis bewegt, steht im Ratgeber <a href="website-kosten">Was kostet eine Website in Olten?</a> Unter tausend Franken gibt es bei mir keine Website.</p>
       </details>
       <details>
         <summary>Wie lange dauert es, bis sie live ist?</summary>
@@ -1421,7 +1421,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 
 <div class="menuoffen" id="menuoffen" hidden>
   <div class="menukopf"><span class="logo"><span class="s">format</span><span class="p">eins</span></span><button class="zu" type="button" aria-label="Menü schliessen">×</button></div>
-  <ul><li><a href="#leistungen">Bereiche</a></li><li><a href="#arbeiten">Arbeiten</a></li><li><a href="entwurf-website-kosten.html">Preise</a></li><li><a href="#fragen">Fragen</a></li></ul>
+  <ul><li><a href="#leistungen">Bereiche</a></li><li><a href="#arbeiten">Arbeiten</a></li><li><a href="website-kosten">Preise</a></li><li><a href="#fragen">Fragen</a></li></ul>
   <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
   <p class="leise"><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a> · <a href="tel:+41796868486">079 686 84 86</a></p>
 </div>
@@ -1440,7 +1440,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
           <li><a href="entwurf-marke.html">Marke und Gestaltung</a></li>
           <li><a href="entwurf-video.html">Video</a></li>
           <li><a href="kostenrechner">Kostenrechner</a></li>
-          <li><a href="entwurf-website-kosten.html">Was kostet eine Website?</a></li>
+          <li><a href="website-kosten">Was kostet eine Website?</a></li>
         </ul>
       </div>
       <div>
@@ -1863,4 +1863,4 @@ if (spot && !reduziert && 'IntersectionObserver' in window) {
   }, { threshold: .4 }).observe(spot);
 }
 </script>
-<script src="entwurf-leiste.js" defer></script>
+<script src="leiste.js" defer></script>

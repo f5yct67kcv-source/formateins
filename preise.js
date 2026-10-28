@@ -42,8 +42,8 @@ const PREISE = {
   eile:1.15, eileTage:42             // fester Termin in weniger als sechs Wochen
 };
 
-// Wohin "berechnen" und "Im Rechner weiter" fuehren. LIVEGANG: 'kostenrechner'.
-const RECHNER = 'entwurf-kostenrechner.html';
+// Wohin "berechnen" und "Im Rechner weiter" fuehren.
+const RECHNER = 'kostenrechner';
 
 // Rahmen wie im Rechner: -10 % bis +15 %, auf hundert gerundet.
 function rahmen(punkt){

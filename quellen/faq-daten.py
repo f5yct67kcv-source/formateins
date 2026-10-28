@@ -2,7 +2,7 @@
 # Schreibt die FAQ als strukturierte Daten (schema.org FAQPage) in die Seiten.
 # Quelle sind die <details> im Block class="faq". Nach jeder Aenderung an den
 # Fragen ausfuehren: python3 quellen/faq-daten.py (Live-Seiten) oder mit
-# Dateinamen: python3 quellen/faq-daten.py entwurf.html entwurf-website-kosten.html
+# Dateinamen: python3 quellen/faq-daten.py entwurf.html
 # Ersetzt wird nur, was zwischen <!-- FAQ-DATEN --> und <!-- /FAQ-DATEN --> steht.
 import html, json, re, pathlib, sys
 
@@ -13,7 +13,7 @@ def text(roh):
 
 # Ohne Argumente die Live-Seiten; mit Dateinamen als Argument nur diese
 # (zum Beispiel die Entwuerfe: python3 quellen/faq-daten.py entwurf.html).
-for name in sys.argv[1:] or ['index.html', 'kostenrechner.html']:
+for name in sys.argv[1:] or ['index.html', 'kostenrechner.html', 'website-kosten.html']:
     pfad = wurzel / name
     s = pfad.read_text(encoding='utf-8')
     faq = s[re.search(r'class="faq[" ]', s).start():]

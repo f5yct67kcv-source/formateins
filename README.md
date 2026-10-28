@@ -1,7 +1,8 @@
 # formateins — Website
 
-Entwurf der eigenen Website. Webdesign für Selbstständige und kleine Unternehmen
-in Olten und der Region.
+Die eigene Website. Webdesign, Branding und Video für Selbstständige, kleine
+Unternehmen und Vereine in Olten und der Region. Startseite v2, Preisseite und der
+Rechner für alle drei Richtungen sind seit dem 28.10.2026 live.
 
 Statisches HTML, kein Build-Schritt, keine externen Abhängigkeiten. Die zwei
 Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
@@ -10,8 +11,13 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
 
 | Datei | Inhalt |
 |---|---|
-| `index.html` | Startseite |
-| `kostenrechner.html` | Kostenrechner, sieben Fragen, Preisrahmen vor dem Formular |
+| `index.html` | Startseite (v2, live seit 28.10.2026; Gestaltung siehe Zeile `entwurf*` unten) |
+| `kostenrechner.html` | Kostenrechner für Website, Branding und Video: Weiche, je Richtung ein Ast, Kombi-Preis, Preisrahmen vor dem Formular. Direktlinks `?fuer=website\|marke\|video` und `?paket=start\|auftritt\|film` |
+| `preise.html`, `preise.js` | Preisseite: zuerst Einzelpreise je Richtung, darunter drei Kombi-Pakete mit Optionen zum Ankreuzen. Alle Ansätze stehen in `PREISE` in `preise.js`, der Rechner rechnet damit |
+| `website-kosten.html` | Ratgeber «Was kostet eine Website in Olten?», Artikel für die Suche |
+| `arbeiten/guardops.html`, `arbeiten/craniosacral-praxis.html` | Projektseiten; liegen im Ordner, darum alle Pfade mit `../` |
+| `leiste.css`, `leiste.js` | Menü in Kopfzeile und Mitlaufleiste, Handymenü; auf allen Seiten ausser Gespräch und Rechtsseiten |
+| `start-*.webp`, `seite-desktop.webp`, `video-*` | Bilder und Videos der Startseite, Herkunft in den Zeilen unten |
 | `anfrage.php` | Nimmt die Anfrage aus dem Rechner an und schickt sie als Mail |
 | `gespraech.html`, `termine.php` | Terminbuchung, siehe „Gespräch vereinbaren“ unten |
 | `kalender-zugang.php` | Platzhalter für den Kalenderzugang, der Upload füllt ihn aus den Secrets |
@@ -22,21 +28,20 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
 | `schriften/`, `schriften.css` | Selbst ausgelieferte Schriften, siehe `schriften/LIZENZ.md` |
 | `quellen/` | Vorlagen fuer Teilen-Bild und Favicon, siehe unten |
 | `archiv/` | Frühere Entwurfsrichtungen, nicht mehr aktuell |
-| `entwurf*.html`, `entwurf-leiste.css`, `entwurf-leiste.js` | Entwürfe, nur auf Pages sichtbar (siehe CLAUDE.md). `entwurf.html` ist der Stand vom 24.10.2026 (v1, eingefroren), weitergearbeitet wird in `entwurf-v2.html`; die Unterseiten und die Leiste teilen sich beide. v2 (25.10.2026): Die drei Richtungen sind der Tisch, ein Klick auf Fenster, Blatt oder Telefon zoomt wie auf der Live-Seite in die Werkbank-Fläche (Punktraster, Auswahl mit Massen, Inspektor, Werkzeugleiste); die Werkbank-Optik gibt es nur im Zoom, die Übersicht bleibt die Reihe ohne Kasten. Markenblatt als Konstruktionsblatt (Fassung B: Wortmarke mit Grundlinie, x-Höhe, Schutzraum und Massen als SVG); seit dem 26.10.2026 ein einziges Blatt, das entsteht, solange es im Bild ist (Reihe und Stand): Raster und Wortmarke in Playfair 900 stehen sofort, dann wird «eins» Signal, Konstruktionslinien und Masse ziehen sich, Farbfelder probieren Blau, Grün und Ocker und rasten ein, zuletzt Schriften, Regeln und Dunkelprobe; nach vier Sekunden fertig und sofort wieder von vorn (alle 4,3 Sekunden), bei abgeschalteter Bewegung fertig. Ablauf und Zeiten im CSS unter «Das Blatt entsteht». Die Website fährt im kleinen Fenster langsam durch. Im Stand zeigt das Fenster seit dem 27.10.2026 keine ganze Seite mehr, sondern drei Startseiten im Wechsel (formateins, GuardOpS und die Demo Shiro von demo.formateins.ch, bis die Craniosacral Praxis ihre Fotos hat; `entwurf-start-*-seite.webp` und `-plan.webp`, die obersten 900 Pixel der Aufnahmen auf 1200 × 750): jede steht kurz als Bauplan da, dann zieht die orange Linie durch, alle 3,6 Sekunden die nächste; links die Schlagwörter als Pfeile wie bei Branding und Video. Der Schieber Bauplan/Seite ist dafür weg. formateins ist die Startseite von `entwurf-v2.html` (Stand 27.10.2026) und wird neu aufgenommen, wenn sich ihr Kopf ändert. Der Bauplan entsteht mit `quellen/bauplan.js`, bei Shiro zusätzlich mit `img,video{opacity:0!important}`, weil das Bild sonst durchscheint. Nach «Gebaut, nicht behauptet» folgt der Ablauf «So läuft es ab» in zwei Spalten: links Titel, Satz und Knopf (ab 900 Pixeln angedockt, fährt mit), rechts vier nummerierte Schritte; der orange Balken daneben füllt sich mit dem Scrollen (Leselinie bei 72 Prozent der Fensterhöhe), die Nummern färben sich, sobald er sie erreicht. «Passen wir zusammen?» ist der einzige mittige Abschnitt: Titel und Satz mittig, darunter zwei Boxen mit je vier Punkten («Passt, wenn du …» / «Passt nicht, wenn du …»); die Passt-Box ist orange gerahmt mit leisem Schein, am Zeiger läuft darin die Taschenlampe von der Live-Seite. Die Arbeiten sind Referenzkarten (Bildschirm und Handy, Nummer, Kategorie, Name, Kennwerte als Chips, Link zur Projektseite); der Prüfstand (die Seite selbst im Rahmen, mit Griff und drei Breiten) steht jetzt auf den Projektseiten `entwurf-arbeiten-*.html` unter «Die Seite selbst». «Wer das macht» ist eine Karte in derselben Form: Foto randlos links in voller Höhe, Text rechts, am Handy Foto oben. Texte in den Ständen und im Ablauf sind Entwurfstext. Die drei Richtungen heissen Webdesign, Branding und Video («Branding» nutzen fast alle Agenturen, «Marke» niemand; vom 25. bis 26.10.2026 hiess die dritte Motion Design, seit dem 27.10.2026 wieder Video, weil das jeder versteht; «Kreation» und «Content» verworfen, weil sie die anderen Bereiche mit einschliessen); die Bereichsseiten heissen `entwurf-branding.html` und `entwurf-video.html`, `entwurf-marke.html` und `entwurf-motion.html` leiten weiter, damit alte Links ankommen. Die Leiste: Menü mit Bereiche, Arbeiten, Preise, Fragen und Knopf, in Kopfzeile und Mitlaufleiste, am Handy als Menüknopf mit offener Liste; auf allen Entwurfsseiten dieselbe. Beim Livegang in `leiste.css`/`leiste.js` umbenennen oder in die Seiten nehmen. Das Logo führt in Kopfzeile, Mitlaufleiste, offenem Menü und Fuss auf die Startseite und lädt sie neu (`href="entwurf-v2.html"`, beim Livegang `href="/"`). `entwurf-gespraech.html` ist eine Kopie der Live-Seite, bei der nur die Rückwege (Logo, Querlinks) in den Entwurf v2 führen; Inhalt gehört ins Original. `entwurf-kostenrechner.html` ist seit dem 28.10.2026 keine Kopie mehr, sondern der neue Rechner für Website, Marke und Video (siehe „Preise für Marke, Video und Pakete“ unten); er ersetzt beim Livegang `kostenrechner.html`. Impressum und Datenschutz bleiben die Live-Seiten |
-| `entwurf-preise.html`, `entwurf-preise.js` | Preisseite im Entwurf: zuerst Einzelpreise je Richtung (Website, Marke, Video, je drei Stufen), darunter drei Kombi-Pakete mit Optionen zum Ankreuzen, Preis und Ersparnis laufen mit. Am Handy springt eine Zeile zu den Paketen. Alle Ansätze stehen in `PREISE` in `entwurf-preise.js`; später rechnet auch der Kostenrechner damit, siehe „Preise für Marke, Video und Pakete“ unten |
-| `entwurf-video-spot.mp4`, `.webm`, `.jpg` | Der Spot im Telefon der dritten Richtung (Video), ohne Ton, 720 px hoch, dazu das Standbild. Aus der Quelle neu bauen: `ffmpeg -i QUELLE.mp4 -an -vf scale=-2:720 -c:v libx264 -crf 27 -preset slow -movflags +faststart entwurf-video-spot.mp4`, dasselbe mit `-c:v libvpx-vp9 -crf 36 -b:v 0` als `.webm`, Standbild mit `-ss 5.2 -frames:v 1`. Beide Fassungen, weil Chromium ohne Lizenz kein H.264 spielt |
-| `entwurf-video-spot-ton.mp4`, `.webm` | Derselbe Spot mit Ton, für den Motion-Stand mit Tonknopf (das Video trägt `data-ton`). Die Richtung oben behält den stummen Spot. Aus Adrians Fassung mit Ton (26.10.2026): `ffmpeg -i QUELLE.mp4 -vf scale=406:720:flags=lanczos -c:v libx264 -profile:v main -preset slow -crf 28 -c:a aac -b:a 96k -ac 2 -movflags +faststart entwurf-video-spot-ton.mp4`, als `.webm` mit `-c:v libvpx-vp9 -crf 40 -b:v 0 -c:a libopus -b:a 96k` |
-| `entwurf-video-reel-ton.mp4`, `.webm` und `entwurf-video-reel-ohne-titel-ton.mp4`, `.webm` | Das Reel im Video-Stand (16 s, 540 × 960, mit Ton), in zwei Fassungen seit dem 27.10.2026: mit Titel-Einblender («Beispiel Werbevideo») fürs Handy, ohne Einblender für ab 900 Pixel, dort läuft der Formate-Kasten mit (Teile ab 0, 4,5, 8 und 12 s). Im HTML stehen die Quellen mit Titel, `data-breit` am Video nennt die Fassung ohne; das Skript wählt nach Breite und fällt auf die Fassung mit Titel zurück, solange die andere fehlt. Beide Fassungen brauchen dieselbe Länge und dieselben Schnitte. Herkunft und Skripte: `quellen/video-reel/` auf `claude/pensive-albattani-870hom`. |
+| `entwurf*.html` | Entwürfe, nur auf Pages sichtbar (siehe CLAUDE.md). Seit dem 28.10.2026 ist v2 live: `entwurf-v2.html` wurde `index.html`, die Unterseiten zogen unter ihre Adressen um; was hier über v2 steht, gilt für die Startseite. Als Entwurf bleiben `entwurf.html` (v1) und die Platzhalter der Bereichsseiten `entwurf-website.html`, `entwurf-branding.html`, `entwurf-video.html`. Bis diese stehen, führen die Links der Bereiche auf Ratgeber, Preisseite und Rechner. `entwurf.html` ist der Stand vom 24.10.2026 (v1, eingefroren), weitergearbeitet wird in `entwurf-v2.html`; die Unterseiten und die Leiste teilen sich beide. v2 (25.10.2026): Die drei Richtungen sind der Tisch, ein Klick auf Fenster, Blatt oder Telefon zoomt wie auf der Live-Seite in die Werkbank-Fläche (Punktraster, Auswahl mit Massen, Inspektor, Werkzeugleiste); die Werkbank-Optik gibt es nur im Zoom, die Übersicht bleibt die Reihe ohne Kasten. Markenblatt als Konstruktionsblatt (Fassung B: Wortmarke mit Grundlinie, x-Höhe, Schutzraum und Massen als SVG); seit dem 26.10.2026 ein einziges Blatt, das entsteht, solange es im Bild ist (Reihe und Stand): Raster und Wortmarke in Playfair 900 stehen sofort, dann wird «eins» Signal, Konstruktionslinien und Masse ziehen sich, Farbfelder probieren Blau, Grün und Ocker und rasten ein, zuletzt Schriften, Regeln und Dunkelprobe; nach vier Sekunden fertig und sofort wieder von vorn (alle 4,3 Sekunden), bei abgeschalteter Bewegung fertig. Ablauf und Zeiten im CSS unter «Das Blatt entsteht». Die Website fährt im kleinen Fenster langsam durch. Im Stand zeigt das Fenster seit dem 27.10.2026 keine ganze Seite mehr, sondern drei Startseiten im Wechsel (formateins, GuardOpS und die Demo Shiro von demo.formateins.ch, bis die Craniosacral Praxis ihre Fotos hat; `start-*-seite.webp` und `-plan.webp`, die obersten 900 Pixel der Aufnahmen auf 1200 × 750): jede steht kurz als Bauplan da, dann zieht die orange Linie durch, alle 3,6 Sekunden die nächste; links die Schlagwörter als Pfeile wie bei Branding und Video. Der Schieber Bauplan/Seite ist dafür weg. formateins ist die Startseite von `entwurf-v2.html` (Stand 27.10.2026) und wird neu aufgenommen, wenn sich ihr Kopf ändert. Der Bauplan entsteht mit `quellen/bauplan.js`, bei Shiro zusätzlich mit `img,video{opacity:0!important}`, weil das Bild sonst durchscheint. Nach «Gebaut, nicht behauptet» folgt der Ablauf «So läuft es ab» in zwei Spalten: links Titel, Satz und Knopf (ab 900 Pixeln angedockt, fährt mit), rechts vier nummerierte Schritte; der orange Balken daneben füllt sich mit dem Scrollen (Leselinie bei 72 Prozent der Fensterhöhe), die Nummern färben sich, sobald er sie erreicht. «Passen wir zusammen?» ist der einzige mittige Abschnitt: Titel und Satz mittig, darunter zwei Boxen mit je vier Punkten («Passt, wenn du …» / «Passt nicht, wenn du …»); die Passt-Box ist orange gerahmt mit leisem Schein, am Zeiger läuft darin die Taschenlampe von der Live-Seite. Die Arbeiten sind Referenzkarten (Bildschirm und Handy, Nummer, Kategorie, Name, Kennwerte als Chips, Link zur Projektseite); der Prüfstand (die Seite selbst im Rahmen, mit Griff und drei Breiten) steht jetzt auf den Projektseiten `arbeiten/*.html` unter «Die Seite selbst». «Wer das macht» ist eine Karte in derselben Form: Foto randlos links in voller Höhe, Text rechts, am Handy Foto oben. Texte in den Ständen und im Ablauf sind Entwurfstext. Die drei Richtungen heissen Webdesign, Branding und Video («Branding» nutzen fast alle Agenturen, «Marke» niemand; vom 25. bis 26.10.2026 hiess die dritte Motion Design, seit dem 27.10.2026 wieder Video, weil das jeder versteht; «Kreation» und «Content» verworfen, weil sie die anderen Bereiche mit einschliessen); die Bereichsseiten heissen `entwurf-branding.html` und `entwurf-video.html`, `entwurf-marke.html` und `entwurf-motion.html` leiten weiter, damit alte Links ankommen. Die Leiste: Menü mit Bereiche, Arbeiten, Preise, Fragen und Knopf, in Kopfzeile und Mitlaufleiste, am Handy als Menüknopf mit offener Liste; auf allen Entwurfsseiten dieselbe. Beim Livegang in `leiste.css`/`leiste.js` umbenennen oder in die Seiten nehmen. Das Logo führt in Kopfzeile, Mitlaufleiste, offenem Menü und Fuss auf die Startseite und lädt sie neu (`href="./"`, auf den Projektseiten `href="../"`). `entwurf-gespraech.html` ist eine Kopie der Live-Seite, bei der nur die Rückwege (Logo, Querlinks) in den Entwurf v2 führen; Inhalt gehört ins Original. `entwurf-kostenrechner.html` ist seit dem 28.10.2026 keine Kopie mehr, sondern der neue Rechner für Website, Marke und Video (siehe „Preise für Marke, Video und Pakete“ unten); er ersetzt beim Livegang `kostenrechner.html`. Impressum und Datenschutz bleiben die Live-Seiten |
+| `video-spot.mp4`, `.webm`, `.jpg` | Der Spot im Telefon der dritten Richtung (Video), ohne Ton, 720 px hoch, dazu das Standbild. Aus der Quelle neu bauen: `ffmpeg -i QUELLE.mp4 -an -vf scale=-2:720 -c:v libx264 -crf 27 -preset slow -movflags +faststart video-spot.mp4`, dasselbe mit `-c:v libvpx-vp9 -crf 36 -b:v 0` als `.webm`, Standbild mit `-ss 5.2 -frames:v 1`. Beide Fassungen, weil Chromium ohne Lizenz kein H.264 spielt |
+| `video-spot-ton.mp4`, `.webm` | Derselbe Spot mit Ton, für den Motion-Stand mit Tonknopf (das Video trägt `data-ton`). Die Richtung oben behält den stummen Spot. Aus Adrians Fassung mit Ton (26.10.2026): `ffmpeg -i QUELLE.mp4 -vf scale=406:720:flags=lanczos -c:v libx264 -profile:v main -preset slow -crf 28 -c:a aac -b:a 96k -ac 2 -movflags +faststart video-spot-ton.mp4`, als `.webm` mit `-c:v libvpx-vp9 -crf 40 -b:v 0 -c:a libopus -b:a 96k` |
+| `video-reel-ton.mp4`, `.webm` und `video-reel-ohne-titel-ton.mp4`, `.webm` | Das Reel im Video-Stand (16 s, 540 × 960, mit Ton), in zwei Fassungen seit dem 27.10.2026: mit Titel-Einblender («Beispiel Werbevideo») fürs Handy, ohne Einblender für ab 900 Pixel, dort läuft der Formate-Kasten mit (Teile ab 0, 4,5, 8 und 12 s). Im HTML stehen die Quellen mit Titel, `data-breit` am Video nennt die Fassung ohne; das Skript wählt nach Breite und fällt auf die Fassung mit Titel zurück, solange die andere fehlt. Beide Fassungen brauchen dieselbe Länge und dieselben Schnitte. Herkunft und Skripte: `quellen/video-reel/` auf `claude/pensive-albattani-870hom`. |
 
 ## Noch offen
 
-- **Preise** sind gesetzt, im Objekt `preis` im Skript von `kostenrechner.html`.
+- **Preise** sind gesetzt, in `PREISE` in `preise.js` (Website wie bisher im Rechner).
   Grundpreis und Zuschlaege je Groesse (Texte, Bilder, Logo, Funktionen), daraus ein Punktwert, der Rahmen ist
   -10 % bis +15 % davon. Ueberarbeiten -20 %, Eilzuschlag +15 % nur bei Termin
   unter sechs Wochen. Lage: oberes Freelancer-Feld, rund halb so teuer wie eine
   Kleinagentur. Nach den ersten echten Projekten nachkalibrieren.
 - **Preise für Marke, Video und Pakete** (Entwurf, festgelegt mit Adrian am
-  28.10.2026, stehen in `PREISE` in `entwurf-preise.js`). Lage wie bei der
+  28.10.2026, stehen in `PREISE` in `preise.js`). Lage wie bei der
   Website: Mittelfeld, rund 55–60 % vom Einstieg einer Kleinagentur, klar über
   den Billiganbietern (Faustregel aus dem Hochzeitsfilm: 2'500 gegen 4'500 der
   Profis). Marke: Auffrischung 900, Logo und Erscheinungsbild 1'900, mit Drucksachen 2'900,
@@ -61,9 +66,9 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
 - **Laufende Kosten** stehen im Ergebnis als feste Zeile: rund CHF 200–250 im
   Jahr fuer Hosting und Domain (Hostpoint Standard ab CHF 15.90/Monat plus Domain), beim Anbieter auf den Namen des Kunden. Betrag
   steht im HTML (`class="laufend"`), pruefen wenn der Hoster die Preise aendert.
-- **Fotos und Video vor Ort** bleiben ohne Zahl, weil Anfahrt und Umfang den
-  Preis bestimmen; Video ist deutlich aufwendiger als Fotos. Der
-  Rechner fragt dafuer freiwillig den Ort ab, er steht in der Anfrage.
+- **Fotos vor Ort** kosten pauschal CHF 650 (halber Tag, Anfahrt bis 30 km),
+  ein Video laeuft ueber die Video-Preise und liefert die Bilder fuer die Seite
+  gleich mit. Der Rechner fragt freiwillig den Ort ab, er steht in der Anfrage.
 - **Versand der Anfragen** laeuft ueber `anfrage.php` beim Hoster (Hostpoint).
   Das Skript prueft die Angaben, schickt sie als Mail und legt keine Anfrage ab. Es
   bremst nach fuenf Anfragen pro Stunde und Absender, faengt Spam-Programme ueber
@@ -205,24 +210,27 @@ Material. Erledigtes streichen, nicht löschen, bis der Entwurf live ist.
   Fotos da sind; bis dahin steht dort die Demo Shiro (keine Kundenreferenz,
   kein Link). Dann auch die Aufnahmen unter Arbeiten erneuern.
 - **Bereichsseiten** `entwurf-website.html`, `entwurf-branding.html` und
-  `entwurf-video.html` sind noch Platzhalter. Vor dem Livegang füllen oder
-  die Links «ansehen →» auf der Startseite herausnehmen.
+  `entwurf-video.html` sind noch Platzhalter. Live ging die Startseite ohne
+  sie (28.10.2026): Die Kacheln sagen «Was eine Website kostet →» (Ratgeber),
+  «Was Branding kostet →» und «Was ein Video kostet →» (Preisseite), die
+  Knöpfe in den Ständen führen in den Rechner, der Fuss nennt Preise statt
+  der Bereiche. Steht eine Bereichsseite, geht sie einzeln live und die Links
+  ihres Bereichs zeigen wieder auf sie («… ansehen →»).
 - **Fotos neu schneiden** aus dem Original (siehe oben unter Noch offen).
 
-**Vor dem Livegang des Entwurfs**
+**Livegang des Entwurfs (erledigt am 28.10.2026)**
 
-- **`main` einarbeiten.** Auf `main` liegt 3a957bb (nur CLAUDE.md), der
-  Arbeitszweig hat ihn noch nicht. Vor der Übernahme `git rebase origin/main`.
-- **Entwurf in die echten Dateien.** `entwurf-v2.html` wird `index.html`;
-  Logo-Links von `entwurf-v2.html` auf `/` stellen; `entwurf-leiste.css`/`.js`
-  umbenennen oder in die Seiten nehmen; die Kopien `entwurf-kostenrechner.html`
-  und `entwurf-gespraech.html` fallen weg, ihre Rückwege führen dann wieder
-  auf `/`. Bilder ohne `entwurf`-Präfix umbenennen, sonst lädt der Deploy sie
-  nicht hoch (`--exclude 'entwurf*'`).
-- **Neue Adressen** (`/website-kosten`, Bereichsseiten, `/arbeiten/…`) in
-  `htaccess-hostpoint` und `sitemap.xml` eintragen.
-- **FAQ-Daten** neu erzeugen: `python3 quellen/faq-daten.py index.html …`
-  mit allen Seiten, die Fragen tragen.
+- v2 wurde `index.html`, Preisseite, Ratgeber und Projektseiten zogen unter
+  `/preise`, `/website-kosten` und `/arbeiten/…` um, die Leiste heisst
+  `leiste.css`/`.js`, Bilder und Videos ohne `entwurf`-Präfix. Die Kopien
+  `entwurf-kostenrechner.html` und `entwurf-gespraech.html` sind weg, der neue
+  Rechner ist `kostenrechner.html`. Für kurze Adressen reicht die allgemeine
+  Regel in `htaccess-hostpoint`, eingetragen sind sie in `sitemap.xml`.
+- `anfrage.php` kennt die Antworten aus Branding und Video und Mehrfachwahl
+  (`richtungen`, `ziel`); der Betreff nennt die Richtungen. Lokal getestet mit
+  `php -S` und einem Sendmail-Ersatz, der die Mails in eine Datei schreibt.
+- FAQ-Daten neu erzeugt (`python3 quellen/faq-daten.py`, jetzt mit
+  `website-kosten.html`).
 - Danach **Search Console** wie unten unter «Nach dem Livegang des Entwurfs».
 
 ## Auslieferung auf Hostpoint
@@ -480,8 +488,8 @@ wartet auf ihn. Alles liegt in `entwurf*`-Dateien, bis er es abnimmt.
 Die Sperre fuer Suchmaschinen (`robots.txt` mit `Disallow: /`, `noindex` auf
 den Seiten) ist seit dem 26.10.2026 aufgehoben.
 
-1. **Je Arbeit eine eigene Seite.** Gebaut: `entwurf-arbeiten-guardops.html`
-   und `entwurf-arbeiten-craniosacral-praxis.html`, je mit Steckbrief,
+1. **Je Arbeit eine eigene Seite.** Gebaut: `arbeiten/guardops.html`
+   und `arbeiten/craniosacral-praxis.html`, je mit Steckbrief,
    Ausgangslage, was gebaut wurde, Bauplan, gemessenen Kennwerten und Link.
    Verlinkt aus dem Pruefstand auf der Entwurfs-Startseite.
    *Adrian:* Ausgangslage je Projekt gegenlesen (die Saetze stammen aus dem,
@@ -489,7 +497,7 @@ den Seiten) ist seit dem 26.10.2026 aufgehoben.
    Nennung einholen (steht schon oben unter Arbeiten), beim Livegang die
    Adressen `/arbeiten/guardops` und `/arbeiten/craniosacral-praxis` in
    `.htaccess` und `sitemap.xml` eintragen.
-2. **Text um den Kostenrechner.** Gebaut: `entwurf-website-kosten.html`,
+2. **Text um den Kostenrechner.** Gebaut: `website-kosten.html`,
    „Was kostet eine Website in Olten?“ mit „Das Wichtigste in Kuerze“, den
    drei Groessen samt Rahmen aus den Ansaetzen des Rechners, Zuschlaegen,
    laufenden Kosten, Quellen, FAQ (als `FAQPage` im Code), Artikel-Schema mit

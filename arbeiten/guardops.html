@@ -3,12 +3,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>ENTWURF · GuardOpS: Produktwebsite für Betriebssoftware | formateins</title>
+<title>GuardOpS: Produktwebsite für Betriebssoftware | formateins</title>
 <meta name="description" content="Eine Produktwebsite für GuardOpS, Software für Schweizer Sicherheitsdienste: eine Seite, die eine komplexe Software in Minuten erklärt und in einen Demozugang führt. 355 KB, keine Cookies, gehostet in der Schweiz.">
-<!-- LIVEGANG: noindex entfernen, Adresse /arbeiten/guardops in .htaccess und sitemap.xml eintragen,
-     canonical und og:url einkommentieren. -->
-<meta name="robots" content="noindex,nofollow">
-<!-- <link rel="canonical" href="https://www.formateins.ch/arbeiten/guardops"> -->
+<link rel="canonical" href="https://www.formateins.ch/arbeiten/guardops">
+<meta property="og:url" content="https://www.formateins.ch/arbeiten/guardops">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="de_CH">
 <meta property="og:site_name" content="formateins">
@@ -16,17 +14,17 @@
 <meta property="og:description" content="Eine Seite, die eine komplexe Software in Minuten erklärt und in einen Demozugang führt. 355 KB, keine Cookies, gehostet in der Schweiz.">
 <meta property="og:image" content="https://www.formateins.ch/arbeiten/guardops-vorschau.webp">
 <meta property="og:image:alt" content="Startseite von GuardOpS am Desktop">
-<link rel="icon" href="favicon.ico" sizes="32x32">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#1b2a33">
-<link rel="preload" href="schriften/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="schriften/playfair-display.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="schriften.css">
-<link rel="stylesheet" href="recht.css">
-<link rel="stylesheet" href="entwurf-leiste.css">
-<script src="entwurf-leiste.js" defer></script>
+<link rel="preload" href="../schriften/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../schriften/playfair-display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../schriften.css">
+<link rel="stylesheet" href="../recht.css">
+<link rel="stylesheet" href="../leiste.css">
+<script src="../leiste.js" defer></script>
 <style>
 /* Arbeit: eine Textspalte wie Impressum und Datenschutz, dazu Steckbrief,
    Bilder und Kennwerte in voller Spaltenbreite. */
@@ -110,11 +108,11 @@ main .spalte > .breit{max-width:none}
 
 <header class="kopf">
   <div class="spalte">
-    <a class="logo" href="entwurf-v2.html"><span class="s">format</span><span class="p">eins</span></a>
+    <a class="logo" href="../"><span class="s">format</span><span class="p">eins</span></a>
     <nav class="rechts" aria-label="Seite">
-      <ul class="menu"><li><a href="entwurf-v2.html#leistungen">Bereiche</a></li><li><a href="entwurf-v2.html#arbeiten" aria-current="page">Arbeiten</a></li><li><a href="entwurf-preise.html">Preise</a></li><li><a href="entwurf-v2.html#fragen">Fragen</a></li></ul>
+      <ul class="menu"><li><a href="../#leistungen">Bereiche</a></li><li><a href="../#arbeiten" aria-current="page">Arbeiten</a></li><li><a href="../preise">Preise</a></li><li><a href="../#fragen">Fragen</a></li></ul>
       <button class="menuknopf" type="button" aria-expanded="false" aria-controls="menuoffen" aria-label="Menü"><i aria-hidden="true"></i></button>
-      <a class="knopf" href="entwurf-gespraech.html">Auftritt besprechen<span class="pfeil">→</span></a>
+      <a class="knopf" href="../gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
     </nav>
   </div>
 </header>
@@ -139,11 +137,11 @@ main .spalte > .breit{max-width:none}
 
     <div class="bilder breit">
       <figure>
-        <img src="arbeiten/guardops-vorschau.webp" alt="Startseite von GuardOpS am Desktop: Schlagzeile «Der ganze Betrieb. Eine Software.», darunter Cockpit, App und Portal" width="960" height="600" loading="eager" decoding="async">
+        <img src="../arbeiten/guardops-vorschau.webp" alt="Startseite von GuardOpS am Desktop: Schlagzeile «Der ganze Betrieb. Eine Software.», darunter Cockpit, App und Portal" width="960" height="600" loading="eager" decoding="async">
         <figcaption>Der erste Bildschirm am Desktop, 1440 Pixel breit.</figcaption>
       </figure>
       <figure>
-        <img src="arbeiten/guardops-vorschau-mobil.webp" alt="Dieselbe Startseite am Handy" width="220" height="476" loading="lazy" decoding="async">
+        <img src="../arbeiten/guardops-vorschau-mobil.webp" alt="Dieselbe Startseite am Handy" width="220" height="476" loading="lazy" decoding="async">
         <figcaption>Dieselbe Seite am Handy.</figcaption>
       </figure>
     </div>
@@ -195,7 +193,7 @@ main .spalte > .breit{max-width:none}
     <h2>Bauplan</h2>
     <p>Dieselbe Seite ohne Farben und Bilder: Text als Balken, Abschnitte gestrichelt. So sieht man die Ordnung, die unter der Gestaltung liegt.</p>
     <figure class="bauplan breit">
-      <div class="ausschnitt"><img src="arbeiten/guardops-bauplan.webp" alt="Bauplan der GuardOpS-Startseite: Abschnitte als gestrichelte Rahmen, Text als Balken, oberer Teil der Seite" width="1440" height="8411" loading="lazy" decoding="async"></div>
+      <div class="ausschnitt"><img src="../arbeiten/guardops-bauplan.webp" alt="Bauplan der GuardOpS-Startseite: Abschnitte als gestrichelte Rahmen, Text als Balken, oberer Teil der Seite" width="1440" height="8411" loading="lazy" decoding="async"></div>
       <figcaption>Oberer Teil des Bauplans. Die ganze Seite ist 8’411 Pixel lang.</figcaption>
     </figure>
 
@@ -209,15 +207,15 @@ main .spalte > .breit{max-width:none}
 
     <div class="handeln breit">
       <a class="knopf" href="https://guardops.ch/" target="_blank" rel="noopener">guardops.ch ansehen ↗</a>
-      <a class="zweitweg" href="entwurf-arbeiten-craniosacral-praxis.html">Nächste Arbeit: Craniosacral Praxis →</a>
+      <a class="zweitweg" href="craniosacral-praxis">Nächste Arbeit: Craniosacral Praxis →</a>
     </div>
   </div>
 </main>
 
 <div class="menuoffen" id="menuoffen" hidden>
   <div class="menukopf"><span class="logo"><span class="s">format</span><span class="p">eins</span></span><button class="zu" type="button" aria-label="Menü schliessen">×</button></div>
-  <ul><li><a href="entwurf-v2.html#leistungen">Bereiche</a></li><li><a href="entwurf-v2.html#arbeiten" aria-current="page">Arbeiten</a></li><li><a href="entwurf-preise.html">Preise</a></li><li><a href="entwurf-v2.html#fragen">Fragen</a></li></ul>
-  <a class="knopf" href="entwurf-gespraech.html">Auftritt besprechen<span class="pfeil">→</span></a>
+  <ul><li><a href="../#leistungen">Bereiche</a></li><li><a href="../#arbeiten" aria-current="page">Arbeiten</a></li><li><a href="../preise">Preise</a></li><li><a href="../#fragen">Fragen</a></li></ul>
+  <a class="knopf" href="../gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
   <p class="leise"><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a> · <a href="tel:+41796868486">079 686 84 86</a></p>
 </div>
 
@@ -225,15 +223,15 @@ main .spalte > .breit{max-width:none}
   <div class="spalte">
     <div class="fussraster">
       <div class="fussmarke">
-        <a class="logo" href="entwurf-v2.html" aria-label="formateins, zur Startseite"><span class="s">format</span><span class="p">eins</span></a>
+        <a class="logo" href="../" aria-label="formateins, zur Startseite"><span class="s">format</span><span class="p">eins</span></a>
         <p>Webdesign, Branding und Video für Selbstständige, kleine Unternehmen und Vereine in Olten und der Region.</p>
       </div>
       <div>
         <p class="fusstitel"><i aria-hidden="true"></i>Arbeiten</p>
         <ul class="fussliste">
-          <li><a href="entwurf-arbeiten-guardops.html" aria-current="page">GuardOpS</a></li>
-          <li><a href="entwurf-arbeiten-craniosacral-praxis.html">Craniosacral Praxis Johann von Arb</a></li>
-          <li><a href="entwurf-website-kosten.html">Was kostet eine Website?</a></li>
+          <li><a href="guardops" aria-current="page">GuardOpS</a></li>
+          <li><a href="craniosacral-praxis">Craniosacral Praxis Johann von Arb</a></li>
+          <li><a href="../website-kosten">Was kostet eine Website?</a></li>
         </ul>
       </div>
       <div>
@@ -241,12 +239,12 @@ main .spalte > .breit{max-width:none}
         <ul class="fussliste">
           <li><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a></li>
           <li><a href="tel:+41796868486">079 686 84 86</a></li>
-          <li><a href="entwurf-gespraech.html">Gespräch vereinbaren</a></li>
+          <li><a href="../gespraech">Gespräch vereinbaren</a></li>
         </ul>
       </div>
     </div>
     <div class="rechtliches">
-      <nav><a href="impressum">Impressum</a><a href="datenschutz">Datenschutz</a></nav>
+      <nav><a href="../impressum">Impressum</a><a href="../datenschutz">Datenschutz</a></nav>
       <span>© 2026 formateins, eine Marke der pzu consulting gmbh</span>
     </div>
   </div>

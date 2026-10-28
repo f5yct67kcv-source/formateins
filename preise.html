@@ -3,24 +3,39 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>ENTWURF · Pakete | formateins</title>
-<meta name="robots" content="noindex,nofollow">
+<title>Preise für Website, Branding und Video | formateins</title>
+<meta name="description" content="Was Website, Logo und Video bei formateins in Olten kosten: Preisrahmen für jede Leistung einzeln und als Paket, zusammen günstiger. Ohne «ab»-Preise.">
+<link rel="canonical" href="https://www.formateins.ch/preise">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_CH">
+<meta property="og:site_name" content="formateins">
+<meta property="og:url" content="https://www.formateins.ch/preise">
+<meta property="og:title" content="Preise für Website, Branding und Video | formateins">
+<meta property="og:description" content="Jede Leistung einzeln oder als Paket, zusammen günstiger. Preisrahmen statt «ab»-Preise.">
+<meta property="og:image" content="https://www.formateins.ch/teilen.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="formateins — Webdesign, Branding und Video aus Olten">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#1b2a33">
 <link rel="preload" href="schriften/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="schriften/playfair-display.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="schriften.css">
-<link rel="stylesheet" href="entwurf-leiste.css">
-<script src="entwurf-leiste.js" defer></script>
-<script src="entwurf-preise.js" defer></script>
+<link rel="stylesheet" href="leiste.css">
+<script src="leiste.js" defer></script>
+<script src="preise.js" defer></script>
 
 <!-- Paketkarten, Fassung A (Karten) gewaehlt am 28.10.2026. Nach dem Muster
      von beyondweb.ch: fuer wen, Lieferzeit, "Alles aus 01, plus" statt
      Wiederholung. Neu: je Karte ein paar Optionen zum Dazunehmen, Preis und
      Ersparnis laufen mit. Was das Paket ausmacht, laesst sich nicht abwaehlen,
      sonst verschwimmen die Pakete.
-     Rechnen tut entwurf-preise.js, die Zahlen im HTML sind nur der Stand ohne
-     Skript. Paketnamen und Lieferzeiten sind Platzhalter. -->
+     Rechnen tut preise.js, die Zahlen im HTML sind nur der Stand ohne
+     Skript. -->
 
 <style>
 :root{
@@ -158,19 +173,19 @@ html{scroll-behavior:smooth}
 
 <header class="kopf">
   <div class="spalte">
-    <a class="logo" href="entwurf-v2.html"><span class="s">format</span><span class="p">eins</span></a>
+    <a class="logo" href="./"><span class="s">format</span><span class="p">eins</span></a>
     <nav class="rechts" aria-label="Seite">
-      <ul class="menu"><li><a href="entwurf-v2.html#leistungen">Bereiche</a></li><li><a href="entwurf-v2.html#arbeiten">Arbeiten</a></li><li><a href="entwurf-preise.html" aria-current="page">Preise</a></li><li><a href="entwurf-v2.html#fragen">Fragen</a></li></ul>
+      <ul class="menu"><li><a href="./#leistungen">Bereiche</a></li><li><a href="./#arbeiten">Arbeiten</a></li><li><a href="preise" aria-current="page">Preise</a></li><li><a href="./#fragen">Fragen</a></li></ul>
       <button class="menuknopf" type="button" aria-expanded="false" aria-controls="menuoffen" aria-label="Menü"><i aria-hidden="true"></i></button>
-      <a class="knopf" href="entwurf-gespraech.html">Auftritt besprechen<span class="pfeil">→</span></a>
+      <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
     </nav>
   </div>
 </header>
 
 <div class="menuoffen" id="menuoffen" hidden>
   <div class="menukopf"><span class="logo"><span class="s">format</span><span class="p">eins</span></span><button class="zu" type="button" aria-label="Menü schliessen">×</button></div>
-  <ul><li><a href="entwurf-v2.html#leistungen">Bereiche</a></li><li><a href="entwurf-v2.html#arbeiten">Arbeiten</a></li><li><a href="entwurf-preise.html" aria-current="page">Preise</a></li><li><a href="entwurf-v2.html#fragen">Fragen</a></li></ul>
-  <a class="knopf" href="entwurf-gespraech.html">Auftritt besprechen<span class="pfeil">→</span></a>
+  <ul><li><a href="./#leistungen">Bereiche</a></li><li><a href="./#arbeiten">Arbeiten</a></li><li><a href="preise" aria-current="page">Preise</a></li><li><a href="./#fragen">Fragen</a></li></ul>
+  <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
   <p class="leise"><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a> · <a href="tel:+41796868486">079 686 84 86</a></p>
 </div>
 
@@ -193,8 +208,8 @@ html{scroll-behavior:smooth}
           <div><dt>Firmenwebsite, 3 bis 5 Seiten</dt><dd class="betrag" data-punkt="website.grund.firma">CHF 2'700 – 3'600</dd></div>
           <div><dt>Grössere Website, ab 6 Seiten</dt><dd class="betrag" data-punkt="website.grund.gross">CHF 4'500 – 5'900</dd></div>
         </dl>
-        <p class="hinweis">Texte, Bilder und Funktionen verschieben den Preis. <a href="entwurf-website-kosten.html">Wie die Website-Preise zustande kommen →</a></p>
-        <a class="hin" href="entwurf-kostenrechner.html?fuer=website" data-rechner="fuer=website">Website berechnen →</a>
+        <p class="hinweis">Texte, Bilder und Funktionen verschieben den Preis. <a href="website-kosten">Wie die Website-Preise zustande kommen →</a></p>
+        <a class="hin" href="kostenrechner?fuer=website" data-rechner="fuer=website">Website berechnen →</a>
       </article>
       <article class="karte">
         <p class="nr">Branding</p>
@@ -204,7 +219,7 @@ html{scroll-behavior:smooth}
           <div><dt>Logo und Erscheinungsbild mit Drucksachen</dt><dd class="betrag" data-punkt="marke.drucksachen">CHF 2'600 – 3'400</dd></div>
         </dl>
         <p class="hinweis">Logo, Farben, Schriften, alles auf einem Markenblatt. Drucksachen: Visitenkarte, Briefbogen, Vorlage für Offerte und Rechnung.</p>
-        <a class="hin" href="entwurf-kostenrechner.html?fuer=marke" data-rechner="fuer=marke">Branding berechnen →</a>
+        <a class="hin" href="kostenrechner?fuer=marke" data-rechner="fuer=marke">Branding berechnen →</a>
       </article>
       <article class="karte">
         <p class="nr">Video</p>
@@ -214,7 +229,7 @@ html{scroll-behavior:smooth}
           <div><dt>Imagefilm, 30 bis 60 Sekunden, ein Drehtag</dt><dd class="betrag" data-punkt="video.imagefilm.mittel">CHF 2'400 – 3'200</dd></div>
         </dl>
         <p class="hinweis">Länge, Formate und Ton verschieben den Preis.</p>
-        <a class="hin" href="entwurf-kostenrechner.html?fuer=video" data-rechner="fuer=video">Video berechnen →</a>
+        <a class="hin" href="kostenrechner?fuer=video" data-rechner="fuer=video">Video berechnen →</a>
       </article>
     </div>
   </div>
@@ -248,7 +263,7 @@ html{scroll-behavior:smooth}
           <label><input type="checkbox" data-wert="texte"><span class="was">Texte schreibe ich</span><span class="plusbetrag">+ 700</span></label>
           <label><input type="checkbox" data-wert="buchung"><span class="was">Online-Termine</span><span class="plusbetrag">+ 350</span></label>
         </div>
-        <a class="hin" href="entwurf-kostenrechner.html?paket=start" data-rechner="paket=start">Im Rechner weiter →</a>
+        <a class="hin" href="kostenrechner?paket=start" data-rechner="paket=start">Im Rechner weiter →</a>
       </article>
 
       <article class="karte" data-paket="auftritt" data-marke="drucksachen" data-website="firma">
@@ -272,7 +287,7 @@ html{scroll-behavior:smooth}
           <label><input type="checkbox" data-wert="sprache"><span class="was">Zweite Sprache</span><span class="plusbetrag">+ 800</span></label>
           <label><input type="checkbox" data-wert="social"><span class="was">Vorlagen für Social Media</span><span class="plusbetrag">+ 400</span></label>
         </div>
-        <a class="hin" href="entwurf-kostenrechner.html?paket=auftritt" data-rechner="paket=auftritt">Im Rechner weiter →</a>
+        <a class="hin" href="kostenrechner?paket=auftritt" data-rechner="paket=auftritt">Im Rechner weiter →</a>
       </article>
 
       <article class="karte voll" data-paket="film" data-marke="drucksachen" data-website="firma" data-video="imagefilm mittel">
@@ -297,7 +312,7 @@ html{scroll-behavior:smooth}
           <label><input type="checkbox" data-wert="schnitte"><span class="was">Dazu drei Kurzclips für Social Media</span><span class="plusbetrag">+ 600</span></label>
           <label><input type="checkbox" data-wert="stimme"><span class="was">Professionelle Sprecherstimme</span><span class="plusbetrag">+ 450</span></label>
         </div>
-        <a class="hin" href="entwurf-kostenrechner.html?paket=film" data-rechner="paket=film">Im Rechner weiter →</a>
+        <a class="hin" href="kostenrechner?paket=film" data-rechner="paket=film">Im Rechner weiter →</a>
       </article>
 
     </div>
