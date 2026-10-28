@@ -23,6 +23,7 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
 | `quellen/` | Vorlagen fuer Teilen-Bild und Favicon, siehe unten |
 | `archiv/` | Frühere Entwurfsrichtungen, nicht mehr aktuell |
 | `entwurf*.html`, `entwurf-leiste.css`, `entwurf-leiste.js` | Entwürfe, nur auf Pages sichtbar (siehe CLAUDE.md). `entwurf.html` ist der Stand vom 24.10.2026 (v1, eingefroren), weitergearbeitet wird in `entwurf-v2.html`; die Unterseiten und die Leiste teilen sich beide. Die Leiste: Menü mit Bereiche, Arbeiten, Preise, Fragen und Knopf, in Kopfzeile und Mitlaufleiste, am Handy als Menüknopf mit offener Liste; auf allen Entwurfsseiten dieselbe. Beim Livegang in `leiste.css`/`leiste.js` umbenennen oder in die Seiten nehmen |
+| `entwurf-preise.html`, `entwurf-preise.js` | Preisseite im Entwurf: zuerst Einzelpreise je Richtung (Website, Marke, Video, je drei Stufen), darunter drei Kombi-Pakete mit Optionen zum Ankreuzen, Preis und Ersparnis laufen mit. Am Handy springt eine Zeile zu den Paketen. Alle Ansätze stehen in `PREISE` in `entwurf-preise.js`; später rechnet auch der Kostenrechner damit, siehe „Preise für Marke, Video und Pakete“ unten |
 | `entwurf-video-spot.mp4`, `.webm`, `.jpg` | Der Spot im Telefon der dritten Richtung (Video), ohne Ton, 720 px hoch, dazu das Standbild. Aus der Quelle neu bauen: `ffmpeg -i QUELLE.mp4 -an -vf scale=-2:720 -c:v libx264 -crf 27 -preset slow -movflags +faststart entwurf-video-spot.mp4`, dasselbe mit `-c:v libvpx-vp9 -crf 36 -b:v 0` als `.webm`, Standbild mit `-ss 5.2 -frames:v 1`. Beide Fassungen, weil Chromium ohne Lizenz kein H.264 spielt |
 
 ## Noch offen
@@ -32,6 +33,21 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
   -10 % bis +15 % davon. Ueberarbeiten -20 %, Eilzuschlag +15 % nur bei Termin
   unter sechs Wochen. Lage: oberes Freelancer-Feld, rund halb so teuer wie eine
   Kleinagentur. Nach den ersten echten Projekten nachkalibrieren.
+- **Preise für Marke, Video und Pakete** (Entwurf, festgelegt mit Adrian am
+  28.10.2026, stehen in `PREISE` in `entwurf-preise.js`). Lage wie bei der
+  Website: Mittelfeld, rund 55–60 % vom Einstieg einer Kleinagentur, klar über
+  den Billiganbietern (Faustregel aus dem Hochzeitsfilm: 2'500 gegen 4'500 der
+  Profis). Marke: Auffrischung 900, Markenblatt 1'900, mit Drucksachen 2'900,
+  Social-Vorlagen +400. Video nach Art und Länge (kurz bis 20 s, mittel 30–60 s,
+  lang 60–120 s): Imagefilm 1'800/2'700/3'800, animiert 1'300/2'400/3'500,
+  Produktvideo 1'300/2'000/2'900; zweites Format +300/+400/+500,
+  Social-Schnitte +600, Sprecherstimme +450. Kombi: die teuerste Richtung voll,
+  jede weitere −20 %, Optionen in einem Paket immer −20 %. Rahmen wie im Rechner
+  −10 % bis +15 %. Nach den ersten Projekten an der Abschlussquote messen: sagen
+  über 80 % ohne Verhandeln Ja, um 10–15 % erhöhen. Marktvergleich: Logo bei
+  Schweizer Freelancern 400–1'500, Agentur 1'500–4'000, Corporate Design
+  3'500–9'000; Imagefilm ab 4'500 (Basis), mit Interviews ab 6'500;
+  Erklärvideo 60–90 s bei Agenturen 3'900–12'500.
 - **Laufende Kosten** stehen im Ergebnis als feste Zeile: rund CHF 200–250 im
   Jahr fuer Hosting und Domain (Hostpoint Standard ab CHF 15.90/Monat plus Domain), beim Anbieter auf den Namen des Kunden. Betrag
   steht im HTML (`class="laufend"`), pruefen wenn der Hoster die Preise aendert.

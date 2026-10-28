@@ -34,11 +34,15 @@ function rahmen(punkt){
   return [Math.floor(punkt * 0.9 / 100) * 100, Math.ceil(punkt * 1.15 / 100) * 100];
 }
 
-// Punktwerte je Richtung rein, einzeln und aus einer Hand raus.
-function kombi(richtungen){
-  const werte = richtungen.filter(Boolean).sort((a, b) => b - a);
-  const einzeln = werte.reduce((s, w) => s + w, 0);
-  const hand = werte.reduce((s, w, i) => s + (i === 0 ? w : w * PREISE.weitere), 0);
+// Kern je Richtung und Summe der Optionen rein, einzeln und aus einer Hand raus.
+// Optionen in einem Paket sind immer 20 % guenstiger, egal zu welcher Richtung
+// sie gehoeren (Entscheid 28.10.2026). Sonst bliebe die Ersparnis stehen, wenn
+// jemand bei der teuersten Richtung etwas ankreuzt.
+function kombi(kerne, optionen = 0){
+  const werte = kerne.filter(Boolean).sort((a, b) => b - a);
+  const einzeln = werte.reduce((s, w) => s + w, 0) + optionen;
+  const hand = werte.reduce((s, w, i) => s + (i === 0 ? w : w * PREISE.weitere), 0)
+             + optionen * PREISE.weitere;
   return { einzeln, hand };
 }
 
@@ -51,23 +55,25 @@ function karteRechnen(karte){
   const d = karte.dataset;
   const an = wert => karte.querySelector('input[data-wert="' + wert + '"]')?.checked;
 
-  let marke = d.marke ? PREISE.marke[d.marke] : 0;
-  if (marke && an('social')) marke += PREISE.marke.social;
+  let optionen = 0;
 
-  let website = d.website ? PREISE.website.grund[d.website] : 0;
+  const marke = d.marke ? PREISE.marke[d.marke] : 0;
+  if (marke && an('social')) optionen += PREISE.marke.social;
+
+  const website = d.website ? PREISE.website.grund[d.website] : 0;
   for (const wert of ['texte', 'sprache', 'buchung'])
-    if (website && an(wert)) website += PREISE.website[wert][d.website];
+    if (website && an(wert)) optionen += PREISE.website[wert][d.website];
 
   let video = 0;
   if (d.video) {
     const [art, laenge] = d.video.split(' ');
     video = PREISE.video[art][laenge];
-    if (an('format')) video += PREISE.video.format[laenge];
-    if (an('schnitte')) video += PREISE.video.schnitte;
-    if (an('stimme')) video += PREISE.video.stimme;
+    if (an('format')) optionen += PREISE.video.format[laenge];
+    if (an('schnitte')) optionen += PREISE.video.schnitte;
+    if (an('stimme')) optionen += PREISE.video.stimme;
   }
 
-  const { einzeln, hand } = kombi([marke, website, video]);
+  const { einzeln, hand } = kombi([marke, website, video], optionen);
   const spar = Math.round((einzeln - hand) / 100) * 100;
 
   karte.querySelector('.einzeln').textContent = rahmenText(rahmen(einzeln));

@@ -129,6 +129,16 @@ h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1
 .liste dd{font-weight:700;font-size:var(--txt-m)}
 .liste .hinweis{margin-top:6px;font-size:var(--txt-s);color:var(--auf-grund-still);flex:1}
 
+/* Sprungzeile zu den Paketen, nur am Handy: dort stehen sie erst nach rund
+   drei Bildschirmen Einzelpreise. Am Desktop beginnen sie gleich darunter. */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+#pakete{scroll-margin-top:12px}
+.sprung{display:none;align-items:center;gap:10px;margin-top:18px;padding:10px 16px;
+  border:1px solid var(--linie-hell);border-radius:99px;font-size:var(--txt-s);font-weight:700;text-decoration:none}
+.sprung span{color:var(--signal)}
+@media (max-width:900px){ .sprung{display:inline-flex} }
+
 .fuss-notiz{margin-top:28px;font-size:var(--txt-s);color:var(--auf-grund-still);max-width:72ch}
 
 @media (max-width:900px){
@@ -153,6 +163,7 @@ h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1
     <p class="oben"><b>Preise</b><i></i>Einzeln oder zusammen</p>
     <h2>Was es kostet.</h2>
     <p class="lead">Brauchst du nur eine Sache, steht sie hier. Nimmst du mehr zusammen, wird es günstiger, die Pakete stehen weiter unten.</p>
+    <a class="sprung" href="#pakete">Mehr zusammen? Pakete ansehen <span>↓</span></a>
 
     <div class="karten liste">
       <article class="karte">
