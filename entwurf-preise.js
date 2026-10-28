@@ -86,6 +86,12 @@ function karteRechnen(karte){
   karte.querySelector('.hin').href = 'kostenrechner?' + p;
 }
 
+// Einzelpreise: data-punkt zeigt auf einen Ansatz in PREISE, z. B. "marke.markenblatt".
+document.querySelectorAll('[data-punkt]').forEach(el => {
+  const punkt = el.dataset.punkt.split('.').reduce((o, k) => o[k], PREISE);
+  el.textContent = rahmenText(rahmen(punkt));
+});
+
 document.querySelectorAll('.karte[data-paket]').forEach(karte => {
   karte.querySelectorAll('.dazu input').forEach(i => i.addEventListener('change', () => karteRechnen(karte)));
   karteRechnen(karte);

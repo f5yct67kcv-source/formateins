@@ -119,6 +119,16 @@ h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1
   border:1px solid var(--linie-hell);font-size:var(--txt-s);font-weight:700;text-decoration:none}
 .karte.voll .hin{background:var(--signal);border-color:var(--signal);color:var(--tinte)}
 
+/* Einzelpreise: schlichte Liste, Leistung links, Rahmen rechts. */
+.abschnitt + .abschnitt{border-top:1px solid var(--linie)}
+.liste .karte{padding:26px 26px 24px}
+.liste .nr{margin-bottom:6px}
+.liste dl div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid var(--linie)}
+.liste dl div:last-child{border-bottom:none}
+.liste dt{font-size:var(--txt-m)}
+.liste dd{font-weight:700;font-size:var(--txt-m)}
+.liste .hinweis{margin-top:6px;font-size:var(--txt-s);color:var(--auf-grund-still);flex:1}
+
 .fuss-notiz{margin-top:28px;font-size:var(--txt-s);color:var(--auf-grund-still);max-width:72ch}
 
 @media (max-width:900px){
@@ -135,11 +145,55 @@ h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1
 </header>
 
 <main>
+<!-- Einzeln zuerst (28.10.2026): Wer nur einen Onepager fuer ein Fest sucht,
+     soll nicht als Erstes 2'800 als guenstigsten Preis sehen. Die Pakete
+     kommen darunter, als Angebot fuer alle, die mehr wollen. -->
+<section class="abschnitt" id="einzeln">
+  <div class="spalte">
+    <p class="oben"><b>Preise</b><i></i>Einzeln oder zusammen</p>
+    <h2>Was es kostet.</h2>
+    <p class="lead">Brauchst du nur eine Sache, steht sie hier. Nimmst du mehr zusammen, wird es günstiger, die Pakete stehen weiter unten.</p>
+
+    <div class="karten liste">
+      <article class="karte">
+        <p class="nr">Website</p>
+        <dl>
+          <div><dt>Eine Seite</dt><dd class="betrag" data-punkt="website.grund.eine">CHF 1'400 – 1'900</dd></div>
+          <div><dt>Firmenwebsite, 3 bis 5 Seiten</dt><dd class="betrag" data-punkt="website.grund.firma">CHF 2'700 – 3'600</dd></div>
+          <div><dt>Grössere Website, ab 6 Seiten</dt><dd class="betrag" data-punkt="website.grund.gross">CHF 4'500 – 5'900</dd></div>
+        </dl>
+        <p class="hinweis">Texte, Bilder und Funktionen verschieben den Preis.</p>
+        <a class="hin" href="kostenrechner?fuer=website">Website berechnen →</a>
+      </article>
+      <article class="karte">
+        <p class="nr">Marke</p>
+        <dl>
+          <div><dt>Bestehendes Logo auffrischen</dt><dd class="betrag" data-punkt="marke.auffrischung">CHF 800 – 1'100</dd></div>
+          <div><dt>Markenblatt: Logo, Farben, Schriften, Regeln</dt><dd class="betrag" data-punkt="marke.markenblatt">CHF 1'700 – 2'200</dd></div>
+          <div><dt>Markenblatt mit Drucksachen</dt><dd class="betrag" data-punkt="marke.drucksachen">CHF 2'600 – 3'400</dd></div>
+        </dl>
+        <p class="hinweis">Drucksachen: Visitenkarte, Briefbogen, Vorlage für Offerte und Rechnung.</p>
+        <a class="hin" href="kostenrechner?fuer=marke">Marke berechnen →</a>
+      </article>
+      <article class="karte">
+        <p class="nr">Video</p>
+        <dl>
+          <div><dt>Kurzer Spot, animiert, bis 20 Sekunden</dt><dd class="betrag" data-punkt="video.animiert.kurz">CHF 1'100 – 1'500</dd></div>
+          <div><dt>Produktvideo, 30 bis 60 Sekunden</dt><dd class="betrag" data-punkt="video.produkt.mittel">CHF 1'800 – 2'300</dd></div>
+          <div><dt>Imagefilm, 30 bis 60 Sekunden, ein Drehtag</dt><dd class="betrag" data-punkt="video.imagefilm.mittel">CHF 2'400 – 3'200</dd></div>
+        </dl>
+        <p class="hinweis">Länge, Formate und Ton verschieben den Preis.</p>
+        <a class="hin" href="kostenrechner?fuer=video">Video berechnen →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="abschnitt" id="pakete">
   <div class="spalte">
     <p class="oben"><b>Pakete</b><i></i>Aus einer Hand</p>
     <h2>Alles vom selben Tisch.<br>Und günstiger als einzeln.</h2>
-    <p class="lead">Jede Richtung kannst du einzeln buchen. Nimmst du mehr dazu, kostet jede weitere 20 % weniger, und was doppelt wäre, fällt weg.</p>
+    <p class="lead">Nimmst du mehr als eine Richtung, kostet jede weitere 20 % weniger, und was doppelt wäre, fällt weg.</p>
 
     <div class="karten">
 
