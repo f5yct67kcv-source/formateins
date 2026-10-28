@@ -45,6 +45,8 @@
 <link rel="preload" href="schriften/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="schriften/playfair-display.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="schriften.css">
+<link rel="stylesheet" href="entwurf-leiste.css">
+<script src="entwurf-leiste.js" defer></script>
 <!-- Banner und Messung. Tut nichts, solange in messung.js keine Kennung steht. -->
 <script src="messung.js" defer></script>
 
@@ -124,7 +126,12 @@ p{max-width:62ch}
 .zaehler{font-size:var(--txt-xs);letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--auf-grund-still)}
 /* Fortschritt als Knotenleiste, dasselbe Motiv wie der Ablauf auf der Startseite:
    erledigte Fragen gefuellt, die aktuelle pulsiert, die Linie fuellt sich mit. */
-.kopf .leistenzeile{display:block;height:auto}  /* hebt die Flex-Zeile der Kopfspalte auf */
+.kopf .leistenzeile{height:auto;gap:clamp(14px,2.4vw,28px)}  /* zweite Zeile: Zaehler links, Knoten rechts */
+/* Der Zaehler steht seit der Leiste (28.10.2026) vor den Knoten. Feste Breite,
+   damit die Knoten nicht springen, wenn aus "Frage 9" "Frage 10 von 12" wird. */
+.leistenzeile .zaehler{flex:none;min-width:10.5em;margin-top:-4px;font-variant-numeric:tabular-nums}
+.leistenzeile .leiste{flex:1}
+@media(max-width:520px){.leistenzeile .zaehler{min-width:0;font-size:.62rem;letter-spacing:.1em}}
 .leiste{position:relative;display:flex;justify-content:space-between;align-items:center;height:30px;margin-top:-4px}
 .schiene{position:absolute;left:6.75px;right:6.75px;top:50%;height:1.5px;margin-top:-.75px;background:var(--linie)}
 /* transform statt width: sonst rechnet der Browser bei jedem Schritt das Layout neu. */
@@ -390,10 +397,21 @@ footer nav a:hover{color:var(--signal)}
 <header class="kopf">
   <div class="spalte">
     <a class="logo" href="entwurf-v2.html"><span class="s">format</span><span class="p">eins</span></a>
-    <span class="zaehler" id="zaehler">Frage 1</span>
+    <nav class="rechts" aria-label="Seite">
+      <ul class="menu"><li><a href="entwurf-v2.html#leistungen">Bereiche</a></li><li><a href="entwurf-v2.html#arbeiten">Arbeiten</a></li><li><a href="entwurf-preise.html">Preise</a></li><li><a href="entwurf-v2.html#fragen">Fragen</a></li></ul>
+      <button class="menuknopf" type="button" aria-expanded="false" aria-controls="menuoffen" aria-label="Menü"><i aria-hidden="true"></i></button>
+      <a class="knopf" href="entwurf-gespraech.html">Auftritt besprechen<span class="pfeil">→</span></a>
+    </nav>
   </div>
-  <div class="spalte leistenzeile"><div class="leiste" id="leiste"><span class="schiene" aria-hidden="true"><i id="balken"></i></span></div></div>
+  <div class="spalte leistenzeile"><span class="zaehler" id="zaehler">Frage 1</span><div class="leiste" id="leiste"><span class="schiene" aria-hidden="true"><i id="balken"></i></span></div></div>
 </header>
+
+<div class="menuoffen" id="menuoffen" hidden>
+  <div class="menukopf"><span class="logo"><span class="s">format</span><span class="p">eins</span></span><button class="zu" type="button" aria-label="Menü schliessen">×</button></div>
+  <ul><li><a href="entwurf-v2.html#leistungen">Bereiche</a></li><li><a href="entwurf-v2.html#arbeiten">Arbeiten</a></li><li><a href="entwurf-preise.html">Preise</a></li><li><a href="entwurf-v2.html#fragen">Fragen</a></li></ul>
+  <a class="knopf" href="entwurf-gespraech.html">Auftritt besprechen<span class="pfeil">→</span></a>
+  <p class="leise"><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a> · <a href="tel:+41796868486">079 686 84 86</a></p>
+</div>
 
 <main class="buehne">
   <div class="spalte">
