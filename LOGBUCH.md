@@ -55,8 +55,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
 - [x] **ENT-018** · 28.10.2026 · `sameAs` in den strukturierten Daten der
   Startseite: Google-Unternehmensprofil als feste Maps-Adresse
   `https://maps.google.com/?cid=11383681249379744707`. Die Kunden-ID stammt aus
-  Adrians Suchlink. local.ch und search.ch folgen in ENT-027. Beleg: Commit mit
-  ENT-018 im Titel.
+  Adrians Suchlink. local.ch und search.ch folgen in ENT-027. Beleg: `fadeaa2`,
+  Lauf #35 («Sync complete», IndexNow 200).
 - [ ] **ENT-019** · offen · Bereichsseiten Website, Branding und Video als
   `entwurf-*`, jede geht einzeln live.
 - [ ] **ENT-020** · offen · Zweite Sitzung (v2-Zweig) ist pausiert. Sie hat in
