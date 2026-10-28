@@ -17,7 +17,7 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
 | `website-kosten.html` | Ratgeber «Was kostet eine Website in Olten?», Artikel für die Suche |
 | `arbeiten/guardops.html`, `arbeiten/craniosacral-praxis.html` | Projektseiten; liegen im Ordner, darum alle Pfade mit `../` |
 | `leiste.css`, `leiste.js` | Menü in Kopfzeile und Mitlaufleiste, Handymenü; auf allen Seiten ausser Gespräch und Rechtsseiten |
-| `start-*.webp`, `seite-desktop.webp`, `video-*` | Bilder und Videos der Startseite, Herkunft in den Zeilen unten |
+| `start-*.webp`, `seite-desktop.webp`, `video-*` | Bilder und Videos der Startseite, Herkunft in den Zeilen unten. `seite-desktop.webp` gibt es zusätzlich verkleinert als `-720` und `-900` (WebP, Qualität 75), das Handy lädt über `srcset` nur die passende Grösse. Nach einer neuen Aufnahme beide neu rechnen. Spot und Reel laden erst, wenn sie laufen sollen (`preload="none"`): der Spot, sobald er ins Bild kommt, das Reel beim Öffnen des Video-Stands. Vorher holte Chrome am Desktop das versteckte Reel fast ganz (über 1 MB) |
 | `anfrage.php` | Nimmt die Anfrage aus dem Rechner an und schickt sie als Mail |
 | `gespraech.html`, `termine.php` | Terminbuchung, siehe „Gespräch vereinbaren“ unten |
 | `kalender-zugang.php` | Platzhalter für den Kalenderzugang, der Upload füllt ihn aus den Secrets |
