@@ -28,12 +28,17 @@ jobs:
           php -l termine.php
           php -l kalender-zugang.php
           node --check messung.js
+          python3 -m py_compile quellen/indexnow.py
 
   deploy:
     needs: pruefen
     runs-on: ubuntu-latest
     steps:
+      # Ganze Geschichte, damit IndexNow am Schluss sieht, welche Seiten sich
+      # seit dem letzten Push geaendert haben.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       # Alles ausser dem, was nur ins Repository gehoert. Neue Dateien kommen
       # so von selbst mit, eintragen muss man hier nur Ausnahmen.
@@ -104,3 +109,13 @@ jobs:
           # Der FTP-Benutzer ist bei Hostpoint auf den Ordner von formateins.ch
           # eingeschraenkt, darum hier nur "/".
           server-dir: /
+
+      # Bing und die anderen IndexNow-Suchmaschinen sofort ueber geaenderte
+      # Seiten informieren (ENT-025). Die Websuche von ChatGPT und Copilot baut
+      # auf Bing auf. Scheitert die Meldung, bleibt die Seite trotzdem live.
+      - name: Geaenderte Seiten an IndexNow melden
+        if: github.event_name == 'push'
+        continue-on-error: true
+        env:
+          VORHER: ${{ github.event.before }}
+        run: python3 quellen/indexnow.py "$VORHER"

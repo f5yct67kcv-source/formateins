@@ -55,6 +55,8 @@ RewriteRule ^(.*[^/])$ $1.html [L]
 # zaehlt bei neuen Aufnahmen ?v= hoch).
 # Nicht jeder Apache kennt die Endung des Web-Manifests.
 AddType application/manifest+json .webmanifest
+# llms.txt und die IndexNow-Schluesseldatei als UTF-8, sonst zerfallen die Umlaute.
+AddCharset UTF-8 .txt
 
 <IfModule mod_expires.c>
   ExpiresActive On

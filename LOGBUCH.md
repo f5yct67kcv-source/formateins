@@ -62,5 +62,18 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Weiterarbeiten `main` holen und in `index.html` arbeiten.
 - [ ] **ENT-021** · offen · `CLAUDE.md` korrigieren: GitHub Pages baut aus
   `claude/stoic-archimedes-xpyk3n`, nicht aus `main`.
-- [ ] **ENT-022** · 28.10.2026 · KI-Auffindbarkeit: Bestandsaufnahme gemacht,
-  Vorschläge an Adrian. Wartet auf Entscheid.
+- [x] **ENT-022** · 28.10.2026 · KI-Auffindbarkeit: Bestandsaufnahme gemacht.
+  Adrian nimmt strukturierte Preise, llms.txt und IndexNow (ENT-023 bis
+  ENT-025), die Verknüpfung mit dem Google-Profil folgt (ENT-018).
+- [x] **ENT-023** · 28.10.2026 · Preisseite mit strukturierten Daten: alle
+  Einzelpreise und Pakete als Angebote mit Preisrahmen in CHF, verknüpft mit
+  formateins auf der Startseite (`@id`). Beleg für ENT-023 bis ENT-025: der
+  Commit mit diesen Nummern im Titel (`git log --grep ENT-023`).
+- [x] **ENT-024** · 28.10.2026 · `llms.txt`: die Seite als kurzer Text für
+  KI-Suchen, mit Kontakt, Preisen, Ablauf und Links. Als UTF-8 ausgeliefert.
+- [x] **ENT-025** · 28.10.2026 · IndexNow: Nach jedem Upload meldet der Workflow
+  die geänderten Seiten an Bing und die anderen IndexNow-Suchmaschinen.
+- [ ] **ENT-026** · offen · In etwa einer Woche prüfen, ob KI-Suchen die Seite
+  lesen: ChatGPT oder Perplexity fragen «Was kostet eine Website bei
+  formateins.ch?». Stimmen die Zahlen, lassen Hostpoint und robots.txt die
+  Crawler durch. Dazu im ersten IndexNow-Lauf die Antwort 200 oder 202 prüfen.

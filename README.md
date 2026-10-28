@@ -13,9 +13,12 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
 |---|---|
 | `index.html` | Startseite (v2, live seit 28.10.2026; Gestaltung siehe Zeile `entwurf*` unten) |
 | `kostenrechner.html` | Kostenrechner für Website, Branding und Video: Weiche, je Richtung ein Ast, Kombi-Preis, Preisrahmen vor dem Formular. Direktlinks `?fuer=website\|marke\|video` und `?paket=start\|auftritt\|film` |
-| `preise.html`, `preise.js` | Preisseite: zuerst Einzelpreise je Richtung, darunter drei Kombi-Pakete mit Optionen zum Ankreuzen. Alle Ansätze stehen in `PREISE` in `preise.js`, der Rechner rechnet damit |
+| `preise.html`, `preise.js` | Preisseite: zuerst Einzelpreise je Richtung, darunter drei Kombi-Pakete mit Optionen zum Ankreuzen. Alle Ansätze stehen in `PREISE` in `preise.js`, der Rechner rechnet damit. Am Ende von `preise.html` stehen dieselben Preise als strukturierte Daten (ENT-023), ebenso in `llms.txt`: bei jeder Preisänderung beide mitziehen |
 | `website-kosten.html` | Ratgeber «Website erstellen lassen: Was kostet das?» (bis 28.10.2026: «Was kostet eine Website in Olten?»), Artikel für die Suche |
 | `arbeiten/guardops.html`, `arbeiten/craniosacral-praxis.html` | Projektseiten; liegen im Ordner, darum alle Pfade mit `../` |
+| `llms.txt` | Die Seite als kurzer Text für KI-Suchen: wer, wo, Preise, Ablauf, Links (ENT-024). Bei Preis- oder Textänderungen nachführen |
+| `ca1caa490738fb4698760e3199c487b1.txt`, `quellen/indexnow.py` | IndexNow (ENT-025): Schlüsseldatei und Skript. Nach jedem Upload meldet der Workflow die geänderten Seiten aus `sitemap.xml` an Bing und die anderen IndexNow-Suchmaschinen. Die Schlüsseldatei nicht löschen oder umbenennen |
+| `LOGBUCH.md` | Alle Entscheide und Aufgaben mit ENT-Nummer, erledigt oder offen. Geht nicht auf den Webserver |
 | `leiste.css`, `leiste.js` | Menü in Kopfzeile und Mitlaufleiste, Handymenü; auf allen Seiten ausser Gespräch und Rechtsseiten |
 | `start-*.webp`, `seite-desktop.webp`, `video-*` | Bilder und Videos der Startseite, Herkunft in den Zeilen unten. `seite-desktop.webp` gibt es zusätzlich verkleinert als `-720` und `-900` (WebP, Qualität 75), das Handy lädt über `srcset` nur die passende Grösse. Nach einer neuen Aufnahme beide neu rechnen. Spot und Reel laden erst, wenn sie laufen sollen (`preload="none"`): der Spot, sobald er ins Bild kommt, das Reel beim Öffnen des Video-Stands. Vorher holte Chrome am Desktop das versteckte Reel fast ganz (über 1 MB) |
 | `anfrage.php` | Nimmt die Anfrage aus dem Rechner an und schickt sie als Mail |

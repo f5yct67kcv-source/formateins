@@ -1,0 +1,67 @@
+# formateins
+
+> formateins ist das Studio von Adrian von Arb in Trimbach bei Olten (Kanton Solothurn). Es macht Websites, Branding (Logo und Erscheinungsbild) und Video für Selbstständige, kleine Unternehmen und Vereine in der Region Olten, Solothurn und Aargau. Alles aus einer Hand, mit Festpreis nach einem kurzen Gespräch.
+
+Diese Datei fasst die Seite www.formateins.ch als Text zusammen. Stand: 28.10.2026. Bei Abweichungen gilt die Seite selbst.
+
+## Kontakt
+
+- Adrian von Arb, formateins, Hochgasse 7, 4632 Trimbach, Schweiz
+- Telefon: +41 79 686 84 86
+- E-Mail: adrian@formateins.ch
+- Gespräch vereinbaren: https://www.formateins.ch/gespraech
+- Firma: pzu consulting gmbh, CHE-411.716.010
+
+## Preise
+
+Preisrahmen in CHF. Mehrwertsteuer kommt keine dazu. Der Festpreis folgt nach einem kurzen Gespräch.
+
+Website:
+- Website auf einer Seite: CHF 1'400 – 1'900
+- Firmenwebsite mit 3 bis 5 Seiten: CHF 2'700 – 3'600
+- Grössere Website ab 6 Seiten: CHF 4'500 – 5'900
+- Danach laufend nur Hosting und Domain, rund CHF 200 bis 250 im Jahr, direkt beim Anbieter. Kein Abo.
+
+Branding:
+- Bestehendes Logo auffrischen: CHF 800 – 1'100
+- Logo und Erscheinungsbild (Logo, Farben, Schriften auf einem Markenblatt): CHF 1'700 – 2'200
+- Logo und Erscheinungsbild mit Drucksachen (Visitenkarte, Briefbogen, Vorlage für Offerte und Rechnung): CHF 2'600 – 3'400
+
+Video:
+- Kurzer Spot, animiert, bis 20 Sekunden: CHF 1'100 – 1'500
+- Produktvideo, 30 bis 60 Sekunden: CHF 1'800 – 2'300
+- Imagefilm, 30 bis 60 Sekunden, ein Drehtag: CHF 2'400 – 3'200
+
+Pakete (mehr als eine Richtung zusammen: die teuerste voll, jede weitere 20 % günstiger):
+- Startformat, Branding und Website auf einer Seite: CHF 2'800 – 3'800, fertig in 3 bis 4 Wochen
+- Vollformat, Branding mit Drucksachen und Firmenwebsite: CHF 4'800 – 6'200, fertig in 5 bis 7 Wochen
+- Breitbild, Branding, Website und Imagefilm mit Drehtag vor Ort: CHF 6'700 – 8'700, fertig in 6 bis 8 Wochen
+
+Foto und Video vor Ort sind in jedem Bereich als Zusatz möglich und werden separat offeriert. Websites unter CHF 1'000 gibt es nicht.
+
+## So läuft es ab
+
+1. Gespräch, dreissig Minuten, am Telefon oder vor Ort.
+2. Angebot mit Festpreis innert drei Tagen.
+3. Bau: zuerst die Inhalte, dann die Form, mit Zwischenständen.
+4. Livegang. Dateien, Zugänge und Logo in allen Formaten gehören dem Kunden.
+
+## Passt, passt nicht
+
+- Passt: persönlicher Ansprechpartner, alles aus einer Hand, Selbstständige, kleine Unternehmen und Vereine.
+- Passt nicht: Website unter CHF 1'000, Onlineshop oder Bestellsystem, täglich selbst Inhalte pflegen, garantierter Platz eins bei Google.
+- Websites werden ohne Baukasten und ohne CMS gebaut. Änderungen setzt Adrian um und verrechnet den Aufwand.
+- KI ist ein Werkzeug wie die Kamera. Sie macht das Technische schneller und den Preis tiefer.
+
+## Seiten
+
+- [Startseite](https://www.formateins.ch/): Webdesign, Branding und Video aus Olten, Arbeiten, Ablauf, Fragen
+- [Preise](https://www.formateins.ch/preise): alle Preise einzeln und als Paket
+- [Kostenrechner](https://www.formateins.ch/kostenrechner): Preisrahmen in wenigen Fragen, ohne Konto
+- [Website erstellen lassen: Was kostet das?](https://www.formateins.ch/website-kosten): Ratgeber zu Website-Preisen und was sie bewegt
+- [Gespräch vereinbaren](https://www.formateins.ch/gespraech)
+
+## Arbeiten
+
+- [GuardOpS](https://www.formateins.ch/arbeiten/guardops): Produktwebsite für eine Schweizer Betriebssoftware
+- [Craniosacral Praxis Johann von Arb](https://www.formateins.ch/arbeiten/craniosacral-praxis): Website für eine Praxis in Fulenbach bei Olten
