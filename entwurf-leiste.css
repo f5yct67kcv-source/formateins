@@ -9,8 +9,8 @@
 .menu{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px);list-style:none;margin:0;padding:0}
 .menu li{margin:0}
 .menu a{font-size:var(--txt-s);font-weight:600;letter-spacing:.01em;color:var(--auf-grund-still);text-decoration:none;transition:color .2s ease}
-.menu a:hover,.menu a[aria-current="page"]{color:var(--auf-grund)}
-.menu a[aria-current="page"]{text-decoration:underline;text-decoration-color:var(--signal);text-underline-offset:6px;text-decoration-thickness:1.5px}
+.menu a:hover,.menu a[aria-current="page"],.menu a[aria-current="true"]{color:var(--auf-grund)}
+.menu a[aria-current="page"],.menu a[aria-current="true"]{text-decoration:underline;text-decoration-color:var(--signal);text-underline-offset:6px;text-decoration-thickness:1.5px}
 
 /* Der Knopf in der Leiste, kleiner als im Hero. Ausgeschrieben, damit er
    auch auf den Unterseiten steht, die keinen .knopf aus der Startseite haben. */
@@ -60,7 +60,7 @@
 .menuoffen li{margin:0;border-top:1px solid var(--linie)}
 .menuoffen li:last-child{border-bottom:1px solid var(--linie)}
 .menuoffen li a{display:block;padding:18px 0;font-family:var(--serif);font-weight:700;font-size:1.65rem;letter-spacing:-.015em;color:var(--auf-grund);text-decoration:none}
-.menuoffen li a[aria-current="page"]{color:var(--signal)}
+.menuoffen li a[aria-current="page"],.menuoffen li a[aria-current="true"]{color:var(--signal)}
 .menuoffen .knopf{margin-top:28px;justify-content:center;display:inline-flex;align-items:center;gap:10px;background:var(--signal);color:#15202a;font-weight:700;padding:16px 26px;text-decoration:none}
 .menuoffen .leise{margin:auto 0 0;padding:28px 0;font-size:var(--txt-xs);color:var(--auf-grund-still)}
 .menuoffen .leise a{color:inherit;text-decoration:none}
