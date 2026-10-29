@@ -113,6 +113,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   29.10.2026 aus Drive), Hauptlogo auf dunkel als `entwurf-logo-hakuro.svg`.
   Reihenfolge abwechselnd echt und Demo: GuardOpS, Sportcenter Lindenfeld,
   Johann von Arb, Hakuro.
+  Vorschau für Adrian: Arbeitszweig auf `claude/stoic-archimedes-xpyk3n`
+  vorgespult (GitHub Pages, kein Hostpoint-Lauf), Seite
+  `https://f5yct67kcv-source.github.io/formateins/entwurf-start.html`.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
