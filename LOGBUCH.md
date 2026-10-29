@@ -84,3 +84,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
 - [ ] **ENT-027** · offen · Einträge bei local.ch und search.ch anlegen (Adrian),
   mit demselben Namen, derselben Adresse und Telefonnummer wie auf der Seite.
   Danach die Adressen in `sameAs` auf der Startseite ergänzen.
+- [x] **ENT-028** · 29.10.2026 · Die grossen Updates sind seit dem 28.10.2026
+  abends live. Ab jetzt wird am Entwurf weitergearbeitet (`entwurf*`, Arbeitszweig).
+  Nichts geht auf `main` und damit live ohne Adrians ausdrückliches Einverständnis,
+  auch keine Logbuch-Nachträge. Bestätigt die Regel in `CLAUDE.md`.
