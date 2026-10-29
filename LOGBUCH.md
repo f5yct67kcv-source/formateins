@@ -95,6 +95,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Stand 29.10.2026: Fassung A (Kacheln mit Rahmen, Logos im Wechsel auf der
   Markenfarbe) und B (ohne Rahmen, hoch, Logos als Wand) gebaut, `?v=a` / `?v=b`.
   Logos als `entwurf-logo-guardops.svg` und `entwurf-logo-johann.svg` aus Drive.
+  Adrian am 29.10.2026: Reihenfolge wie oben (Website, Branding, Video) und alles
+  freistehend, ohne Boxen oder Karten. Gebaut als Fassung C (Standard), Logos
+  als Wand mit Markenfarben oder mit `?logos=wechsel` einzeln im Wechsel.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media

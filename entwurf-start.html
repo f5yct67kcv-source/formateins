@@ -1297,7 +1297,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 .drittel{display:grid;grid-template-columns:1fr;gap:clamp(18px,2.2vw,28px)}
 @media(min-width:860px){.drittel{grid-template-columns:repeat(3,1fr)}}
 .teil{display:flex;flex-direction:column;min-width:0}
-.teil .buehne{position:relative;overflow:hidden;background:var(--grund-tief)}
+.teil .schaubild{position:relative;overflow:hidden;background:var(--grund-tief)}
 .teil .text{display:flex;flex-direction:column;gap:6px;flex:1}
 .teil .kicker{display:flex;gap:12px;margin:0;font-size:var(--txt-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--auf-grund-still)}
 .teil .kicker span{color:var(--signal)}
@@ -1310,8 +1310,8 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 .teil .weiter:hover b{transform:translateX(4px)}
 .teil .text.dreht .name,.teil .text.dreht .was{opacity:0}
 /* Video: das Reel im Handy, mittig auf dem Grund */
-.teil-video .buehne{display:grid;place-items:center}
-.teil-video .handy{display:block;height:84%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:3px solid #0a1219;box-shadow:0 24px 50px -20px rgba(0,0,0,.8),0 0 0 1px var(--linie)}
+.teil-video .schaubild{display:grid;place-items:center}
+.teil-video .reelhandy{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:block;height:84%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:3px solid #0a1219;box-shadow:0 24px 50px -20px rgba(0,0,0,.8),0 0 0 1px var(--linie)}
 .teil-video video{display:block;width:100%;height:100%;object-fit:cover}
 /* Branding: Logos im Wechsel, jedes auf seiner Markenfarbe */
 .logos .logo{position:absolute;inset:0;margin:0;display:grid;place-items:center;background:var(--markenfarbe);opacity:0;transition:opacity .6s ease}
@@ -1323,17 +1323,38 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 /* Fassung A: Kacheln mit Rahmen wie die bisherigen Karten, Bühne 4:3 */
 .drittel-a .teil{border:1px solid var(--linie);border-radius:14px;background:rgba(255,255,255,.025);overflow:hidden;padding-bottom:clamp(20px,2.2vw,26px);transition:border-color .3s ease}
 .drittel-a .teil:hover{border-color:rgba(255,138,76,.5)}
-.drittel-a .teil .buehne{aspect-ratio:4/3;margin-bottom:16px}
+.drittel-a .teil .schaubild{aspect-ratio:4/3;margin-bottom:16px}
 .drittel-a .teil .text{padding-inline:clamp(20px,2.2vw,26px)}
 
 /* Fassung B: ohne Rahmen, hohe Bühne 4:5 mit runden Ecken, Logos als Wand */
-.drittel-b .teil .buehne{aspect-ratio:4/5;border-radius:14px;margin-bottom:18px;box-shadow:0 0 0 1px var(--linie)}
+.drittel-b .teil .schaubild{aspect-ratio:4/5;border-radius:14px;margin-bottom:18px;box-shadow:0 0 0 1px var(--linie)}
 .drittel-b .teil-web .wechsel .ref{inset:auto;left:7%;right:7%;top:50%;transform:translateY(-50%);aspect-ratio:16/10;border-top:16px solid #0a1219;border-radius:8px;overflow:hidden;box-shadow:0 24px 50px -20px rgba(0,0,0,.85),0 0 0 1px var(--linie)}
 .drittel-b .teil-web .wechsel .ref img{object-position:left top}
 .drittel-b .logos{display:grid;grid-template-rows:repeat(3,1fr);background:var(--linie);gap:1px}
 .drittel-b .logos .logo{position:relative;inset:auto;opacity:1}
 .drittel-b .logos .logo img{width:58%;max-height:46%}
 .drittel-b .teil-marke .text .name{font-size:clamp(1.25rem,1.8vw,1.5rem)}
+
+/* Fassung C (29.10.2026, Adrians Richtung): alles freistehend auf dem Seitengrund,
+   keine Kacheln, keine Flaechen hinter den Bildern. Gleich hohe Buehne, damit
+   die Texte auf einer Linie beginnen. */
+.felder{display:none}
+.drittel-c .teil .schaubild{aspect-ratio:1/1;background:none;margin-bottom:22px;overflow:visible}
+.drittel-c .teil-web .wechsel .ref{inset:auto;left:0;right:0;top:50%;transform:translateY(-50%);aspect-ratio:16/10;border-top:16px solid #0a1219;border-radius:8px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(0,0,0,.9),0 0 0 1px var(--linie)}
+.drittel-c .teil-web .wechsel .ref img{object-position:left top}
+.drittel-c .teil-video .reelhandy{height:92%}
+.drittel-c .logos .logo{background:none}
+.drittel-c .logos .logo img{width:78%;max-height:none}
+.drittel-c .logos .felder{display:flex;gap:6px;margin-top:18px}
+.drittel-c .logos .felder i{width:22px;height:22px;border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+.drittel-c .logos .logo{grid-template-rows:auto auto;align-content:center;justify-items:center}
+.drittel-c .logos.wand{display:flex;flex-direction:column;justify-content:space-between;padding:8% 0}
+.drittel-c .logos.wand .logo{position:relative;inset:auto;opacity:1}
+.drittel-c .logos.wand .logo img{width:72%}
+.drittel-c .logos.wand .wortmarke{font-size:clamp(1.6rem,2.6vw,2.3rem)}
+.drittel-c .logos.wand .felder{margin-top:12px}
+.drittel-c .logos.wand .felder i{width:16px;height:16px}
+.drittel-c .text{padding-top:18px;border-top:1px solid var(--linie)}
 @media(prefers-reduced-motion:reduce){.logos .logo,.teil .name,.teil .was{transition:none}}
 </style>
 
@@ -1675,7 +1696,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
   </div>
 </section>
 
-<section id="arbeiten" class="drittel-a">
+<section id="arbeiten" class="drittel-c">
   <div class="spalte auf">
     <div class="arbeitenkopf">
       <h2>Gebaut, nicht behauptet.<span class="zweite">Seiten, Markenblätter, Reels.</span></h2>
@@ -1684,11 +1705,13 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 
     <!-- ENTWURF (ENT-029): drei Drittel statt zwei Website-Karten. Website,
          Video, Branding, in der Reihenfolge der Richtungen oben. Fassung A
-         (Kacheln mit Rahmen, Logos im Wechsel auf ihrer Markenfarbe) und B
-         (ohne Rahmen, hoch, Logos als Wand) per ?v=a / ?v=b. -->
+         (Kacheln mit Rahmen, Logos im Wechsel auf ihrer Markenfarbe), B (ohne
+         Rahmen, hoch, Logos als Wand) und C (freistehend, ohne Flaechen; seit
+         29.10.2026 die Richtung) per ?v=a / b / c, ohne Angabe C. Bei C laufen
+         die Logos mit ?logos=wechsel einzeln durch, sonst stehen alle drei. -->
     <div class="drittel">
       <article class="teil teil-web">
-        <div class="buehne wechsel" data-wechsel>
+        <div class="schaubild wechsel" data-wechsel>
           <figure class="ref ist" data-name="formateins" data-was="Die eigene Seite" data-url="formateins.ch"><img src="start-formateins-seite.webp" alt="Startseite von formateins" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-formateins-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
           <figure class="ref" data-name="GuardOpS" data-was="Produktwebsite für eine Betriebssoftware" data-url="guardops.ch" data-werte="7× leichter|0 Cookies|CH gehostet"><img src="start-guardops-seite.webp" alt="Startseite von GuardOpS" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-guardops-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
           <figure class="ref" data-name="Shiro" data-was="Demo für ein Restaurant" data-url="demo.formateins.ch/shiro"><img src="start-shiro-seite.webp" alt="Startseite von Shiro, einem Demo-Projekt für ein Restaurant" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-shiro-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
@@ -1702,29 +1725,29 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
         </div>
       </article>
 
-      <article class="teil teil-video">
-        <div class="buehne">
-          <span class="handy"><video poster="video-reel.jpg" width="540" height="960" muted loop playsinline preload="none" aria-label="Reel: vier Beispiele, Social Media, Erklärvideo, Werbevideo und Imagefilm"><source src="video-reel-ton.mp4" type="video/mp4"><source src="video-reel-ton.webm" type="video/webm"></video></span>
-        </div>
-        <div class="text">
-          <p class="kicker"><span>02</span>Video</p>
-          <h3 class="name">Vier Formate, ein Reel</h3>
-          <p class="was">Social Media, Erklärvideo, Werbevideo, Imagefilm</p>
-          <a class="weiter" href="preise#einzeln">Was ein Video kostet <b>→</b></a>
-        </div>
-      </article>
-
       <article class="teil teil-marke">
-        <div class="buehne logos" data-logos>
-          <figure class="logo ist" data-name="GuardOpS" data-was="Logo, Bildmarke, Farben, Schrift" style="--markenfarbe:#111821"><img src="entwurf-logo-guardops.svg" alt="Logo GuardOpS" width="650" height="154"></figure>
-          <figure class="logo" data-name="Johann von Arb" data-was="Logo und Signet für eine Praxis" style="--markenfarbe:#33211c"><img src="entwurf-logo-johann.svg" alt="Logo Johann von Arb, Craniosacral Therapie" width="233" height="64"></figure>
-          <figure class="logo" data-name="formateins" data-was="Die eigene Marke" style="--markenfarbe:#1b2a33"><span class="wortmarke">format<em>eins</em></span></figure>
+        <div class="schaubild logos" data-logos>
+          <figure class="logo ist" data-name="GuardOpS" data-was="Logo, Bildmarke, Farben, Schrift" style="--markenfarbe:#111821"><img src="entwurf-logo-guardops.svg" alt="Logo GuardOpS" width="650" height="154"><span class="felder" aria-hidden="true"><i style="background:#111821"></i><i style="background:#1c6fbc"></i><i style="background:#fff"></i></span></figure>
+          <figure class="logo" data-name="Johann von Arb" data-was="Logo und Signet für eine Praxis" style="--markenfarbe:#33211c"><img src="entwurf-logo-johann.svg" alt="Logo Johann von Arb, Craniosacral Therapie" width="233" height="64"><span class="felder" aria-hidden="true"><i style="background:#33211c"></i><i style="background:#e9c3ad"></i><i style="background:#f4ece4"></i></span></figure>
+          <figure class="logo" data-name="formateins" data-was="Die eigene Marke" style="--markenfarbe:#1b2a33"><span class="wortmarke">format<em>eins</em></span><span class="felder" aria-hidden="true"><i style="background:#1b2a33"></i><i style="background:#ff8a4c"></i><i style="background:#e4eaee"></i></span></figure>
         </div>
         <div class="text">
-          <p class="kicker"><span>03</span>Branding</p>
+          <p class="kicker"><span>02</span>Branding</p>
           <h3 class="name">GuardOpS</h3>
           <p class="was">Logo, Bildmarke, Farben, Schrift</p>
           <a class="weiter" href="preise#einzeln">Was Branding kostet <b>→</b></a>
+        </div>
+      </article>
+
+      <article class="teil teil-video">
+        <div class="schaubild">
+          <span class="reelhandy"><video poster="video-reel.jpg" width="540" height="960" muted loop playsinline preload="none" aria-label="Reel: vier Beispiele, Social Media, Erklärvideo, Werbevideo und Imagefilm"><source src="video-reel-ton.mp4" type="video/mp4"><source src="video-reel-ton.webm" type="video/webm"></video></span>
+        </div>
+        <div class="text">
+          <p class="kicker"><span>03</span>Video</p>
+          <h3 class="name">Vier Formate, ein Reel</h3>
+          <p class="was">Social Media, Erklärvideo, Werbevideo, Imagefilm</p>
+          <a class="weiter" href="preise#einzeln">Was ein Video kostet <b>→</b></a>
         </div>
       </article>
     </div>
@@ -2537,7 +2560,9 @@ if (richtwerk) richtwerkEinrichten(richtwerk);
 // ENTWURF ENT-029: Fassung per ?v=a oder ?v=b, sonst A.
 (function () {
   const sektion = document.getElementById('arbeiten');
-  const v = new URLSearchParams(location.search).get('v') === 'b' ? 'b' : 'a';
+  const q = new URLSearchParams(location.search);
+  const v = ['a', 'b', 'c'].includes(q.get('v')) ? q.get('v') : 'c';
+  const wand = v === 'b' || (v === 'c' && q.get('logos') !== 'wechsel');
   sektion.className = 'drittel-' + v;
   const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -2579,13 +2604,14 @@ if (richtwerk) richtwerkEinrichten(richtwerk);
   const marken = [...logos.querySelectorAll('.logo')];
   let li = 0, lt = 0;
   imBild(logos, () => {
-    if (v === 'b' || lt) return;
+    if (wand || lt) return;
     lt = setInterval(() => {
       marken[li].classList.remove('ist'); li = (li + 1) % marken.length; marken[li].classList.add('ist');
       beschriften(logos.closest('.teil'), marken[li]);
     }, 3200);
   }, () => { clearInterval(lt); lt = 0; });
-  if (v === 'b') {
+  if (wand) {
+    logos.classList.add('wand');
     const t = logos.closest('.teil').querySelector('.text');
     t.querySelector('.name').textContent = 'Drei Marken';
     t.querySelector('.was').textContent = 'GuardOpS, Johann von Arb und formateins: Logo, Farben, Schrift';
