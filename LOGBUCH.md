@@ -316,6 +316,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `formateins-betreiber` auf `ee9c7fe`, Lauf «Betreiber zu Hostpoint» Nr. 1
   (40956191573) erfolgreich: Prüfungen grün, Secrets vorhanden, 66 Dateien
   hochgeladen, «Sync complete». Das erste Konto legt Adrian selbst an.
+  Danach «Die Datenbank ist nicht erreichbar». Die Seite nennt seitdem, welcher
+  Wert nicht passt (`5620cae`), und der Deploy schneidet Leerzeichen am Rand
+  der Secrets ab (`9745581`, Lauf Nr. 2). Ursache waren `BETREIBER_DB_HOST`
+  (richtig: `itufeden.mysql.db.internal`) und `BETREIBER_DB_NAME` (voller
+  Name mit Kürzel); Adrian hat beide korrigiert, Läufe Nr. 3 und 4 erfolgreich.
+  Am 29.10.2026 hat Adrian sein Konto angelegt und ist angemeldet.
 - [ ] **ENT-038** · offen · Anfragen von formateins.ch zusätzlich in den
   Betreiber-Bereich (ENT-035): `anfrage.php` und `termine.php` schicken jede
   Anfrage an `api/anfrage_eingang.php`, mit Secret `ANFRAGE_SCHLUESSEL` in
