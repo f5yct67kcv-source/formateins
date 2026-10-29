@@ -181,6 +181,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «Seiten» ist zu offen; «Reels» ist der Name von Meta und deckt den Imagefilm
   nicht ab, «Video» wie die Richtung (ENT-003). Unter der Spalte bleibt «Vier
   Formate, ein Reel» (das gezeigte Reel).
+  Lighthouse lokal wie am 28.10.2026 (Auslieferung ohne Kommentare, gzip wie
+  Hostpoint), 29.10.2026: live (`main`) Handy 94 / 96 / 98, Desktop 100;
+  neu Handy 98 / 98 / 98, Desktop 100. LCP Handy 2,4 s, TBT 0 ms, CLS 0.
+  Beim Laden 438 statt 352 KiB (Startseiten- und Logo-Bilder des Abschnitts
+  und des Plus), beim Scrollen zu «Gebaut» kommen die zwei Loops dazu
+  (408 + 95 KiB).
   Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort (ENT-028).
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
