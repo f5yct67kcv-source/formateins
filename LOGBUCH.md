@@ -252,4 +252,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   zeigen. «Video» statt «Zoom», weil `gespraech.html` Telefon oder Video per
   kMeet anbietet; das Telefon bleibt dort wählbar. «Beispiele» statt
   «Demoprojekte» (keine Demos auf der Startseite, ENT-029).
+  Adrian am 29.10.2026: auf `gespraech.html` Video vorauswählen (ja). Video
+  ist jetzt gewählt, Telefon ein Tipp daneben; das Symbol in der Übersicht
+  links wechselt mit (Kamera bei Video, Hörer bei Telefon).
   Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort.
