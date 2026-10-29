@@ -244,7 +244,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Live am 29.10.2026 mit Adrians Wort («push»): `main` auf 39d4b67, Lauf
   «Website zu Hostpoint» Nr. 40 (40913770533) erfolgreich, «replacing
   index.html», «Sync complete», IndexNow 200.
-- [ ] **ENT-034** · 29.10.2026 · «So läuft es ab», Schritt 01: Titel «Wir legen
+- [x] **ENT-034** · 29.10.2026 · «So läuft es ab», Schritt 01: Titel «Wir legen
   los» statt «Wir reden» (Aussage wie die Schritte 02 bis 04), Text «Dreissig
   Minuten per Video. Du erzählst, was du machst und wen du erreichen willst.
   Ich zeige dir Beispiele und sage ehrlich, was es braucht und was nicht.»
@@ -273,4 +273,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   fragt, ob der Bezahl-Satz rein muss: nein, was Änderungen kosten, steht in
   den Fragen («verrechne den Aufwand. Kein Abo.»), und der Festpreis in
   Schritt 02.
-  Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort.
+  Live am 29.10.2026 mit Adrians Wort («push»): `main` auf 5e6aa3e, Lauf
+  «Website zu Hostpoint» Nr. 42 (40949926716) erfolgreich, «replacing
+  gespraech.html» und «replacing index.html», «Sync complete», IndexNow 200
+  für die Startseite und /gespraech.
