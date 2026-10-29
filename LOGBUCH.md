@@ -88,3 +88,16 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   abends live. Ab jetzt wird am Entwurf weitergearbeitet (`entwurf*`, Arbeitszweig).
   Nichts geht auf `main` und damit live ohne Adrians ausdrückliches Einverständnis,
   auch keine Logbuch-Nachträge. Bestätigt die Regel in `CLAUDE.md`.
+- [ ] **ENT-029** · 29.10.2026 · Abschnitt «Gebaut, nicht behauptet» neu: drei
+  Drittel statt zwei Website-Karten. Website (gebaute Seiten laufen durch wie im
+  Webdesign-Stand), Video (stummer Loop mit Referenzen), Branding (Kundenlogos).
+  Entwurf in `entwurf-start.html`, Varianten als Bild, Adrian wählt.
+- [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
+  öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
+  CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
+  formateins. Drive ist als Connector verbunden. Ins Repository kommen nur
+  aufbereitete Dateien, die auf formateins.ch erscheinen.
+- [ ] **ENT-031** · offen · GuardOpS-CI: Das Gestaltungspaket vom 12.09.2026 nennt
+  sich «unbestätigter Entwurf» mit vier offenen Punkten (Schrift, Wortmarke ohne
+  Bildmarke, Name ohne Markenrecherche, Claim). Vor dem Zeigen als Referenz mit
+  Adrian klären, ob das inzwischen entschieden und freigegeben ist.
