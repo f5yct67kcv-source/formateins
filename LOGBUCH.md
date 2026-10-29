@@ -92,6 +92,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Drittel statt zwei Website-Karten. Website (gebaute Seiten laufen durch wie im
   Webdesign-Stand), Video (stummer Loop mit Referenzen), Branding (Kundenlogos).
   Entwurf in `entwurf-start.html`, Varianten als Bild, Adrian wählt.
+  Stand 29.10.2026: Fassung A (Kacheln mit Rahmen, Logos im Wechsel auf der
+  Markenfarbe) und B (ohne Rahmen, hoch, Logos als Wand) gebaut, `?v=a` / `?v=b`.
+  Logos als `entwurf-logo-guardops.svg` und `entwurf-logo-johann.svg` aus Drive.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
