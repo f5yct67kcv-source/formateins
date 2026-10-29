@@ -255,4 +255,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Adrian am 29.10.2026: auf `gespraech.html` Video vorauswählen (ja). Video
   ist jetzt gewählt, Telefon ein Tipp daneben; das Symbol in der Übersicht
   links wechselt mit (Kamera bei Video, Hörer bei Telefon).
+  Schritt 02, Adrian am 29.10.2026: Titel bleibt «Du bekommst ein Angebot»
+  («Angebot» wie sonst auf der Seite), Text neu «Innert drei Tagen hast du
+  einen Festpreis für das, was wirklich nötig ist. Dazu steht schriftlich,
+  wen wir erreichen wollen und was hängen bleiben soll.» statt «… auch wenn
+  es mich Geld kostet»: das Ehrliche steht jetzt in Schritt 01, dafür kommt
+  die Strategie dazu.
   Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort.
