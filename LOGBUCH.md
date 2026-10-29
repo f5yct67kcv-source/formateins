@@ -244,3 +244,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Live am 29.10.2026 mit Adrians Wort («push»): `main` auf 39d4b67, Lauf
   «Website zu Hostpoint» Nr. 40 (40913770533) erfolgreich, «replacing
   index.html», «Sync complete», IndexNow 200.
+- [ ] **ENT-034** · 29.10.2026 · «So läuft es ab», Schritt 01: Titel «Wir legen
+  los» statt «Wir reden» (Aussage wie die Schritte 02 bis 04), Text «Dreissig
+  Minuten per Video. Du erzählst, was du machst und wen du erreichen willst.
+  Ich zeige dir Beispiele und sage ehrlich, was es braucht und was nicht.»
+  statt «am Telefon oder bei dir». Adrian: per Video lassen sich Beispiele
+  zeigen. «Video» statt «Zoom», weil `gespraech.html` Telefon oder Video per
+  kMeet anbietet; das Telefon bleibt dort wählbar. «Beispiele» statt
+  «Demoprojekte» (keine Demos auf der Startseite, ENT-029).
+  Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort.
