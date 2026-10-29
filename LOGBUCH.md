@@ -266,4 +266,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Form, immer entlang der Strategie. Du siehst zwischendurch, wie es wird,
   und sagst, was du anders willst. Kurze Wege statt langer Sitzungen.»
   statt «… und sagst, was nicht stimmt».
+  Schritt 04, Adrian am 29.10.2026: Titel bleibt «Es geht live», Text
+  «Website, Logo oder Video sind fertig und im Einsatz. Du bekommst alles,
+  was dir gehört: Dateien, Zugänge, das Logo in allen Formaten. Brauchst du
+  später etwas, bin ich da.» statt «Seite, Markenblatt oder Film …». Adrian
+  fragt, ob der Bezahl-Satz rein muss: nein, was Änderungen kosten, steht in
+  den Fragen («verrechne den Aufwand. Kein Abo.»), und der Festpreis in
+  Schritt 02.
   Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort.
