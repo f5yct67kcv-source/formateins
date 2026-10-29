@@ -130,6 +130,14 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Takt. Websites alle 3,6 s, Logos alle 7,2 s und jeweils 1,8 s nach einer
   Website, wenn die Spalte ruhig steht; nie wechseln beide zugleich (über
   31 s nachgemessen). Blende und Zeichnen entfernt.
+  Adrian am 29.10.2026: Logos schneller, sonst sieht man in 5 s nur eines.
+  Jetzt alle 3,6 s, weiter 1,8 s versetzt zu den Websites. Website-Spalte
+  neu: Sportcenter Lindenfeld (demo.formateins.ch/lindenfeld), GuardOpS,
+  Hakuro (demo.formateins.ch/hakuro) statt formateins und Shiro. Aufnahmen
+  1440 × 900 auf 1200 × 750 als `entwurf-start-lindenfeld-*.webp` und
+  `entwurf-start-hakuro-*.webp`, Bauplan mit `quellen/bauplan.js`; bei
+  Lindenfeld das Kopfvideo bei 4 s angehalten (Badminton), damit kein
+  Überblendbild entsteht.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media

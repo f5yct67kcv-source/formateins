@@ -1739,14 +1739,14 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
     <div class="drittel">
       <article class="teil teil-web">
         <div class="schaubild wechsel" data-wechsel>
-          <figure class="ref ist" data-name="formateins" data-was="Die eigene Seite" data-url="formateins.ch"><img src="start-formateins-seite.webp" alt="Startseite von formateins" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-formateins-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
+          <figure class="ref ist" data-name="Sportcenter Lindenfeld" data-was="Demo-Website für ein Sportcenter" data-url="demo.formateins.ch/lindenfeld"><img src="entwurf-start-lindenfeld-seite.webp" alt="Startseite des Sportcenters Lindenfeld, einem Demo-Projekt" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="entwurf-start-lindenfeld-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
           <figure class="ref" data-name="GuardOpS" data-was="Produktwebsite für eine Betriebssoftware" data-url="guardops.ch" data-werte="7× leichter|0 Cookies|CH gehostet"><img src="start-guardops-seite.webp" alt="Startseite von GuardOpS" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-guardops-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
-          <figure class="ref" data-name="Shiro" data-was="Demo für ein Restaurant" data-url="demo.formateins.ch/shiro"><img src="start-shiro-seite.webp" alt="Startseite von Shiro, einem Demo-Projekt für ein Restaurant" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-shiro-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
+          <figure class="ref" data-name="Hakuro" data-was="Demo-Website für ein Restaurant" data-url="demo.formateins.ch/hakuro"><img src="entwurf-start-hakuro-seite.webp" alt="Startseite von Hakuro, einem Demo-Projekt für ein Restaurant" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="entwurf-start-hakuro-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
         </div>
         <div class="text">
           <p class="kicker"><span>01</span>Website</p>
-          <h3 class="name">formateins</h3>
-          <p class="was">Die eigene Seite</p>
+          <h3 class="name">Sportcenter Lindenfeld</h3>
+          <p class="was">Demo-Website für ein Sportcenter</p>
           <p class="werte" hidden></p>
           <a class="weiter" href="arbeiten/guardops">Arbeiten ansehen <b>→</b></a>
         </div>
@@ -2665,18 +2665,18 @@ if (richtwerk) richtwerkEinrichten(richtwerk);
     li = n; void marken[li].offsetWidth; marken[li].classList.add('ist');
     beschriften(logos.closest('.teil'), marken[li]);
   };
-  // Eigener Takt (Adrian, 29.10.2026): die Websites wechseln alle 3,6 Sekunden
-  // und bauen sich in rund 1,5 Sekunden auf. Die Logos wechseln halb so oft,
-  // alle 7,2 Sekunden, und genau in der Mitte dazwischen (1,8 Sekunden nach
-  // einer Website), wenn die Website-Spalte ruhig steht. So wechseln nie beide
-  // Spalten zugleich, auch nicht nach vielen Runden.
+  // Eigener Einsatz (Adrian, 29.10.2026): Websites und Logos wechseln je alle
+  // 3,6 Sekunden, die Logos aber genau in der Mitte dazwischen (1,8 Sekunden
+  // nach einer Website), wenn die Website-Spalte fertig aufgebaut ist. So
+  // wechseln nie beide Spalten zugleich, und in fuenf Sekunden sieht man
+  // mehr als ein Logo.
   let ls = 0;
   imBild(logos, () => {
     if (wand || lt || ls) return;
     marken[li].classList.remove('ist');
     ls = setTimeout(() => {
       ls = 0; marken[li].classList.add('ist');
-      lt = setInterval(() => wechseln((li + 1) % marken.length), 7200);
+      lt = setInterval(() => wechseln((li + 1) % marken.length), 3600);
     }, 1800);
   }, () => { clearTimeout(ls); ls = 0; clearInterval(lt); lt = 0; marken[li].classList.add('ist'); });
   if (wand) {
