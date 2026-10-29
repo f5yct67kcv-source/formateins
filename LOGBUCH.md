@@ -109,6 +109,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Adrian am 29.10.2026: Logos optisch angleichen (Breite pro Logo nach
   Augenmass) und den springenden Link beheben (Textblock hält die Höhe des
   längsten Stücks). Ein weiteres Demo-Logo folgt.
+  Viertes Logo: Hakuro (Demo-Restaurant, Omakase und Kaiseki, CI vom
+  29.10.2026 aus Drive), Hauptlogo auf dunkel als `entwurf-logo-hakuro.svg`.
+  Reihenfolge abwechselnd echt und Demo: GuardOpS, Sportcenter Lindenfeld,
+  Johann von Arb, Hakuro.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
