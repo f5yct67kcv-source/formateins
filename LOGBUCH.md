@@ -298,5 +298,22 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   MySQL-Datenbank mit eigenem Benutzer, ein FTP-Benutzer nur für dieses
   Verzeichnis; die Zugangsdaten als Secrets ins neue Repository.
   Hostpoint am 29.10.2026 erledigt (Adrian). Die Datenbank heisst nicht
-  `betreiber`, der Name war im Webhosting schon besetzt. Offen: Repository
-  und Secrets.
+  `betreiber`, der Name war im Webhosting schon besetzt. Repository
+  `formateins-betreiber` (privat) und die sieben Secrets am 29.10.2026 von
+  Adrian angelegt. Ob die Secrets stimmen, zeigt erst der erste Deploy-Lauf.
+- [ ] **ENT-037** · 29.10.2026 · Erste Etappe des Betreiber-Bereichs (ENT-035)
+  gebaut, im Repository `formateins-betreiber` auf dem Arbeitszweig
+  `claude/epic-mayer-2x1fei` (`36b2d1d` bis `ee9c7fe`): Anmeldung mit
+  Pflicht-Zweitfaktor, Konten mit Einladung, Übersicht, Projekte, Adressen,
+  Offerten/Rechnungen/Verträge mit Kundenlink (annehmen, Änderung wünschen)
+  und QR-Zahlteil, Finanzen mit Belegdateien, Anfragen. Gestaltung wie der
+  abgenommene Entwurf. Prüfungen grün (60 Schritte gegen Testdatenbank),
+  QR-Code aus dem gedruckten PDF mit zxing gelesen. Das erste Konto braucht
+  ein achtes Secret `BETREIBER_EINRICHTUNG` (Zufallswert), sonst lässt die
+  Seite niemanden ein. Offen: Secret anlegen, Push auf `main` mit Adrians
+  Wort, Lauf «Betreiber zu Hostpoint» prüfen.
+- [ ] **ENT-038** · offen · Anfragen von formateins.ch zusätzlich in den
+  Betreiber-Bereich (ENT-035): `anfrage.php` und `termine.php` schicken jede
+  Anfrage an `api/anfrage_eingang.php`, mit Secret `ANFRAGE_SCHLUESSEL` in
+  beiden Repositories. Die Mail läuft unverändert weiter. Änderung an
+  formateins.ch, braucht Adrians Wort zum Push.
