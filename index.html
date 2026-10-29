@@ -797,8 +797,6 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 /* Drei Kennzahlen in Kundensprache statt Farbwerten und Schriftnamen. Der
    Faktor ist 2652 KB (Median aller Seiten am Desktop, HTTP Archive 2024) geteilt
    durch das gemessene Gewicht, abgerundet. CH nur bei Schweizer Hosting. */
-.fussnote{margin-top:14px;font-size:.7rem;color:var(--ringschrift);max-width:none}
-.fussnote a{color:inherit}
 
 .projekt .brettname{margin-bottom:6px}
 .projekt h3{font-size:clamp(1.3rem,2vw,1.7rem)}
@@ -922,15 +920,14 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 /* Video: das Reel im Telefon, 9:16 wie das Video */
 .teil-video .reelhandy{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:block;height:92%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:3px solid #0a1219;box-shadow:0 24px 50px -20px rgba(0,0,0,.8),0 0 0 1px var(--linie)}
 .teil-video video{display:block;width:100%;height:100%;object-fit:cover}
-#arbeiten .fussnote{margin-top:clamp(22px,3vw,32px)}
 /* Ab drei Spalten nebeneinander steht alles auf der Mittelachse seiner
    Spalte, wie der Titel darueber (Adrian, 29.10.2026): sonst nimmt das Auge
    die linke Textkante als Achse, und Logo und Reel wirken nach rechts
-   verschoben. Am Handy bleibt alles linksbuendig. */
+   verschoben. Am Handy bleibt alles linksbuendig. Die Quelle zu «7× leichter»
+   steht auf der GuardOpS-Projektseite, nicht hier. */
 @media(min-width:860px){
   .teil .text{align-items:center;text-align:center}
   .teil .kicker,.teil .werte{justify-content:center}
-  #arbeiten .fussnote{text-align:center;margin-inline:auto}
 }
 @media(prefers-reduced-motion:reduce){.logos .logo,.logos .logo *{animation:none!important}.teil .name,.teil .was,.teil .weiter b{transition:none}}
 
@@ -1722,7 +1719,6 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
         </div>
       </article>
     </div>
-    <p class="fussnote">Kennwerte gemessen im Oktober 2026. Durchschnitt: mittlere Website am Desktop laut <a href="https://almanac.httparchive.org/de/2024/page-weight" target="_blank" rel="noopener">HTTP Archive, Web Almanac 2024</a>.</p>
   </div>
 </section>
 

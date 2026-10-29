@@ -165,6 +165,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   täuschen. Adrian wählt A: ab 860 px Text, Kennzahlen, Link und Fussnote
   mittig unter jeder Spalte, Bühne 4:3 statt quadratisch (Reel etwa so hoch
   wie das Website-Fenster). Am Handy linksbündig.
+  Adrian am 29.10.2026: Fussnote «Kennwerte gemessen im Oktober 2026 …» raus,
+  sie stört. Der Beleg für «7× leichter» (355 KB statt 2'652 KB, HTTP Archive)
+  steht auf `arbeiten/guardops.html`, «Arbeiten ansehen» führt dorthin.
   Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort (ENT-028).
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
