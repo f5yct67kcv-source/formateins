@@ -173,6 +173,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Sekunden Video statt Standbild, Bild für Bild von demo.formateins.ch
   aufgenommen, MP4 98 KB / 418 KB, WebM 108 KB / 368 KB, lädt erst, wenn die
   Seite drankommt; im Abschnitt und im Plus. Standbild = erstes Bild.
+  Adrian am 29.10.2026: Beim Hereinscrollen erschien das erste Logo erst nach
+  rund 3 s, vorher leerer Platz. Jetzt steht es sofort, der erste Wechsel
+  folgt nach 5,4 s, danach alle 3,6 s, weiter versetzt zu den Websites.
   Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort (ENT-028).
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,

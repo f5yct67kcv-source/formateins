@@ -2591,7 +2591,9 @@ if (richtwerk) richtwerkEinrichten(richtwerk);
 
   // Logos im selben Takt, aber genau in der Mitte dazwischen (1,8 s nach einer
   // Website), wenn die Website-Spalte fertig aufgebaut ist: so wechseln nie
-  // beide Spalten zugleich.
+  // beide Spalten zugleich. Das aktuelle Logo steht schon, wenn die Spalte ins
+  // Bild kommt (Adrian, 29.10.2026: kein leerer Platz), der erste Wechsel
+  // folgt nach 5,4 s, danach alle 3,6 s.
   const logos = sektion.querySelector('[data-logos]');
   const marken = [...logos.querySelectorAll('.logo')];
   let li = 0, lt = 0, ls = 0;
@@ -2604,12 +2606,11 @@ if (richtwerk) richtwerkEinrichten(richtwerk);
   };
   if (!ruhig) imBild(logos, () => {
     if (lt || ls) return;
-    marken[li].classList.remove('ist');
     ls = setTimeout(() => {
-      ls = 0; marken[li].classList.add('ist');
+      ls = 0; wechseln((li + 1) % marken.length);
       lt = setInterval(() => wechseln((li + 1) % marken.length), 3600);
-    }, 1800);
-  }, () => { clearTimeout(ls); ls = 0; clearInterval(lt); lt = 0; marken[li].classList.add('ist'); });
+    }, 5400);
+  }, () => { clearTimeout(ls); ls = 0; clearInterval(lt); lt = 0; });
 })();
 </script>
 
