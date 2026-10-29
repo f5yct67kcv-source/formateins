@@ -102,7 +102,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Text neben dem Titel passt, Farbpunkte weg. Vier Auftritte für die Logos zur
   Wahl: `?anim=linie` (Standard), `zeichnen`, `raster`, `fokus`.
   Adrian am 29.10.2026: «Linie». Fest eingebaut, die anderen drei sind entfernt.
-  Offen: ob das eigene formateins-Logo im Wechsel bleibt.
+  Adrian am 29.10.2026: das eigene formateins-Logo nicht verwenden, dafür das
+  Demo-Logo Sportcenter Lindenfeld (von Adrian gestaltet, nur das Projekt ist
+  Demo). Im Wechsel jetzt GuardOpS, Johann von Arb, Sportcenter Lindenfeld.
+  Logo als `entwurf-logo-lindenfeld.svg` (Fassung invers) aus Drive.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
