@@ -261,4 +261,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   wen wir erreichen wollen und was hängen bleiben soll.» statt «… auch wenn
   es mich Geld kostet»: das Ehrliche steht jetzt in Schritt 01, dafür kommt
   die Strategie dazu.
+  Schritt 03, Adrian am 29.10.2026: Titel «Wir gestalten» statt «Wir bauen»
+  (gilt für Website, Logo und Video), Text «Zuerst die Inhalte, dann die
+  Form, immer entlang der Strategie. Du siehst zwischendurch, wie es wird,
+  und sagst, was du anders willst. Kurze Wege statt langer Sitzungen.»
+  statt «… und sagst, was nicht stimmt».
   Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort.
