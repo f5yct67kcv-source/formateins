@@ -142,6 +142,16 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   einer gemeinsamen Strategie. Hier siehst du das Ergebnis.» (vorher «Aus
   allen drei Richtungen ein Stück echte Arbeit …»). Demo nicht verschleiern,
   aber auf der Startseite nicht hervorheben.
+  Adrian am 29.10.2026: Im Reel nutzt das Erklärvideo nicht die volle Fläche.
+  Ursache: Es sitzt im Reel auf 84 % über einer unscharfen Kopie, weil das
+  Telefon im Plus links und rechts je 9 % abschneidet. Im neuen Abschnitt ist
+  das Telefon 9:16 und schneidet nichts ab. Eigene Fassung
+  `entwurf-video-reel-voll-ton.mp4` / `.webm`: Teil 4,5–8 s aus der Fassung
+  ohne Titel auf die volle Fläche geschnitten (450 × 800 ab 45/80 auf
+  540 × 960), Titel «Beispiel Erklärvideo» neu mit `titel.html` darüber, Ton
+  und die anderen drei Teile unverändert, 460 kbit/s wie bisher. Social
+  Media, Werbevideo und Imagefilm füllen die Fläche schon. Das Plus behält
+  das bisherige Reel.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
