@@ -88,7 +88,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   abends live. Ab jetzt wird am Entwurf weitergearbeitet (`entwurf*`, Arbeitszweig).
   Nichts geht auf `main` und damit live ohne Adrians ausdrückliches Einverständnis,
   auch keine Logbuch-Nachträge. Bestätigt die Regel in `CLAUDE.md`.
-- [ ] **ENT-029** · 29.10.2026 · Abschnitt «Gebaut, nicht behauptet» neu: drei
+- [x] **ENT-029** · 29.10.2026 · Abschnitt «Gebaut, nicht behauptet» neu: drei
   Drittel statt zwei Website-Karten. Website (gebaute Seiten laufen durch wie im
   Webdesign-Stand), Video (stummer Loop mit Referenzen), Branding (Kundenlogos).
   Entwurf in `entwurf-start.html`, Varianten als Bild, Adrian wählt.
@@ -191,7 +191,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «Gebaut, nicht behauptet.», der klang von oben herab. Der neue spricht dich
   an und verspricht dein Ergebnis (Schreibstil: der Titel ist der Hook);
   zweite Zeile und Satz darunter bleiben.
-  Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort (ENT-028).
+  Live am 29.10.2026 mit Adrians Wort («wir bringen den abschnitt auf die
+  live seite»): `main` auf 9ffc6f0, Lauf «Website zu Hostpoint» Nr. 36
+  (40903270956) erfolgreich, «replacing index.html», 14 Dateien neu,
+  `start-formateins-*` und `start-shiro-*` vom Server entfernt, «Sync
+  complete», IndexNow 200. PageSpeed live (ENT-015) liess sich von hier nicht
+  messen: die PageSpeed-Schnittstelle antwortet ohne Schlüssel mit 429.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
