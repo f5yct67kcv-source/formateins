@@ -336,3 +336,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `bash pruefungen/alle.sh`, ENT-Nummern für den Betreiber-Bereich stehen hier
   im Logbuch von formateins. In den GuardOpS-Repositories wird dafür nichts
   abgelegt.
+- [ ] **ENT-040** · offen · Zahlungsbedingungen und Vertrag für echte
+  Aufträge. Adrians Richtung vom 29.10.2026: vor der Anzahlung nur das
+  Gespräch, mit der Annahme der Offerte wird die Anzahlung fällig, erst dann
+  beginnt die Arbeit; 50 % Anzahlung, Rest bei Übergabe. Als Vertrag dienen
+  Offerte plus AGB, angenommen über den Kundenlink im Betreiber-Bereich
+  (ENT-037). Offen: Eckwerte von Adrian (Korrekturrunden, Abnahmefrist,
+  Etappen bei Kombi-Paketen), dann AGB-Text entwerfen, einmal von einer
+  Fachperson prüfen lassen, in den Betreiber-Bereich übernehmen.
