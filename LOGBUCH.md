@@ -228,3 +228,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   verweigert. Ursache klären mit der Testseite `entwurf-reeltest.html` (nur
   in der Vorschau): zeigt «Bewegung reduzieren», ob ein stummes Video von
   selbst spielt, und ein bewegtes WebP als möglichen Ersatz ohne Knopf.
+  Ergebnis auf Adrians iPhone (iOS 18.7): Stromsparmodus aus, «Bewegung
+  reduzieren» aus, trotzdem verweigert Safari das stumme Video
+  (NotAllowedError) und das bewegte WebP steht auch. Das passt zu den
+  Schaltern unter Einstellungen → Bedienungshilfen → Bewegung:
+  «Automatische Videovorschau» und «Animierte Bilder automatisch abspielen».
+  Die gelten für alle Websites, die Seite kann und soll sie nicht umgehen.
+  Der Knopf (ENT-032) ist wieder raus, wer kein Autoplay bekommt, sieht das
+  Standbild.
