@@ -126,6 +126,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Animation in entgegengesetzter Richtung, das wirkt unruhig; die Linie gibt es
   auch schon im Plus. Die Linie beim Logo ersetzt, drei ruhigere Auftritte zur
   Wahl: `?anim=blende`, `fokus` (Standard), `zeichnen`.
+  Adrian am 29.10.2026: Fokus. Websites und Logos brauchen nicht denselben
+  Takt. Websites alle 3,6 s, Logos alle 7,2 s und jeweils 1,8 s nach einer
+  Website, wenn die Spalte ruhig steht; nie wechseln beide zugleich (über
+  31 s nachgemessen). Blende und Zeichnen entfernt.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
