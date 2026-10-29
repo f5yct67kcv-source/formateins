@@ -327,3 +327,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Anfrage an `api/anfrage_eingang.php`, mit Secret `ANFRAGE_SCHLUESSEL` in
   beiden Repositories. Die Mail läuft unverändert weiter. Änderung an
   formateins.ch, braucht Adrians Wort zum Push.
+- [x] **ENT-039** · 29.10.2026 · Betreiber-Bereich: Gestaltungsentwurf der
+  Übersicht abgenommen (Adrian: «passt so»), Aufbau wie GuardOpS mit Farben,
+  Logo und Schriften von formateins. **Keine Handy-Fassung** (Adrian:
+  «handy nein»), gebaut nur für den Computer. Arbeitsregeln des Repositories
+  `formateins-betreiber` in dessen `CLAUDE.md`: Push auf `main` geht live auf
+  betreiber.formateins.ch und braucht Adrians Wort, vor jedem Push
+  `bash pruefungen/alle.sh`, ENT-Nummern für den Betreiber-Bereich stehen hier
+  im Logbuch von formateins. In den GuardOpS-Repositories wird dafür nichts
+  abgelegt.
