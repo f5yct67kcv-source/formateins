@@ -350,3 +350,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   stille Abnahme) stehen zusätzlich sichtbar in jeder Offerte. Beim
   «annehmen» im Kundenlink müssen der Link auf die AGB (mit Stand) und ein
   Häkchen «AGB gelesen» stehen, im Repository `formateins-betreiber` prüfen.
+- [x] **ENT-041** · 29.10.2026 · Korrekturen ohne gezählte Runden (ändert den
+  Vorschlag «2 Runden inklusive» aus ENT-040). Adrian: «ich bin erst
+  zufrieden, wenn es der Kunde auch ist», Änderungen gehen mit KI schnell.
+  Korrigiert wird, bis es passt, solange Umfang und freigegebene Richtung
+  gleich bleiben. Die Grenze ist eine Änderung des Auftrags (zusätzliche
+  Leistung, neue Richtung nach der Freigabe): Dafür gibt es vorher eine kurze
+  Nachofferte, nie eine Überraschung auf der Rechnung. Wortlaut für AGB und
+  Offerte offen unter ENT-040.
