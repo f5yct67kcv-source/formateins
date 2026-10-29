@@ -1354,7 +1354,9 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 /* Logos im Wechsel (29.10.2026, Adrian waehlt «Linie»). Das alte Logo geht
    (.geht), das neue kommt (.ist) mit kurzer Verzoegerung, damit sie sich nicht
    ueberlagern. */
-.logos .rahmen{position:relative;display:block;width:72%}
+/* Breite pro Logo nach Augenmass (--breite am figure): fette, hohe Logos
+   schmaler, feine breiter, damit alle gleich stark wirken. */
+.logos .rahmen{position:relative;display:block;width:var(--breite,72%)}
 .logos .rahmen.wort{width:auto}
 .logos .inhalt{display:block}
 .logos .inhalt img,.logos .inhalt svg{display:block;width:100%;height:auto}
@@ -1745,9 +1747,9 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 
       <article class="teil teil-marke">
         <div class="schaubild logos" data-logos>
-          <figure class="logo ist" data-name="GuardOpS" data-was="Logo, Bildmarke, Farben, Schrift" style="--markenfarbe:#111821"><span class="rahmen"><span class="inhalt"><img src="entwurf-logo-guardops.svg" alt="Logo GuardOpS" width="650" height="154"></span><span class="strich" aria-hidden="true"></span></span></figure>
-          <figure class="logo" data-name="Johann von Arb" data-was="Logo und Signet für eine Praxis" style="--markenfarbe:#33211c"><span class="rahmen"><span class="inhalt"><img src="entwurf-logo-johann.svg" alt="Logo Johann von Arb, Craniosacral Therapie" width="233" height="64"></span><span class="strich" aria-hidden="true"></span></span></figure>
-          <figure class="logo" data-name="Sportcenter Lindenfeld" data-was="Logo und Farben für ein Demo-Sportcenter"><span class="rahmen"><span class="inhalt"><img src="entwurf-logo-lindenfeld.svg" alt="Logo Sportcenter Lindenfeld" width="396" height="132"></span><span class="strich" aria-hidden="true"></span></span></figure>
+          <figure class="logo ist" data-name="GuardOpS" data-was="Logo, Bildmarke, Farben, Schrift" style="--markenfarbe:#111821;--breite:70%"><span class="rahmen"><span class="inhalt"><img src="entwurf-logo-guardops.svg" alt="Logo GuardOpS" width="650" height="154"></span><span class="strich" aria-hidden="true"></span></span></figure>
+          <figure class="logo" data-name="Johann von Arb" data-was="Logo und Signet für eine Praxis" style="--markenfarbe:#33211c;--breite:82%"><span class="rahmen"><span class="inhalt"><img src="entwurf-logo-johann.svg" alt="Logo Johann von Arb, Craniosacral Therapie" width="233" height="64"></span><span class="strich" aria-hidden="true"></span></span></figure>
+          <figure class="logo" data-name="Sportcenter Lindenfeld" data-was="Logo und Farben für ein Demo-Sportcenter" style="--breite:56%"><span class="rahmen"><span class="inhalt"><img src="entwurf-logo-lindenfeld.svg" alt="Logo Sportcenter Lindenfeld" width="396" height="132"></span><span class="strich" aria-hidden="true"></span></span></figure>
         </div>
         <div class="text">
           <p class="kicker"><span>02</span>Branding</p>
@@ -2602,6 +2604,32 @@ if (richtwerk) richtwerkEinrichten(richtwerk);
 
   // Läuft nur, solange die Kachel im Bild ist.
   const imBild = (el, an, aus) => new IntersectionObserver(([e]) => e.isIntersecting ? an() : aus(), { threshold: .35 }).observe(el);
+
+  // Der Textblock bekommt die Hoehe seines laengsten Stuecks (GuardOpS mit
+  // Kennzahlen), sonst springen beim Wechsel die Links in allen drei Spalten.
+  const textHoehe = (teil, stuecke) => {
+    const text = teil.querySelector('.text');
+    const felder = ['.name', '.was', '.werte'].map(k => text.querySelector(k));
+    const vorher = felder.map(f => f && [f.textContent, f.innerHTML, f.hidden]);
+    text.style.minHeight = ''; text.style.flex = 'none';
+    let max = 0;
+    stuecke.forEach(el => {
+      felder[0].textContent = el.dataset.name; felder[1].textContent = el.dataset.was;
+      if (felder[2]) {
+        felder[2].hidden = !el.dataset.werte;
+        felder[2].innerHTML = (el.dataset.werte || '').split('|').filter(Boolean).map(w => '<i>' + w + '</i>').join('');
+      }
+      max = Math.max(max, text.offsetHeight);
+    });
+    felder.forEach((f, i) => { if (!f) return; if (i === 2) { f.innerHTML = vorher[i][1]; f.hidden = vorher[i][2]; } else f.textContent = vorher[i][0]; });
+    text.style.flex = ''; text.style.minHeight = max + 'px';
+  };
+  const hoehenSetzen = () => {
+    textHoehe(sektion.querySelector('.teil-web'), [...sektion.querySelectorAll('[data-wechsel] .ref')]);
+    textHoehe(sektion.querySelector('.teil-marke'), [...sektion.querySelectorAll('[data-logos] .logo')]);
+  };
+  document.fonts.ready.then(hoehenSetzen);
+  let rt = 0; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(hoehenSetzen, 150); });
 
   const web = sektion.querySelector('[data-wechsel]');
   const refs = [...web.querySelectorAll('.ref')];

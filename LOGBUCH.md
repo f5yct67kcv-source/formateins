@@ -106,6 +106,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Demo-Logo Sportcenter Lindenfeld (von Adrian gestaltet, nur das Projekt ist
   Demo). Im Wechsel jetzt GuardOpS, Johann von Arb, Sportcenter Lindenfeld.
   Logo als `entwurf-logo-lindenfeld.svg` (Fassung invers) aus Drive.
+  Adrian am 29.10.2026: Logos optisch angleichen (Breite pro Logo nach
+  Augenmass) und den springenden Link beheben (Textblock hält die Höhe des
+  längsten Stücks). Ein weiteres Demo-Logo folgt.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
