@@ -891,7 +891,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .drittel{display:grid;grid-template-columns:1fr;gap:clamp(18px,2.2vw,28px)}
 @media(min-width:860px){.drittel{grid-template-columns:repeat(3,1fr)}}
 .teil{display:flex;flex-direction:column;min-width:0}
-.teil .schaubild{position:relative;aspect-ratio:1/1;margin-bottom:22px}
+.teil .schaubild{position:relative;aspect-ratio:4/3;margin-bottom:22px}
 .teil .text{display:flex;flex-direction:column;gap:6px;flex:1;padding-top:18px;border-top:1px solid var(--linie)}
 .teil .kicker{display:flex;gap:12px;margin:0;font-size:var(--txt-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--auf-grund-still)}
 .teil .kicker span{color:var(--signal)}
@@ -923,6 +923,15 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .teil-video .reelhandy{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:block;height:92%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:3px solid #0a1219;box-shadow:0 24px 50px -20px rgba(0,0,0,.8),0 0 0 1px var(--linie)}
 .teil-video video{display:block;width:100%;height:100%;object-fit:cover}
 #arbeiten .fussnote{margin-top:clamp(22px,3vw,32px)}
+/* Ab drei Spalten nebeneinander steht alles auf der Mittelachse seiner
+   Spalte, wie der Titel darueber (Adrian, 29.10.2026): sonst nimmt das Auge
+   die linke Textkante als Achse, und Logo und Reel wirken nach rechts
+   verschoben. Am Handy bleibt alles linksbuendig. */
+@media(min-width:860px){
+  .teil .text{align-items:center;text-align:center}
+  .teil .kicker,.teil .werte{justify-content:center}
+  #arbeiten .fussnote{text-align:center;margin-inline:auto}
+}
 @media(prefers-reduced-motion:reduce){.logos .logo,.logos .logo *{animation:none!important}.teil .name,.teil .was,.teil .weiter b{transition:none}}
 
 /* Die Staende der Bereiche, im Raster der Arbeiten-Flaeche. Die Auswahl hugt

@@ -160,6 +160,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   den Kennwerten wieder darunter, Dateien umbenannt (`logo-*.svg`,
   `start-lindenfeld-*`, `start-hakuro-*`, `video-reel-voll-ton.*`),
   `entwurf-start.html` und die Bilder von formateins und Shiro entfernt.
+  Adrian am 29.10.2026: Proportionen, Logo und Reel wirken nach rechts
+  verschoben. Nachgemessen: sie stehen genau mittig, die linksbündigen Texte
+  täuschen. Adrian wählt A: ab 860 px Text, Kennzahlen, Link und Fussnote
+  mittig unter jeder Spalte, Bühne 4:3 statt quadratisch (Reel etwa so hoch
+  wie das Website-Fenster). Am Handy linksbündig.
   Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort (ENT-028).
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
