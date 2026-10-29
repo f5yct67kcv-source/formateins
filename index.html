@@ -767,7 +767,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .wechsel{background:var(--grund-tief)}
 .wechsel .ref{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .45s ease;--schnitt:100%}
 .wechsel .ref.ist{opacity:1}
-.wechsel .ref img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.wechsel .ref img,.wechsel .ref video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .wechsel .ref .plan{clip-path:inset(0 calc(100% - var(--schnitt)) 0 0)}
 .wechsel .ref .linie{position:absolute;top:0;bottom:0;left:var(--schnitt);border-left:1.5px solid var(--signal)}
 .wechsel .ref.baut{--schnitt:0%;transition:opacity .45s ease,--schnitt 1.1s cubic-bezier(.65,0,.35,1) .35s}
@@ -904,7 +904,7 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 /* Website: ein Fenster mit Leiste, mittig in der Buehne */
 .teil-web .wechsel{background:none}
 .teil-web .wechsel .ref{inset:auto;left:0;right:0;top:50%;transform:translateY(-50%);aspect-ratio:16/10;border-top:16px solid #0a1219;border-radius:8px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(0,0,0,.9),0 0 0 1px var(--linie)}
-.teil-web .wechsel .ref img{object-position:left top}
+.teil-web .wechsel .ref img,.teil-web .wechsel .ref video{object-position:left top}
 /* Branding: ein Logo nach dem anderen. Breite pro Logo nach Augenmass
    (--breite): fette, hohe Logos schmaler, feine breiter, damit alle gleich
    stark wirken. Das neue kommt aus leichter Unschaerfe scharf, wie an der
@@ -1506,9 +1506,9 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
             <div class="fenster">
               <div class="fensterleiste" aria-hidden="true"><i></i><i></i><i></i><span class="ref-url">demo.formateins.ch/lindenfeld</span></div>
               <div class="sicht wechsel" style="--v:.625">
-                <figure class="ref ist" data-name="Sportcenter Lindenfeld" data-url="demo.formateins.ch/lindenfeld"><img src="start-lindenfeld-seite.webp" alt="Startseite des Sportcenters Lindenfeld" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-lindenfeld-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
+                <figure class="ref ist" data-name="Sportcenter Lindenfeld" data-url="demo.formateins.ch/lindenfeld"><video class="seite" poster="start-lindenfeld-seite.webp" width="1200" height="750" muted playsinline preload="none" aria-label="Startseite des Sportcenters Lindenfeld"><source src="start-lindenfeld-seite.mp4" type="video/mp4"><source src="start-lindenfeld-seite.webm" type="video/webm"></video><img class="plan" src="start-lindenfeld-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
                 <figure class="ref" data-name="GuardOpS" data-url="guardops.ch"><img src="start-guardops-seite.webp" alt="Startseite von GuardOpS" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-guardops-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
-                <figure class="ref" data-name="Hakuro" data-url="demo.formateins.ch/hakuro"><img src="start-hakuro-seite.webp" alt="Startseite von Hakuro, einem Restaurant" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-hakuro-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
+                <figure class="ref" data-name="Hakuro" data-url="demo.formateins.ch/hakuro"><video class="seite" poster="start-hakuro-seite.webp" width="1200" height="750" muted playsinline preload="none" aria-label="Startseite von Hakuro, einem Restaurant"><source src="start-hakuro-seite.mp4" type="video/mp4"><source src="start-hakuro-seite.webm" type="video/webm"></video><img class="plan" src="start-hakuro-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
               </div>
             </div>
           </div>
@@ -1675,9 +1675,9 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
     <div class="drittel">
       <article class="teil teil-web">
         <div class="schaubild wechsel" data-wechsel>
-          <figure class="ref ist" data-name="Sportcenter Lindenfeld" data-was="Website für ein Sportcenter" data-url="demo.formateins.ch/lindenfeld" data-link="https://demo.formateins.ch/lindenfeld/" data-linktext="Seite ansehen"><img src="start-lindenfeld-seite.webp" alt="Startseite des Sportcenters Lindenfeld" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-lindenfeld-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
+          <figure class="ref ist" data-name="Sportcenter Lindenfeld" data-was="Website für ein Sportcenter" data-url="demo.formateins.ch/lindenfeld" data-link="https://demo.formateins.ch/lindenfeld/" data-linktext="Seite ansehen"><video class="seite" poster="start-lindenfeld-seite.webp" width="1200" height="750" muted playsinline preload="none" aria-label="Startseite des Sportcenters Lindenfeld"><source src="start-lindenfeld-seite.mp4" type="video/mp4"><source src="start-lindenfeld-seite.webm" type="video/webm"></video><img class="plan" src="start-lindenfeld-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
           <figure class="ref" data-name="GuardOpS" data-was="Produktwebsite für eine Betriebssoftware" data-url="guardops.ch" data-link="arbeiten/guardops" data-linktext="Arbeiten ansehen" data-werte="7× leichter|0 Cookies|CH gehostet"><img src="start-guardops-seite.webp" alt="Startseite von GuardOpS" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-guardops-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
-          <figure class="ref" data-name="Hakuro" data-was="Website für ein Restaurant" data-url="demo.formateins.ch/hakuro" data-link="https://demo.formateins.ch/hakuro/" data-linktext="Seite ansehen"><img src="start-hakuro-seite.webp" alt="Startseite von Hakuro, einem Restaurant" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-hakuro-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
+          <figure class="ref" data-name="Hakuro" data-was="Website für ein Restaurant" data-url="demo.formateins.ch/hakuro" data-link="https://demo.formateins.ch/hakuro/" data-linktext="Seite ansehen"><video class="seite" poster="start-hakuro-seite.webp" width="1200" height="750" muted playsinline preload="none" aria-label="Startseite von Hakuro, einem Restaurant"><source src="start-hakuro-seite.mp4" type="video/mp4"><source src="start-hakuro-seite.webm" type="video/webm"></video><img class="plan" src="start-hakuro-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
         </div>
         <div class="text">
           <p class="kicker"><span>01</span>Website</p>
@@ -2610,5 +2610,24 @@ if (richtwerk) richtwerkEinrichten(richtwerk);
       lt = setInterval(() => wechseln((li + 1) % marken.length), 3600);
     }, 1800);
   }, () => { clearTimeout(ls); ls = 0; clearInterval(lt); lt = 0; marken[li].classList.add('ist'); });
+})();
+</script>
+
+<script>
+// Bewegte Startseiten (29.10.2026): Lindenfeld und Hakuro haben im Kopf ein
+// Video, also zeigt das Fenster vier Sekunden davon statt eines Standbilds,
+// aufgenommen Bild fuer Bild von demo.formateins.ch. Es startet jedes Mal von
+// vorn, wenn die Seite drankommt, und steht, sobald sie geht; gilt fuer den
+// Abschnitt «Gebaut, nicht behauptet» und das Fenster im Plus. Wer Bewegung
+// abgeschaltet hat, sieht das Standbild.
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.wechsel .ref video.seite').forEach(v => {
+    const ref = v.closest('.ref');
+    new MutationObserver(() => {
+      if (ref.classList.contains('ist')) { if (v.paused) { v.currentTime = 0; v.play().catch(() => {}); } }
+      else v.pause();
+    }).observe(ref, { attributes: true, attributeFilter: ['class'] });
+  });
 })();
 </script>

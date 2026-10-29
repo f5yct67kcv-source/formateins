@@ -168,6 +168,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Adrian am 29.10.2026: Fussnote «Kennwerte gemessen im Oktober 2026 …» raus,
   sie stört. Der Beleg für «7× leichter» (355 KB statt 2'652 KB, HTTP Archive)
   steht auf `arbeiten/guardops.html`, «Arbeiten ansehen» führt dorthin.
+  Adrian am 29.10.2026: Hakuro (dampfende Suppe) und Lindenfeld (Video im
+  Kopf) sind auf den Seiten bewegt, in den Fenstern nicht. Jetzt je vier
+  Sekunden Video statt Standbild, Bild für Bild von demo.formateins.ch
+  aufgenommen, MP4 98 KB / 418 KB, WebM 108 KB / 368 KB, lädt erst, wenn die
+  Seite drankommt; im Abschnitt und im Plus. Standbild = erstes Bild.
   Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort (ENT-028).
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
