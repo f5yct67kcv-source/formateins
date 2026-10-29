@@ -344,3 +344,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   (ENT-037). Offen: Eckwerte von Adrian (Korrekturrunden, Abnahmefrist,
   Etappen bei Kombi-Paketen), dann AGB-Text entwerfen, einmal von einer
   Fachperson prüfen lassen, in den Betreiber-Bereich übernehmen.
+  Präzisiert am 29.10.2026: Die Offerte allein reicht nicht, erst Offerte
+  und AGB zusammen ergeben den Vertrag. Die drei wichtigsten Punkte
+  (Anzahlung vor dem Start, Übergabe und Rechte erst nach der Schlusszahlung,
+  stille Abnahme) stehen zusätzlich sichtbar in jeder Offerte. Beim
+  «annehmen» im Kundenlink müssen der Link auf die AGB (mit Stand) und ein
+  Häkchen «AGB gelesen» stehen, im Repository `formateins-betreiber` prüfen.
