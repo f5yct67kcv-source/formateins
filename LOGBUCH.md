@@ -236,3 +236,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Die gelten für alle Websites, die Seite kann und soll sie nicht umgehen.
   Der Knopf (ENT-032) ist wieder raus, wer kein Autoplay bekommt, sieht das
   Standbild.
+  Adrian am 29.10.2026: Beide Schalter waren aus, eingeschaltet laufen die
+  Reels. Ab Werk sind sie an (Apple-Handbuch, «Bewegung auf dem Bildschirm
+  anpassen», nennt für beide nur «Ausschalten»), auf den meisten iPhones
+  laufen die Reels also. Die Testseite `entwurf-reeltest.*` ist wieder
+  gelöscht.
