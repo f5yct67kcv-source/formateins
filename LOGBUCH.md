@@ -297,3 +297,6 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `betreiber.formateins.ch` mit eigenem Verzeichnis und SSL, eine
   MySQL-Datenbank mit eigenem Benutzer, ein FTP-Benutzer nur für dieses
   Verzeichnis; die Zugangsdaten als Secrets ins neue Repository.
+  Hostpoint am 29.10.2026 erledigt (Adrian). Die Datenbank heisst nicht
+  `betreiber`, der Name war im Webhosting schon besetzt. Offen: Repository
+  und Secrets.
