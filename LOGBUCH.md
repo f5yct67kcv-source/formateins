@@ -122,6 +122,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Adrians Vorschlag) und `?kopf=links`.
   Adrian am 29.10.2026: A. Kopf mittig, sobald die drei Spalten nebeneinander
   stehen (ab 860 px), am Handy linksbündig wie die Spalten. Varianten entfernt.
+  Adrian am 29.10.2026, Punkt 2: Logo und Websites haben fast dieselbe
+  Animation in entgegengesetzter Richtung, das wirkt unruhig; die Linie gibt es
+  auch schon im Plus. Die Linie beim Logo ersetzt, drei ruhigere Auftritte zur
+  Wahl: `?anim=blende`, `fokus` (Standard), `zeichnen`.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
