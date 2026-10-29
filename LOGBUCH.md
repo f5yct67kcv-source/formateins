@@ -101,12 +101,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Adrian am 29.10.2026: Logos im Wechsel (jetzt Standard, Wand mit `?logos=wand`),
   Text neben dem Titel passt, Farbpunkte weg. Vier Auftritte für die Logos zur
   Wahl: `?anim=linie` (Standard), `zeichnen`, `raster`, `fokus`.
+  Adrian am 29.10.2026: «Linie». Fest eingebaut, die anderen drei sind entfernt.
+  Offen: ob das eigene formateins-Logo im Wechsel bleibt.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
   formateins. Drive ist als Connector verbunden. Ins Repository kommen nur
   aufbereitete Dateien, die auf formateins.ch erscheinen.
-- [ ] **ENT-031** · offen · GuardOpS-CI: Das Gestaltungspaket vom 12.09.2026 nennt
+- [x] **ENT-031** · 29.10.2026 · GuardOpS-CI: Das Gestaltungspaket vom 12.09.2026 nennt
   sich «unbestätigter Entwurf» mit vier offenen Punkten (Schrift, Wortmarke ohne
   Bildmarke, Name ohne Markenrecherche, Claim). Vor dem Zeigen als Referenz mit
   Adrian klären, ob das inzwischen entschieden und freigegeben ist.
+  Adrian am 29.10.2026: «ja, ist freigegeben». Darf als Referenz gezeigt werden.
