@@ -35,6 +35,8 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
 | `video-spot.mp4`, `.webm`, `.jpg` | Der Spot im Telefon der dritten Richtung (Video), ohne Ton, 720 px hoch, dazu das Standbild. Aus der Quelle neu bauen: `ffmpeg -i QUELLE.mp4 -an -vf scale=-2:720 -c:v libx264 -crf 27 -preset slow -movflags +faststart video-spot.mp4`, dasselbe mit `-c:v libvpx-vp9 -crf 36 -b:v 0` als `.webm`, Standbild mit `-ss 5.2 -frames:v 1`. Beide Fassungen, weil Chromium ohne Lizenz kein H.264 spielt |
 | `video-spot-ton.mp4`, `.webm` | Derselbe Spot mit Ton, für den Motion-Stand mit Tonknopf (das Video trägt `data-ton`). Die Richtung oben behält den stummen Spot. Aus Adrians Fassung mit Ton (26.10.2026): `ffmpeg -i QUELLE.mp4 -vf scale=406:720:flags=lanczos -c:v libx264 -profile:v main -preset slow -crf 28 -c:a aac -b:a 96k -ac 2 -movflags +faststart video-spot-ton.mp4`, als `.webm` mit `-c:v libvpx-vp9 -crf 40 -b:v 0 -c:a libopus -b:a 96k` |
 | `video-reel-ton.mp4`, `.webm` und `video-reel-ohne-titel-ton.mp4`, `.webm` | Das Reel im Video-Stand (16 s, 540 × 960, mit Ton), in zwei Fassungen seit dem 27.10.2026: mit Titel-Einblender («Beispiel Werbevideo») fürs Handy, ohne Einblender für ab 900 Pixel, dort läuft der Formate-Kasten mit (Teile ab 0, 4,5, 8 und 12 s). Im HTML stehen die Quellen mit Titel, `data-breit` am Video nennt die Fassung ohne; das Skript wählt nach Breite und fällt auf die Fassung mit Titel zurück, solange die andere fehlt. Beide Fassungen brauchen dieselbe Länge und dieselben Schnitte. Herkunft und Skripte: `quellen/video-reel/` auf `claude/pensive-albattani-870hom`. |
+| `video-reel-voll-ton.mp4`, `.webm` | Dasselbe Reel für «Gebaut, nicht behauptet» (seit 29.10.2026, ENT-029). Dort ist das Telefon 9:16 und schneidet nichts ab, darum füllt das Erklärvideo (4,5–8 s) die ganze Fläche statt 84 % über einer unscharfen Kopie: aus der Fassung ohne Titel 450 × 800 ab 45/80 auf 540 × 960, Titel «Beispiel Erklärvideo» neu mit `titel.html`, Ton und die anderen Teile unverändert, 460 kbit/s. |
+| `logo-*.svg`, `start-lindenfeld-*`, `start-hakuro-*` | «Gebaut, nicht behauptet» (ENT-029): die Logos GuardOpS, Sportcenter Lindenfeld, Johann von Arb und Hakuro in der Fassung für dunklen Grund, aus Google Drive (Kundenprojekte, Demo Projekte). Die Startseiten von Lindenfeld und Hakuro sind 1440 × 900 von demo.formateins.ch aufgenommen und auf 1200 × 750 gerechnet, der Bauplan mit `quellen/bauplan.js`; bei Lindenfeld ist das Kopfvideo bei 4 s angehalten. Lindenfeld und Hakuro sind Demos, das steht auf ihren Seiten, auf der Startseite nicht. |
 
 ## Noch offen
 
@@ -210,8 +212,10 @@ Material. Erledigtes streichen, nicht löschen, bis der Entwurf live ist.
 **Material**
 
 - **Craniosacral Praxis** kommt zurück ins Webdesign-Fenster, sobald ihre
-  Fotos da sind; bis dahin steht dort die Demo Shiro (keine Kundenreferenz,
-  kein Link). Dann auch die Aufnahmen unter Arbeiten erneuern.
+  Fotos da sind. Seit dem 29.10.2026 laufen dort und unter «Gebaut, nicht
+  behauptet» Sportcenter Lindenfeld, GuardOpS und Hakuro (ENT-029); die
+  Praxis erscheint dort als Logo, ihre Projektseite verlinkt die Startseite
+  nicht mehr. Dann auch die Aufnahmen unter Arbeiten erneuern.
 - **Bereichsseiten** `entwurf-website.html`, `entwurf-branding.html` und
   `entwurf-video.html` sind noch Platzhalter. Live ging die Startseite ohne
   sie (28.10.2026): Die Kacheln sagen «Was eine Website kostet →» (Ratgeber),

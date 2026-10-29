@@ -152,6 +152,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   und die anderen drei Teile unverändert, 460 kbit/s wie bisher. Social
   Media, Werbevideo und Imagefilm füllen die Fläche schon. Das Plus behält
   das bisherige Reel.
+  Adrian am 29.10.2026: «Demo-» raus aus den Zeilen unter den Spalten (ja),
+  Link bei den Demos auf die Demo-Seite (ja, «Seite ansehen», bei GuardOpS
+  weiter «Arbeiten ansehen»), Plus auf Lindenfeld, GuardOpS, Hakuro (ja).
+  Danach in die echte Startseite, aber noch nicht pushen. Erledigt auf dem
+  Arbeitszweig: Abschnitt in `index.html` ohne Varianten-Code, Fussnote zu
+  den Kennwerten wieder darunter, Dateien umbenannt (`logo-*.svg`,
+  `start-lindenfeld-*`, `start-hakuro-*`, `video-reel-voll-ton.*`),
+  `entwurf-start.html` und die Bilder von formateins und Shiro entfernt.
+  Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort (ENT-028).
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media

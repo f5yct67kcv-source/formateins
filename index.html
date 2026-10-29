@@ -571,9 +571,13 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
    Flaeche ist ausgewaehlt (Rahmen, Griffe, Massangabe), daneben das Telefon und
    ein Inspektor mit Farben, Schriften und gemessenen Werten. Unter der Seite
    liegt ihr Bauplan, aufgedeckt mit dem Zeiger oder dem Finger. */
-.arbeitenkopf{display:grid;gap:18px 66px;align-items:end;margin-bottom:clamp(30px,5vh,52px)}
-@media(min-width:920px){.arbeitenkopf{grid-template-columns:1.02fr .98fr}}
-.arbeitenkopf p{max-width:46ch}
+/* Kopf von «Gebaut, nicht behauptet» (29.10.2026): ueber die ganze Breite,
+   die zweite Zeile auf einer Zeile, der feine Text darunter. Mittig, sobald
+   die drei Spalten nebeneinander stehen, am Handy linksbuendig wie sie. */
+.arbeitenkopf{margin-bottom:clamp(30px,5vh,52px)}
+.arbeitenkopf p{margin-top:1.1em;max-width:52ch}
+@media(min-width:760px){.arbeitenkopf h2 .zweite{white-space:nowrap}}
+@media(min-width:860px){.arbeitenkopf{text-align:center}.arbeitenkopf p{margin-inline:auto}}
 
 .werkbank{margin:0}
 
@@ -879,32 +883,47 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 .tel-objekt .telefon .sicht{display:block;border-radius:17px;aspect-ratio:1/2.164}
 .tel-objekt .telefon img,.tel-objekt .telefon video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
 
-/* ---------- Referenzen ----------
-   Eine Karte pro Projekt: oben der Bildschirm mit dem Handy davor, darunter
-   Nummer und Kategorie, Name, ein Satz, die Kennwerte als Chips und der Weg
-   zur Projektseite. Die ganze Karte ist der Link. Am Zeiger hebt sie sich und
-   der Bildschirm richtet sich auf. Der Pruefstand (die Seite selbst im
-   Rahmen) ist von hier auf die Projektseiten gewandert. */
-.referenzen{display:grid;grid-template-columns:1fr;gap:clamp(18px,2.5vw,32px)}
-@media(min-width:760px){.referenzen{grid-template-columns:1fr 1fr}}
-.referenz{display:flex;flex-direction:column;gap:8px;padding:0 0 clamp(20px,2.5vw,28px);border:1px solid var(--linie);border-radius:14px;background:rgba(255,255,255,.025);overflow:hidden;color:inherit;text-decoration:none;transition:border-color .3s ease,transform .4s cubic-bezier(.16,1,.3,1)}
-.referenz:hover{border-color:rgba(255,138,76,.5);transform:translateY(-4px)}
-.referenz:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
-.referenz .schau{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:var(--grund-tief);margin-bottom:12px}
-.referenz .schau .schirm{position:absolute;left:9%;top:11%;width:88%;height:auto;border-radius:6px 6px 0 0;box-shadow:0 20px 40px -18px rgba(0,0,0,.7);transform:perspective(1200px) rotateX(4deg) rotateY(-6deg);transform-origin:bottom center;transition:transform .6s cubic-bezier(.16,1,.3,1)}
-.referenz:hover .schau .schirm{transform:perspective(1200px) rotateX(0) rotateY(0) translateY(-6px)}
-.referenz .schau .handy{position:absolute;right:7%;bottom:-6%;width:17%;height:auto;border-radius:10px;box-shadow:0 18px 36px -14px rgba(0,0,0,.8);border:2px solid #0e1822}
-.referenz .zeile1,.referenz strong,.referenz .was,.referenz .werte,.referenz .weiter{padding-inline:clamp(20px,2.5vw,28px)}
-.referenz .zeile1{display:flex;gap:14px;font-size:var(--txt-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--signal)}
-.referenz .zeile1 .kat{color:var(--auf-grund-still)}
-.referenz strong{font-family:var(--serif);font-size:clamp(1.25rem,1.9vw,1.55rem);font-weight:700;letter-spacing:-.015em;line-height:1.15;color:var(--auf-grund)}
-.referenz .was{color:var(--auf-grund-still);font-size:var(--txt-m)}
-.referenz .werte{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.referenz .werte i{font-style:normal;font-size:var(--txt-xs);font-weight:600;padding:5px 10px;border:1px solid var(--linie);border-radius:999px;color:var(--auf-grund)}
-.referenz .weiter{margin-top:10px;font-weight:700;font-size:var(--txt-s);color:var(--auf-grund)}
-.referenz .weiter b{color:var(--signal);display:inline-block;transition:transform .3s ease}
-.referenz:hover .weiter b{transform:translateX(4px)}
-@media(prefers-reduced-motion:reduce){.referenz,.referenz .schau .schirm,.referenz .weiter b{transition:none}.referenz:hover{transform:none}.referenz:hover .schau .schirm{transform:perspective(1200px) rotateX(4deg) rotateY(-6deg)}}
+/* ---------- Gebaut, nicht behauptet ----------
+   Drei Spalten, freistehend auf dem Seitengrund: gleich hohe Buehne, damit
+   die Texte auf einer Linie beginnen; darunter Nummer, Bereich, Name, ein
+   Satz und der Weg weiter. Die Website-Spalte nutzt «Startseiten im Wechsel»
+   (siehe unten) ohne den Rahmen des Stands. */
+.drittel{display:grid;grid-template-columns:1fr;gap:clamp(18px,2.2vw,28px)}
+@media(min-width:860px){.drittel{grid-template-columns:repeat(3,1fr)}}
+.teil{display:flex;flex-direction:column;min-width:0}
+.teil .schaubild{position:relative;aspect-ratio:1/1;margin-bottom:22px}
+.teil .text{display:flex;flex-direction:column;gap:6px;flex:1;padding-top:18px;border-top:1px solid var(--linie)}
+.teil .kicker{display:flex;gap:12px;margin:0;font-size:var(--txt-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--auf-grund-still)}
+.teil .kicker span{color:var(--signal)}
+.teil .name{margin:0;font-family:var(--serif);font-size:clamp(1.25rem,1.8vw,1.5rem);font-weight:700;letter-spacing:-.015em;line-height:1.15;color:var(--auf-grund);transition:opacity .3s ease}
+.teil .was{margin:0;color:var(--auf-grund-still);font-size:var(--txt-m);transition:opacity .3s ease}
+.teil .werte{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 0}
+.teil .werte i{font-style:normal;font-size:var(--txt-xs);font-weight:600;padding:5px 10px;border:1px solid var(--linie);border-radius:999px;color:var(--auf-grund)}
+.teil .weiter{margin-top:auto;padding-top:10px;font-weight:700;font-size:var(--txt-s);color:var(--auf-grund);text-decoration:none}
+.teil .weiter b{color:var(--signal);display:inline-block;transition:transform .3s ease}
+.teil .weiter:hover b{transform:translateX(4px)}
+.teil .text.dreht .name,.teil .text.dreht .was{opacity:0}
+/* Website: ein Fenster mit Leiste, mittig in der Buehne */
+.teil-web .wechsel{background:none}
+.teil-web .wechsel .ref{inset:auto;left:0;right:0;top:50%;transform:translateY(-50%);aspect-ratio:16/10;border-top:16px solid #0a1219;border-radius:8px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(0,0,0,.9),0 0 0 1px var(--linie)}
+.teil-web .wechsel .ref img{object-position:left top}
+/* Branding: ein Logo nach dem anderen. Breite pro Logo nach Augenmass
+   (--breite): fette, hohe Logos schmaler, feine breiter, damit alle gleich
+   stark wirken. Das neue kommt aus leichter Unschaerfe scharf, wie an der
+   Kamera; die Linie gehoert den Websites daneben. */
+.logos .logo{position:absolute;inset:0;margin:0;display:grid;place-items:center;opacity:0}
+.logos .logo.ist,.logos .logo.geht{opacity:1}
+.logos .rahmen{display:block;width:var(--breite,72%)}
+.logos .rahmen img{display:block;width:100%;height:auto}
+.logos .logo.ist .rahmen{animation:fokus-ein 1.1s cubic-bezier(.16,1,.3,1) .35s both}
+.logos .logo.geht{animation:fokus-aus .45s ease forwards}
+@keyframes fokus-ein{from{opacity:0;filter:blur(10px)}to{opacity:1;filter:blur(0)}}
+@keyframes fokus-aus{to{opacity:0;filter:blur(6px)}}
+/* Video: das Reel im Telefon, 9:16 wie das Video */
+.teil-video .reelhandy{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:block;height:92%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:3px solid #0a1219;box-shadow:0 24px 50px -20px rgba(0,0,0,.8),0 0 0 1px var(--linie)}
+.teil-video video{display:block;width:100%;height:100%;object-fit:cover}
+#arbeiten .fussnote{margin-top:clamp(22px,3vw,32px)}
+@media(prefers-reduced-motion:reduce){.logos .logo,.logos .logo *{animation:none!important}.teil .name,.teil .was,.teil .weiter b{transition:none}}
 
 /* Die Staende der Bereiche, im Raster der Arbeiten-Flaeche. Die Auswahl hugt
    das Objekt, das kleiner ist als das Brett: Blatt und Telefon. */
@@ -1470,18 +1489,20 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
           <p>Eine Seite, drei oder mehr? Die meisten wissen am Anfang nicht genau, was sie brauchen. Das musst du auch nicht. Zuerst höre ich zu und schaue, was dich ausmacht. Daraus erarbeiten wir gemeinsam einen Webauftritt, der zeigt, was du kannst, zu einem festen Preis.</p>
         </div>
         <!-- Das Fenster zeigt Startseiten, keine ganze Website (27.10.2026):
-             drei Arbeiten im Wechsel, jede steht kurz als Bauplan da, dann
+             drei Arbeiten im Wechsel (seit 29.10.2026 Sportcenter
+             Lindenfeld, GuardOpS und Hakuro, wie unter «Gebaut, nicht
+             behauptet»), jede steht kurz als Bauplan da, dann
              zieht die Linie durch und die fertige Seite steht. Ablauf im CSS
              unter «Startseiten im Wechsel», Takt im Skript. -->
         <div class="brett-desktop">
-          <p class="brettname" aria-hidden="true"><b class="ref-name">formateins</b> · Startseite</p>
+          <p class="brettname" aria-hidden="true"><b class="ref-name">Sportcenter Lindenfeld</b> · Startseite</p>
           <div class="auswahl" data-mass="1440 × 900">
             <div class="fenster">
-              <div class="fensterleiste" aria-hidden="true"><i></i><i></i><i></i><span class="ref-url">formateins.ch</span></div>
+              <div class="fensterleiste" aria-hidden="true"><i></i><i></i><i></i><span class="ref-url">demo.formateins.ch/lindenfeld</span></div>
               <div class="sicht wechsel" style="--v:.625">
-                <figure class="ref ist" data-name="formateins" data-url="formateins.ch"><img src="start-formateins-seite.webp" alt="Startseite von formateins" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-formateins-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
+                <figure class="ref ist" data-name="Sportcenter Lindenfeld" data-url="demo.formateins.ch/lindenfeld"><img src="start-lindenfeld-seite.webp" alt="Startseite des Sportcenters Lindenfeld" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-lindenfeld-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
                 <figure class="ref" data-name="GuardOpS" data-url="guardops.ch"><img src="start-guardops-seite.webp" alt="Startseite von GuardOpS" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-guardops-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
-                <figure class="ref" data-name="Shiro" data-url="demo.formateins.ch/shiro"><img src="start-shiro-seite.webp" alt="Startseite von Shiro, einem Demo-Projekt für ein Restaurant" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-shiro-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
+                <figure class="ref" data-name="Hakuro" data-url="demo.formateins.ch/hakuro"><img src="start-hakuro-seite.webp" alt="Startseite von Hakuro, einem Restaurant" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-hakuro-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
               </div>
             </div>
           </div>
@@ -1636,28 +1657,61 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
   <div class="spalte auf">
     <div class="arbeitenkopf">
       <h2>Gebaut, nicht behauptet.<span class="zweite">Seiten, Markenblätter, Reels.</span></h2>
-      <p class="still">Zwei Seiten, gebaut und gemessen. Was dahintersteckt, steht auf den Projektseiten.</p>
+      <p class="still">Jede Arbeit beginnt mit einer gemeinsamen Strategie. Hier siehst du das Ergebnis.</p>
     </div>
 
-    <!-- Referenzen: eine Karte pro Projekt, die ganze Karte ist der Link zur
-         Projektseite. Dort steht der Pruefstand, die Seite selbst im Rahmen. -->
-    <div class="referenzen">
-      <a class="referenz" href="arbeiten/guardops">
-        <span class="schau"><img class="schirm" src="arbeiten/guardops-vorschau.webp" alt="Startseite von GuardOpS am Desktop" width="960" height="600" loading="lazy" decoding="async"><img class="handy" src="arbeiten/guardops-vorschau-mobil.webp" alt="Dieselbe Startseite am Handy" width="220" height="476" loading="lazy" decoding="async"></span>
-        <span class="zeile1"><span class="nr">01</span><span class="kat">Software · Sicherheitsdienste</span></span>
-        <strong>GuardOpS</strong>
-        <span class="was">Produktwebsite für eine Schweizer Betriebssoftware</span>
-        <span class="werte"><i>7× leichter</i><i>0 Cookies</i><i>CH gehostet</i></span>
-        <span class="weiter">Mehr zur Arbeit <b>→</b></span>
-      </a>
-      <a class="referenz" href="arbeiten/craniosacral-praxis">
-        <span class="schau"><img class="schirm" src="arbeiten/johann-vorschau.webp" alt="Startseite der Craniosacral Praxis am Desktop" width="960" height="600" loading="lazy" decoding="async"><img class="handy" src="arbeiten/johann-vorschau-mobil.webp" alt="Dieselbe Startseite am Handy" width="220" height="476" loading="lazy" decoding="async"></span>
-        <span class="zeile1"><span class="nr">02</span><span class="kat">Praxis · Fulenbach</span></span>
-        <strong>Craniosacral Praxis Johann von Arb</strong>
-        <span class="was">Eine Seite, ohne Baukasten, mit allem, was eine Praxis braucht</span>
-        <span class="werte"><i>23× leichter</i><i>0 Cookies</i></span>
-        <span class="weiter">Mehr zur Arbeit <b>→</b></span>
-      </a>
+    <!-- Drei Spalten in der Reihenfolge der Richtungen oben (ENT-029,
+         29.10.2026): Website, Branding, Video, freistehend ohne Karten. Die
+         Websites bauen sich wie im Stand vom Bauplan zur Seite auf, die Logos
+         kommen aus der Unschaerfe, das Reel laeuft stumm. Der Text unter jeder
+         Spalte folgt dem gezeigten Stueck (data-name, data-was, data-werte,
+         data-link). Takt und Ablauf im Skript am Ende der Seite. -->
+    <div class="drittel">
+      <article class="teil teil-web">
+        <div class="schaubild wechsel" data-wechsel>
+          <figure class="ref ist" data-name="Sportcenter Lindenfeld" data-was="Website für ein Sportcenter" data-url="demo.formateins.ch/lindenfeld" data-link="https://demo.formateins.ch/lindenfeld/" data-linktext="Seite ansehen"><img src="start-lindenfeld-seite.webp" alt="Startseite des Sportcenters Lindenfeld" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-lindenfeld-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
+          <figure class="ref" data-name="GuardOpS" data-was="Produktwebsite für eine Betriebssoftware" data-url="guardops.ch" data-link="arbeiten/guardops" data-linktext="Arbeiten ansehen" data-werte="7× leichter|0 Cookies|CH gehostet"><img src="start-guardops-seite.webp" alt="Startseite von GuardOpS" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-guardops-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
+          <figure class="ref" data-name="Hakuro" data-was="Website für ein Restaurant" data-url="demo.formateins.ch/hakuro" data-link="https://demo.formateins.ch/hakuro/" data-linktext="Seite ansehen"><img src="start-hakuro-seite.webp" alt="Startseite von Hakuro, einem Restaurant" width="1200" height="750" loading="lazy" decoding="async"><img class="plan" src="start-hakuro-plan.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"><span class="linie" aria-hidden="true"></span></figure>
+        </div>
+        <div class="text">
+          <p class="kicker"><span>01</span>Website</p>
+          <h3 class="name">Sportcenter Lindenfeld</h3>
+          <p class="was">Website für ein Sportcenter</p>
+          <p class="werte" hidden></p>
+          <a class="weiter" href="https://demo.formateins.ch/lindenfeld/"><span class="linktext">Seite ansehen</span> <b>→</b></a>
+        </div>
+      </article>
+
+      <article class="teil teil-marke">
+        <div class="schaubild logos" data-logos>
+          <figure class="logo ist" data-name="GuardOpS" data-was="Logo, Bildmarke, Farben, Schrift" style="--breite:70%"><span class="rahmen"><img src="logo-guardops.svg" alt="Logo GuardOpS" width="650" height="154"></span></figure>
+          <figure class="logo" data-name="Sportcenter Lindenfeld" data-was="Logo und Farben für ein Sportcenter" style="--breite:56%"><span class="rahmen"><img src="logo-lindenfeld.svg" alt="Logo Sportcenter Lindenfeld" width="396" height="132"></span></figure>
+          <figure class="logo" data-name="Johann von Arb" data-was="Logo und Signet für eine Praxis" style="--breite:82%"><span class="rahmen"><img src="logo-johann.svg" alt="Logo Johann von Arb, Craniosacral Therapie" width="233" height="64"></span></figure>
+          <figure class="logo" data-name="Hakuro" data-was="Logo und Farben für ein Restaurant" style="--breite:78%"><span class="rahmen"><img src="logo-hakuro.svg" alt="Logo Hakuro, 白露" width="310" height="84"></span></figure>
+        </div>
+        <div class="text">
+          <p class="kicker"><span>02</span>Branding</p>
+          <h3 class="name">GuardOpS</h3>
+          <p class="was">Logo, Bildmarke, Farben, Schrift</p>
+          <a class="weiter" href="preise#einzeln">Was Branding kostet <b>→</b></a>
+        </div>
+      </article>
+
+      <article class="teil teil-video">
+        <div class="schaubild">
+          <!-- Eigene Fassung des Reels: Dieses Telefon ist 9:16 und schneidet
+               nichts ab, darum fuellt das Erklaervideo die ganze Flaeche.
+               Im Plus bleibt video-reel-ton, dessen Telefon links und rechts
+               je 9 % abschneidet. -->
+          <span class="reelhandy"><video poster="video-reel.jpg" width="540" height="960" muted loop playsinline preload="none" aria-label="Reel: vier Beispiele, Social Media, Erklärvideo, Werbevideo und Imagefilm"><source src="video-reel-voll-ton.mp4" type="video/mp4"><source src="video-reel-voll-ton.webm" type="video/webm"></video></span>
+        </div>
+        <div class="text">
+          <p class="kicker"><span>03</span>Video</p>
+          <h3 class="name">Vier Formate, ein Reel</h3>
+          <p class="was">Social Media, Erklärvideo, Werbevideo, Imagefilm</p>
+          <a class="weiter" href="preise#einzeln">Was ein Video kostet <b>→</b></a>
+        </div>
+      </article>
     </div>
     <p class="fussnote">Kennwerte gemessen im Oktober 2026. Durchschnitt: mittlere Website am Desktop laut <a href="https://almanac.httparchive.org/de/2024/page-weight" target="_blank" rel="noopener">HTTP Archive, Web Almanac 2024</a>.</p>
   </div>
@@ -2464,3 +2518,92 @@ const richtwerk = document.getElementById('richtwerk');
 if (richtwerk) richtwerkEinrichten(richtwerk);
 </script>
 <script src="leiste.js" defer></script>
+
+<script>
+// Gebaut, nicht behauptet (ENT-029): Websites und Logos im Wechsel, der Text
+// unter der Spalte folgt dem gezeigten Stueck. Laeuft nur, solange die Spalte
+// im Bild ist; wer Bewegung abgeschaltet hat, sieht das erste Stueck still.
+(function () {
+  const sektion = document.getElementById('arbeiten');
+  if (!sektion || !sektion.querySelector('.drittel')) return;
+  const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const werteHtml = el => (el.dataset.werte || '').split('|').filter(Boolean).map(w => '<i>' + w + '</i>').join('');
+
+  const beschriften = (teil, el) => {
+    const text = teil.querySelector('.text');
+    text.classList.add('dreht');
+    setTimeout(() => {
+      text.querySelector('.name').textContent = el.dataset.name;
+      text.querySelector('.was').textContent = el.dataset.was;
+      const werte = text.querySelector('.werte');
+      if (werte) { werte.hidden = !el.dataset.werte; werte.innerHTML = werteHtml(el); }
+      const weiter = text.querySelector('.weiter');
+      if (el.dataset.link) { weiter.href = el.dataset.link; weiter.querySelector('.linktext').textContent = el.dataset.linktext; }
+      text.classList.remove('dreht');
+    }, 300);
+  };
+  const imBild = (el, an, aus) => new IntersectionObserver(([e]) => e.isIntersecting ? an() : aus(), { threshold: .35 }).observe(el);
+
+  // Der Textblock bekommt die Hoehe seines laengsten Stuecks (GuardOpS mit
+  // Kennzahlen), sonst springen beim Wechsel die Links in allen drei Spalten.
+  const textHoehe = (teil, stuecke) => {
+    const text = teil.querySelector('.text');
+    const name = text.querySelector('.name'), was = text.querySelector('.was'), werte = text.querySelector('.werte');
+    const vorher = [name.textContent, was.textContent, werte && werte.innerHTML, werte && werte.hidden];
+    text.style.minHeight = ''; text.style.flex = 'none';
+    let max = 0;
+    stuecke.forEach(el => {
+      name.textContent = el.dataset.name; was.textContent = el.dataset.was;
+      if (werte) { werte.hidden = !el.dataset.werte; werte.innerHTML = werteHtml(el); }
+      max = Math.max(max, text.offsetHeight);
+    });
+    name.textContent = vorher[0]; was.textContent = vorher[1];
+    if (werte) { werte.innerHTML = vorher[2]; werte.hidden = vorher[3]; }
+    text.style.flex = ''; text.style.minHeight = max + 'px';
+  };
+  const hoehenSetzen = () => {
+    textHoehe(sektion.querySelector('.teil-web'), [...sektion.querySelectorAll('[data-wechsel] .ref')]);
+    textHoehe(sektion.querySelector('.teil-marke'), [...sektion.querySelectorAll('[data-logos] .logo')]);
+  };
+  document.fonts.ready.then(hoehenSetzen);
+  let rt = 0; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(hoehenSetzen, 150); });
+
+  // Websites: alle 3,6 Sekunden die naechste, sie baut sich in rund 1,5 s auf.
+  const web = sektion.querySelector('[data-wechsel]');
+  const refs = [...web.querySelectorAll('.ref')];
+  let wi = 0, wt = 0;
+  const webZeigen = n => {
+    refs.forEach(r => r.classList.remove('ist', 'baut'));
+    const r = refs[n]; r.classList.add('ist'); void r.offsetWidth;
+    requestAnimationFrame(() => r.classList.add('baut'));
+    beschriften(web.closest('.teil'), r);
+  };
+  if (!ruhig) imBild(web, () => { if (!wt) { webZeigen(wi); wt = setInterval(() => { wi = (wi + 1) % refs.length; webZeigen(wi); }, 3600); } },
+                       () => { clearInterval(wt); wt = 0; });
+
+  const video = sektion.querySelector('.teil-video video');
+  imBild(video, () => { if (!ruhig) video.play().catch(() => {}); }, () => video.pause());
+
+  // Logos im selben Takt, aber genau in der Mitte dazwischen (1,8 s nach einer
+  // Website), wenn die Website-Spalte fertig aufgebaut ist: so wechseln nie
+  // beide Spalten zugleich.
+  const logos = sektion.querySelector('[data-logos]');
+  const marken = [...logos.querySelectorAll('.logo')];
+  let li = 0, lt = 0, ls = 0;
+  const wechseln = n => {
+    const alt = marken[li];
+    alt.classList.remove('ist'); alt.classList.add('geht');
+    setTimeout(() => alt.classList.remove('geht'), 500);
+    li = n; void marken[li].offsetWidth; marken[li].classList.add('ist');
+    beschriften(logos.closest('.teil'), marken[li]);
+  };
+  if (!ruhig) imBild(logos, () => {
+    if (lt || ls) return;
+    marken[li].classList.remove('ist');
+    ls = setTimeout(() => {
+      ls = 0; marken[li].classList.add('ist');
+      lt = setInterval(() => wechseln((li + 1) % marken.length), 3600);
+    }, 1800);
+  }, () => { clearTimeout(ls); ls = 0; clearInterval(lt); lt = 0; marken[li].classList.add('ist'); });
+})();
+</script>
