@@ -207,7 +207,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Bildmarke, Name ohne Markenrecherche, Claim). Vor dem Zeigen als Referenz mit
   Adrian klären, ob das inzwischen entschieden und freigegeben ist.
   Adrian am 29.10.2026: «ja, ist freigegeben». Darf als Referenz gezeigt werden.
-- [ ] **ENT-032** · 29.10.2026 · «So könnte dein Auftritt aussehen» am Handy
+- [x] **ENT-032** · 29.10.2026 · «So könnte dein Auftritt aussehen» am Handy
   (Folge von ENT-029). Adrian: Text und Bild gehören nicht sichtbar zusammen,
   der Logo-Bereich ist zu hoch, das Reel läuft nicht, das Telefon darf grösser
   sein. Adrian wählt A: unter 860 px zuerst Nummer, Name und Satz, dann das
@@ -218,4 +218,6 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   spielt das iPhone nichts von selbst ab. Neu erscheint dann ein Knopf zum
   Abspielen (auch bei abgeschalteter Bewegung), ein Tipp startet das Reel;
   getestet mit gesperrtem Autoplay.
-  Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort.
+  Live am 29.10.2026 mit Adrians Wort («push»): `main` auf 6787a1e, Lauf
+  «Website zu Hostpoint» Nr. 38 (40910169487) erfolgreich, «replacing
+  index.html», «Sync complete», IndexNow 200.
