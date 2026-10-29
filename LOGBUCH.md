@@ -277,3 +277,23 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «Website zu Hostpoint» Nr. 42 (40949926716) erfolgreich, «replacing
   gespraech.html» und «replacing index.html», «Sync complete», IndexNow 200
   für die Startseite und /gespraech.
+- [x] **ENT-035** · 29.10.2026 · Betreiber-Bereich für formateins auf
+  `betreiber.formateins.ch`, gleicher Aufbau wie der Betreiber-Bereich von
+  GuardOpS: eine HTML-Seite, PHP-Endpunkte unter `api/`, MySQL, kein
+  Build-Schritt. Eigenständiges Projekt, keine Daten und keine Einträge in
+  den GuardOpS-Repositories. Adrians Antworten vom 29.10.2026:
+  Code in einem eigenen **privaten** Repository (formateins ist öffentlich,
+  Pages würde den PHP-Code zeigen). An der Stelle der Mandanten stehen
+  **Projekte** (Auftrag mit Kunde, Status, Termin, Offerten, Rechnungen).
+  Erste Etappe: Übersicht, Adressen, Offerten/Rechnungen/Verträge, Finanzen,
+  Anfragen, dazu Anmeldung mit Konten und Zwei-Faktor. Gestaltung wie
+  GuardOpS, aber mit Logo, Schrift und Farben von formateins, zuerst als Bild
+  zur Abnahme. Keine MWST, Satz und Nummer aber im Briefkopf vorbereitet.
+  Anfragen aus Kostenrechner und Gesprächsbuchung landen zusätzlich zur Mail
+  im Bereich (Änderung an formateins.ch, braucht Adrians Wort zum Push).
+  Konten: Adrian, weitere per Einladung, alle mit denselben Rechten.
+- [ ] **ENT-036** · offen · Einrichtung für ENT-035 (Adrian): privates
+  Repository anlegen und der Sitzung freigeben; bei Hostpoint Subdomain
+  `betreiber.formateins.ch` mit eigenem Verzeichnis und SSL, eine
+  MySQL-Datenbank mit eigenem Benutzer, ein FTP-Benutzer nur für dieses
+  Verzeichnis; die Zugangsdaten als Secrets ins neue Repository.
