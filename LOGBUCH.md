@@ -116,6 +116,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Vorschau für Adrian: Arbeitszweig auf `claude/stoic-archimedes-xpyk3n`
   vorgespult (GitHub Pages, kein Hostpoint-Lauf), Seite
   `https://f5yct67kcv-source.github.io/formateins/entwurf-start.html`.
+  Adrian am 29.10.2026, Punkt 1: Titel und feiner Text nebeneinander passen
+  nicht. Kopf neu über die ganze Breite, «Seiten, Markenblätter, Reels.» auf
+  einer Zeile, der feine Text darunter. Zur Wahl: `?kopf=mitte` (Standard,
+  Adrians Vorschlag) und `?kopf=links`.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media

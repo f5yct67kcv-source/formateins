@@ -1350,6 +1350,14 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 .drittel-c .logos.wand .logo img{width:72%}
 .drittel-c .logos.wand .wortmarke{font-size:clamp(1.6rem,2.6vw,2.3rem)}
 .drittel-c .text{padding-top:18px;border-top:1px solid var(--linie)}
+/* Kopf (29.10.2026): Titel ueber die ganze Breite, die zweite Zeile auf einer
+   Zeile, der feine Text darunter. ?kopf=mitte (Standard) zentriert, ?kopf=links
+   linksbuendig wie die anderen Abschnitte. */
+.drittel-c .arbeitenkopf{display:block}
+.drittel-c .arbeitenkopf p{margin-top:1.1em;max-width:52ch}
+@media(min-width:760px){.drittel-c .arbeitenkopf h2 .zweite{white-space:nowrap}}
+.drittel-c .arbeitenkopf[data-kopf=mitte]{text-align:center}
+.drittel-c .arbeitenkopf[data-kopf=mitte] p{margin-inline:auto}
 
 /* Logos im Wechsel (29.10.2026, Adrian waehlt «Linie»). Das alte Logo geht
    (.geht), das neue kommt (.ist) mit kurzer Verzoegerung, damit sie sich nicht
@@ -2585,6 +2593,7 @@ if (richtwerk) richtwerkEinrichten(richtwerk);
   const v = ['a', 'b', 'c'].includes(q.get('v')) ? q.get('v') : 'c';
   const wand = v === 'b' || (v === 'c' && q.get('logos') === 'wand');
   sektion.className = 'drittel-' + v;
+  sektion.querySelector('.arbeitenkopf').dataset.kopf = q.get('kopf') === 'links' ? 'links' : 'mitte';
   const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Text unter einer Kachel zum gezeigten Stück nachführen.
