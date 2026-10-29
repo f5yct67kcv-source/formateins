@@ -221,3 +221,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Live am 29.10.2026 mit Adrians Wort («push»): `main` auf 6787a1e, Lauf
   «Website zu Hostpoint» Nr. 38 (40910169487) erfolgreich, «replacing
   index.html», «Sync complete», IndexNow 200.
+- [ ] **ENT-033** · 29.10.2026 · Adrian: Die Reels laufen am iPhone nicht, weder
+  im Plus noch im Abschnitt, und der Abspielknopf (ENT-032) gefällt ihm nicht.
+  Beide Reels starten nur, wenn das Telefon Autoplay zulässt und «Bewegung
+  reduzieren» aus ist; der Knopf erschien, also hat das iPhone das Abspielen
+  verweigert. Ursache klären mit der Testseite `entwurf-reeltest.html` (nur
+  in der Vorschau): zeigt «Bewegung reduzieren», ob ein stummes Video von
+  selbst spielt, und ein bewegtes WebP als möglichen Ersatz ohne Knopf.
