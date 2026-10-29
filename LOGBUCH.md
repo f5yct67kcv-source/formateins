@@ -138,6 +138,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `entwurf-start-hakuro-*.webp`, Bauplan mit `quellen/bauplan.js`; bei
   Lindenfeld das Kopfvideo bei 4 s angehalten (Badminton), damit kein
   Überblendbild entsteht.
+  Adrian am 29.10.2026: Text unter dem Titel neu «Jede Arbeit beginnt mit
+  einer gemeinsamen Strategie. Hier siehst du das Ergebnis.» (vorher «Aus
+  allen drei Richtungen ein Stück echte Arbeit …»). Demo nicht verschleiern,
+  aber auf der Startseite nicht hervorheben.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
