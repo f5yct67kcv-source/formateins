@@ -187,6 +187,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Beim Laden 438 statt 352 KiB (Startseiten- und Logo-Bilder des Abschnitts
   und des Plus), beim Scrollen zu «Gebaut» kommen die zwei Loops dazu
   (408 + 95 KiB).
+  Adrian am 29.10.2026: Titel «So könnte dein Auftritt aussehen.» statt
+  «Gebaut, nicht behauptet.», der klang von oben herab. Der neue spricht dich
+  an und verspricht dein Ergebnis (Schreibstil: der Titel ist der Hook);
+  zweite Zeile und Satz darunter bleiben.
   Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort (ENT-028).
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
