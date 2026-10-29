@@ -56,7 +56,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Startseite: Google-Unternehmensprofil als feste Maps-Adresse
   `https://maps.google.com/?cid=11383681249379744707`. Die Kunden-ID stammt aus
   Adrians Suchlink. local.ch und search.ch folgen in ENT-027. Beleg: `fadeaa2`,
-  Lauf #35 («Sync complete», IndexNow 200).
+  Lauf #35 («Sync complete», IndexNow 200). Am 29.10.2026 von Adrian
+  geprüft: Der Link öffnet das richtige Profil. Bleibt auf Maps, kein Suchlink.
 - [ ] **ENT-019** · offen · Bereichsseiten Website, Branding und Video als
   `entwurf-*`, jede geht einzeln live.
 - [ ] **ENT-020** · offen · Zweite Sitzung (v2-Zweig) ist pausiert. Sie hat in
