@@ -292,7 +292,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Anfragen aus Kostenrechner und Gesprächsbuchung landen zusätzlich zur Mail
   im Bereich (Änderung an formateins.ch, braucht Adrians Wort zum Push).
   Konten: Adrian, weitere per Einladung, alle mit denselben Rechten.
-- [ ] **ENT-036** · offen · Einrichtung für ENT-035 (Adrian): privates
+- [x] **ENT-036** · 29.10.2026 · Einrichtung für ENT-035 (Adrian): privates
   Repository anlegen und der Sitzung freigeben; bei Hostpoint Subdomain
   `betreiber.formateins.ch` mit eigenem Verzeichnis und SSL, eine
   MySQL-Datenbank mit eigenem Benutzer, ein FTP-Benutzer nur für dieses
@@ -301,7 +301,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `betreiber`, der Name war im Webhosting schon besetzt. Repository
   `formateins-betreiber` (privat) und die sieben Secrets am 29.10.2026 von
   Adrian angelegt. Ob die Secrets stimmen, zeigt erst der erste Deploy-Lauf.
-- [ ] **ENT-037** · 29.10.2026 · Erste Etappe des Betreiber-Bereichs (ENT-035)
+- [x] **ENT-037** · 29.10.2026 · Erste Etappe des Betreiber-Bereichs (ENT-035)
   gebaut, im Repository `formateins-betreiber` auf dem Arbeitszweig
   `claude/epic-mayer-2x1fei` (`36b2d1d` bis `ee9c7fe`): Anmeldung mit
   Pflicht-Zweitfaktor, Konten mit Einladung, Übersicht, Projekte, Adressen,
@@ -312,6 +312,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   ein achtes Secret `BETREIBER_EINRICHTUNG` (Zufallswert), sonst lässt die
   Seite niemanden ein. Offen: Secret anlegen, Push auf `main` mit Adrians
   Wort, Lauf «Betreiber zu Hostpoint» prüfen.
+  Live am 29.10.2026 mit Adrians Wort («secret ist drin, push»): `main` von
+  `formateins-betreiber` auf `ee9c7fe`, Lauf «Betreiber zu Hostpoint» Nr. 1
+  (40956191573) erfolgreich: Prüfungen grün, Secrets vorhanden, 66 Dateien
+  hochgeladen, «Sync complete». Das erste Konto legt Adrian selbst an.
 - [ ] **ENT-038** · offen · Anfragen von formateins.ch zusätzlich in den
   Betreiber-Bereich (ENT-035): `anfrage.php` und `termine.php` schicken jede
   Anfrage an `api/anfrage_eingang.php`, mit Secret `ANFRAGE_SCHLUESSEL` in
