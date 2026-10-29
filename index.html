@@ -920,6 +920,11 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 /* Video: das Reel im Telefon, 9:16 wie das Video */
 .teil-video .reelhandy{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:block;height:92%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:3px solid #0a1219;box-shadow:0 24px 50px -20px rgba(0,0,0,.8),0 0 0 1px var(--linie)}
 .teil-video video{display:block;width:100%;height:100%;object-fit:cover}
+/* Spielt das Telefon nicht von selbst ab (Stromsparmodus am iPhone, oder
+   Bewegung abgeschaltet), erscheint ein Knopf; ein Tipp startet das Reel. */
+.reelhandy .abspielen{position:absolute;inset:0;margin:auto;width:58px;height:58px;display:grid;place-items:center;padding:0 0 0 4px;border:0;border-radius:50%;background:rgba(10,18,25,.72);color:#fff;cursor:pointer;box-shadow:0 0 0 1px rgba(255,255,255,.25)}
+.reelhandy .abspielen[hidden]{display:none}
+.reelhandy .abspielen svg{width:20px;height:22px}
 /* Ab drei Spalten nebeneinander steht alles auf der Mittelachse seiner
    Spalte, wie der Titel darueber (Adrian, 29.10.2026): sonst nimmt das Auge
    die linke Textkante als Achse, und Logo und Reel wirken nach rechts
@@ -928,6 +933,20 @@ footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
 @media(min-width:860px){
   .teil .text{align-items:center;text-align:center}
   .teil .kicker,.teil .werte{justify-content:center}
+}
+/* Am Handy (Adrian, 29.10.2026, Variante A): zuerst Nummer, Name und Satz,
+   dann das Stueck, mit Luft bis zur naechsten Spalte. Sonst liest sich der
+   Text unter dem Bild als Beschriftung des Bildes darunter. Die Flaechen so
+   hoch, wie ihr Inhalt es braucht: das Fenster 16:10, das Logo 2:1, das
+   Telefon etwas groesser als in 4:3. */
+@media(max-width:859px){
+  .drittel{gap:56px}
+  .teil .text{order:-1;flex:none;margin-bottom:20px}
+  .teil .schaubild{margin-bottom:0}
+  .teil .weiter{margin-top:0}
+  .teil-web .schaubild{aspect-ratio:16/10}
+  .teil-marke .schaubild{aspect-ratio:2/1}
+  .teil-video .schaubild{aspect-ratio:1/1}
 }
 @media(prefers-reduced-motion:reduce){.logos .logo,.logos .logo *{animation:none!important}.teil .name,.teil .was,.teil .weiter b{transition:none}}
 
@@ -1709,7 +1728,7 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
                nichts ab, darum fuellt das Erklaervideo die ganze Flaeche.
                Im Plus bleibt video-reel-ton, dessen Telefon links und rechts
                je 9 % abschneidet. -->
-          <span class="reelhandy"><video poster="video-reel.jpg" width="540" height="960" muted loop playsinline preload="none" aria-label="Reel: vier Beispiele, Social Media, Erklärvideo, Werbevideo und Imagefilm"><source src="video-reel-voll-ton.mp4" type="video/mp4"><source src="video-reel-voll-ton.webm" type="video/webm"></video></span>
+          <span class="reelhandy"><video poster="video-reel.jpg" width="540" height="960" muted loop playsinline preload="none" aria-label="Reel: vier Beispiele, Social Media, Erklärvideo, Werbevideo und Imagefilm"><source src="video-reel-voll-ton.mp4" type="video/mp4"><source src="video-reel-voll-ton.webm" type="video/webm"></video><button class="abspielen" type="button" aria-label="Reel abspielen" hidden><svg viewBox="0 0 20 22" aria-hidden="true"><path d="M2 1.5v19L19 11z" fill="currentColor"/></svg></button></span>
         </div>
         <div class="text">
           <p class="kicker"><span>03</span>Video</p>
@@ -2586,8 +2605,13 @@ if (richtwerk) richtwerkEinrichten(richtwerk);
   if (!ruhig) imBild(web, () => { if (!wt) { webZeigen(wi); wt = setInterval(() => { wi = (wi + 1) % refs.length; webZeigen(wi); }, 3600); } },
                        () => { clearInterval(wt); wt = 0; });
 
+  // Verweigert das Telefon das Abspielen (Stromsparmodus am iPhone) oder ist
+  // Bewegung abgeschaltet, steht der Knopf da; ein Tipp ist immer erlaubt.
   const video = sektion.querySelector('.teil-video video');
-  imBild(video, () => { if (!ruhig) video.play().catch(() => {}); }, () => video.pause());
+  const knopf = sektion.querySelector('.teil-video .abspielen');
+  const spielen = () => video.play().then(() => { knopf.hidden = true; }, () => { knopf.hidden = false; });
+  knopf.addEventListener('click', spielen);
+  imBild(video, () => { if (ruhig) knopf.hidden = !video.paused; else spielen(); }, () => video.pause());
 
   // Logos im selben Takt, aber genau in der Mitte dazwischen (1,8 s nach einer
   // Website), wenn die Website-Spalte fertig aufgebaut ist: so wechseln nie

@@ -207,3 +207,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Bildmarke, Name ohne Markenrecherche, Claim). Vor dem Zeigen als Referenz mit
   Adrian klären, ob das inzwischen entschieden und freigegeben ist.
   Adrian am 29.10.2026: «ja, ist freigegeben». Darf als Referenz gezeigt werden.
+- [ ] **ENT-032** · 29.10.2026 · «So könnte dein Auftritt aussehen» am Handy
+  (Folge von ENT-029). Adrian: Text und Bild gehören nicht sichtbar zusammen,
+  der Logo-Bereich ist zu hoch, das Reel läuft nicht, das Telefon darf grösser
+  sein. Adrian wählt A: unter 860 px zuerst Nummer, Name und Satz, dann das
+  Stück, 56 statt 18 px bis zur nächsten Spalte; Fenster 16:10, Logo 2:1,
+  Reel 1:1 (Telefon 179 × 318 statt 133 × 236 px bei 390 px Breite). Desktop
+  unverändert. Reel: Datei geprüft, gleich wie im Plus (H.264 High, yuv420p,
+  faststart). Auf Adrians Bildschirmfoto ist der Stromsparmodus an, darin
+  spielt das iPhone nichts von selbst ab. Neu erscheint dann ein Knopf zum
+  Abspielen (auch bei abgeschalteter Bewegung), ein Tipp startet das Reel;
+  getestet mit gesperrtem Autoplay.
+  Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort.
