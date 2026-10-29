@@ -120,6 +120,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   nicht. Kopf neu über die ganze Breite, «Seiten, Markenblätter, Reels.» auf
   einer Zeile, der feine Text darunter. Zur Wahl: `?kopf=mitte` (Standard,
   Adrians Vorschlag) und `?kopf=links`.
+  Adrian am 29.10.2026: A. Kopf mittig, sobald die drei Spalten nebeneinander
+  stehen (ab 860 px), am Handy linksbündig wie die Spalten. Varianten entfernt.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
