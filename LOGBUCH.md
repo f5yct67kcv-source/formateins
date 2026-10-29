@@ -176,6 +176,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Adrian am 29.10.2026: Beim Hereinscrollen erschien das erste Logo erst nach
   rund 3 s, vorher leerer Platz. Jetzt steht es sofort, der erste Wechsel
   folgt nach 5,4 s, danach alle 3,6 s, weiter versetzt zu den Websites.
+  Adrian am 29.10.2026: zweite Zeile «Websites, Logos, Videos.» statt «Seiten,
+  Markenblätter, Reels.». Gezeigt werden Logos, kein Markenblatt (ENT-004);
+  «Seiten» ist zu offen; «Reels» ist der Name von Meta und deckt den Imagefilm
+  nicht ab, «Video» wie die Richtung (ENT-003). Unter der Spalte bleibt «Vier
+  Formate, ein Reel» (das gezeigte Reel).
   Offen: Livegang auf `main` nur mit Adrians ausdrücklichem Wort (ENT-028).
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
