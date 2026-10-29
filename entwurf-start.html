@@ -1338,23 +1338,72 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 /* Fassung C (29.10.2026, Adrians Richtung): alles freistehend auf dem Seitengrund,
    keine Kacheln, keine Flaechen hinter den Bildern. Gleich hohe Buehne, damit
    die Texte auf einer Linie beginnen. */
-.felder{display:none}
 .drittel-c .teil .schaubild{aspect-ratio:1/1;background:none;margin-bottom:22px;overflow:visible}
 .drittel-c .teil-web .wechsel .ref{inset:auto;left:0;right:0;top:50%;transform:translateY(-50%);aspect-ratio:16/10;border-top:16px solid #0a1219;border-radius:8px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(0,0,0,.9),0 0 0 1px var(--linie)}
 .drittel-c .teil-web .wechsel .ref img{object-position:left top}
 .drittel-c .teil-video .reelhandy{height:92%}
 .drittel-c .logos .logo{background:none}
-.drittel-c .logos .logo img{width:78%;max-height:none}
-.drittel-c .logos .felder{display:flex;gap:6px;margin-top:18px}
-.drittel-c .logos .felder i{width:22px;height:22px;border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+.drittel-c .logos .logo img{width:100%;max-height:none}
 .drittel-c .logos .logo{grid-template-rows:auto auto;align-content:center;justify-items:center}
 .drittel-c .logos.wand{display:flex;flex-direction:column;justify-content:space-between;padding:8% 0}
 .drittel-c .logos.wand .logo{position:relative;inset:auto;opacity:1}
 .drittel-c .logos.wand .logo img{width:72%}
 .drittel-c .logos.wand .wortmarke{font-size:clamp(1.6rem,2.6vw,2.3rem)}
-.drittel-c .logos.wand .felder{margin-top:12px}
-.drittel-c .logos.wand .felder i{width:16px;height:16px}
 .drittel-c .text{padding-top:18px;border-top:1px solid var(--linie)}
+
+/* Logos im Wechsel (29.10.2026): vier Auftritte zur Wahl, ?anim=linie | zeichnen |
+   raster | fokus. Das alte Logo geht (.geht), das neue kommt (.ist) mit kurzer
+   Verzoegerung, damit sie sich nicht ueberlagern. */
+.logos .rahmen{position:relative;display:block;width:72%}
+.logos .rahmen.wort{width:auto}
+.logos .inhalt{display:block}
+.logos .inhalt img,.logos .inhalt svg{display:block;width:100%;height:auto}
+.logos .strich{display:none}
+.logos[data-anim] .logo{transition:none;opacity:0}
+.logos[data-anim] .logo.ist,.logos[data-anim] .logo.geht{opacity:1}
+.logos[data-anim] .logo.geht{animation:logo-aus .45s ease forwards}
+@keyframes logo-aus{to{opacity:0;transform:translateY(-6px)}}
+
+/* Linie: die orange Linie zieht das Logo auf, wie der Bauplan nebenan */
+.logos[data-anim=linie] .strich{display:block;position:absolute;top:-14%;bottom:-14%;left:0;width:1.5px;background:var(--signal);opacity:0}
+.logos[data-anim=linie] .logo.ist .inhalt{animation:linie-auf 1s cubic-bezier(.65,0,.35,1) .45s both}
+.logos[data-anim=linie] .logo.ist .strich{animation:linie-lauf 1s cubic-bezier(.65,0,.35,1) .45s both,linie-weg .35s ease 1.45s forwards}
+@keyframes linie-auf{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes linie-lauf{from{left:0;opacity:1}to{left:100%;opacity:1}}
+@keyframes linie-weg{from{left:100%;opacity:1}to{left:100%;opacity:0}}
+
+/* Zeichnen: erst die Kontur, dann die Fuellung. Das Skript bettet das SVG ein
+   und legt ueber jede gefuellte Form Hilfslinien, eine pro Teilstueck, damit
+   jeder Buchstabe einzeln gezeichnet wird; die Hilfslinien blenden aus, sobald
+   die Fuellung steht. Reine Linien (Schild, Kreis) bleiben stehen. */
+.logos[data-anim=zeichnen] .inhalt .fuellung{fill-opacity:0}
+.logos[data-anim=zeichnen] .logo.ist .inhalt .fuellung{animation:zeichnen-fuellen .6s ease 1.5s both}
+.logos[data-anim=zeichnen] .inhalt [data-strich]{stroke-dasharray:1;stroke-dashoffset:1}
+.logos[data-anim=zeichnen] .inhalt [data-strich=hilfe]{fill:none;stroke:currentColor;stroke-width:1.2px;vector-effect:non-scaling-stroke}
+.logos[data-anim=zeichnen] .logo.ist .inhalt [data-strich=bleibt]{animation:zeichnen-linie 1.3s cubic-bezier(.65,0,.35,1) .4s both}
+.logos[data-anim=zeichnen] .logo.ist .inhalt [data-strich=hilfe]{animation:zeichnen-linie 1.3s cubic-bezier(.65,0,.35,1) .4s both,zeichnen-weg .5s ease 1.9s forwards}
+.logos[data-anim=zeichnen] .logo.ist .wortmarke{animation:linie-auf 1.1s cubic-bezier(.65,0,.35,1) .4s both}
+@keyframes zeichnen-linie{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes zeichnen-fuellen{from{fill-opacity:0}to{fill-opacity:1}}
+@keyframes zeichnen-weg{to{opacity:0}}
+
+/* Raster: Schutzraum und Rahmen ziehen sich auf wie auf dem Markenblatt */
+.logos[data-anim=raster] .rahmen::before,.logos[data-anim=raster] .rahmen::after{content:"";position:absolute;pointer-events:none;opacity:0}
+.logos[data-anim=raster] .rahmen::before{inset:-22% -7%;border:1px dashed rgba(255,138,76,.75)}
+.logos[data-anim=raster] .rahmen::after{inset:0;border:1px solid rgba(255,138,76,.9)}
+.logos[data-anim=raster] .logo.ist .rahmen::before{animation:raster-auf .7s cubic-bezier(.16,1,.3,1) .4s both,raster-weg .5s ease 2s forwards}
+.logos[data-anim=raster] .logo.ist .rahmen::after{animation:raster-auf .7s cubic-bezier(.16,1,.3,1) .6s both,raster-weg .5s ease 2s forwards}
+.logos[data-anim=raster] .logo.ist .inhalt{animation:raster-logo .6s ease 1s both}
+@keyframes raster-auf{from{opacity:1;clip-path:inset(50% 50% 50% 50%)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+@keyframes raster-weg{from{opacity:1}to{opacity:0}}
+@keyframes raster-logo{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+
+/* Fokus: aus der Unschaerfe scharf ziehen, wie an der Kamera */
+.logos[data-anim=fokus] .logo.ist .inhalt{animation:fokus-ein 1.1s cubic-bezier(.16,1,.3,1) .35s both}
+.logos[data-anim=fokus] .logo.geht{animation:fokus-aus .45s ease forwards}
+@keyframes fokus-ein{from{opacity:0;filter:blur(16px);transform:scale(1.08)}to{opacity:1;filter:blur(0);transform:none}}
+@keyframes fokus-aus{to{opacity:0;filter:blur(10px);transform:scale(.97)}}
+@media(prefers-reduced-motion:reduce){.logos[data-anim] .logo *,.logos[data-anim] .logo,.logos[data-anim] .rahmen::before,.logos[data-anim] .rahmen::after{animation:none!important}}
 @media(prefers-reduced-motion:reduce){.logos .logo,.teil .name,.teil .was{transition:none}}
 </style>
 
@@ -1727,9 +1776,9 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 
       <article class="teil teil-marke">
         <div class="schaubild logos" data-logos>
-          <figure class="logo ist" data-name="GuardOpS" data-was="Logo, Bildmarke, Farben, Schrift" style="--markenfarbe:#111821"><img src="entwurf-logo-guardops.svg" alt="Logo GuardOpS" width="650" height="154"><span class="felder" aria-hidden="true"><i style="background:#111821"></i><i style="background:#1c6fbc"></i><i style="background:#fff"></i></span></figure>
-          <figure class="logo" data-name="Johann von Arb" data-was="Logo und Signet für eine Praxis" style="--markenfarbe:#33211c"><img src="entwurf-logo-johann.svg" alt="Logo Johann von Arb, Craniosacral Therapie" width="233" height="64"><span class="felder" aria-hidden="true"><i style="background:#33211c"></i><i style="background:#e9c3ad"></i><i style="background:#f4ece4"></i></span></figure>
-          <figure class="logo" data-name="formateins" data-was="Die eigene Marke" style="--markenfarbe:#1b2a33"><span class="wortmarke">format<em>eins</em></span><span class="felder" aria-hidden="true"><i style="background:#1b2a33"></i><i style="background:#ff8a4c"></i><i style="background:#e4eaee"></i></span></figure>
+          <figure class="logo ist" data-name="GuardOpS" data-was="Logo, Bildmarke, Farben, Schrift" style="--markenfarbe:#111821"><span class="rahmen"><span class="inhalt"><img src="entwurf-logo-guardops.svg" alt="Logo GuardOpS" width="650" height="154"></span><span class="strich" aria-hidden="true"></span></span></figure>
+          <figure class="logo" data-name="Johann von Arb" data-was="Logo und Signet für eine Praxis" style="--markenfarbe:#33211c"><span class="rahmen"><span class="inhalt"><img src="entwurf-logo-johann.svg" alt="Logo Johann von Arb, Craniosacral Therapie" width="233" height="64"></span><span class="strich" aria-hidden="true"></span></span></figure>
+          <figure class="logo" data-name="formateins" data-was="Die eigene Marke" style="--markenfarbe:#1b2a33"><span class="rahmen wort"><span class="inhalt"><span class="wortmarke">format<em>eins</em></span></span><span class="strich" aria-hidden="true"></span></span></figure>
         </div>
         <div class="text">
           <p class="kicker"><span>02</span>Branding</p>
@@ -2562,7 +2611,8 @@ if (richtwerk) richtwerkEinrichten(richtwerk);
   const sektion = document.getElementById('arbeiten');
   const q = new URLSearchParams(location.search);
   const v = ['a', 'b', 'c'].includes(q.get('v')) ? q.get('v') : 'c';
-  const wand = v === 'b' || (v === 'c' && q.get('logos') !== 'wechsel');
+  const wand = v === 'b' || (v === 'c' && q.get('logos') === 'wand');
+  const anim = ['linie', 'zeichnen', 'raster', 'fokus'].includes(q.get('anim')) ? q.get('anim') : 'linie';
   sektion.className = 'drittel-' + v;
   const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -2603,12 +2653,39 @@ if (richtwerk) richtwerkEinrichten(richtwerk);
   const logos = sektion.querySelector('[data-logos]');
   const marken = [...logos.querySelectorAll('.logo')];
   let li = 0, lt = 0;
+  if (!wand && v === 'c') logos.dataset.anim = anim;
+  // Fuer das Zeichnen braucht es die Pfade im Dokument, nicht als Bild.
+  if (anim === 'zeichnen' && !wand) marken.forEach(m => {
+    const img = m.querySelector('img'); if (!img) return;
+    fetch(img.src).then(r => r.text()).then(t => {
+      const box = document.createElement('span'); box.innerHTML = t;
+      const svg = box.querySelector('svg'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', img.alt);
+      svg.querySelectorAll('path,circle').forEach(el => {
+        if (el.getAttribute('fill') === 'none') { el.setAttribute('pathLength', '1'); el.setAttribute('data-strich', 'bleibt'); return; }
+        el.classList.add('fuellung');
+        const teile = (el.getAttribute('d') || '').split(/(?=M)/).filter(Boolean);
+        teile.forEach(d => {
+          const linie = el.cloneNode(false);
+          linie.removeAttribute('class'); linie.setAttribute('d', d);
+          linie.setAttribute('pathLength', '1'); linie.setAttribute('data-strich', 'hilfe');
+          el.after(linie);
+        });
+      });
+      img.replaceWith(svg);
+    });
+  });
+  const wechseln = (n) => {
+    const alt = marken[li];
+    alt.classList.remove('ist'); alt.classList.add('geht');
+    setTimeout(() => alt.classList.remove('geht'), 500);
+    li = n; void marken[li].offsetWidth; marken[li].classList.add('ist');
+    beschriften(logos.closest('.teil'), marken[li]);
+  };
   imBild(logos, () => {
     if (wand || lt) return;
-    lt = setInterval(() => {
-      marken[li].classList.remove('ist'); li = (li + 1) % marken.length; marken[li].classList.add('ist');
-      beschriften(logos.closest('.teil'), marken[li]);
-    }, 3200);
+    // Beim Hereinscrollen das aktuelle Logo neu auftreten lassen.
+    marken[li].classList.remove('ist'); void marken[li].offsetWidth; marken[li].classList.add('ist');
+    lt = setInterval(() => wechseln((li + 1) % marken.length), 3600);
   }, () => { clearInterval(lt); lt = 0; });
   if (wand) {
     logos.classList.add('wand');

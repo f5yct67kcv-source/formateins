@@ -98,6 +98,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Adrian am 29.10.2026: Reihenfolge wie oben (Website, Branding, Video) und alles
   freistehend, ohne Boxen oder Karten. Gebaut als Fassung C (Standard), Logos
   als Wand mit Markenfarben oder mit `?logos=wechsel` einzeln im Wechsel.
+  Adrian am 29.10.2026: Logos im Wechsel (jetzt Standard, Wand mit `?logos=wand`),
+  Text neben dem Titel passt, Farbpunkte weg. Vier Auftritte für die Logos zur
+  Wahl: `?anim=linie` (Standard), `zeichnen`, `raster`, `fokus`.
 - [x] **ENT-030** · 29.10.2026 · Kundenvorlagen liegen in Google Drive, nicht im
   öffentlichen Repository: `formateins / formateins Hauptordener /` mit Akquise,
   CI, Demo Projekte, Kundenprojekte (GuardOps, Johann von Arb), Social Media
