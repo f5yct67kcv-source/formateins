@@ -221,7 +221,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Live am 29.10.2026 mit Adrians Wort («push»): `main` auf 6787a1e, Lauf
   «Website zu Hostpoint» Nr. 38 (40910169487) erfolgreich, «replacing
   index.html», «Sync complete», IndexNow 200.
-- [ ] **ENT-033** · 29.10.2026 · Adrian: Die Reels laufen am iPhone nicht, weder
+- [x] **ENT-033** · 29.10.2026 · Adrian: Die Reels laufen am iPhone nicht, weder
   im Plus noch im Abschnitt, und der Abspielknopf (ENT-032) gefällt ihm nicht.
   Beide Reels starten nur, wenn das Telefon Autoplay zulässt und «Bewegung
   reduzieren» aus ist; der Knopf erschien, also hat das iPhone das Abspielen
@@ -241,3 +241,6 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   anpassen», nennt für beide nur «Ausschalten»), auf den meisten iPhones
   laufen die Reels also. Die Testseite `entwurf-reeltest.*` ist wieder
   gelöscht.
+  Live am 29.10.2026 mit Adrians Wort («push»): `main` auf 39d4b67, Lauf
+  «Website zu Hostpoint» Nr. 40 (40913770533) erfolgreich, «replacing
+  index.html», «Sync complete», IndexNow 200.
