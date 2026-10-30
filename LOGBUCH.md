@@ -552,8 +552,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Nachrichten, 15 «fertig»), 29 neu, einer war schon da, kein Fehler. Stand
   14:01: Schritt 0.1 42 Min. (Claude 9, Adrian 33), 0.2 9 Min. (4 und 5),
   0.6 2:12 h (Claude 40 Min., Adrian 1:32 h); zusammen 3:05 h, dazu 1:53 h
-  Pause. Offen: Merge beider Pull Requests, Setup-Skript in der Umgebung,
-  danach eine neue Sitzung und die Probe; Ansichten als Bild zur Wahl.
+  Pause.
+  Adrian am 30.10.2026: beide Pull Requests gemergt und das Setup-Skript in
+  der Umgebung «Default» eingetragen. Lauf «Betreiber zu Hostpoint» Nr. 10
+  (41063920704) und «Website zu Hostpoint» Nr. 59 (41063952208) erfolgreich.
+  Neue Sitzung «Hallo» um 14:32: Setup-Skript gelaufen («Projekt-Timer: Hook
+  eingerichtet.»), danach 3 Pulse vom Hook auf dem Server (Probe: bisher 33,
+  letzter «fertig» 14:32:44, Quelle `claude-code`, Gerät `cloud`). **Der Hook
+  läuft.** Sitzungen, die vor dem Setup-Skript gestartet sind, messen nicht
+  selbst und werden nachgetragen. Offen: Ansichten als Bild zur Wahl.
 - [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
   Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
   Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
