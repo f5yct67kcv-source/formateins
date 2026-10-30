@@ -18,6 +18,20 @@ Nummer beim Push trotzdem belegt: die eigene umnummerieren, mit dem Vermerk
 fremde Nummer nie anfassen.
 Die Datei geht nicht auf den Webserver (Ausnahme im Workflow).
 
+## Roadmap beim Musterprojekt Breitbild
+
+Seit dem 30.10.2026 auf Adrians Wunsch (ENT-044): Das Musterprojekt Breitbild
+wird in `quellen/muster-breitbild/ROADMAP.md` geführt, mit Soll und Ist pro
+Schritt und einem Journal. Vor der Arbeit daran die Roadmap lesen, nach jedem
+Schritt den Journal-Eintrag im selben Commit wie die Arbeit. Das Soll wird
+nicht nachträglich geändert, Abweichungen stehen mit Grund im Journal. Zweck:
+für echte Projekte lernen und Stoff für den Blogbeitrag am Schluss (ENT-045).
+
+Die Zeit misst der Projekt-Timer (ENT-046, `quellen/zeit/LIESMICH.md`). Zu
+Beginn jedes Schritts den Schritt in `~/.zeit-schritt` schreiben, zum Beispiel
+`echo "muster-breitbild 3.1" > ~/.zeit-schritt`, damit jeder Puls ihn trägt.
+Die Zeiten fürs Journal kommen aus dem Timer, nicht aus der Erinnerung.
+
 ## Vor jedem Push
 
 An `main` arbeiten mehrere Sitzungen parallel. Deshalb vor **jedem** Push:
@@ -79,9 +93,10 @@ Damit gibt es zwei Wege zu einem Vorschau-Link, und beide gehoeren Adrian:
    Hostpoint-Deploy laedt ihn wegen `--exclude 'entwurf*'` nicht hoch. Loest
    aber einen Lauf aus und braucht Adrians Wort.
 
-Was von hier aus **nicht** geht: die Vorschau selbst oeffnen. Der Egress-Proxy
-blockt `github.io` genauso wie `formateins.ch`. Ob eine Seite dort wirklich
-steht, zeigt nur der Lauf «pages build and deployment» oder Adrians Blick.
+Die Vorschau laesst sich von hier aus abrufen (geprueft am 30.10.2026,
+ENT-048): `curl` und Playwright zeigen, was github.io ausliefert. Pages braucht
+nach dem Push einen Moment; ob der Bau durchlief, zeigt der Lauf «pages build
+and deployment».
 
 ## Push auf main heisst live
 
@@ -93,14 +108,18 @@ Nach dem Push den Lauf pruefen, nicht einfach annehmen, dass er durchlief:
 Actions → «Website zu Hostpoint», oder ueber die GitHub-Tools den letzten Lauf
 auf `main` abfragen. Ein Lauf kann auch mal Minuten in der Warteschlange stehen.
 
-## Was von hier aus nicht geprueft werden kann
+## Was von hier aus geprueft werden kann
 
-`www.formateins.ch` ist aus der Cloud-Sitzung nicht erreichbar, der Egress-Proxy
-blockt den Host. Ein `curl` darauf liefert nichts und beweist nichts — weder
-dass die Seite alt ist noch dass sie neu ist. Der Beleg fuer einen erfolgreichen
-Livegang sind die Logs der Action («replacing index.html», «Sync complete»).
+Seit dem 30.10.2026 (ENT-048) antworten `www.formateins.ch`,
+`betreiber.formateins.ch` und `f5yct67kcv-source.github.io` aus der
+Cloud-Sitzung (Antwort 200). Frueher blockte der Egress-Proxy diese Hosts, und
+die Netzwerk-Einstellung der Umgebung kann sich wieder aendern. Nach einem
+Livegang darum beides pruefen: die Logs der Action («replacing index.html»,
+«Sync complete») und die ausgelieferte Seite selbst (`curl`, Playwright).
+Antwortet ein Host nicht, ist das zuerst eine Frage der Netzwerk-Einstellung
+und kein Beweis, dass die Seite alt ist.
 
-Von aussen pruefen geht trotzdem, ueber das Firecrawl-Werkzeug: `firecrawl_scrape`
+Zusaetzlich laesst sich von aussen pruefen, ueber das Firecrawl-Werkzeug: `firecrawl_scrape`
 holt eine Seite von formateins.ch ueber das offene Netz (so am 30.10.2026
 bestaetigt: `robots.txt` antwortet mit 200), `firecrawl_search` zeigt, was ein
 Suchindex kennt. Bing laesst sich per `curl` auf `www.bing.com/search` abfragen.

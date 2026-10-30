@@ -430,6 +430,144 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   ereignisse.js, beleg-seite.js, api/betreiber_*.php, kern/bruecke.php,
   «removing» der alten Beleg- und Adress-Endpunkte, «Sync complete». Die
   Übernahme der bisherigen Daten läuft beim ersten Anmelden.
+- [ ] **ENT-043** · 30.10.2026 · Musterprojekt für das Paket Breitbild: Ein
+  erfundener Kunde bekommt das ganze Paket (Strategie, Logo und Drucksachen,
+  Website, Imagefilm, Social Media), alles auf einer Seite («Schublade»),
+  verlinkt bei der Karte Breitbild auf `/preise`. Whiteboard mit Auftrag,
+  Paketinhalt, Sparten im Vergleich, acht Fächern der Schublade, Form,
+  Technik und Zeitplan: https://claude.ai/artifact/2cbLpn6LntXZgMbVfhgJGu
+  (privat, nur Adrian). Empfehlungen: Breitbild mit seinen drei Optionen und
+  Etikett pro Stück; «Vorlagen für Social Media» (+ 400) neu auch als Option
+  bei Breitbild; Sparte Schreinerei (Getränke-Startup später als Muster für
+  Startformat); Bilder und Film mit KI und Hinweis auf der Seite; Form «Tisch,
+  dann Fallstudie»; Demo-Website in reinem HTML. Offen: Adrians sechs
+  Entscheide. Nummer: ENT-042 ist auf `claude/epic-mayer-2x1fei` schon vom
+  Betreiber-Bereich belegt.
+- [x] **ENT-044** · 30.10.2026 · Das Musterprojekt Breitbild (ENT-043) wird von
+  Anfang an als Roadmap dokumentiert: `quellen/muster-breitbild/ROADMAP.md`.
+  Etappen nach den vier Schritten der Startseite, Soll vor dem Start und Ist
+  danach, ein Journal pro Schritt mit Beleg, Adrians Zeit, Runden, KI-Kosten
+  und was wir gelernt haben; dazu eine Lernliste und «Muster und echter
+  Auftrag». Adrian spielt bei Freigaben den Kunden. Zweck (Adrian): nachvoll-
+  ziehbar bleiben und für echte Projekte lernen. Regel in `CLAUDE.md`.
+  Beleg: dieser Commit.
+- [ ] **ENT-045** · 30.10.2026 · Am Ende des Musterprojekts ein Blogbeitrag für
+  Kunden: wie ein ganzes Projekt abläuft, damit sie Vertrauen fassen. Offen
+  als Musterprojekt gekennzeichnet, Zahlen aus dem Journal. Gliederung und
+  Materialliste stehen in der Roadmap; Ort auf der Seite, Suchbegriff und
+  Titel entscheidet Adrian, wenn es so weit ist.
+- [ ] **ENT-046** · 30.10.2026 · Projekt-Timer (Adrians Wunsch): hält die
+  effektive Zeit fest, wenn Adrian mit Claude an einem Projekt arbeitet,
+  erkennt Pausen, läuft über den Server, lässt sich visuell abfragen, gestaltet
+  wie formateins. Konzept mit den nachgerechneten Zeiten vom 30.10.2026:
+  https://claude.ai/artifact/G3qVTp12HJE87MVTTzRtwa (privat). Vorschlag:
+  neuer Teil «Zeit» im Betreiber-Bereich (gleiche Technik, kein Build).
+  Hooks in `.claude/settings.json` der formateins-Repositories schicken bei
+  Nachricht, «fertig», Start und Ende der Sitzung einen Puls an
+  `api/zeit_puls.php`: Zeit, Ereignis, Sitzung, Repository, Roadmap-Schritt,
+  nie den Text der Nachricht; gesichert mit `FORMATEINS_ZEIT_SCHLUESSEL`.
+  Fehlende Pulse aus dem Verlauf der Sitzung nachtragen, Arbeit ohne Claude
+  Code von Hand. Regel: Lücke unter 10 Min. zählt, darüber 10 Min. als Lesen,
+  der Rest Pause, per Tipp umbuchbar; Claude-Zeit getrennt ausgewiesen.
+  Geprüft am 30.10.2026: betreiber.formateins.ch und www.formateins.ch sind
+  aus der Cloud erreichbar (Antwort 200). Offen: Adrians fünf Entscheide,
+  Schlüssel in Umgebung und Repository, `formateins-betreiber` in die Sitzung.
+  Adrian am 30.10.2026: Betreiber-Bereich, Schwelle 10 Min., die Zeit, in
+  der Claude arbeitet, zählt und steht getrennt da, am Handy eine kleine
+  Anzeige (ENT-047), die 33 Min. nach dem Whiteboard waren Lesen.
+  `formateins-betreiber` ist jetzt in der Sitzung. Der Test-Hook (an drei
+  Orten: im Repository, im Startordner der Sitzung, in den Benutzer-
+  Einstellungen) wurde von der Sicherheitsprüfung der Sitzung gesperrt, weil
+  er Claudes eigene Einstellungen ändert. Er braucht Adrians ausdrückliches Ja.
+  Test-Hooks am 30.10.2026 mit Adrians Ja («ja, Test-Hooks einrichten»), an
+  drei Orten: im Repository formateins, im Startordner `/home/user/.claude/`
+  und in den Benutzer-Einstellungen `/root/.claude/`. Sie schreiben Ort,
+  Ereignis, Sitzung und Uhrzeit in eine Testdatei im Arbeitsordner. Nichts
+  verlässt den Container, nichts ist committet. Befund am 30.10.2026: Neue
+  Hooks greifen nach wenigen Sekunden, auch in der laufenden Sitzung (zuerst
+  zu früh nachgeschaut und falsch notiert). Gelesen werden die Benutzer-
+  Einstellungen und der Startordner `/home/user`, **nicht** das Repository,
+  weil die Cloud-Sitzung mit mehreren Repositories in `/home/user` startet.
+  Jeder Puls kennt die Sitzung lokal und in der Cloud (`cse_…`, gleich wie
+  `session_…`). Beide Orte liegen nur im Container, darum muss der echte Hook
+  bei jedem Start neu entstehen: über das Setup-Skript der Cloud-Umgebung
+  (Adrian trägt es ein, es kann keine Secrets lesen, der Hook liest den
+  Schlüssel erst zur Laufzeit aus der Umgebung). Am Mac einmal in
+  `~/.claude/settings.json`. Test vollständig: «fertig» (09:32 UTC),
+  Sitzungsstart nach einem Neustart (09:53) und «Nachricht» (09:53) kamen an
+  beiden Orten an, im Repository nie. Test-Hooks am 30.10.2026 wieder
+  gelöscht, das Protokoll liegt nur im Arbeitsordner der Sitzung.
+  Schlüssel, Empfehlung vom 30.10.2026: In der Cloud keine Umgebungs-
+  variable mehr, sondern ein «Network secret» der Umgebung. Der Proxy setzt
+  den Schlüssel erst ausserhalb des Containers in jede Anfrage an
+  betreiber.formateins.ch (Kopfzeile `X-Zeit-Schluessel`, ohne Präfix); er
+  steht weder in der Umgebung noch in einer Datei, Claude sieht ihn nie. Der
+  Server nimmt ihn auch als `Authorization: Bearer`, für das kurze Formular
+  ohne eigene Kopfzeile. Auf dem Server kommt er als Secret
+  `ZEIT_SCHLUESSEL` von `formateins-betreiber` über den Deploy in die
+  Konfiguration, wie `ANFRAGE_SCHLUESSEL`. Am Mac später lokal.
+  Adrian am 30.10.2026: Secret `ZEIT_SCHLUESSEL` in `formateins-betreiber`
+  angelegt. Adrian am 30.10.2026: Netzwerk-Secret in der Umgebung «Default»
+  angelegt (in der Desktop-App lässt sich «Default» bearbeiten, Netzwerk-
+  zugriff steht dort auf «Vollständig»). In der Sitzung ist er wie gewollt
+  nicht zu sehen; ob er ankommt, zeigt erst die Probe gegen den Server.
+  Eingang gebaut in `formateins-betreiber`, Arbeitszweig
+  `claude/sleepy-curie-u9tmyk`, Commit «Projekt-Timer: Eingang für Pulse mit
+  Schlüssel, Tabelle zeit_puls, Deploy und Prüfungen (ENT-046)»:
+  `api/zeit_puls.php` (GET mit Schlüssel = Probe, POST = Puls; derselbe Puls
+  zweimal zählt einmal), `kern/zeit.php`, Tabelle `zeit_puls`, Deploy schreibt
+  `ZEIT_SCHLUESSEL` auf den Server. Prüfungen mit lokaler Datenbank: 128 grün,
+  davon 11 neue für den Timer; beide absichtlich eingebauten Fehler (ohne
+  Schlüsselprüfung, ohne Schutz gegen Doppelte) wurden rot. Ohne Secret
+  antwortet der Eingang «nicht eingerichtet» (503), nicht «kein Zugang».
+  Adrian am 30.10.2026: «push beide». Der Push auf `main` aus der Sitzung wurde
+  von deren Sicherheitsprüfung gesperrt (Livegang nur durch einen Menschen),
+  Adrian hat den Betreiber-Zweig selbst gemergt (Pull Request #1). Lauf
+  «Betreiber zu Hostpoint» Nr. 8 (41054462094) erfolgreich: «uploading»
+  `api/zeit_puls.php` und `kern/zeit.php`, «replacing» `kern/tabellen.php`,
+  «Sync complete». Probe am 30.10.2026 aus dieser und aus einer neuen Sitzung:
+  beide 403 «Kein Zugang». Das GitHub-Secret ist also auf dem Server (sonst
+  503), der Schlüssel aus der Cloud passt aber nicht oder kommt nicht an.
+  Darum auf dem Arbeitszweig: «kein Schlüssel» und «Schlüssel stimmt nicht»
+  getrennt melden, und ein im Formular stehen gebliebenes Präfix «Bearer»
+  wegnehmen. Prüfungen 131 grün, beide eingebauten Fehler rot.
+  Ursache gefunden (Bild von Adrian, 30.10.2026): Im Netzwerk-Secret stand
+  beim Präfix noch das vorgegebene «Bearer». Adrian hat das Secret ersetzt,
+  Präfix leer. Danach am 30.10.2026 live: Probe «stimmt» (HTTP 200); ein
+  echter Puls (Adrians Nachricht von 12:44 UTC, als Nachtrag) gespeichert,
+  derselbe Puls ein zweites Mal nicht doppelt gezählt (`neu: false`); die
+  Tabelle `zeit_puls` ist damit auf dem Server angelegt.
+  Adrian am 30.10.2026: «ja, 2 und 3, PRs anlegen». Hook: `quellen/zeit/
+  setup-skript.sh` (für die Umgebung unter «Setup-Skript», am Mac einmal im
+  Terminal) legt `~/.claude/zeit-puls.sh` an und trägt ihn für Nachricht,
+  «fertig», Start und Ende ein, ohne bestehende Einstellungen zu ändern.
+  Getestet in einem abgetrennten Testordner: zweimal ausgeführt steht er
+  einmal drin, ohne Server kehrt er nach 40 ms ohne Ausgabe zurück, gegen
+  einen lokalen Server kamen alle vier Ereignisse mit Sitzung, Gerät,
+  Repository und Schritt an; eine falsche «session_id» im Nachrichtentext
+  täuscht ihn nicht. Schritt aus `~/.zeit-schritt` (Regel in `CLAUDE.md`).
+  Anleitung: `quellen/zeit/LIESMICH.md`. Die Probe nennt neu den letzten Puls
+  (Betreiber-Zweig, 132 Prüfungen grün, eingebauter Fehler rot).
+  Nachtrag der ersten Sitzung am 30.10.2026: 30 Pulse aus dem Verlauf (15
+  Nachrichten, 15 «fertig»), 29 neu, einer war schon da, kein Fehler. Stand
+  14:01: Schritt 0.1 42 Min. (Claude 9, Adrian 33), 0.2 9 Min. (4 und 5),
+  0.6 2:12 h (Claude 40 Min., Adrian 1:32 h); zusammen 3:05 h, dazu 1:53 h
+  Pause. Offen: Merge beider Pull Requests, Setup-Skript in der Umgebung,
+  danach eine neue Sitzung und die Probe; Ansichten als Bild zur Wahl.
+- [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
+  Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
+  Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
+  für den Computer. Adrian: «handy klein». Beim Bau auch die Regel in
+  `CLAUDE.md` von `formateins-betreiber` nachführen.
+  Nachgeführt am 30.10.2026 mit ENT-048, auf dem Arbeitszweig.
+- [x] **ENT-048** · 30.10.2026 · `CLAUDE.md` in formateins und
+  formateins-betreiber angepasst (Adrian: «CLAUDE.md anpassen»):
+  www.formateins.ch, betreiber.formateins.ch und github.io antworten aus der
+  Cloud-Sitzung, geprüft am 30.10.2026 mit je Antwort 200. Nach einem
+  Livegang werden jetzt der Lauf und die ausgelieferte Seite geprüft. Im
+  Betreiber-Repository steht zusätzlich die Handy-Ausnahme ENT-047. Dort auf
+  dem Arbeitszweig `claude/sleepy-curie-u9tmyk`, nicht live. Beleg: die
+  Commits in beiden Repositories.
 - [x] **ENT-049** · 30.10.2026 · Betreiber-Bereich: neuer Bereich **Akquise**
   (Adrian: «ein neuer Bereich dafür schaffen»), Inhalt aus dem privaten
   Repository `formateins-akquise` und dem Artefakt «Akquise-Fahrplan».
