@@ -20,7 +20,7 @@ Website:
 - Website auf einer Seite: CHF 1'400 – 1'900
 - Firmenwebsite mit 3 bis 5 Seiten: CHF 2'700 – 3'600
 - Grössere Website ab 6 Seiten: CHF 4'500 – 5'900
-- Danach laufend nur Hosting und Domain, rund CHF 200 bis 250 im Jahr, direkt beim Anbieter. Kein Abo.
+- Danach laufend nur Hosting und Domain, rund CHF 200 bis 250 im Jahr, direkt beim Anbieter. Kein Abo. Mit WordPress kommt eine Jahrespauschale von CHF 360 für die Updates dazu.
 
 Branding:
 - Bestehendes Logo auffrischen: CHF 800 – 1'100
@@ -49,8 +49,8 @@ Foto und Video vor Ort sind in jedem Bereich als Zusatz möglich und werden sepa
 ## Passt, passt nicht
 
 - Passt: persönlicher Ansprechpartner, alles aus einer Hand, Selbstständige, kleine Unternehmen und Vereine.
-- Passt nicht: Website unter CHF 1'000, Onlineshop oder Bestellsystem, täglich selbst Inhalte pflegen, garantierter Platz eins bei Google.
-- Websites werden ohne Baukasten und ohne CMS gebaut. Änderungen setzt Adrian um und verrechnet den Aufwand.
+- Passt nicht: Website unter CHF 1'000, Onlineshop oder Bestellsystem, die Seite lieber selbst zusammenstellen, garantierter Platz eins bei Google.
+- Websites werden ohne Baukasten gebaut, meist ohne CMS. Wer oft etwas ändert, etwa ein Sportcenter oder ein Verein mit Zeiten, Preisen und Anlässen, bekommt einen eigenen Zugang, im Festpreis inbegriffen. WordPress gibt es auf ausdrücklichen Wunsch, ebenfalls im Festpreis, mit einer schlanken Oberfläche für das, was oft ändert. Übrige Änderungen setzt Adrian um.
 - KI ist ein Werkzeug wie die Kamera. Sie macht das Technische schneller und den Preis tiefer.
 
 ## Seiten

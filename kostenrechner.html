@@ -558,6 +558,22 @@ footer nav a:hover{color:var(--signal)}
       </div>
     </div>
 
+    <!-- Nur zur Auskunft, aendert den Preis nicht (ENT-041): eigener Zugang
+         und WordPress sind im Festpreis, WordPress kostet danach CHF 360 im
+         Jahr fuer die Updates. -->
+    <div class="frage" data-schluessel="zugang" data-ast="website">
+      <span class="ziffer" aria-hidden="true"></span>
+      <p class="etikett"><b></b><i aria-hidden="true"></i>Inhalte</p>
+      <h1>Willst du Inhalte selbst ändern?</h1>
+      <p class="hilfe">Zum Beispiel Zeiten, Preise oder Anlässe. Am Preis ändert das nichts.</p>
+      <div class="antworten">
+        <button class="antwort" data-wert="nein" data-text="Nein, Änderungen übernimmt Adrian"><span class="kreis"></span><span><b>Nein, ich schicke dir Änderungen</b><span>Du setzt sie um. Das reicht den meisten.</span></span></button>
+        <button class="antwort" data-wert="zugang" data-text="Eigener Zugang"><span class="kreis"></span><span><b>Ja, mit eigenem Zugang</b><span>Für das, was oft ändert. Im Festpreis inbegriffen.</span></span></button>
+        <button class="antwort" data-wert="wordpress" data-text="WordPress, CHF 360 im Jahr für Updates"><span class="kreis"></span><span><b>Ja, mit WordPress</b><span>Mit schlanker Oberfläche. Im Festpreis, dazu CHF 360 im Jahr für die Updates.</span></span></button>
+        <button class="antwort" data-wert="unklar" data-text="Noch offen"><span class="kreis"></span><span><b>Weiss ich noch nicht</b><span>Wir klären es im Gespräch.</span></span></button>
+      </div>
+    </div>
+
     <!-- ===== Video ===== -->
     <div class="frage" data-schluessel="video_art" data-ast="video">
       <span class="ziffer" aria-hidden="true"></span>
@@ -736,7 +752,7 @@ footer nav a:hover{color:var(--signal)}
         </details>
         <details>
           <summary>Was kostet es nach dem Livegang?</summary>
-          <p>Nur Hosting und Domain, direkt beim Anbieter. Updates braucht deine Seite keine, weil kein Baukasten und kein CMS dahinterstecken, die gepflegt werden müssen. Änderungen wie neue Öffnungszeiten oder Preise mache ich, wenn du sie willst, und rechne sie nach Aufwand ab. Kein Abo.</p>
+          <p>Nur Hosting und Domain, direkt beim Anbieter. Updates braucht deine Seite keine, auch nicht mit eigenem Zugang. Zeiten, Preise oder Anlässe änderst du mit dem Zugang selbst, alles andere mache ich und rechne es nach Aufwand ab. Kein Abo. Willst du WordPress, kommt eine Jahrespauschale von CHF 360 dazu: Ich spiele die Updates ein, prüfe die Seite danach und sichere sie.</p>
         </details>
         <details>
           <summary>Gehört die Website dann mir?</summary>
@@ -808,7 +824,7 @@ footer nav a:hover{color:var(--signal)}
       "name": "Was kostet es nach dem Livegang?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nur Hosting und Domain, direkt beim Anbieter. Updates braucht deine Seite keine, weil kein Baukasten und kein CMS dahinterstecken, die gepflegt werden müssen. Änderungen wie neue Öffnungszeiten oder Preise mache ich, wenn du sie willst, und rechne sie nach Aufwand ab. Kein Abo."
+        "text": "Nur Hosting und Domain, direkt beim Anbieter. Updates braucht deine Seite keine, auch nicht mit eigenem Zugang. Zeiten, Preise oder Anlässe änderst du mit dem Zugang selbst, alles andere mache ich und rechne es nach Aufwand ab. Kein Abo. Willst du WordPress, kommt eine Jahrespauschale von CHF 360 dazu: Ich spiele die Updates ein, prüfe die Seite danach und sichere sie."
       }
     },
     {
@@ -1180,7 +1196,7 @@ const TITEL = {
   weiche:'Gewählt', ziel:'Ziel',
   marke_stand:'Branding', marke_reichweite:'Branding, Umfang',
   umfang:'Website, Umfang', bestand:'Ausgangslage', texte:'Texte', bilder:'Bilder',
-  logo:'Logo und Auftritt', funktionen:'Funktionen',
+  logo:'Logo und Auftritt', funktionen:'Funktionen', zugang:'Selbst ändern',
   video_art:'Video', video_laenge:'Länge', video_ort:'Formate', video_stimme:'Ton',
   zeit:'Zeitrahmen'
 };

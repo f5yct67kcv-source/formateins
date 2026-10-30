@@ -336,3 +336,55 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `bash pruefungen/alle.sh`, ENT-Nummern für den Betreiber-Bereich stehen hier
   im Logbuch von formateins. In den GuardOpS-Repositories wird dafür nichts
   abgelegt.
+- [ ] **ENT-040** · 29.10.2026 · Fragen auf der Startseite neu (Adrian):
+  formateins baut nicht nur ohne CMS. Lindenfeld läuft auf WordPress 7.1.4
+  mit eigener Oberfläche «Inhalte bearbeiten» (Login über `wp-login.php`);
+  Kunden, die selbst ändern wollen, wird das nicht ausgeredet. Ein solcher
+  Zugang geht auch bei reinen HTML-Seiten (Inhalte in einer Datei auf dem
+  Server, PHP mit Login, wie `anfrage.php` und `termine.php` auf Hostpoint);
+  gebaut ist er dafür noch nicht. Adrian: Zugang ist im Festpreis drin und
+  wird angeboten, etwa für Sportcenter und Vereine.
+  Neue Reihenfolge: Kosten, Dauer, selbst bearbeiten, WordPress, Google,
+  Fotos und Videos, KI, Region. «Kann ich meine Website selbst bearbeiten?»
+  neu: Zugang für Zeiten, Preise und Anlässe, im Festpreis inbegriffen; ohne
+  Satz zu den Kosten von Änderungen (Adrian: klärt er im Projekt und im
+  Vertrag). «Warum kein WordPress oder Baukasten?» wird «Brauche ich
+  WordPress?»: meistens nicht, auf ausdrücklichen Wunsch ja, ohne
+  «Sicherheitslücken». Region: Gespräche per Video, für Fotos und Filme vor
+  Ort (passt zu ENT-034). FAQPage-Daten mit `quellen/faq-daten.py` neu
+  erzeugt, `llms.txt` angeglichen.
+  Adrian am 29.10.2026, zwei Widersprüche gleich mit: «Passt nicht, wenn
+  du …» auf der Startseite «deine Seite lieber selbst zusammenstellst» statt
+  «täglich selbst Inhalte einpflegen willst». Ratgeber `website-kosten.html`,
+  «Was kostet es, wenn ich die Seite selbst bearbeiten will?»: «Nichts
+  zusätzlich. …» statt «Das biete ich nicht an … Baukasten besser bedient».
+  WordPress kostet gleich viel wie der eigene Zugang (im Festpreis).
+  FAQ-Daten des Ratgebers neu erzeugt, `llms.txt` angeglichen.
+  Offen: Kostenrechner und Ratgeber sagen an weiteren Stellen «kein CMS»
+  ohne den Zugang, eigene Runde. Livegang auf `main` nur mit Adrians
+  ausdrücklichem Wort.
+  Nummer: zuerst als ENT-035 vergeben, die war auf `main` schon vom
+  Betreiber-Bereich belegt (andere Sitzung); deshalb neu ENT-040.
+- [ ] **ENT-041** · 29.10.2026 · WordPress nach dem Livegang: Adrian wählt eine
+  Jahrespauschale für Updates (Variante A), nicht nach Aufwand und nicht
+  Sache des Kunden. Aufwand geschätzt 5–10 Stunden im Jahr bei wenigen
+  Plugins (Plugin-Updates monatlich, 2–3 grosse Versionen, PHP-Wechsel,
+  Backup). Markt Schweiz: CHF 25–89 im Monat (INSOR, wp-support-schweiz.ch,
+  Beyondweb). Normale Seite und eigener Zugang bleiben ohne Updates.
+  Adrian am 29.10.2026: CHF 360 im Jahr. Eingebaut im Ratgeber
+  (Kurzfassung, «Was im Preis drin ist», «Was es nach dem Livegang kostet»,
+  «Was kostet eine Änderung später?»), im Kostenrechner («Was kostet es nach
+  dem Livegang?») und in `llms.txt`; FAQ-Daten beider Seiten neu erzeugt.
+  Kostenrechner, Adrian am 29.10.2026 nach Bild: Variante A, eigene Frage
+  «Willst du Inhalte selbst ändern?» nach «Braucht es etwas Besonderes?»
+  (Nein / eigener Zugang / WordPress mit CHF 360 im Jahr / weiss noch
+  nicht), ändert den Preis nicht. Verworfen: B, als vierte Wahl bei den
+  Funktionen (hätte die Frage mehrfach wählbar gemacht und die Preislogik
+  berührt). `anfrage.php` kennt den neuen Schlüssel `zugang`, damit die
+  Antwort in der Mail und der Bestätigung steht. Website-Weg getestet:
+  9 Fragen, Rahmen unverändert, keine Fehler.
+  Startseite, Frage «Was kostet eine Website bei dir?»: «in wenigen Fragen»
+  statt «in sieben Fragen» (Adrian, 30.10.2026; der Website-Weg hat 9, die
+  anderen Wege andere Zahlen).
+  Nummer: zuerst als ENT-036 vergeben, die war auf `main` schon vom
+  Betreiber-Bereich belegt (andere Sitzung); deshalb neu ENT-041.

@@ -14,7 +14,7 @@ const ABSENDER   = 'adrian@formateins.ch';
 // Hoechstens so viele Anfragen pro Absender-IP und Stunde.
 const GRENZE_PRO_STUNDE = 5;
 
-// Zeitfalle: Kein Mensch beantwortet sieben Fragen und fuellt das Formular in
+// Zeitfalle: Kein Mensch beantwortet sieben oder mehr Fragen und fuellt das Formular in
 // weniger Sekunden aus. Der Rechner schickt mit, wie lange die Seite offen war.
 const MINDESTDAUER_MS = 8000;
 
@@ -33,6 +33,7 @@ const ANTWORTEN = [
   'bilder'           => ['Bilder', ['da' => 'Sind vorhanden', 'teil' => 'Teilweise vorhanden', 'fotos' => 'Fotos vor Ort, halber Tag', 'video' => 'Aus dem Videodreh']],
   'logo'             => ['Logo und Auftritt', ['da' => 'Beides vorhanden', 'teil' => 'Nur ein Logo', 'marke' => 'Wird neu gestaltet', 'ohne' => 'Ohne Logo, schlichte Farben und Schrift']],
   'funktionen'       => ['Funktionen', ['nein' => 'Keine', 'sprache' => 'Zweite Sprache', 'buchung' => 'Online-Buchung', 'beides' => 'Zweite Sprache und Online-Buchung']],
+  'zugang'           => ['Selbst ändern', ['nein' => 'Nein, Änderungen übernimmt Adrian', 'zugang' => 'Eigener Zugang', 'wordpress' => 'WordPress, CHF 360 im Jahr für Updates', 'unklar' => 'Noch offen']],
   'video_art'        => ['Video', ['imagefilm' => 'Imagefilm', 'produkt' => 'Produktvideo', 'animiert' => 'Animierter Spot', 'unklar' => 'Form noch offen']],
   'video_laenge'     => ['Länge', ['kurz' => 'Bis 20 Sekunden', 'mittel' => '30 bis 60 Sekunden', 'lang' => '1 bis 2 Minuten']],
   'video_ort'        => ['Formate', ['eins' => 'Ein Format', 'beide' => 'Hoch- und Querformat', 'clips' => 'Hoch- und Querformat, drei Kurzclips']],
