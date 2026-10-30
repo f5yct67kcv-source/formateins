@@ -329,7 +329,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   (richtig: `itufeden.mysql.db.internal`) und `BETREIBER_DB_NAME` (voller
   Name mit Kürzel); Adrian hat beide korrigiert, Läufe Nr. 3 und 4 erfolgreich.
   Am 29.10.2026 hat Adrian sein Konto angelegt und ist angemeldet.
-- [ ] **ENT-038** · offen · Anfragen von formateins.ch zusätzlich in den
+- [x] **ENT-038** · 30.10.2026 · Anfragen von formateins.ch zusätzlich in den
   Betreiber-Bereich (ENT-035): `anfrage.php` und `termine.php` schicken jede
   Anfrage an `api/anfrage_eingang.php`, mit Secret `ANFRAGE_SCHLUESSEL` in
   beiden Repositories. Die Mail läuft unverändert weiter. Änderung an
@@ -359,6 +359,14 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Gespräch im Reiter auf «abgesagt» (ist schon eine Offerte daraus geworden,
   bleibt der Stand und die Absage steht im Verlauf). Betreiber `57abee3`
   auf `main`, Gegenprobe: ohne die Änderung wird die Prüfung rot.
+  Live am 30.10.2026: Website `ee3c469`, Lauf «Website zu Hostpoint» Nr. 63
+  (uploading betreiber-eingang.php, replacing .htaccess, anfrage.php,
+  datenschutz.html, termine.php, «Sync complete»); Betreiber Lauf Nr. 12
+  (replacing api/anfrage_eingang.php, kern/anfragen.php, kern/tabellen.php).
+  Eingang antwortet ohne Schlüssel 403 statt 503, `betreiber-eingang.php`
+  von aussen 403, Datenschutz mit «Kundenverwaltung» live. Testanfrage über
+  den Kostenrechner: Adrian sieht sie im Reiter Anfragen (Bildschirmfoto,
+  Quelle Kostenrechner, Status Neu).
 - [x] **ENT-039** · 29.10.2026 · Betreiber-Bereich: Gestaltungsentwurf der
   Übersicht abgenommen (Adrian: «passt so»), Aufbau wie GuardOpS mit Farben,
   Logo und Schriften von formateins. **Keine Handy-Fassung** (Adrian:
