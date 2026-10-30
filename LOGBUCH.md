@@ -464,7 +464,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   werden Zeit und Gerät, keine IP, kein Cookie. Muss vor dem ersten Brief
   online sein. Text kommt als Vorschlag zu Adrian, dann Bau und Push mit
   seinem Wort.
-- [ ] **ENT-051** · 30.10.2026 · Bing meldet auf der Startseite «Title tag
+- [x] **ENT-051** · 30.10.2026 · Bing meldet auf der Startseite «Title tag
   missing» und «Meta Description tag missing», obwohl beide im HTML stehen:
   die Seiten liessen `<head>` und `<body>` weg (HTML5 erlaubt das, Bings
   Parser nicht). Alle neun ausgelieferten Seiten haben jetzt `<head>`,
@@ -478,5 +478,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   bleiben dekorativ. Descriptions gekürzt auf höchstens 154 Zeichen, Adrian
   wählt je Fassung A («A, A, A, A»): Startseite 174 → 149, Website-Kosten
   243 → 145 (Spannen statt «ab»), GuardOpS 213 → 150, Craniosacral Praxis
-  213 → 154. Push auf `main` mit Adrians Wort («push auf main»). Offen:
-  Lauf prüfen, danach löst Adrian in Bing «Request indexing» aus.
+  213 → 154. Live am 30.10.2026 mit Adrians Wort («push auf main»): `main`
+  auf ad850e9, Lauf Nr. 49 (41047363148) erfolgreich, «replacing» der neun
+  Seiten, «Sync complete», IndexNow 200 für die sieben indexierten Seiten.
+  In Bing löst Adrian «Request indexing» aus.
