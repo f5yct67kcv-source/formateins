@@ -397,3 +397,13 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «Sync complete», IndexNow 200 für Startseite, Kostenrechner und Ratgeber.
   Adrian am 30.10.2026: Testanfrage über den Kostenrechner, die Bestätigung
   zeigt «Selbst ändern: Eigener Zugang». Mail und Schlüssel `zugang` laufen.
+- [ ] **ENT-042** · 30.10.2026 · Betreiber-Bereich: **Adressen und Offerten
+  1:1 wie GuardOpS**, mit allem Inhalt und allen Optionen (Adrian: «Adressen
+  und Offerten Bereich mit allem Inhalt und Optionen möchte ich identisch!»).
+  Code-Aufbau aus GuardOpS übernommen, keine Daten. Entscheide dazu (Adrian,
+  je die Empfehlung): Aufbau wie GuardOpS, also Offerten mit den Reitern
+  Offerten, Leistungen und Briefkopf, Rechnungen unter Finanzen, Verträge
+  unter Projekte. Das Projekt bleibt als Zusatzfeld an der Offerte. Die
+  MWST-Spalte bleibt, Vorgabe 0 %. Nummern wie GuardOpS: OF-0001, RE-0001,
+  VE-0001, Adressen K0001, Leistungen P0001. Schon vergebene Nummern bleiben.
+  Ersetzt in diesen Punkten den Aufbau aus ENT-037.
