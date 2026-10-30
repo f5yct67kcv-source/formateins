@@ -459,7 +459,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   vorher für den Projekt-Timer vergeben (Eintrag 09:00 gegen 09:02), darum
   hier ENT-049. Commits, Code und das Repository formateins-akquise nennen
   noch ENT-046; im Code wird es mit dem nächsten Push nachgeführt.
-- [ ] **ENT-050** · 30.10.2026 · Datenschutzerklärung von formateins.ch um die
+- [x] **ENT-050** · 30.10.2026 · Datenschutzerklärung von formateins.ch um die
   Zählung des QR-Codes im Akquise-Brief ergänzen (ENT-049): gespeichert
   werden Zeit und Gerät, keine IP, kein Cookie. Muss vor dem ersten Brief
   online sein. Text kommt als Vorschlag zu Adrian, dann Bau und Push mit
@@ -469,7 +469,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   in der Aufbewahrung. Ton nach der Startseite (gute Arbeit sichtbar machen,
   zuerst zuhören, gemeinsam entscheiden), nachdem die erste Fassung für
   Adrian nach Rechtfertigung klang. Inhalt nach ENT-052: 60 Tage, danach
-  nur Name und Ort. Auf dem Arbeitszweig, live zusammen mit ENT-052.
+  nur Name und Ort. Live am 30.10.2026 mit Adrians Wort («push auf main,
+  beide repos»): `main` auf 788e992, Lauf «Website zu Hostpoint» Nr. 53
+  (41051762942) erfolgreich, «replacing datenschutz.html», «Sync complete».
 - [x] **ENT-051** · 30.10.2026 · Bing meldet auf der Startseite «Title tag
   missing» und «Meta Description tag missing», obwohl beide im HTML stehen:
   die Seiten liessen `<head>` und `<body>` weg (HTML5 erlaubt das, Bings
@@ -488,7 +490,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   auf ad850e9, Lauf Nr. 49 (41047363148) erfolgreich, «replacing» der neun
   Seiten, «Sync complete», IndexNow 200 für die sieben indexierten Seiten.
   In Bing löst Adrian «Request indexing» aus.
-- [ ] **ENT-052** · 30.10.2026 · Akquise: Ein Brief ohne jede Reaktion (kein
+- [x] **ENT-052** · 30.10.2026 · Akquise: Ein Brief ohne jede Reaktion (kein
   Scan, kein Reaktionsdatum, nicht als Adresse übernommen) wird 60 Tage nach
   dem Versand archiviert. Adrian wollte zuerst 30 Tage; 60 auf Empfehlung,
   wegen Weihnachtspause, Tor 3 Wochen nach Welle 2 und Briefen, die auf dem
@@ -497,18 +499,23 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «archiviert» mit Name, PLZ, Ort, Bewertung und Kosten: Auswertung stimmt,
   kein zweiter Brief (Adrians Wahl statt Sperrliste). Meldet er sich doch,
   holt das Reaktionsdatum ihn zurück. Commit a6ae838 auf dem Arbeitszweig
-  von formateins-betreiber, Gegenprobe gemacht.
+  von formateins-betreiber, Gegenprobe gemacht. Live am 30.10.2026 mit
+  Adrians Wort: Betreiber-`main` auf a6ae838, Lauf «Betreiber zu Hostpoint»
+  Nr. 7 (41051645601) erfolgreich, Prüfungen mit Datenbank grün (inkl. der
+  acht Archiv-Prüfungen), «replacing» akquise.js, kern/akquise.php,
+  kern/tabellen.php und 8 weitere, «Sync complete». Die Spalte
+  archiviert_am legt die Einrichtung beim nächsten Anmelden an.
   Offen: Im Repository formateins-akquise dieselben Betriebe nachziehen
   (Ordner mit Brief und Entwurf, Startseiten-Bild, Zeilen in betriebe.csv,
   screening.md, lighthouse.csv) und den Git-Verlauf einmal im Monat
   bereinigen. Das braucht einen Force-Push auf main und jedes Mal Adrians
   Wort. Erstmals fällig 60 Tage nach dem ersten Brief.
-- [ ] **ENT-053** · 30.10.2026 · Betreiber: Die Unterreiter (Fahrplan,
+- [x] **ENT-053** · 30.10.2026 · Betreiber: Die Unterreiter (Fahrplan,
   Betriebe usw.) stehen in jedem Bereich mittig unter den Kacheln der
   Navigation, nicht mehr am rechten Rand. Seitenkopf mit demselben Raster
   wie die Kopfzeile. Auf Adrians Skizze hin gebaut, gemessen bei 1600 und
   1280 px (Abweichung 0 px). Commit 298dfa0 auf dem Arbeitszweig
-  von formateins-betreiber, live erst mit Adrians Wort.
+  von formateins-betreiber. Live mit demselben Lauf Nr. 7 (betreiber.css).
   Zuerst als ENT-051 erfasst (10:22). Dieselbe Nummer vergab eine andere
   Sitzung um 11:03 für Bing und ist damit schon live; weil diese Änderung
   noch nicht live war, weicht sie auf ENT-053 aus. Der Commit im Betreiber
