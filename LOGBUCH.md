@@ -397,7 +397,6 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «Sync complete», IndexNow 200 für Startseite, Kostenrechner und Ratgeber.
   Adrian am 30.10.2026: Testanfrage über den Kostenrechner, die Bestätigung
   zeigt «Selbst ändern: Eigener Zugang». Mail und Schlüssel `zugang` laufen.
-- [ ] **ENT-042** · 30.10.2026 · Betreiber-Bereich: **Adressen und Offerten
 - [x] **ENT-042** · 30.10.2026 · Betreiber-Bereich: **Adressen und Offerten
   1:1 wie GuardOpS**, mit allem Inhalt und allen Optionen (Adrian: «Adressen
   und Offerten Bereich mit allem Inhalt und Optionen möchte ich identisch!»).
