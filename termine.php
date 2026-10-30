@@ -67,6 +67,8 @@ function telefonGueltig(string $t): bool {
     || preg_match('/^\+(?!41)[1-9]\d{6,13}$/', $n) === 1;
 }
 
+require __DIR__ . '/betreiber-eingang.php';
+
 // Zugangsdaten kommen beim Upload aus den GitHub-Secrets (siehe Workflow).
 // Im Repository stehen nur Platzhalter, dann ist die Buchung aus.
 $zugang = @include __DIR__ . '/kalender-zugang.php';
@@ -451,6 +453,9 @@ if ($aktion === 'absagen') {
   [$code] = dav('DELETE', KALENDER . $uid . '.ics');
   if (!in_array($code, [200, 204, 404], true)) ende(503, ['grund' => 'Kalender nicht erreichbar']);
   @unlink(zwischenspeicher());
+  // Im Betreiber-Bereich auf abgesagt setzen. Scheitert das, steht es im
+  // Fehlerprotokoll, und die Mail unten sagt es Adrian trotzdem.
+  ablegen(['aktion' => 'absagen', 'extern_id' => $uid]);
   $wann = $termin ? inWorten($termin['beginn']) : '';
   mailSenden(EMPFAENGER, 'Abgesagt: ' . ($termin['titel'] ?? 'Gespräch'),
     "Dieses Gespräch wurde über den Link in der Bestätigung abgesagt:\n\n" . ($termin['titel'] ?? '') . "\n" . $wann . "\n\nDer Termin ist aus dem Kalender «Gespräche» entfernt, die Zeit ist wieder frei.");
@@ -509,7 +514,6 @@ $wann = inWorten($beginn);
 
 // Im Betreiber-Bereich ablegen, ob der Kalender den Termin hat oder nicht.
 // Die Mails unten laufen unabhaengig davon.
-require __DIR__ . '/betreiber-eingang.php';
 ablegen([
   'quelle'  => 'gespraech',
   'name'    => $name,
@@ -519,6 +523,7 @@ ablegen([
   'inhalt'  => "$wann\nArt: " . ARTEN[$art] . ($raum !== '' ? "\nVideo-Raum: $raum" : '')
     . ($eingetragen ? "\n\nSteht im Kalender «Gespräche»." : "\n\nDer Kalender war nicht erreichbar, der Termin steht noch nicht drin."),
   'termin'  => $beginn->format('Y-m-d H:i:s'),
+  'extern_id' => $uid,
 ]);
 
 // Kalender nicht erreichbar: nichts geht verloren, Adrian bestaetigt von Hand.

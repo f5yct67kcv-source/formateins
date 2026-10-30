@@ -353,7 +353,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «… mir per E-Mail zugestellt und in meiner passwortgeschützten
   Kundenverwaltung gespeichert. Die Server stehen in der Schweiz.», beim
   Gespräch «… und in meiner Kundenverwaltung gespeichert». Lokal geprüft,
-  Prüfungen im Betreiber-Bereich grün. Offen: Push auf `main` (Adrians Wort).
+  Prüfungen im Betreiber-Bereich grün.
+  Adrian am 30.10.2026: «push, und Absage auch automatisch». `termine.php`
+  schickt die Kennung des Termins mit; eine Absage über den Link setzt das
+  Gespräch im Reiter auf «abgesagt» (ist schon eine Offerte daraus geworden,
+  bleibt der Stand und die Absage steht im Verlauf). Betreiber `57abee3`
+  auf `main`, Gegenprobe: ohne die Änderung wird die Prüfung rot.
 - [x] **ENT-039** · 29.10.2026 · Betreiber-Bereich: Gestaltungsentwurf der
   Übersicht abgenommen (Adrian: «passt so»), Aufbau wie GuardOpS mit Farben,
   Logo und Schriften von formateins. **Keine Handy-Fassung** (Adrian:
