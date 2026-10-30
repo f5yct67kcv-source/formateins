@@ -398,6 +398,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Adrian am 30.10.2026: Testanfrage über den Kostenrechner, die Bestätigung
   zeigt «Selbst ändern: Eigener Zugang». Mail und Schlüssel `zugang` laufen.
 - [ ] **ENT-042** · 30.10.2026 · Betreiber-Bereich: **Adressen und Offerten
+- [x] **ENT-042** · 30.10.2026 · Betreiber-Bereich: **Adressen und Offerten
   1:1 wie GuardOpS**, mit allem Inhalt und allen Optionen (Adrian: «Adressen
   und Offerten Bereich mit allem Inhalt und Optionen möchte ich identisch!»).
   Code-Aufbau aus GuardOpS übernommen, keine Daten. Entscheide dazu (Adrian,
@@ -416,4 +417,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «bezahlt»; Verträge mit Laufzeit; eigene Unterschrift im Kontomenü. Bisherige
   Adressen, Belege und der Briefkopf werden beim ersten Anmelden nach dem
   Deploy übernommen, die alten Tabellen bleiben stehen. Texte an Kunden in der
-  du-Form. Offen: Push auf `main` (geht live), braucht Adrians Wort.
+  du-Form.
+  Live am 30.10.2026 mit Adrians Wort («ich erlaube es, push auf main»):
+  `formateins-betreiber` `main` auf 80c0741, Lauf «Betreiber zu Hostpoint»
+  Nr. 5 (41027106459) erfolgreich, Prüfungen grün, «uploading» go.js, go.css,
+  ereignisse.js, beleg-seite.js, api/betreiber_*.php, kern/bruecke.php,
+  «removing» der alten Beleg- und Adress-Endpunkte, «Sync complete». Die
+  Übernahme der bisherigen Daten läuft beim ersten Anmelden.
