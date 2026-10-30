@@ -67,7 +67,7 @@ für das Muster setzen wir, sobald die Entscheide aus 0.3 stehen.
 | 0.3 | Sechs Entscheide aus dem Whiteboard | – | | | offen, Adrian |
 | 0.4 | Repository und Hosting der Demo-Website klären (demo.formateins.ch) | – | | | offen, Adrian |
 | 0.5 | Soll-Daten für die Etappen 1 bis 5 setzen | – | | | offen |
-| 0.6 | Projekt-Timer für die Zeitmessung (ENT-046) | – | | | läuft, Hook-Test wartet auf Adrians Ja |
+| 0.6 | Projekt-Timer für die Zeitmessung (ENT-046) | – | | | läuft: Eingang live und geprüft, offen Hook, Nachtrag, Ansichten |
 
 ### 1 · Wir legen los
 

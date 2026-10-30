@@ -530,8 +530,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   503), der Schlüssel aus der Cloud passt aber nicht oder kommt nicht an.
   Darum auf dem Arbeitszweig: «kein Schlüssel» und «Schlüssel stimmt nicht»
   getrennt melden, und ein im Formular stehen gebliebenes Präfix «Bearer»
-  wegnehmen. Prüfungen 131 grün, beide eingebauten Fehler rot. Offen: Merge
-  durch Adrian, dann die Probe wiederholen.
+  wegnehmen. Prüfungen 131 grün, beide eingebauten Fehler rot.
+  Ursache gefunden (Bild von Adrian, 30.10.2026): Im Netzwerk-Secret stand
+  beim Präfix noch das vorgegebene «Bearer». Adrian hat das Secret ersetzt,
+  Präfix leer. Danach am 30.10.2026 live: Probe «stimmt» (HTTP 200); ein
+  echter Puls (Adrians Nachricht von 12:44 UTC, als Nachtrag) gespeichert,
+  derselbe Puls ein zweites Mal nicht doppelt gezählt (`neu: false`); die
+  Tabelle `zeit_puls` ist damit auf dem Server angelegt. Offen: Merge der
+  zwei Verbesserungen, Hook über das Setup-Skript der Umgebung, Nachtrag der
+  heutigen Sitzung, Ansichten als Bild zur Wahl.
 - [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
   Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
   Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
