@@ -75,8 +75,8 @@ für das Muster setzen wir, sobald die Entscheide aus 0.3 stehen.
 | Nr | Schritt | Kunde | Soll | Ist | Status |
 |---|---|---|---|---|---|
 | 1.1 | Firma erfinden: Name (in zefix.ch und bei Google geprüft), Geschichte, Leute, Ort | W1 | 31.10.2026 | 30.10.2026 | erledigt (ENT-070) |
-| 1.2 | Vorher-Auftritt festhalten: altes Logo, alte Website, schlafendes Profil | W1 | 02.11.2026 | | offen |
-| 1.3 | Erstgespräch als Protokoll: was der Kunde erzählt, was er will, was er nicht braucht | W1 | 02.11.2026 | | offen |
+| 1.2 | Vorher-Auftritt festhalten: altes Logo, alte Website, schlafendes Profil | W1 | 02.11.2026 | 30.10.2026 | erledigt (ENT-071) |
+| 1.3 | Erstgespräch als Protokoll: was der Kunde erzählt, was er will, was er nicht braucht | W1 | 02.11.2026 | | Entwurf in [`ERSTGESPRAECH.md`](ERSTGESPRAECH.md), Freigabe offen |
 
 ### 2 · Du bekommst ein Angebot
 
@@ -225,6 +225,34 @@ Chronologisch, der neueste Eintrag unten. Vorlage für jeden Eintrag:
   ein eigener Auftrag, nicht Teil von Breitbild.
 - Für den Blog: ein Satz in der Einleitung, warum die Firma Kully heisst.
 
+### 30.10.2026 · 1.2 Vorher-Auftritt
+
+- Gemacht: Das alte Logo von 1994 in drei Varianten, alle mit leicht
+  ausgefranstem Kopierer-Druck: A Oval mit Hobel, braun; B Pinselschrift mit
+  Tanne, grün; C Stempel mit Sägeblatt und Initialen, rot. Dazu die Website
+  von 2011 und das Profil mit dem letzten Beitrag vom Dezember 2019. Vier
+  Fotos mit KI, wie mit der Kompaktkamera von damals. Quellen in `vorher/`.
+- Freigabe: Adrian als Kunde: «A, passt». Logo A, Website und Profil ohne
+  Änderung.
+- Beleg: ENT-071, `vorher/LIESMICH.md`, Bilder im Chat vom 30.10.2026
+- Zeit: aus dem Timer. Claude 9 Min. (davon rund 4 für den Abschluss von
+  1.1), Adrian 10 Min. zum Anschauen, danach Pause bis zur Antwort um 22:19.
+  Durchlauf: am selben Abend, drei Tage vor dem Soll. Runden: 1
+- KI-Kosten: 1 Higgsfield-Credit (vier Bilder mit `gpt_image_2_5`).
+- Gelernt: Das Alter zeigt sich an Spuren, nicht durch Spott: feste Breite,
+  «Optimiert für Internet Explorer 8», ein fehlendes Plug-in, die Betriebsferien
+  2011 noch als «NEU!». So bleibt der Vorher-Auftritt glaubwürdig und
+  respektvoll, wie ihn viele echte Firmen haben. Das Profil ist neutral
+  gezeichnet, nicht im Look einer echten Plattform, damit keine fremde Marke
+  im Bild steht. Bilder in Drive hochzuladen geht über den Connector nicht
+  sinnvoll; die Quellen im Repository und die Jobs bei Higgsfield ersetzen
+  das.
+- Beim echten Kunden anders: Den Vorher-Auftritt gibt es schon. Bildschirmfotos
+  von Website und Profil, Fotos von Bus und Briefpapier, mit dem Einverständnis
+  des Kunden.
+- Für den Blog: Logo A neben dem neuen Logo, die Website von 2011 neben der
+  neuen. Die Varianten B und C als Blick hinter die Kulissen.
+
 ## Lernliste
 
 Was wir für echte Projekte mitnehmen. Ein Punkt pro Erkenntnis, mit Datum und
@@ -239,6 +267,8 @@ Verweis aufs Journal.
   schon für eine Verwechslung (1.1).
 - 30.10.2026 · Bei einer Namensfrage zuerst fragen, ob der Name echt aus der
   Region oder neutral sein soll (1.1).
+- 30.10.2026 · Einen alten Auftritt an Spuren zeigen, nicht durch Spott. Der
+  Kunde liest mit (1.2).
 
 ## Muster und echter Auftrag
 
@@ -281,7 +311,7 @@ Zahlen aus dem Journal, nicht geschönt.
 
 **Material, das unterwegs gesammelt wird:**
 
-- [ ] Vorher-Auftritt (1.2)
+- [x] Vorher-Auftritt (1.2): Logo von 1994 mit den verworfenen Varianten B und C, Website von 2011, Profil von 2019 (Quellen in `vorher/`)
 - [ ] Ausschnitt aus dem Strategieblatt (2.1)
 - [ ] Logo-Varianten, auch die verworfenen (3.1)
 - [ ] Offerte im neuen Briefbogen (3.3)

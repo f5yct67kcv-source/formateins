@@ -968,3 +968,14 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   aus der Region). Steckbrief `quellen/muster-breitbild/FIRMA.md`, Ordner
   `Demo Projekte / Schreinerei Kully` in Drive. Soll für die Etappen 1 und 2
   in der Roadmap gesetzt, 3 bis 5 nach Entscheid 4 (Film).
+- [x] **ENT-071** · 30.10.2026 · Musterprojekt Breitbild, Schritt 1.2: Der
+  **Vorher-Auftritt** der Schreinerei Kully ist freigegeben (Adrian: «A,
+  passt»). Altes Logo von 1994: Variante A, Oval mit Hobel, braun, im
+  Kopierer-Druck; verworfen B (Pinselschrift mit Tanne) und C (Stempel mit
+  Sägeblatt), sie bleiben für den Blog. Dazu die Website von 2011 und ein
+  neutral gezeichnetes Profil mit dem letzten Beitrag vom Dezember 2019. Vier
+  Fotos mit KI (Higgsfield, 1 Credit). Quellen in
+  `quellen/muster-breitbild/vorher/`, die Bilder rechnet Playwright daraus.
+  Entwurf des Erstgesprächs (1.3) in `quellen/muster-breitbild/ERSTGESPRAECH.md`,
+  Freigabe offen.
+
