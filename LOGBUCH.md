@@ -669,8 +669,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Adrians Wort: Betreiber-`main` auf a6ae838, Lauf «Betreiber zu Hostpoint»
   Nr. 7 (41051645601) erfolgreich, Prüfungen mit Datenbank grün (inkl. der
   acht Archiv-Prüfungen), «replacing» akquise.js, kern/akquise.php,
-  kern/tabellen.php und 8 weitere, «Sync complete». Die Spalte
-  archiviert_am legt die Einrichtung beim nächsten Anmelden an.
+  kern/tabellen.php und 8 weitere, «Sync complete».
+  Fehler nach dem Livegang: Die Oberfläche ergänzte beim Start nur fehlende
+  Tabellen, nicht fehlende Spalten. Standen die Akquise-Tabellen schon,
+  fehlte archiviert_am, und Übersicht und Akquise brachen ab. Fix im Commit
+  «Neue Spalten beim Anmelden ergänzen» (4875281, Prüfung mit entfernter
+  Spalte, Gegenprobe): tabellen_vollstaendig() zählt auch Spalten, der
+  QR-Code zählt auch, wenn das Archiv scheitert. Live über PR #2 (Adrian),
+  Lauf «Betreiber zu Hostpoint» Nr. 9 (41054569295) erfolgreich, «replacing»
+  api/akquise_qr.php und kern/tabellen.php, «Sync complete».
   Offen: Im Repository formateins-akquise dieselben Betriebe nachziehen
   (Ordner mit Brief und Entwurf, Startseiten-Bild, Zeilen in betriebe.csv,
   screening.md, lighthouse.csv) und den Git-Verlauf einmal im Monat
