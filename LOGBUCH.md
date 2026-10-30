@@ -424,3 +424,24 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   ereignisse.js, beleg-seite.js, api/betreiber_*.php, kern/bruecke.php,
   «removing» der alten Beleg- und Adress-Endpunkte, «Sync complete». Die
   Übernahme der bisherigen Daten läuft beim ersten Anmelden.
+- [ ] **ENT-046** · 30.10.2026 · Betreiber-Bereich: neuer Bereich **Akquise**
+  (Adrian: «ein neuer Bereich dafür schaffen»), Inhalt aus dem privaten
+  Repository `formateins-akquise` und dem Artefakt «Akquise-Fahrplan».
+  Entscheide (Adrian, je die Empfehlung, wo nicht anders vermerkt): Es gilt
+  `fahrplan.md` mit 14 Schritten in fester Reihenfolge, je mit «fertig, wenn»,
+  nicht die Tempo-Fassung des Artefakts mit festen Daten. Ein Bereich nach
+  Anfragen, vier Reiter: Fahrplan (Roadmap mit Fortschritt und nächsten
+  Branchen), Betriebe (vom Kandidaten bis zum Auftrag, mit Stunden pro
+  Brief), Auswertung (Schwellen für Entscheidungspunkt 2 und Rechner mit
+  echten Zahlen), Methode (Text). Künftige Zielbereiche sind weitere
+  Branchen. Namen von Betrieben stehen nur in der Datenbank auf Hostpoint,
+  nie im Code. Fahrplan und Screening kommen per Import hinein (fahrplan.md
+  einmal hochladen, Betriebe als CSV). Ein Betrieb, der sich meldet, wird
+  per Knopf zur Adresse. QR-Code führt über betreiber.formateins.ch, wird
+  dort gezählt und weitergeleitet. Gespeichert werden nur Zeit und Gerät
+  (Handy oder Computer), keine IP, kein Cookie. Jeder Scan meldet sich im
+  Bereich und per Mail an die formateins-Adresse (Adrian: «mit Zeit und
+  Datumstempel, sowie notification auf der seite und auf format
+  mailadresse»). Vor dem ersten Versand muss die Datenschutzerklärung von
+  formateins.ch die Zählung nennen. Offen: Wahl der Gestaltung (Fahrplan
+  Variante A oder B), dann Bau.
