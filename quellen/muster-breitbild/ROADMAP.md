@@ -66,24 +66,24 @@ für das Muster setzen wir, sobald die Entscheide aus 0.3 stehen.
 | 0.2 | Roadmap anlegen, Blogbeitrag vorbereiten | – | 30.10.2026 | 30.10.2026 | erledigt |
 | 0.3 | Sechs Entscheide aus dem Whiteboard | – | | | 1, 2, 3, 6 entschieden (ENT-067), offen 4 Film und 5 Form |
 | 0.4 | Repository und Hosting der Demo-Website klären (demo.formateins.ch) | – | | | offen, Adrian |
-| 0.5 | Soll-Daten für die Etappen 1 bis 5 setzen | – | | | offen |
+| 0.5 | Soll-Daten für die Etappen 1 bis 5 setzen | – | 30.10.2026 | | Etappen 1 und 2 gesetzt am 30.10.2026, 3 bis 5 nach Entscheid 4 (Film) |
 | 0.6 | Projekt-Timer für die Zeitmessung (ENT-046) | – | | 30.10.2026 | erledigt, live (ENT-066) |
 
 ### 1 · Wir legen los
 
 | Nr | Schritt | Kunde | Soll | Ist | Status |
 |---|---|---|---|---|---|
-| 1.1 | Firma erfinden: Name (in zefix.ch und bei Google geprüft), Geschichte, Leute, Ort | W1 | | | offen |
-| 1.2 | Vorher-Auftritt festhalten: altes Logo, alte Website, schlafendes Profil | W1 | | | offen |
-| 1.3 | Erstgespräch als Protokoll: was der Kunde erzählt, was er will, was er nicht braucht | W1 | | | offen |
+| 1.1 | Firma erfinden: Name (in zefix.ch und bei Google geprüft), Geschichte, Leute, Ort | W1 | 31.10.2026 | | läuft |
+| 1.2 | Vorher-Auftritt festhalten: altes Logo, alte Website, schlafendes Profil | W1 | 02.11.2026 | | offen |
+| 1.3 | Erstgespräch als Protokoll: was der Kunde erzählt, was er will, was er nicht braucht | W1 | 02.11.2026 | | offen |
 
 ### 2 · Du bekommst ein Angebot
 
 | Nr | Schritt | Kunde | Soll | Ist | Status |
 |---|---|---|---|---|---|
-| 2.1 | Strategieblatt: wen wir erreichen, was hängen bleibt, welcher Ton | W1 | | | offen |
-| 2.2 | Offerte mit Festpreis: Breitbild und die gewählten Optionen | W1 | | | offen |
-| 2.3 | Freigabe von Strategie und Offerte (Adrian als Kunde) | W1 | | | offen |
+| 2.1 | Strategieblatt: wen wir erreichen, was hängen bleibt, welcher Ton | W1 | 03.11.2026 | | offen |
+| 2.2 | Offerte mit Festpreis: Breitbild und die gewählten Optionen | W1 | 04.11.2026 | | offen |
+| 2.3 | Freigabe von Strategie und Offerte (Adrian als Kunde) | W1 | 05.11.2026 | | offen |
 
 Auf der Startseite steht: Angebot innert drei Tagen. Das ist das Soll für 1.3
 bis 2.2.
