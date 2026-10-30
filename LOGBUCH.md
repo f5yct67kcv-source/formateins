@@ -604,14 +604,18 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Übersichtsseite der Quelle. README: Abschnitt «KI-Agenten» mit den Regeln
   für jede Änderung (`llms.txt` und `sitemap.xml` im selben Commit, nichts
   per Skript einblenden, was Platz braucht, jedes Bedienelement benennen).
-- [ ] **ENT-061** · 30.10.2026 · Kostenrechner: Layoutsprung beim Laden weg.
+- [x] **ENT-061** · 30.10.2026 · Kostenrechner: Layoutsprung beim Laden weg.
   PageSpeed mass mobil CLS 0,071, lokal genau so nachgestellt (Slow 4G, CPU
   vierfach gedrosselt). Ursache: alle Fragen im HTML versteckt, erst das
   Skript zeigte die erste; bis dahin war die Bühne leer und die Fusszeile
   sprang 235 px. Jetzt hat die erste Frage `dran` schon im HTML. Danach CLS
   0,000, Bild nach dem Laden pixelgleich (390 und 1366 px), Fragen schalten
   wie vorher. Keine sichtbare Änderung, darum ohne Varianten gebaut, auf dem
-  Arbeitszweig. Offen: live mit Adrians Wort, danach PageSpeed neu messen.
+  Arbeitszweig. Live am 30.10.2026 mit Adrians Wort («push»): `main` auf
+  a69782c (mit ENT-059 und ENT-060), Lauf «Website zu Hostpoint» Nr. 55
+  (41053933641) erfolgreich, «replacing kostenrechner.html», «Sync
+  complete», IndexNow 200 für /kostenrechner. Offen für Adrian: PageSpeed
+  mobil neu messen, erwartet CLS 0.
 - [ ] **ENT-062** · offen, Backlog · WebMCP für die Formulare in
   `gespraech.html` und `kostenrechner.html` (`toolname`,
   `tooldescription`, `toolparamdescription`), sobald der Standard stabil ist
