@@ -482,3 +482,37 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   auf ad850e9, Lauf Nr. 49 (41047363148) erfolgreich, «replacing» der neun
   Seiten, «Sync complete», IndexNow 200 für die sieben indexierten Seiten.
   In Bing löst Adrian «Request indexing» aus.
+- [ ] **ENT-052** · 30.10.2026 · KI-Suchen finden formateins noch nicht
+  (Adrian: ChatGPT kennt «formateins aus Olten» nicht). Prüfung von aussen:
+  `robots.txt` erlaubt alle Crawler und ist erreichbar (200), Sitemap,
+  `llms.txt`, strukturierte Daten (Adresse Trimbach, Einzugsgebiet Olten,
+  FAQ, Preise) und IndexNow sind da. Ein Websuche-Index (Firecrawl) liefert
+  alle sieben Seiten für «formateins.ch» und die Startseite für «formateins
+  Olten». Bing liefert für `site:formateins.ch` keine eigenen Treffer, nur
+  fremde Seiten: Bing hat die Seite noch nicht im Index, und ChatGPT sucht
+  vor allem über Bing. Hauptgrund ist also Zeit (zwei bis drei Tage seit der
+  Einrichtung) plus Bing. Gemacht auf dem Arbeitszweig: Sitemap mit
+  aktuellen Änderungsdaten, auf `gespraech.html` den Ersatztext «gerade
+  alles belegt» mit `data-nosnippet` aus den Suchtreffern genommen (ein
+  Suchindex zeigte ihn als Beschreibung). Offen für Adrian: Bing Webmaster
+  Tools (Sitemap, URL-Übermittlung), Einträge bei local.ch und search.ch
+  (ENT-027), Gewerbe Olten, Instagram-Profil als `sameAs`. Nachprüfen mit
+  ENT-026.
+  Recherche 30.10.2026 (Bericht an Adrian, nicht im Repository): Jede KI-Suche
+  hat ihren eigenen Index. Google AI Overviews, AI Mode und Gemini nutzen
+  Google, Copilot nutzt Bing, ChatGPT den eigenen OAI-SearchBot plus
+  Drittanbieter (vermutlich vor allem Bing), Perplexity den eigenen Index,
+  Claude Brave Search, Siri den Applebot. Die Technik der Seite ist
+  vollständig, der Hebel liegt ausserhalb: Bing Webmaster Tools, Bing Places,
+  Apple Business, local.ch/search.ch, Gewerbe Olten (Probejahr gratis, danach
+  CHF 365), Brave «Submit URL», echte Erwähnungen. Zwei Funde im Quelltext:
+  die Adresse steht nur in den strukturierten Daten, nicht im sichtbaren
+  Text (Vorschlag sichtbar machen, Varianten zuerst); `messung.js` hat keine
+  GA4-Mess-ID, Besuche aus ChatGPT sind also nicht messbar.
+  Adrian am 30.10.2026: arbeitet beim Kunden oder per Video. Darum keine
+  volle Adresse sichtbar auf den Seiten (bleibt im Impressum und in den
+  strukturierten Daten); im Google-Profil Adresse ausblenden und
+  Einzugsgebiet angeben (Adrian). Offen: ob «Trimbach bei Olten» sichtbar
+  im Text stehen soll (Textfrage, Varianten zuerst).
+  Nummer: zuerst als ENT-042 vergeben, die war auf `main` schon vom
+  Betreiber-Bereich belegt (andere Sitzung); deshalb neu ENT-052.
