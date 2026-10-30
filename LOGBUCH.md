@@ -620,3 +620,28 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `gespraech.html` und `kostenrechner.html` (`toolname`,
   `tooldescription`, `toolparamdescription`), sobald der Standard stabil ist
   und Lighthouse ihn bewertet. Beispiel in `quellen/agentic-browsing-2026-10.md`.
+- [ ] **ENT-063** · 30.10.2026 · PageSpeed-Bericht der Startseite (Adrian,
+  30.10.2026, 12:45): Handy 98/100/100/100, Computer 100 überall, CLS 0.
+  Speed Index Handy 3,7 s, Gewicht Computer 1'476 KB. Die fünf Vorschläge
+  am Code geprüft:
+  1. Bilder zu gross: die Startseiten der Arbeiten (1200 px) erscheinen
+     höchstens 381 px breit, eine kleinere Fassung mit `srcset` lohnt sich.
+     Achtung: dieselben Bilder stehen auch in der vergrösserten Werkbank,
+     dort braucht es die grosse Fassung weiter. Die Vorschaubilder der Videos
+     (`video-reel.jpg` 82 KB) als WebP in gleicher Grösse.
+  2. Reel-Video am Computer: In einem normalen Fenster (1350 × 940) lädt die
+     Seite kein einziges Video, gemessen. Es lädt erst, wenn das Reel ins
+     Bild kommt. Vermutlich hat Lighthouse es mit dem Bildschirmfoto der
+     ganzen Seite ausgelöst (nicht belegt). Echte Besucher laden es nur,
+     wenn sie hinscrollen.
+  3. `leiste.css` und `schriften.css` ins HTML schreiben: spart zwei kleine
+     Anfragen, aber beide gelten für alle Seiten, jede Änderung müsste dann in
+     neun Dateien.
+  4. «Zeile 1611»: in der ausgelieferten Fassung (ohne Kommentare) das Lesen
+     von `scrollY` beim Start der Mitlauf-Leiste (`letztesY = scrollY`). Es
+     erzwingt den ersten Layoutaufbau mitten im Skript, rund 37 ms bei
+     vierfach gedrosselter CPU, der grösste Posten. Lösung: den Wert erst
+     beim ersten Scrollen lesen, eine Zeile, nichts sichtbar.
+  5. Zwischenspeicher 1 Jahr: nur mit neuen Dateinamen bei jeder Änderung,
+     sonst sehen Besucher alte Bilder. Später.
+  Offen: Adrian wählt, was gebaut wird.
