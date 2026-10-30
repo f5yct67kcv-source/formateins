@@ -27,6 +27,11 @@ Schritt den Journal-Eintrag im selben Commit wie die Arbeit. Das Soll wird
 nicht nachträglich geändert, Abweichungen stehen mit Grund im Journal. Zweck:
 für echte Projekte lernen und Stoff für den Blogbeitrag am Schluss (ENT-045).
 
+Die Zeit misst der Projekt-Timer (ENT-046, `quellen/zeit/LIESMICH.md`). Zu
+Beginn jedes Schritts den Schritt in `~/.zeit-schritt` schreiben, zum Beispiel
+`echo "muster-breitbild 3.1" > ~/.zeit-schritt`, damit jeder Puls ihn trägt.
+Die Zeiten fürs Journal kommen aus dem Timer, nicht aus der Erinnerung.
+
 ## Vor jedem Push
 
 An `main` arbeiten mehrere Sitzungen parallel. Deshalb vor **jedem** Push:

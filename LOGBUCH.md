@@ -536,9 +536,24 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Präfix leer. Danach am 30.10.2026 live: Probe «stimmt» (HTTP 200); ein
   echter Puls (Adrians Nachricht von 12:44 UTC, als Nachtrag) gespeichert,
   derselbe Puls ein zweites Mal nicht doppelt gezählt (`neu: false`); die
-  Tabelle `zeit_puls` ist damit auf dem Server angelegt. Offen: Merge der
-  zwei Verbesserungen, Hook über das Setup-Skript der Umgebung, Nachtrag der
-  heutigen Sitzung, Ansichten als Bild zur Wahl.
+  Tabelle `zeit_puls` ist damit auf dem Server angelegt.
+  Adrian am 30.10.2026: «ja, 2 und 3, PRs anlegen». Hook: `quellen/zeit/
+  setup-skript.sh` (für die Umgebung unter «Setup-Skript», am Mac einmal im
+  Terminal) legt `~/.claude/zeit-puls.sh` an und trägt ihn für Nachricht,
+  «fertig», Start und Ende ein, ohne bestehende Einstellungen zu ändern.
+  Getestet in einem abgetrennten Testordner: zweimal ausgeführt steht er
+  einmal drin, ohne Server kehrt er nach 40 ms ohne Ausgabe zurück, gegen
+  einen lokalen Server kamen alle vier Ereignisse mit Sitzung, Gerät,
+  Repository und Schritt an; eine falsche «session_id» im Nachrichtentext
+  täuscht ihn nicht. Schritt aus `~/.zeit-schritt` (Regel in `CLAUDE.md`).
+  Anleitung: `quellen/zeit/LIESMICH.md`. Die Probe nennt neu den letzten Puls
+  (Betreiber-Zweig, 132 Prüfungen grün, eingebauter Fehler rot).
+  Nachtrag der ersten Sitzung am 30.10.2026: 30 Pulse aus dem Verlauf (15
+  Nachrichten, 15 «fertig»), 29 neu, einer war schon da, kein Fehler. Stand
+  14:01: Schritt 0.1 42 Min. (Claude 9, Adrian 33), 0.2 9 Min. (4 und 5),
+  0.6 2:12 h (Claude 40 Min., Adrian 1:32 h); zusammen 3:05 h, dazu 1:53 h
+  Pause. Offen: Merge beider Pull Requests, Setup-Skript in der Umgebung,
+  danach eine neue Sitzung und die Probe; Ansichten als Bild zur Wahl.
 - [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
   Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
   Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
