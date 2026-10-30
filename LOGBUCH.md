@@ -456,7 +456,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   als Musterprojekt gekennzeichnet, Zahlen aus dem Journal. Gliederung und
   Materialliste stehen in der Roadmap; Ort auf der Seite, Suchbegriff und
   Titel entscheidet Adrian, wenn es so weit ist.
-- [ ] **ENT-046** · 30.10.2026 · Projekt-Timer (Adrians Wunsch): hält die
+- [x] **ENT-046** · 30.10.2026 · Projekt-Timer (Adrians Wunsch): hält die
   effektive Zeit fest, wenn Adrian mit Claude an einem Projekt arbeitet,
   erkennt Pausen, läuft über den Server, lässt sich visuell abfragen, gestaltet
   wie formateins. Konzept mit den nachgerechneten Zeiten vom 30.10.2026:
@@ -570,6 +570,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Band) und D (Band senkrecht mit Schritten). Offen: Adrians Wahl, dann Bau.
   Adrian wählt am 30.10.2026 anders: «Zeit» als Reiter unter Projekte, am
   Handy nicht nötig. Gebaut mit ENT-066.
+  Abgeschlossen am 30.10.2026 mit ENT-066: Eingang, Hook und Ansicht sind
+  live. Am Mac einrichten, sobald Adrian dort mit Claude arbeitet
+  (`quellen/zeit/LIESMICH.md`).
 - [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
   Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
   Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
@@ -833,7 +836,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Lauf «Website zu Hostpoint» Nr. 57 (41057444056) erfolgreich,
   «uploading» video-reel.webp und video-spot.webp, «replacing index.html»,
   «Sync complete», IndexNow 200 für die Startseite.
-- [ ] **ENT-066** · 30.10.2026 · Ansicht des Projekt-Timers (ENT-046).
+- [x] **ENT-066** · 30.10.2026 · Ansicht des Projekt-Timers (ENT-046).
   Adrian: «Zeit» kein eigener Punkt in der Navigation, sondern ein Reiter
   unter Projekte («Projekte, Verträge, Zeit»); am Handy nicht wichtig, darum
   keine Handy-Fassung, ENT-047 ist aufgehoben. Entwurf A und B vereint:
@@ -859,3 +862,16 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Im Browser mit den Pulsen dieser Sitzung geklickt: «war Arbeit», Löschen,
   Von Hand starten und stoppen, ganzer Tag, Vortag; keine Fehler in der
   Konsole. Offen: Merge durch Adrian, danach Lauf und Seite prüfen.
+  Live am 30.10.2026 auf Adrians Wort («merge bitte selbst in github!»):
+  Claude hat beide Pull Requests gemergt (Rebase), Betreiber Nr. 4 auf
+  `main` b285520, formateins Nr. 2 auf fc5a508. Lauf «Betreiber zu
+  Hostpoint» Nr. 11 (41085609971) erfolgreich: «uploading» `api/zeit.php`
+  und `api/zeit_hand.php`, «replacing» `betreiber.css`, `betreiber.js` und
+  `kern/zeit.php`, «Sync complete». Lauf «Website zu Hostpoint» Nr. 60
+  (41085617968) erfolgreich. Auf dem Server antworten beide neuen Endpunkte
+  ohne Anmeldung mit 401, `betreiber.js` enthält den Reiter.
+  Nachtrag dieser Sitzung: 46 Pulse, 16 neu, 30 schon da, kein Fehler. Der
+  Befehl `/compact` zählt als Nachricht, «Compacted» als «fertig». Die
+  Lesezeit nach dem Whiteboard (09:21 bis 09:45) ist als Eintrag von Hand
+  nachgetragen, nach Adrians Entscheid in ENT-046. Damit zeigt der Timer für
+  Schritt 0.1 dieselben 42 Min. wie das Journal.

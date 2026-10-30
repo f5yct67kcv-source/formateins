@@ -67,7 +67,7 @@ für das Muster setzen wir, sobald die Entscheide aus 0.3 stehen.
 | 0.3 | Sechs Entscheide aus dem Whiteboard | – | | | offen, Adrian |
 | 0.4 | Repository und Hosting der Demo-Website klären (demo.formateins.ch) | – | | | offen, Adrian |
 | 0.5 | Soll-Daten für die Etappen 1 bis 5 setzen | – | | | offen |
-| 0.6 | Projekt-Timer für die Zeitmessung (ENT-046) | – | | | läuft: Eingang und Hook live, Ansicht gebaut (ENT-066), wartet auf Merge |
+| 0.6 | Projekt-Timer für die Zeitmessung (ENT-046) | – | | 30.10.2026 | erledigt, live (ENT-066) |
 
 ### 1 · Wir legen los
 
@@ -168,6 +168,32 @@ Chronologisch, der neueste Eintrag unten. Vorlage für jeden Eintrag:
 - KI-Kosten: keine
 - Für den Blog: Die Roadmap selbst. Ein Kunde sieht daran, dass nichts dem
   Zufall überlassen ist.
+
+### 30.10.2026 · 0.6 Projekt-Timer
+
+- Gemacht: Adrian wollte die Zeit sehen, als Zwischenstand und im Verlauf.
+  Gebaut: Eingang auf dem Server mit Schlüssel (Netzwerk-Secret der Cloud),
+  Hook über das Setup-Skript der Umgebung, Auswertung nach der Regel und
+  Reiter «Zeit» unter Projekte mit «Heute», «Woche» und Einträgen von Hand.
+- Freigabe: Adrian legte fest: Betreiber-Bereich, Schwelle 10 Min., Claude
+  getrennt ausgewiesen. Aus vier Entwürfen wählte er keinen, sondern einen
+  besseren Platz: Reiter unter Projekte statt eigener Punkt, kein Handy.
+  Gemergt von Claude auf Adrians Wort.
+- Beleg: ENT-046, ENT-047 (aufgehoben), ENT-066. Läufe «Betreiber zu
+  Hostpoint» Nr. 8, 10 und 11, «Website zu Hostpoint» Nr. 59 und 60.
+- Zeit: aus dem Timer, Stand 17:00. 3:38 h, davon Claude 1:12 h und Adrian
+  2:25 h, an einem Tag von 09:55 bis 17:00. Runden: zwei beim Schlüssel
+  (das Formular hatte «Bearer» als Präfix vorgegeben), zwei bei der Ansicht.
+- KI-Kosten: keine
+- Gelernt: Das Werkzeug fürs Projekt war selbst ein Projekt. Schritt 0.6 stand
+  nicht im ersten Plan und hat mehr Zeit gebraucht als alles andere bisher.
+  Ein Formular mit Vorgaben zuerst ganz lesen: Das vorgegebene Präfix
+  kostete eine Runde. Entwürfe als Bild bringen auch dann etwas, wenn keiner
+  gewählt wird: Adrian sah daran den besseren Platz.
+- Beim echten Kunden anders: Der Timer läuft vom ersten Tag an, die Zeit für
+  das Werkzeug fällt weg.
+- Für den Blog: Bild des Reiters «Zeit» mit dem Tagesband und die Zahl, wie
+  viel davon Claude war.
 
 ## Lernliste
 
