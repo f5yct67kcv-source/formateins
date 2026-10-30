@@ -47,8 +47,9 @@ Bauherrschaften im Umkreis von 20 km.
 
 ## Vorher (Schritt 1.2)
 
-Logo von 1994, Website von 2011, eine Facebook-Seite, die seit 2019 still ist,
-Offerte als Word-Datei.
+Logo von 1994 (Variante A: Oval mit Hobel, braun, freigegeben am 30.10.2026),
+Website von 2011, eine Facebook-Seite, die seit 2019 still ist, Offerte als
+Word-Datei. Quellen und Fotos: `vorher/LIESMICH.md`.
 
 ## Wie der Name gefunden wurde (30.10.2026)
 
