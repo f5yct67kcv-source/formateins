@@ -507,7 +507,21 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `ZEIT_SCHLUESSEL` von `formateins-betreiber` über den Deploy in die
   Konfiguration, wie `ANFRAGE_SCHLUESSEL`. Am Mac später lokal.
   Adrian am 30.10.2026: Secret `ZEIT_SCHLUESSEL` in `formateins-betreiber`
-  angelegt. Offen: Network secret in der Cloud-Umgebung.
+  angelegt. Adrian am 30.10.2026: Netzwerk-Secret in der Umgebung «Default»
+  angelegt (in der Desktop-App lässt sich «Default» bearbeiten, Netzwerk-
+  zugriff steht dort auf «Vollständig»). In der Sitzung ist er wie gewollt
+  nicht zu sehen; ob er ankommt, zeigt erst die Probe gegen den Server.
+  Eingang gebaut in `formateins-betreiber`, Arbeitszweig
+  `claude/sleepy-curie-u9tmyk`, Commit «Projekt-Timer: Eingang für Pulse mit
+  Schlüssel, Tabelle zeit_puls, Deploy und Prüfungen (ENT-046)»:
+  `api/zeit_puls.php` (GET mit Schlüssel = Probe, POST = Puls; derselbe Puls
+  zweimal zählt einmal), `kern/zeit.php`, Tabelle `zeit_puls`, Deploy schreibt
+  `ZEIT_SCHLUESSEL` auf den Server. Prüfungen mit lokaler Datenbank: 128 grün,
+  davon 11 neue für den Timer; beide absichtlich eingebauten Fehler (ohne
+  Schlüsselprüfung, ohne Schutz gegen Doppelte) wurden rot. Ohne Secret
+  antwortet der Eingang «nicht eingerichtet» (503), nicht «kein Zugang».
+  Offen: Push auf `main` von `formateins-betreiber` mit Adrians Wort, dann
+  die Probe aus der Sitzung.
 - [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
   Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
   Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
