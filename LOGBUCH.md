@@ -645,3 +645,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   5. Zwischenspeicher 1 Jahr: nur mit neuen Dateinamen bei jeder Änderung,
      sonst sehen Besucher alte Bilder. Später.
   Offen: Adrian wählt, was gebaut wird.
+- [ ] **ENT-064** · 30.10.2026 · Aus ENT-063 wählt Adrian: Punkt 4 bauen, für
+  Punkt 1 zuerst Bilder zeigen (ENT-065). Punkt 4 gebaut: Die Mitlauf-Leiste
+  der Startseite liest `scrollY` erst beim ersten Scrollen, nicht mehr beim
+  Start des Skripts. Gemessen in der ausgelieferten Fassung (ohne
+  Kommentare), CPU vierfach gedrosselt: der erzwungene Layoutaufbau an
+  dieser Stelle (37 + 15 ms) ist weg, alle erzwungenen Aufbauten zusammen
+  74 → 39 ms. Leiste gleich wie vorher: unsichtbar beim Runterscrollen, da
+  beim Hochscrollen, weg ganz oben. Auf dem Arbeitszweig, live mit Adrians
+  Wort.

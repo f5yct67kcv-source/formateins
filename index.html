@@ -2070,7 +2070,9 @@ html.leiste-da .richtwerk .werkzeugleiste{top:60px}
 const mitlauf = document.getElementById('mitlauf');
 const heroKnopf = document.querySelector('.hero .handeln');
 if (mitlauf && heroKnopf && 'IntersectionObserver' in window) {
-  let heroWeg = false, letztesY = scrollY, hoch = false;
+  // letztesY erst beim ersten Scrollen lesen: scrollY hier beim Start zwingt den
+  // Browser, das ganze Layout mitten im Skript aufzubauen (PageSpeed, ENT-064).
+  let heroWeg = false, letztesY = null, hoch = false;
   const setzen = () => {
     const zeigen = heroWeg && hoch;
     mitlauf.classList.toggle('zeigen', zeigen);
@@ -2082,7 +2084,9 @@ if (mitlauf && heroKnopf && 'IntersectionObserver' in window) {
     setzen();
   }).observe(heroKnopf);
   addEventListener('scroll', () => {
-    const y = scrollY, d = y - letztesY;
+    const y = scrollY;
+    if (letztesY === null) { letztesY = y; return; }
+    const d = y - letztesY;
     if (Math.abs(d) < 4) return;          // Zittern am Daumen ignorieren
     // Ein Sprung ueber mehr als ein Fenster (Menue, Anker) ist kein Scrollen:
     // die Leiste bleibt weg, sonst deckt sie das Ziel oben zu.
