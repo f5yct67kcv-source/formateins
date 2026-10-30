@@ -464,3 +464,16 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   werden Zeit und Gerät, keine IP, kein Cookie. Muss vor dem ersten Brief
   online sein. Text kommt als Vorschlag zu Adrian, dann Bau und Push mit
   seinem Wort.
+- [ ] **ENT-051** · 30.10.2026 · Bing meldet auf der Startseite «Title tag
+  missing» und «Meta Description tag missing», obwohl beide im HTML stehen:
+  die Seiten liessen `<head>` und `<body>` weg (HTML5 erlaubt das, Bings
+  Parser nicht). Alle neun ausgelieferten Seiten haben jetzt `<head>`,
+  `</head><body>` und `</body></html>` ausgeschrieben. Kein Minifizierer
+  nimmt sie wieder heraus (`quellen/kommentare-entfernen.mjs` schneidet nur
+  Kommentare). Geprüft im Browser-Parser: DOM vor und nach gleich, nur der
+  Kommentar zur Leiste auf der Startseite steht jetzt im body statt im head.
+  JSON-LD bleibt am Ende des body (dort gültig, FAQ-DATEN neben den Fragen).
+  Die 7 Bilder «ohne alt» sind die mit `alt=""`: sechs Baupläne über den
+  Arbeiten und das Bild im Webdesign-Knopf (der Knopf trägt das aria-label);
+  bleiben dekorativ. Offen: kürzere Descriptions (Adrian wählt), Push auf
+  `main` mit Adrians Wort, danach Lauf prüfen und in Bing «Request indexing».
