@@ -395,3 +395,5 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «Website zu Hostpoint» Nr. 45 (41021824121) erfolgreich, «replacing»
   anfrage.php, index.html, kostenrechner.html, llms.txt, website-kosten.html,
   «Sync complete», IndexNow 200 für Startseite, Kostenrechner und Ratgeber.
+  Adrian am 30.10.2026: Testanfrage über den Kostenrechner, die Bestätigung
+  zeigt «Selbst ändern: Eigener Zugang». Mail und Schlüssel `zugang` laufen.
