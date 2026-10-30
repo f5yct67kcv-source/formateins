@@ -646,16 +646,19 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
      sonst sehen Besucher alte Bilder. Später.
   Adrian wählt: Punkt 4 bauen (ENT-064), Punkt 1 als Variante A (ENT-065);
   2, 3 und 5 nicht.
-- [ ] **ENT-064** · 30.10.2026 · Aus ENT-063 wählt Adrian: Punkt 4 bauen, für
+- [x] **ENT-064** · 30.10.2026 · Aus ENT-063 wählt Adrian: Punkt 4 bauen, für
   Punkt 1 zuerst Bilder zeigen (ENT-065). Punkt 4 gebaut: Die Mitlauf-Leiste
   der Startseite liest `scrollY` erst beim ersten Scrollen, nicht mehr beim
   Start des Skripts. Gemessen in der ausgelieferten Fassung (ohne
   Kommentare), CPU vierfach gedrosselt: der erzwungene Layoutaufbau an
   dieser Stelle (37 + 15 ms) ist weg, alle erzwungenen Aufbauten zusammen
   74 → 39 ms. Leiste gleich wie vorher: unsichtbar beim Runterscrollen, da
-  beim Hochscrollen, weg ganz oben. Auf dem Arbeitszweig, live mit Adrians
-  Wort.
-- [ ] **ENT-065** · 30.10.2026 · Punkt 1 aus ENT-063 (Bilder kleiner), Bilder
+  beim Hochscrollen, weg ganz oben.
+  Live am 30.10.2026 mit Adrians Wort («A, dann push»): `main` auf 91ed432,
+  Lauf «Website zu Hostpoint» Nr. 57 (41057444056) erfolgreich,
+  «uploading» video-reel.webp und video-spot.webp, «replacing index.html»,
+  «Sync complete», IndexNow 200 für die Startseite.
+- [x] **ENT-065** · 30.10.2026 · Punkt 1 aus ENT-063 (Bilder kleiner), Bilder
   alt neben neu an Adrian, Pixel für Pixel wie auf dem Gerät. Gemessene
   Anzeigebreite der Arbeiten-Bilder: 346 px am Handy, 381 px am Computer,
   in der vergrösserten Werkbank 726 px. Auf dem iPhone (dreifache Dichte)
@@ -670,3 +673,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   allen drei Stellen der Startseite. Die JPG bleiben (`entwurf.html` braucht
   `video-spot.jpg`). Lokal geprüft: keine fehlende Datei, Vorschaubild steht,
   Startseite 617 → 579 KB beim ersten Laden.
+  Live mit ENT-064 am 30.10.2026 mit Adrians Wort («A, dann push»): `main` auf 91ed432,
+  Lauf «Website zu Hostpoint» Nr. 57 (41057444056) erfolgreich,
+  «uploading» video-reel.webp und video-spot.webp, «replacing index.html»,
+  «Sync complete», IndexNow 200 für die Startseite.
