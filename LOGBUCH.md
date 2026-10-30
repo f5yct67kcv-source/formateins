@@ -483,9 +483,17 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   drei Orten: im Repository formateins, im Startordner `/home/user/.claude/`
   und in den Benutzer-Einstellungen `/root/.claude/`. Sie schreiben Ort,
   Ereignis, Sitzung und Uhrzeit in eine Testdatei im Arbeitsordner. Nichts
-  verlässt den Container, nichts ist committet. Erster Befund: Neue Hooks
-  greifen nicht in der laufenden Sitzung, erst nach einem Neustart. Welcher
-  Ort gelesen wird, zeigt die nächste Nachricht.
+  verlässt den Container, nichts ist committet. Befund am 30.10.2026: Neue
+  Hooks greifen nach wenigen Sekunden, auch in der laufenden Sitzung (zuerst
+  zu früh nachgeschaut und falsch notiert). Gelesen werden die Benutzer-
+  Einstellungen und der Startordner `/home/user`, **nicht** das Repository,
+  weil die Cloud-Sitzung mit mehreren Repositories in `/home/user` startet.
+  Jeder Puls kennt die Sitzung lokal und in der Cloud (`cse_…`, gleich wie
+  `session_…`). Beide Orte liegen nur im Container, darum muss der echte Hook
+  bei jedem Start neu entstehen: über das Setup-Skript der Cloud-Umgebung
+  (Adrian trägt es ein, es kann keine Secrets lesen, der Hook liest den
+  Schlüssel erst zur Laufzeit aus der Umgebung). Am Mac einmal in
+  `~/.claude/settings.json`. Offen: «fertig» und «Nachricht» im Protokoll.
 - [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
   Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
   Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
