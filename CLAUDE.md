@@ -114,7 +114,7 @@ Livegang darum beides pruefen: die Logs der Action («replacing index.html»,
 Antwortet ein Host nicht, ist das zuerst eine Frage der Netzwerk-Einstellung
 und kein Beweis, dass die Seite alt ist.
 
-Von aussen pruefen geht trotzdem, ueber das Firecrawl-Werkzeug: `firecrawl_scrape`
+Zusaetzlich laesst sich von aussen pruefen, ueber das Firecrawl-Werkzeug: `firecrawl_scrape`
 holt eine Seite von formateins.ch ueber das offene Netz (so am 30.10.2026
 bestaetigt: `robots.txt` antwortet mit 200), `firecrawl_search` zeigt, was ein
 Suchindex kennt. Bing laesst sich per `curl` auf `www.bing.com/search` abfragen.
