@@ -614,8 +614,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Arbeitszweig. Live am 30.10.2026 mit Adrians Wort («push»): `main` auf
   a69782c (mit ENT-059 und ENT-060), Lauf «Website zu Hostpoint» Nr. 55
   (41053933641) erfolgreich, «replacing kostenrechner.html», «Sync
-  complete», IndexNow 200 für /kostenrechner. Offen für Adrian: PageSpeed
-  mobil neu messen, erwartet CLS 0.
+  complete», IndexNow 200 für /kostenrechner. Nachgemessen von Adrian in
+  PageSpeed am 30.10.2026, 13:58 (Moto G Power, Lighthouse 13.6.0): mobil
+  Leistung 100, CLS 0 (vorher 0,071), FCP 0,9 s, LCP 1,4 s, TBT 0 ms,
+  Speed Index 1,0 s; Computer 100, CLS 0.
 - [ ] **ENT-062** · offen, Backlog · WebMCP für die Formulare in
   `gespraech.html` und `kostenrechner.html` (`toolname`,
   `tooldescription`, `toolparamdescription`), sobald der Standard stabil ist
