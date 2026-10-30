@@ -86,7 +86,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Nachtrag 30.10.2026: Termin um den 06.11.2026. Testfragen in Bing, ChatGPT
   und Perplexity: «Was kostet eine Website bei formateins.ch?», «formateins
   Olten», «Webdesign Olten». Bing lieferte am 30.10.2026 für
-  `site:formateins.ch` noch nichts (ENT-052). Liefert Bing um den 27.11.2026
+  `site:formateins.ch` noch nichts (ENT-054). Liefert Bing um den 27.11.2026
   immer noch nichts: Ticket beim Bing-Support.
 - [ ] **ENT-027** · offen · Einträge bei local.ch und search.ch anlegen (Adrian),
   mit demselben Namen, derselben Adresse und Telefonnummer wie auf der Seite.
@@ -543,7 +543,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Tools (Sitemap, URL-Übermittlung), Einträge bei local.ch und search.ch
   (ENT-027), Gewerbe Olten, Instagram-Profil als `sameAs`. Nachprüfen mit
   ENT-026.
-  Recherche 30.10.2026 (Bericht an Adrian, nicht im Repository): Jede KI-Suche
+  Recherche 30.10.2026 (`quellen/recherche-ki-suchen-2026-10.md`): Jede KI-Suche
   hat ihren eigenen Index. Google AI Overviews, AI Mode und Gemini nutzen
   Google, Copilot nutzt Bing, ChatGPT den eigenen OAI-SearchBot plus
   Drittanbieter (vermutlich vor allem Bing), Perplexity den eigenen Index,
@@ -569,26 +569,50 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «replacing» gespraech.html und sitemap.xml (alle Seiten mit Stand
   30.10.2026), «Sync complete», IndexNow 200. Offen bleiben Adrians Schritte
   ausserhalb der Seite und die Nachprüfung (ENT-026, um den 06.11.2026).
-- [ ] **ENT-053** · offen, um den 20.11.2026 · Zugriffsprotokolle bei Hostpoint
+- [ ] **ENT-055** · offen, um den 20.11.2026 · Zugriffsprotokolle bei Hostpoint
   prüfen (Adrian lädt sie im Control Panel unter dem Webhosting herunter).
   Suchen nach `OAI-SearchBot`, `bingbot`, `Claude-SearchBot`, `PerplexityBot`,
   `Applebot`, `Googlebot`: Kommen sie, mit welchem Status (200 oder 403)? Nur
   so ist belegt, dass Hostpoint die KI-Crawler durchlässt; `robots.txt` allein
-  beweist es nicht (OpenAI verlangt das ausdrücklich). Aus ENT-052.
-- [ ] **ENT-054** · offen · `messung.js` hat keine GA4-Mess-ID
+  beweist es nicht (OpenAI verlangt das ausdrücklich). Aus ENT-054.
+- [ ] **ENT-056** · offen · `messung.js` hat keine GA4-Mess-ID
   (`analytics: ''`). Ohne sie lässt sich nicht messen, ob Besucher aus
   ChatGPT, Perplexity oder Copilot kommen. Adrian gibt die ID (G-…), falls ein
   GA4-Konto besteht; das Zustimmungsbanner ist schon gebaut.
-- [ ] **ENT-055** · offen · Instagram-Profil «formateins.ch» als `sameAs` in
+- [ ] **ENT-057** · offen · Instagram-Profil «formateins.ch» als `sameAs` in
   die strukturierten Daten der Startseite. Adrian schickt den genauen Link;
   danach auch local.ch und search.ch (ENT-027).
-- [ ] **ENT-056** · offen · Soll «Trimbach bei Olten» sichtbar im Text stehen
-  (heute nur «Region Olten», die volle Adresse bleibt im Impressum, ENT-052)?
+- [ ] **ENT-058** · offen · Soll «Trimbach bei Olten» sichtbar im Text stehen
+  (heute nur «Region Olten», die volle Adresse bleibt im Impressum, ENT-054)?
   Textfrage, Varianten zuerst im Chat.
-- [x] **ENT-057** · 30.10.2026 · Erkenntnisse zu KI-Suchen festgehalten:
+- [x] **ENT-059** · 30.10.2026 · Erkenntnisse zu KI-Suchen festgehalten:
   README neuer Abschnitt «KI-Suchen» (Index je Anbieter, was wirkt, Adrians
   Schritte, Termine zum Nachprüfen), Recherche mit Quellen in
   `quellen/recherche-ki-suchen-2026-10.md` (nicht auf dem Webserver),
   `CLAUDE.md` mit der Regel gegen doppelte ENT-Nummern und dem Weg, von aussen
   zu prüfen. README-Korrekturen: `llms.txt` gibt es (stand noch «bewusst
   weggelassen»), im Fuss steht keine Adresse.
+  ENT-055 bis ENT-059 zuerst als ENT-053 bis ENT-057 vergeben (nur auf dem
+  Arbeitszweig, Commit 9bf2ce9); die anderen Nummern hatte eine andere
+  Sitzung inzwischen auf `main` belegt.
+- [x] **ENT-060** · 30.10.2026 · Analyse «Agentic Browsing» (Lighthouse, wie
+  KI-Agenten die Seite lesen und bedienen) von Adrian abgelegt in
+  `quellen/agentic-browsing-2026-10.md`, mit Gegenprobe am Code: jedes
+  Bedienelement auf den sieben Seiten hat einen Namen, alle Felder ein
+  `<label>` (P3 erfüllt); der Sprung auf dem Kostenrechner liess sich genau
+  nachstellen (ENT-061); «WebMCP ab Chrome 150» steht nicht auf der
+  Übersichtsseite der Quelle. README: Abschnitt «KI-Agenten» mit den Regeln
+  für jede Änderung (`llms.txt` und `sitemap.xml` im selben Commit, nichts
+  per Skript einblenden, was Platz braucht, jedes Bedienelement benennen).
+- [ ] **ENT-061** · 30.10.2026 · Kostenrechner: Layoutsprung beim Laden weg.
+  PageSpeed mass mobil CLS 0,071, lokal genau so nachgestellt (Slow 4G, CPU
+  vierfach gedrosselt). Ursache: alle Fragen im HTML versteckt, erst das
+  Skript zeigte die erste; bis dahin war die Bühne leer und die Fusszeile
+  sprang 235 px. Jetzt hat die erste Frage `dran` schon im HTML. Danach CLS
+  0,000, Bild nach dem Laden pixelgleich (390 und 1366 px), Fragen schalten
+  wie vorher. Keine sichtbare Änderung, darum ohne Varianten gebaut, auf dem
+  Arbeitszweig. Offen: live mit Adrians Wort, danach PageSpeed neu messen.
+- [ ] **ENT-062** · offen, Backlog · WebMCP für die Formulare in
+  `gespraech.html` und `kostenrechner.html` (`toolname`,
+  `tooldescription`, `toolparamdescription`), sobald der Standard stabil ist
+  und Lighthouse ihn bewertet. Beispiel in `quellen/agentic-browsing-2026-10.md`.

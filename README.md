@@ -439,7 +439,7 @@ im Code mit `LIVEGANG` markiert — `grep -rn LIVEGANG .` findet sie alle.
 4. **Kontaktangaben** stehen: pzu consulting gmbh, Hochgasse 7, 4632
    Trimbach (Sitz laut Handelsregister), `adrian@formateins.ch`,
    079 686 84 86. So im Impressum und im JSON-LD; im Fuss steht nur «Region
-   Olten». Adrian arbeitet beim Kunden oder per Video (30.10.2026, ENT-052),
+   Olten». Adrian arbeitet beim Kunden oder per Video (30.10.2026, ENT-054),
    darum keine volle Adresse im sichtbaren Text der Seiten. Genau dieselben
    Angaben im Google-Unternehmensprofil und in den Verzeichnissen verwenden,
    im Profil als Einzugsgebiet ohne sichtbare Adresse.
@@ -501,7 +501,7 @@ python3 quellen/faq-daten.py
 
 Hintergrund: ChatGPT fand «formateins aus Olten» am 30.10.2026 nicht, Google
 zeigte die Seite für «formateins olten» schon zuoberst. Recherche mit Quellen
-in `quellen/recherche-ki-suchen-2026-10.md`, Entscheide unter ENT-052 im
+in `quellen/recherche-ki-suchen-2026-10.md`, Entscheide unter ENT-054 im
 Logbuch.
 
 **Jede KI-Suche hat ihren eigenen Index.** «Belegt» heisst: der Anbieter sagt
@@ -553,14 +553,30 @@ Wissen nichts. Die Hebel liegen ausserhalb der Seite.
 - um den 20.11.2026: Zugriffsprotokolle bei Hostpoint (Control Panel,
   Webhosting) herunterladen und nach `OAI-SearchBot`, `bingbot`,
   `Claude-SearchBot`, `PerplexityBot`, `Applebot` durchsuchen. Nur so ist
-  belegt, dass Hostpoint die Bots durchlässt (ENT-053)
+  belegt, dass Hostpoint die Bots durchlässt (ENT-055)
 - um den 27.11.2026: liefert Bing dann noch nichts, Ticket beim Bing-Support
 - laufend: Search Console (Leistung und Bericht zu generativer KI) und Bing
   Webmaster Tools (AI Performance) für «Webdesign Olten», «Branding Olten»,
   «Imagefilm Olten»
 
 Messen lässt sich der Verkehr aus KI-Suchen in GA4 erst, wenn in
-`messung.js` eine Mess-ID steht (ENT-054).
+`messung.js` eine Mess-ID steht (ENT-056).
+
+### KI-Agenten (Lighthouse «Agentic Browsing»)
+
+Agenten lesen den Barrierefreiheitsbaum und klicken auf Koordinaten. Am
+30.10.2026 bestand die Seite alle drei Prüfungen. Analyse und Gegenprobe in
+`quellen/agentic-browsing-2026-10.md` (ENT-060). Daraus für jede Änderung:
+
+- Preise, Pakete, Seiten oder Kontakt geändert: `llms.txt` (mit «Stand:») und
+  `sitemap.xml` (`lastmod`) im selben Commit nachführen.
+- Nichts erst per Skript einblenden, was Platz braucht. Was beim Laden
+  sichtbar ist, steht schon im HTML sichtbar da, sonst springt die Seite
+  (so beim Kostenrechner bis ENT-061).
+- Jeder Knopf, Link und jedes Feld hat einen Namen: Text, `<label>` oder
+  `aria-label` bei reinen Symbolknöpfen.
+- WebMCP (Formulare für Agenten beschreiben) erst, wenn der Standard steht
+  (ENT-062).
 
 ## Massnahmen aus dem Vergleich mit beyondweb.ch
 

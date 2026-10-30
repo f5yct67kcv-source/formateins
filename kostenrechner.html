@@ -175,6 +175,8 @@ p{max-width:62ch}
 
 /* ---------- Bühne ---------- */
 .buehne{flex:1;display:flex;align-items:center;padding-block:clamp(38px,7vh,80px)}
+/* Die erste Frage hat dran schon im HTML, sonst ist die Buehne bis zum Skript
+   leer und die Fusszeile springt (CLS, ENT-061). */
 .frage{display:none;flex-direction:column;gap:clamp(20px,3vh,30px)}
 .frage.dran{display:flex}
 @media(prefers-reduced-motion:no-preference){
@@ -423,7 +425,7 @@ footer nav a:hover{color:var(--signal)}
          data-mehrfach: mehrere Antworten, weiter nur per Knopf. -->
 
     <!-- ===== Weiche ===== -->
-    <div class="frage" data-schluessel="weiche" data-ast="weiche" data-mehrfach>
+    <div class="frage dran" data-schluessel="weiche" data-ast="weiche" data-mehrfach>
       <span class="ziffer" aria-hidden="true"></span>
       <p class="etikett"><b></b><i aria-hidden="true"></i>Richtung</p>
       <h1>Was brauchst du?</h1>
