@@ -336,7 +336,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `bash pruefungen/alle.sh`, ENT-Nummern für den Betreiber-Bereich stehen hier
   im Logbuch von formateins. In den GuardOpS-Repositories wird dafür nichts
   abgelegt.
-- [ ] **ENT-040** · 29.10.2026 · Fragen auf der Startseite neu (Adrian):
+- [x] **ENT-040** · 29.10.2026 · Fragen auf der Startseite neu (Adrian):
   formateins baut nicht nur ohne CMS. Lindenfeld läuft auf WordPress 7.1.4
   mit eigener Oberfläche «Inhalte bearbeiten» (Login über `wp-login.php`);
   Kunden, die selbst ändern wollen, wird das nicht ausgeredet. Ein solcher
@@ -360,12 +360,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   zusätzlich. …» statt «Das biete ich nicht an … Baukasten besser bedient».
   WordPress kostet gleich viel wie der eigene Zugang (im Festpreis).
   FAQ-Daten des Ratgebers neu erzeugt, `llms.txt` angeglichen.
-  Offen: Kostenrechner und Ratgeber sagen an weiteren Stellen «kein CMS»
-  ohne den Zugang, eigene Runde. Livegang auf `main` nur mit Adrians
-  ausdrücklichem Wort.
+  Die übrigen «kein CMS»-Stellen in Kostenrechner und Ratgeber: erledigt
+  mit ENT-041.
   Nummer: zuerst als ENT-035 vergeben, die war auf `main` schon vom
   Betreiber-Bereich belegt (andere Sitzung); deshalb neu ENT-040.
-- [ ] **ENT-041** · 29.10.2026 · WordPress nach dem Livegang: Adrian wählt eine
+  Live am 30.10.2026 mit Adrians Wort («push»): `main` auf 6652d29, Lauf
+  «Website zu Hostpoint» Nr. 45 (41021824121) erfolgreich, «replacing»
+  anfrage.php, index.html, kostenrechner.html, llms.txt, website-kosten.html,
+  «Sync complete», IndexNow 200 für Startseite, Kostenrechner und Ratgeber.
+- [x] **ENT-041** · 29.10.2026 · WordPress nach dem Livegang: Adrian wählt eine
   Jahrespauschale für Updates (Variante A), nicht nach Aufwand und nicht
   Sache des Kunden. Aufwand geschätzt 5–10 Stunden im Jahr bei wenigen
   Plugins (Plugin-Updates monatlich, 2–3 grosse Versionen, PHP-Wechsel,
@@ -388,3 +391,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   anderen Wege andere Zahlen).
   Nummer: zuerst als ENT-036 vergeben, die war auf `main` schon vom
   Betreiber-Bereich belegt (andere Sitzung); deshalb neu ENT-041.
+  Live am 30.10.2026 mit Adrians Wort («push»): `main` auf 6652d29, Lauf
+  «Website zu Hostpoint» Nr. 45 (41021824121) erfolgreich, «replacing»
+  anfrage.php, index.html, kostenrechner.html, llms.txt, website-kosten.html,
+  «Sync complete», IndexNow 200 für Startseite, Kostenrechner und Ratgeber.
