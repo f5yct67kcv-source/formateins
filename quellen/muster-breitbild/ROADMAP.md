@@ -44,6 +44,12 @@ Schluss.
 - **Am Schluss**: Preisrahmen der Richtung geteilt durch Adrians Stunden. Das
   zeigt, ob Breitbild zu diesem Preis aufgeht.
 
+Die Zeit kommt, sobald er läuft, vom Projekt-Timer (ENT-046). Bis dahin
+rechnet Claude sie aus dem Verlauf der Sitzung nach: deine Nachrichten und
+wann Claude fertig war. Eine Lücke unter 10 Minuten zählt als Arbeit, bei
+längeren Lücken zählen 10 Minuten (Lesen), der Rest ist Pause, ausser du
+sagst, dass du gearbeitet hast.
+
 ## Übersicht
 
 Die Etappen folgen den vier Schritten auf der Startseite («So läuft es ab»).
@@ -60,6 +66,7 @@ für das Muster setzen wir, sobald die Entscheide aus 0.3 stehen.
 | 0.3 | Sechs Entscheide aus dem Whiteboard | – | | | offen, Adrian |
 | 0.4 | Repository und Hosting der Demo-Website klären (demo.formateins.ch) | – | | | offen, Adrian |
 | 0.5 | Soll-Daten für die Etappen 1 bis 5 setzen | – | | | offen |
+| 0.6 | Projekt-Timer für die Zeitmessung (ENT-046) | – | | | offen, Konzept steht |
 
 ### 1 · Wir legen los
 
@@ -137,7 +144,10 @@ Chronologisch, der neueste Eintrag unten. Vorlage für jeden Eintrag:
   Formen, Technik, Zeitplan, sechs Entscheide mit Empfehlung. Bestehende Demos
   geprüft: Lindenfeld (Sport), Hakuro (Gastro), Kaffee Fulehorn, Malerei Max.
 - Beleg: Whiteboard (Artifact), `c00f806` (ENT-043)
-- Zeit Adrian: trägt Adrian nach · Runden: 1
+- Zeit: aus dem Verlauf nachgerechnet. Claude 09:02–09:11 (9 Min.), danach
+  33 Min. bis zu deiner nächsten Nachricht. Davon zählen 10 Min. als Lesen,
+  23 Min. als Pause, bis Adrian sagt, ob er in der Zeit gelesen hat.
+  Das Tippen der ersten Nachricht fehlt. Runden: 1
 - KI-Kosten: keine
 - Gelernt: Die Karte Breitbild enthält weder Social Media noch Erklärvideo.
   Das Muster wollte beides zeigen. Zuerst das Paket an der Karte messen, dann
@@ -152,7 +162,8 @@ Chronologisch, der neueste Eintrag unten. Vorlage für jeden Eintrag:
   für echte Projekte lernen. Am Ende kommt ein Blogbeitrag für Kunden. Diese
   Datei, die Regel in `CLAUDE.md`, Gliederung und Materialliste für den Blog.
 - Beleg: Commit mit ENT-044 und ENT-045
-- Zeit Adrian: trägt Adrian nach
+- Zeit: aus dem Verlauf nachgerechnet. Claude 09:45–09:49 (4 Min.), danach
+  Adrian 6 Min. bis zur nächsten Nachricht.
 - KI-Kosten: keine
 - Für den Blog: Die Roadmap selbst. Ein Kunde sieht daran, dass nichts dem
   Zufall überlassen ist.
@@ -163,6 +174,9 @@ Was wir für echte Projekte mitnehmen. Ein Punkt pro Erkenntnis, mit Datum und
 Verweis aufs Journal.
 
 - 30.10.2026 · Zuerst das Paket an der Karte messen, dann planen (0.1).
+- 30.10.2026 · Die schwierige Stelle beim Zeitmessen ist die Lücke zwischen
+  zwei Nachrichten: Lesen sieht kein Programm. Pausen müssen sich darum von
+  Hand umbuchen lassen (ENT-046).
 
 ## Muster und echter Auftrag
 

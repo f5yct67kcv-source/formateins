@@ -456,6 +456,22 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   als Musterprojekt gekennzeichnet, Zahlen aus dem Journal. Gliederung und
   Materialliste stehen in der Roadmap; Ort auf der Seite, Suchbegriff und
   Titel entscheidet Adrian, wenn es so weit ist.
+- [ ] **ENT-046** · 30.10.2026 · Projekt-Timer (Adrians Wunsch): hält die
+  effektive Zeit fest, wenn Adrian mit Claude an einem Projekt arbeitet,
+  erkennt Pausen, läuft über den Server, lässt sich visuell abfragen, gestaltet
+  wie formateins. Konzept mit den nachgerechneten Zeiten vom 30.10.2026:
+  https://claude.ai/artifact/G3qVTp12HJE87MVTTzRtwa (privat). Vorschlag:
+  neuer Teil «Zeit» im Betreiber-Bereich (gleiche Technik, kein Build).
+  Hooks in `.claude/settings.json` der formateins-Repositories schicken bei
+  Nachricht, «fertig», Start und Ende der Sitzung einen Puls an
+  `api/zeit_puls.php`: Zeit, Ereignis, Sitzung, Repository, Roadmap-Schritt,
+  nie den Text der Nachricht; gesichert mit `FORMATEINS_ZEIT_SCHLUESSEL`.
+  Fehlende Pulse aus dem Verlauf der Sitzung nachtragen, Arbeit ohne Claude
+  Code von Hand. Regel: Lücke unter 10 Min. zählt, darüber 10 Min. als Lesen,
+  der Rest Pause, per Tipp umbuchbar; Claude-Zeit getrennt ausgewiesen.
+  Geprüft am 30.10.2026: betreiber.formateins.ch und www.formateins.ch sind
+  aus der Cloud erreichbar (Antwort 200). Offen: Adrians fünf Entscheide,
+  Schlüssel in Umgebung und Repository, `formateins-betreiber` in die Sitzung.
 - [x] **ENT-049** · 30.10.2026 · Betreiber-Bereich: neuer Bereich **Akquise**
   (Adrian: «ein neuer Bereich dafür schaffen»), Inhalt aus dem privaten
   Repository `formateins-akquise` und dem Artefakt «Akquise-Fahrplan».
