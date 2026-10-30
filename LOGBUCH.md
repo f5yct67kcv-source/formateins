@@ -464,6 +464,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   werden Zeit und Gerät, keine IP, kein Cookie. Muss vor dem ersten Brief
   online sein. Text kommt als Vorschlag zu Adrian, dann Bau und Push mit
   seinem Wort.
+  Gebaut auf Adrians Wort («bau ein»): neuer Abschnitt «Wenn du Post von mir
+  bekommst» in `datenschutz.html`, je ein Satz in beiden «Kurz gesagt» und
+  in der Aufbewahrung. Ton nach der Startseite (gute Arbeit sichtbar machen,
+  zuerst zuhören, gemeinsam entscheiden), nachdem die erste Fassung für
+  Adrian nach Rechtfertigung klang. Inhalt nach ENT-052: 60 Tage, danach
+  nur Name und Ort. Auf dem Arbeitszweig, live zusammen mit ENT-052.
 - [x] **ENT-051** · 30.10.2026 · Bing meldet auf der Startseite «Title tag
   missing» und «Meta Description tag missing», obwohl beide im HTML stehen:
   die Seiten liessen `<head>` und `<body>` weg (HTML5 erlaubt das, Bings
@@ -482,7 +488,32 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   auf ad850e9, Lauf Nr. 49 (41047363148) erfolgreich, «replacing» der neun
   Seiten, «Sync complete», IndexNow 200 für die sieben indexierten Seiten.
   In Bing löst Adrian «Request indexing» aus.
-- [ ] **ENT-052** · 30.10.2026 · KI-Suchen finden formateins noch nicht
+- [ ] **ENT-052** · 30.10.2026 · Akquise: Ein Brief ohne jede Reaktion (kein
+  Scan, kein Reaktionsdatum, nicht als Adresse übernommen) wird 60 Tage nach
+  dem Versand archiviert. Adrian wollte zuerst 30 Tage; 60 auf Empfehlung,
+  wegen Weihnachtspause, Tor 3 Wochen nach Welle 2 und Briefen, die auf dem
+  Stapel liegen. Gelöscht werden Kontakt, Ansprechperson, Notizen und
+  QR-Code (alter Brief zählt nicht mehr). Der Betrieb selbst bleibt als
+  «archiviert» mit Name, PLZ, Ort, Bewertung und Kosten: Auswertung stimmt,
+  kein zweiter Brief (Adrians Wahl statt Sperrliste). Meldet er sich doch,
+  holt das Reaktionsdatum ihn zurück. Commit a6ae838 auf dem Arbeitszweig
+  von formateins-betreiber, Gegenprobe gemacht.
+  Offen: Im Repository formateins-akquise dieselben Betriebe nachziehen
+  (Ordner mit Brief und Entwurf, Startseiten-Bild, Zeilen in betriebe.csv,
+  screening.md, lighthouse.csv) und den Git-Verlauf einmal im Monat
+  bereinigen. Das braucht einen Force-Push auf main und jedes Mal Adrians
+  Wort. Erstmals fällig 60 Tage nach dem ersten Brief.
+- [ ] **ENT-053** · 30.10.2026 · Betreiber: Die Unterreiter (Fahrplan,
+  Betriebe usw.) stehen in jedem Bereich mittig unter den Kacheln der
+  Navigation, nicht mehr am rechten Rand. Seitenkopf mit demselben Raster
+  wie die Kopfzeile. Auf Adrians Skizze hin gebaut, gemessen bei 1600 und
+  1280 px (Abweichung 0 px). Commit 298dfa0 auf dem Arbeitszweig
+  von formateins-betreiber, live erst mit Adrians Wort.
+  Zuerst als ENT-051 erfasst (10:22). Dieselbe Nummer vergab eine andere
+  Sitzung um 11:03 für Bing und ist damit schon live; weil diese Änderung
+  noch nicht live war, weicht sie auf ENT-053 aus. Der Commit im Betreiber
+  nennt noch ENT-051.
+- [ ] **ENT-054** · 30.10.2026 · KI-Suchen finden formateins noch nicht
   (Adrian: ChatGPT kennt «formateins aus Olten» nicht). Prüfung von aussen:
   `robots.txt` erlaubt alle Crawler und ist erreichbar (200), Sitemap,
   `llms.txt`, strukturierte Daten (Adresse Trimbach, Einzugsgebiet Olten,
@@ -515,7 +546,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Einzugsgebiet angeben (Adrian). Offen: ob «Trimbach bei Olten» sichtbar
   im Text stehen soll (Textfrage, Varianten zuerst).
   Nummer: zuerst als ENT-042 vergeben, die war auf `main` schon vom
-  Betreiber-Bereich belegt (andere Sitzung); deshalb neu ENT-052.
+  Betreiber-Bereich belegt (andere Sitzung); dann als ENT-052, die war seit
+  10:49 auf dem Arbeitszweig claude/epic-mayer-2x1fei für das Archiv der
+  Akquise vergeben (11:43 gegen 10:49, die frühere behält sie). Deshalb
+  ENT-054. Die Commits 3bb2771 und 37e872b nennen noch ENT-052.
   Website-Teil live am 30.10.2026 mit Adrians Wort («push»): `main` auf
   3bb2771, Lauf «Website zu Hostpoint» Nr. 51 (41050159537) erfolgreich,
   «replacing» gespraech.html und sitemap.xml (alle Seiten mit Stand
