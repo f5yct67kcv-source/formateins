@@ -88,9 +88,10 @@ Damit gibt es zwei Wege zu einem Vorschau-Link, und beide gehoeren Adrian:
    Hostpoint-Deploy laedt ihn wegen `--exclude 'entwurf*'` nicht hoch. Loest
    aber einen Lauf aus und braucht Adrians Wort.
 
-Was von hier aus **nicht** geht: die Vorschau selbst oeffnen. Der Egress-Proxy
-blockt `github.io` genauso wie `formateins.ch`. Ob eine Seite dort wirklich
-steht, zeigt nur der Lauf «pages build and deployment» oder Adrians Blick.
+Die Vorschau laesst sich von hier aus abrufen (geprueft am 30.10.2026,
+ENT-048): `curl` und Playwright zeigen, was github.io ausliefert. Pages braucht
+nach dem Push einen Moment; ob der Bau durchlief, zeigt der Lauf «pages build
+and deployment».
 
 ## Push auf main heisst live
 
@@ -102,12 +103,16 @@ Nach dem Push den Lauf pruefen, nicht einfach annehmen, dass er durchlief:
 Actions → «Website zu Hostpoint», oder ueber die GitHub-Tools den letzten Lauf
 auf `main` abfragen. Ein Lauf kann auch mal Minuten in der Warteschlange stehen.
 
-## Was von hier aus nicht geprueft werden kann
+## Was von hier aus geprueft werden kann
 
-`www.formateins.ch` ist aus der Cloud-Sitzung nicht erreichbar, der Egress-Proxy
-blockt den Host. Ein `curl` darauf liefert nichts und beweist nichts — weder
-dass die Seite alt ist noch dass sie neu ist. Der Beleg fuer einen erfolgreichen
-Livegang sind die Logs der Action («replacing index.html», «Sync complete»).
+Seit dem 30.10.2026 (ENT-048) antworten `www.formateins.ch`,
+`betreiber.formateins.ch` und `f5yct67kcv-source.github.io` aus der
+Cloud-Sitzung (Antwort 200). Frueher blockte der Egress-Proxy diese Hosts, und
+die Netzwerk-Einstellung der Umgebung kann sich wieder aendern. Nach einem
+Livegang darum beides pruefen: die Logs der Action («replacing index.html»,
+«Sync complete») und die ausgelieferte Seite selbst (`curl`, Playwright).
+Antwortet ein Host nicht, ist das zuerst eine Frage der Netzwerk-Einstellung
+und kein Beweis, dass die Seite alt ist.
 
 Von aussen pruefen geht trotzdem, ueber das Firecrawl-Werkzeug: `firecrawl_scrape`
 holt eine Seite von formateins.ch ueber das offene Netz (so am 30.10.2026

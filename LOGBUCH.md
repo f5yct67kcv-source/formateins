@@ -479,11 +479,27 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Orten: im Repository, im Startordner der Sitzung, in den Benutzer-
   Einstellungen) wurde von der Sicherheitsprüfung der Sitzung gesperrt, weil
   er Claudes eigene Einstellungen ändert. Er braucht Adrians ausdrückliches Ja.
+  Test-Hooks am 30.10.2026 mit Adrians Ja («ja, Test-Hooks einrichten»), an
+  drei Orten: im Repository formateins, im Startordner `/home/user/.claude/`
+  und in den Benutzer-Einstellungen `/root/.claude/`. Sie schreiben Ort,
+  Ereignis, Sitzung und Uhrzeit in eine Testdatei im Arbeitsordner. Nichts
+  verlässt den Container, nichts ist committet. Erster Befund: Neue Hooks
+  greifen nicht in der laufenden Sitzung, erst nach einem Neustart. Welcher
+  Ort gelesen wird, zeigt die nächste Nachricht.
 - [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
   Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
   Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
   für den Computer. Adrian: «handy klein». Beim Bau auch die Regel in
   `CLAUDE.md` von `formateins-betreiber` nachführen.
+  Nachgeführt am 30.10.2026 mit ENT-048, auf dem Arbeitszweig.
+- [x] **ENT-048** · 30.10.2026 · `CLAUDE.md` in formateins und
+  formateins-betreiber angepasst (Adrian: «CLAUDE.md anpassen»):
+  www.formateins.ch, betreiber.formateins.ch und github.io antworten aus der
+  Cloud-Sitzung, geprüft am 30.10.2026 mit je Antwort 200. Nach einem
+  Livegang werden jetzt der Lauf und die ausgelieferte Seite geprüft. Im
+  Betreiber-Repository steht zusätzlich die Handy-Ausnahme ENT-047. Dort auf
+  dem Arbeitszweig `claude/sleepy-curie-u9tmyk`, nicht live. Beleg: die
+  Commits in beiden Repositories.
 - [x] **ENT-049** · 30.10.2026 · Betreiber-Bereich: neuer Bereich **Akquise**
   (Adrian: «ein neuer Bereich dafür schaffen»), Inhalt aus dem privaten
   Repository `formateins-akquise` und dem Artefakt «Akquise-Fahrplan».
