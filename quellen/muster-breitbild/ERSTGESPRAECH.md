@@ -7,7 +7,7 @@ echten Erstgespräch festhalten würde. Firma und Leute siehe `FIRMA.md`.
 |---|---|
 | Wo | In der Werkstatt in Wangen bei Olten, eine Stunde |
 | Dabei | Nina Kully, gegen Schluss Werner Kully, Adrian |
-| Stand | Entwurf vom 30.10.2026, Freigabe durch Adrian offen |
+| Stand | 30.10.2026, von Adrian freigegeben («passt», ENT-072) |
 
 ## Was Nina erzählt
 
