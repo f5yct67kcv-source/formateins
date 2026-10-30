@@ -23,8 +23,19 @@ als einzige Zeile in `~/.config/formateins/zeit-schluessel` ablegen.
 ## Roadmap-Schritt
 
 Der Hook liest den Schritt aus `~/.zeit-schritt`, zum Beispiel
-`muster-breitbild 3.1`. Claude setzt die Datei, sobald ein Schritt der Roadmap
-beginnt. Fehlt sie, kommt der Puls ohne Schritt an und wird später zugeordnet.
+`muster-breitbild 3.1 Logo`: Projekt, Nummer aus der Roadmap, Name. Der Name ist
+freiwillig; Pulse mit und ohne Namen zählen zum selben Schritt. Claude setzt
+die Datei, sobald ein Schritt der Roadmap beginnt. Fehlt sie, kommt der Puls
+ohne Schritt an und steht im Timer unter «ohne Projekt».
+
+## Ansehen
+
+Im Betreiber-Bereich unter **Projekte → Zeit** (ENT-066), nur am Computer.
+«Heute» zeigt, was gerade läuft, das Tagesband, die Summen und die
+Arbeitsblöcke von Pause zu Pause; eine Pause, die Arbeit war, buchst du dort
+mit «war Arbeit» um. «Woche» zeigt die Tage untereinander und die Zeit pro
+Projekt und Schritt seit dem ersten Puls. Arbeit ohne Claude (filmen,
+telefonieren) kommt über «Von Hand starten» oder «Eintrag von Hand» hinein.
 
 ## Prüfen
 

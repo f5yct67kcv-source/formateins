@@ -29,7 +29,8 @@ für echte Projekte lernen und Stoff für den Blogbeitrag am Schluss (ENT-045).
 
 Die Zeit misst der Projekt-Timer (ENT-046, `quellen/zeit/LIESMICH.md`). Zu
 Beginn jedes Schritts den Schritt in `~/.zeit-schritt` schreiben, zum Beispiel
-`echo "muster-breitbild 3.1" > ~/.zeit-schritt`, damit jeder Puls ihn trägt.
+`echo "muster-breitbild 3.1 Logo" > ~/.zeit-schritt`, damit jeder Puls ihn trägt:
+Projekt, Nummer aus der Roadmap, Name (ENT-066). Der Name steht dann im Timer.
 Die Zeiten fürs Journal kommen aus dem Timer, nicht aus der Erinnerung.
 
 ## Vor jedem Push

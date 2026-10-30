@@ -568,12 +568,16 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «war Arbeit»), B «Woche» (Tage mit Band, «nicht gemessen» vor dem 30.10.,
   daneben Zeit pro Roadmap-Schritt mit Soll), Handy C «Jetzt» (Status, Summe,
   Band) und D (Band senkrecht mit Schritten). Offen: Adrians Wahl, dann Bau.
+  Adrian wählt am 30.10.2026 anders: «Zeit» als Reiter unter Projekte, am
+  Handy nicht nötig. Gebaut mit ENT-066.
 - [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
   Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
   Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
   für den Computer. Adrian: «handy klein». Beim Bau auch die Regel in
   `CLAUDE.md` von `formateins-betreiber` nachführen.
   Nachgeführt am 30.10.2026 mit ENT-048, auf dem Arbeitszweig.
+  Aufgehoben am 30.10.2026 mit ENT-066 (Adrian: «am handy ist der
+  zeitplaner nicht wichtig»).
 - [x] **ENT-048** · 30.10.2026 · `CLAUDE.md` in formateins und
   formateins-betreiber angepasst (Adrian: «CLAUDE.md anpassen»):
   www.formateins.ch, betreiber.formateins.ch und github.io antworten aus der
@@ -829,3 +833,29 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Lauf «Website zu Hostpoint» Nr. 57 (41057444056) erfolgreich,
   «uploading» video-reel.webp und video-spot.webp, «replacing index.html»,
   «Sync complete», IndexNow 200 für die Startseite.
+- [ ] **ENT-066** · 30.10.2026 · Ansicht des Projekt-Timers (ENT-046).
+  Adrian: «Zeit» kein eigener Punkt in der Navigation, sondern ein Reiter
+  unter Projekte («Projekte, Verträge, Zeit»); am Handy nicht wichtig, darum
+  keine Handy-Fassung, ENT-047 ist aufgehoben. Entwurf A und B vereint:
+  Umschalter «Heute» und «Woche» im Reiter. Ohne Soll-Spalte, bis die Soll-
+  Werte mit Schritt 0.5 feststehen; ohne Preis-Kachel bis Schritt 5.1.
+  Gebaut in `formateins-betreiber`, Arbeitszweig `claude/sleepy-curie-u9tmyk`:
+  `kern/zeit.php` rechnet nach der Regel (Nachricht bis «fertig» Claude, danach
+  du, höchstens 10 Min., Rest Pause; mehrere Sitzungen zugleich zählen jede
+  Sekunde einmal, du vor Claude; eine Nachricht ohne «fertig» zählt höchstens
+  60 Min.), `api/zeit.php` liefert Tag und Woche mit Zeit pro Projekt und
+  Schritt seit dem ersten Puls, `api/zeit_hand.php` für «Von Hand starten»,
+  «Eintrag von Hand» und «war Arbeit» (Paar hand_start und hand_stopp, geht
+  allem vor, nur solche Einträge lassen sich löschen). Ein Tag vor dem ersten
+  Puls heisst «nicht gemessen», ein gemessener Tag ohne Puls «kein Puls», ein
+  kommender «noch nicht». Der Schritt in `~/.zeit-schritt` trägt neu den
+  Namen («muster-breitbild 0.6 Projekt-Timer»), Regel in `CLAUDE.md` und
+  `quellen/zeit/LIESMICH.md` nachgeführt. Prüfungen mit lokaler Datenbank:
+  161 grün, davon 29 neue für die Auswertung; alle zwölf absichtlich
+  eingebauten Fehler wurden rot (Lücke ganz als du, Claude vor du, kein
+  Deckel, falsche Zuordnung bei Gleichstand, Puls in derselben Sekunde,
+  Löschen ohne Schutz, ohne Anmeldung, «nicht gemessen» fehlt, Name
+  überschrieben, Start zählt nicht, «bis» vor «von», Stopp in der Zukunft).
+  Im Browser mit den Pulsen dieser Sitzung geklickt: «war Arbeit», Löschen,
+  Von Hand starten und stoppen, ganzer Tag, Vortag; keine Fehler in der
+  Konsole. Offen: Merge durch Adrian, danach Lauf und Seite prüfen.
