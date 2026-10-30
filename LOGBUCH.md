@@ -942,3 +942,17 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Gegenprobe: ohne Ausschluss in der Übersicht wird die Prüfung rot.
   Im Browser durchgespielt: Menü öffnen, Escape, Archivieren, Reiter Archiv,
   Zurückholen, Öffnen. Betreiber `7e497c9` auf `main`.
+- [x] **ENT-069** · 30.10.2026 · Betreiber-Bereich, Offerten: **Leistungskatalog
+  und «Neues Projekt»**. Anlass: Das Feld «Projekt» in der Offerte war leer
+  (es zeigt Aufträge aus Projekte, es gab noch keinen). Adrian, je die
+  Empfehlung: Der Katalog im Reiter Leistungen startet mit den Listenpreisen
+  der Website (`preise.js`), 37 Leistungen mit Nummern W-, B-, V-, Pauschale,
+  MWST 0 %, WordPress-Updates pro Jahr; eingesetzt nur, solange der Katalog
+  ganz leer ist, danach Pflege im Reiter (Preise ziehen nicht automatisch
+  nach). Rabatte (überarbeiten −20 %, mehrere Bereiche −20 %, Eile +15 %)
+  gehören ins Feld «Rabatt %». Aus zwei Bildern Variante A: Knopf «Neues
+  Projekt» neben «Neue Adresse erstellen», Dialog mit Titel und Richtung,
+  legt das Projekt für den Empfänger an und wählt es gleich. Beides sind
+  Abweichungen von GuardOpS mit Adrians Wort, in `CLAUDE.md` des Betreibers
+  nachgeführt. Prüfungen grün, im Browser durchgespielt. Betreiber `7e1bb01`
+  und `ee9c5f7` auf `main`.
