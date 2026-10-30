@@ -497,8 +497,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Sitzungsstart nach einem Neustart (09:53) und «Nachricht» (09:53) kamen an
   beiden Orten an, im Repository nie. Test-Hooks am 30.10.2026 wieder
   gelöscht, das Protokoll liegt nur im Arbeitsordner der Sitzung.
-  Schlüssel, Empfehlung vom 30.10.2026: In der Cloud kein Umgebungs-
-  Variable mehr, sondern ein «Network secret» der Umgebung. Der Proxy setzt
+  Schlüssel, Empfehlung vom 30.10.2026: In der Cloud keine Umgebungs-
+  variable mehr, sondern ein «Network secret» der Umgebung. Der Proxy setzt
   den Schlüssel erst ausserhalb des Containers in jede Anfrage an
   betreiber.formateins.ch (Kopfzeile `X-Zeit-Schluessel`, ohne Präfix); er
   steht weder in der Umgebung noch in einer Datei, Claude sieht ihn nie. Der
