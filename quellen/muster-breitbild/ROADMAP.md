@@ -45,10 +45,11 @@ Schluss.
   zeigt, ob Breitbild zu diesem Preis aufgeht.
 
 Die Zeit kommt, sobald er läuft, vom Projekt-Timer (ENT-046). Bis dahin
-rechnet Claude sie aus dem Verlauf der Sitzung nach: deine Nachrichten und
+rechnet Claude sie aus dem Verlauf der Sitzung nach: Adrians Nachrichten und
 wann Claude fertig war. Eine Lücke unter 10 Minuten zählt als Arbeit, bei
-längeren Lücken zählen 10 Minuten (Lesen), der Rest ist Pause, ausser du
-sagst, dass du gearbeitet hast.
+längeren Lücken zählen 10 Minuten (Lesen), der Rest ist Pause, ausser Adrian
+sagt, dass er gearbeitet hat. Die Zeit, in der Claude arbeitet, zählt mit und
+steht getrennt da (Adrian, 30.10.2026).
 
 ## Übersicht
 
@@ -66,7 +67,7 @@ für das Muster setzen wir, sobald die Entscheide aus 0.3 stehen.
 | 0.3 | Sechs Entscheide aus dem Whiteboard | – | | | offen, Adrian |
 | 0.4 | Repository und Hosting der Demo-Website klären (demo.formateins.ch) | – | | | offen, Adrian |
 | 0.5 | Soll-Daten für die Etappen 1 bis 5 setzen | – | | | offen |
-| 0.6 | Projekt-Timer für die Zeitmessung (ENT-046) | – | | | offen, Konzept steht |
+| 0.6 | Projekt-Timer für die Zeitmessung (ENT-046) | – | | | läuft, Hook-Test wartet auf Adrians Ja |
 
 ### 1 · Wir legen los
 
@@ -145,9 +146,9 @@ Chronologisch, der neueste Eintrag unten. Vorlage für jeden Eintrag:
   geprüft: Lindenfeld (Sport), Hakuro (Gastro), Kaffee Fulehorn, Malerei Max.
 - Beleg: Whiteboard (Artifact), `c00f806` (ENT-043)
 - Zeit: aus dem Verlauf nachgerechnet. Claude 09:02–09:11 (9 Min.), danach
-  33 Min. bis zu deiner nächsten Nachricht. Davon zählen 10 Min. als Lesen,
-  23 Min. als Pause, bis Adrian sagt, ob er in der Zeit gelesen hat.
-  Das Tippen der ersten Nachricht fehlt. Runden: 1
+  Adrian 33 Min. bis zur nächsten Nachricht, ganz gezählt: Er hat in der Zeit
+  das Whiteboard gelesen (Adrian, 30.10.2026). Zusammen 42 Min. Das Tippen der
+  ersten Nachricht fehlt. Runden: 1
 - KI-Kosten: keine
 - Gelernt: Die Karte Breitbild enthält weder Social Media noch Erklärvideo.
   Das Muster wollte beides zeigen. Zuerst das Paket an der Karte messen, dann

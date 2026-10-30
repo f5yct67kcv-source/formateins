@@ -472,6 +472,18 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Geprüft am 30.10.2026: betreiber.formateins.ch und www.formateins.ch sind
   aus der Cloud erreichbar (Antwort 200). Offen: Adrians fünf Entscheide,
   Schlüssel in Umgebung und Repository, `formateins-betreiber` in die Sitzung.
+  Adrian am 30.10.2026: Betreiber-Bereich, Schwelle 10 Min., die Zeit, in
+  der Claude arbeitet, zählt und steht getrennt da, am Handy eine kleine
+  Anzeige (ENT-047), die 33 Min. nach dem Whiteboard waren Lesen.
+  `formateins-betreiber` ist jetzt in der Sitzung. Der Test-Hook (an drei
+  Orten: im Repository, im Startordner der Sitzung, in den Benutzer-
+  Einstellungen) wurde von der Sicherheitsprüfung der Sitzung gesperrt, weil
+  er Claudes eigene Einstellungen ändert. Er braucht Adrians ausdrückliches Ja.
+- [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
+  Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
+  Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
+  für den Computer. Adrian: «handy klein». Beim Bau auch die Regel in
+  `CLAUDE.md` von `formateins-betreiber` nachführen.
 - [x] **ENT-049** · 30.10.2026 · Betreiber-Bereich: neuer Bereich **Akquise**
   (Adrian: «ein neuer Bereich dafür schaffen»), Inhalt aus dem privaten
   Repository `formateins-akquise` und dem Artefakt «Akquise-Fahrplan».
