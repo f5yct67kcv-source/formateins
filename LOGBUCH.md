@@ -520,8 +520,18 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   davon 11 neue für den Timer; beide absichtlich eingebauten Fehler (ohne
   Schlüsselprüfung, ohne Schutz gegen Doppelte) wurden rot. Ohne Secret
   antwortet der Eingang «nicht eingerichtet» (503), nicht «kein Zugang».
-  Offen: Push auf `main` von `formateins-betreiber` mit Adrians Wort, dann
-  die Probe aus der Sitzung.
+  Adrian am 30.10.2026: «push beide». Der Push auf `main` aus der Sitzung wurde
+  von deren Sicherheitsprüfung gesperrt (Livegang nur durch einen Menschen),
+  Adrian hat den Betreiber-Zweig selbst gemergt (Pull Request #1). Lauf
+  «Betreiber zu Hostpoint» Nr. 8 (41054462094) erfolgreich: «uploading»
+  `api/zeit_puls.php` und `kern/zeit.php`, «replacing» `kern/tabellen.php`,
+  «Sync complete». Probe am 30.10.2026 aus dieser und aus einer neuen Sitzung:
+  beide 403 «Kein Zugang». Das GitHub-Secret ist also auf dem Server (sonst
+  503), der Schlüssel aus der Cloud passt aber nicht oder kommt nicht an.
+  Darum auf dem Arbeitszweig: «kein Schlüssel» und «Schlüssel stimmt nicht»
+  getrennt melden, und ein im Formular stehen gebliebenes Präfix «Bearer»
+  wegnehmen. Prüfungen 131 grün, beide eingebauten Fehler rot. Offen: Merge
+  durch Adrian, dann die Probe wiederholen.
 - [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
   Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
   Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
