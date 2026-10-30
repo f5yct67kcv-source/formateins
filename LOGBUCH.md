@@ -475,5 +475,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   JSON-LD bleibt am Ende des body (dort gültig, FAQ-DATEN neben den Fragen).
   Die 7 Bilder «ohne alt» sind die mit `alt=""`: sechs Baupläne über den
   Arbeiten und das Bild im Webdesign-Knopf (der Knopf trägt das aria-label);
-  bleiben dekorativ. Offen: kürzere Descriptions (Adrian wählt), Push auf
-  `main` mit Adrians Wort, danach Lauf prüfen und in Bing «Request indexing».
+  bleiben dekorativ. Descriptions gekürzt auf höchstens 154 Zeichen, Adrian
+  wählt je Fassung A («A, A, A, A»): Startseite 174 → 149, Website-Kosten
+  243 → 145 (Spannen statt «ab»), GuardOpS 213 → 150, Craniosacral Praxis
+  213 → 154. Push auf `main` mit Adrians Wort («push auf main»). Offen:
+  Lauf prüfen, danach löst Adrian in Bing «Request indexing» aus.
