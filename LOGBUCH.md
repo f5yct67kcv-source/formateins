@@ -443,5 +443,13 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Bereich und per Mail an die formateins-Adresse (Adrian: «mit Zeit und
   Datumstempel, sowie notification auf der seite und auf format
   mailadresse»). Vor dem ersten Versand muss die Datenschutzerklärung von
-  formateins.ch die Zählung nennen. Offen: Wahl der Gestaltung (Fahrplan
-  Variante A oder B), dann Bau.
+  formateins.ch die Zählung nennen. Gestaltung: Adrian wählt Fahrplan
+  Variante A, Betriebe und Auswertung wie im Entwurf.
+  Stand 30.10.2026: gebaut auf dem Arbeitszweig von `formateins-betreiber`
+  (Commit `ac44534`), alle Prüfungen grün, Gegenprobe ohne 30-Minuten-Sperre
+  rot. CSV der 20 Betriebe aus dem Screening auf dem Arbeitszweig von
+  `formateins-akquise` (`akquise/phase-1/betriebe.csv`, Commit `8b5c6cd`).
+  Offen: Push auf `main` von `formateins-betreiber` (geht live, braucht
+  Adrians Wort), danach Import von fahrplan.md und der CSV im Bereich.
+  Datenschutzerklärung von formateins.ch um die Zählung ergänzen, vor dem
+  ersten Versand (eigener Punkt, braucht Text und Adrians Wort).
