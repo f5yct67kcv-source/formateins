@@ -506,6 +506,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   ohne eigene Kopfzeile. Auf dem Server kommt er als Secret
   `ZEIT_SCHLUESSEL` von `formateins-betreiber` über den Deploy in die
   Konfiguration, wie `ANFRAGE_SCHLUESSEL`. Am Mac später lokal.
+  Adrian am 30.10.2026: Secret `ZEIT_SCHLUESSEL` in `formateins-betreiber`
+  angelegt. Offen: Network secret in der Cloud-Umgebung.
 - [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
   Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
   Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
