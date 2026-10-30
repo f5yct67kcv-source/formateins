@@ -18,6 +18,15 @@ Nummer beim Push trotzdem belegt: die eigene umnummerieren, mit dem Vermerk
 fremde Nummer nie anfassen.
 Die Datei geht nicht auf den Webserver (Ausnahme im Workflow).
 
+## Roadmap beim Musterprojekt Breitbild
+
+Seit dem 30.10.2026 auf Adrians Wunsch (ENT-044): Das Musterprojekt Breitbild
+wird in `quellen/muster-breitbild/ROADMAP.md` geführt, mit Soll und Ist pro
+Schritt und einem Journal. Vor der Arbeit daran die Roadmap lesen, nach jedem
+Schritt den Journal-Eintrag im selben Commit wie die Arbeit. Das Soll wird
+nicht nachträglich geändert, Abweichungen stehen mit Grund im Journal. Zweck:
+für echte Projekte lernen und Stoff für den Blogbeitrag am Schluss (ENT-045).
+
 ## Vor jedem Push
 
 An `main` arbeiten mehrere Sitzungen parallel. Deshalb vor **jedem** Push:

@@ -443,6 +443,19 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   dann Fallstudie»; Demo-Website in reinem HTML. Offen: Adrians sechs
   Entscheide. Nummer: ENT-042 ist auf `claude/epic-mayer-2x1fei` schon vom
   Betreiber-Bereich belegt.
+- [x] **ENT-044** · 30.10.2026 · Das Musterprojekt Breitbild (ENT-043) wird von
+  Anfang an als Roadmap dokumentiert: `quellen/muster-breitbild/ROADMAP.md`.
+  Etappen nach den vier Schritten der Startseite, Soll vor dem Start und Ist
+  danach, ein Journal pro Schritt mit Beleg, Adrians Zeit, Runden, KI-Kosten
+  und was wir gelernt haben; dazu eine Lernliste und «Muster und echter
+  Auftrag». Adrian spielt bei Freigaben den Kunden. Zweck (Adrian): nachvoll-
+  ziehbar bleiben und für echte Projekte lernen. Regel in `CLAUDE.md`.
+  Beleg: dieser Commit.
+- [ ] **ENT-045** · 30.10.2026 · Am Ende des Musterprojekts ein Blogbeitrag für
+  Kunden: wie ein ganzes Projekt abläuft, damit sie Vertrauen fassen. Offen
+  als Musterprojekt gekennzeichnet, Zahlen aus dem Journal. Gliederung und
+  Materialliste stehen in der Roadmap; Ort auf der Seite, Suchbegriff und
+  Titel entscheidet Adrian, wenn es so weit ist.
 - [x] **ENT-049** · 30.10.2026 · Betreiber-Bereich: neuer Bereich **Akquise**
   (Adrian: «ein neuer Bereich dafür schaffen»), Inhalt aus dem privaten
   Repository `formateins-akquise` und dem Artefakt «Akquise-Fahrplan».
