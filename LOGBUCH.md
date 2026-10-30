@@ -560,7 +560,14 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   eingerichtet.»), danach 3 Pulse vom Hook auf dem Server (Probe: bisher 33,
   letzter «fertig» 14:32:44, Quelle `claude-code`, Gerät `cloud`). **Der Hook
   läuft.** Sitzungen, die vor dem Setup-Skript gestartet sind, messen nicht
-  selbst und werden nachgetragen. Offen: Ansichten als Bild zur Wahl.
+  selbst und werden nachgetragen.
+  Ansichten am 30.10.2026 als Bild zur Wahl, im Aussehen des Betreiber-Bereichs
+  (neuer Navigationspunkt «Zeit» nach «Projekte», Reiter Heute, Woche,
+  Projekte, Auswertung), mit den echten Zeiten des Tages: A «Heute»
+  (Jetzt-Leiste, Tagesband, vier Kacheln, Arbeitsblöcke von Pause zu Pause mit
+  «war Arbeit»), B «Woche» (Tage mit Band, «nicht gemessen» vor dem 30.10.,
+  daneben Zeit pro Roadmap-Schritt mit Soll), Handy C «Jetzt» (Status, Summe,
+  Band) und D (Band senkrecht mit Schritten). Offen: Adrians Wahl, dann Bau.
 - [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
   Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
   Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
