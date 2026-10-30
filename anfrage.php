@@ -12,12 +12,6 @@
 const EMPFAENGER = 'adrian@formateins.ch';
 const ABSENDER   = 'adrian@formateins.ch';
 
-// Eingang im Betreiber-Bereich. Den Schluessel setzt der Deploy aus dem Secret
-// ANFRAGE_SCHLUESSEL ein, derselbe Wert wie in formateins-betreiber. Bleibt der
-// Platzhalter stehen, geht die Anfrage nur per Mail.
-const BETREIBER_EINGANG    = 'https://betreiber.formateins.ch/api/anfrage_eingang.php';
-const BETREIBER_SCHLUESSEL = '__ANFRAGE_SCHLUESSEL__';
-
 // Hoechstens so viele Anfragen pro Absender-IP und Stunde.
 const GRENZE_PRO_STUNDE = 5;
 
@@ -51,6 +45,8 @@ const MEHRFACH = ['richtungen', 'ziel'];
 
 // Hoechstens eine Bestaetigung pro Adresse und Tag.
 const BESTAETIGUNG_PRO_TAG = 1;
+
+require __DIR__ . '/betreiber-eingang.php';
 
 ini_set('display_errors', '0');
 date_default_timezone_set('Europe/Zurich');
@@ -181,30 +177,6 @@ $zeiten[] = $jetzt;
 // Scheitert sie, merkt der Kunde nichts davon: Die Anfrage ist ja angekommen.
 try { bestaetigen($name, $mail); } catch (Throwable $e) { error_log('Bestaetigung: ' . $e->getMessage()); }
 ende(200);
-
-
-// ---------- Ablage im Betreiber-Bereich ----------
-// Ein Aufruf von Server zu Server, hoechstens fuenf Sekunden. Scheitert er,
-// steht es im Fehlerprotokoll, und die Mail ist trotzdem unterwegs.
-function ablegen(array $anfrage): bool {
-  if (BETREIBER_SCHLUESSEL === '__' . 'ANFRAGE_SCHLUESSEL__' || !function_exists('curl_init')) return false;
-  $c = curl_init(BETREIBER_EINGANG);
-  curl_setopt_array($c, [
-    CURLOPT_POST           => true,
-    CURLOPT_POSTFIELDS     => json_encode($anfrage, JSON_UNESCAPED_UNICODE),
-    CURLOPT_HTTPHEADER     => ['Content-Type: application/json', 'X-Schluessel: ' . BETREIBER_SCHLUESSEL],
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_CONNECTTIMEOUT => 3,
-    CURLOPT_TIMEOUT        => 5,
-  ]);
-  $antwort = curl_exec($c);
-  $code = (int) curl_getinfo($c, CURLINFO_HTTP_CODE);
-  $fehler = curl_error($c);
-  curl_close($c);
-  if ($code === 200 && (json_decode((string) $antwort, true)['status'] ?? '') === 'ok') return true;
-  error_log('anfrage.php: Betreiber-Bereich antwortet ' . $code . ' ' . ($fehler ?: mb_substr((string) $antwort, 0, 200)));
-  return false;
-}
 
 
 // ---------- Bestaetigung an den Kunden ----------

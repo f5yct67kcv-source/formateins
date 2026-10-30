@@ -507,6 +507,20 @@ $zeiten[] = $jetzt;
 
 $wann = inWorten($beginn);
 
+// Im Betreiber-Bereich ablegen, ob der Kalender den Termin hat oder nicht.
+// Die Mails unten laufen unabhaengig davon.
+require __DIR__ . '/betreiber-eingang.php';
+ablegen([
+  'quelle'  => 'gespraech',
+  'name'    => $name,
+  'email'   => $mail,
+  'telefon' => $telefon,
+  'betreff' => 'Gespräch per ' . ARTEN[$art] . ($eingetragen ? '' : ', nicht im Kalender'),
+  'inhalt'  => "$wann\nArt: " . ARTEN[$art] . ($raum !== '' ? "\nVideo-Raum: $raum" : '')
+    . ($eingetragen ? "\n\nSteht im Kalender «Gespräche»." : "\n\nDer Kalender war nicht erreichbar, der Termin steht noch nicht drin."),
+  'termin'  => $beginn->format('Y-m-d H:i:s'),
+]);
+
 // Kalender nicht erreichbar: nichts geht verloren, Adrian bestaetigt von Hand.
 if (!$eingetragen) {
   mailSenden(EMPFAENGER, 'Terminwunsch, NICHT eingetragen: ' . $name,

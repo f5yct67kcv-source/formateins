@@ -14,6 +14,11 @@ Options -Indexes
   Require all denied
 </Files>
 
+# Schluessel fuer den Betreiber-Bereich, nur fuer anfrage.php und termine.php.
+<Files "betreiber-eingang.php">
+  Require all denied
+</Files>
+
 # Immer https und immer www.formateins.ch. Faengt auch die Adresse ohne www
 # und spaeter format1.ch ab, wenn sie aufs selbe Hosting zeigt.
 # Setzt ein aktives SSL-Zertifikat bei Hostpoint voraus.

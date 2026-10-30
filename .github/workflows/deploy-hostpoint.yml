@@ -27,6 +27,7 @@ jobs:
           php -l anfrage.php
           php -l termine.php
           php -l kalender-zugang.php
+          php -l betreiber-eingang.php
           node --check messung.js
           python3 -m py_compile quellen/indexnow.py
 
@@ -88,24 +89,24 @@ jobs:
 
       # Schluessel fuer den Eingang im Betreiber-Bereich (ENT-038), derselbe Wert
       # wie das Secret ANFRAGE_SCHLUESSEL in formateins-betreiber. Fehlt er,
-      # gehen Anfragen nur per Mail.
+      # gehen Anfragen und Gespraeche nur per Mail.
       - name: Schluessel fuer den Betreiber-Bereich eintragen
         env:
           ANFRAGE_SCHLUESSEL: ${{ secrets.ANFRAGE_SCHLUESSEL }}
         run: |
           python3 - <<'PY'
           import os
-          pfad = 'dist/anfrage.php'
+          pfad = 'dist/betreiber-eingang.php'
           wert = os.environ.get('ANFRAGE_SCHLUESSEL', '').strip()
           if wert:
               php = lambda w: w.replace('\\', '\\\\').replace("'", "\\'")
               text = open(pfad, encoding='utf-8').read()
               neu = text.replace("'__ANFRAGE_SCHLUESSEL__'", "'" + php(wert) + "'", 1)
-              if neu == text: raise SystemExit('Platzhalter in anfrage.php nicht gefunden')
+              if neu == text: raise SystemExit('Platzhalter in betreiber-eingang.php nicht gefunden')
               open(pfad, 'w', encoding='utf-8').write(neu)
               print('eingetragen in', pfad)
           else:
-              print('::warning::Secret ANFRAGE_SCHLUESSEL fehlt, Anfragen kommen nur per Mail, nicht im Betreiber-Bereich')
+              print('::warning::Secret ANFRAGE_SCHLUESSEL fehlt, Anfragen und Gespraeche kommen nur per Mail, nicht im Betreiber-Bereich')
           PY
 
       - name: Zugangsdaten vorhanden?

@@ -345,6 +345,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   beiden Repositories, Satz in der Datenschutzerklärung («wird nicht
   gespeichert» stimmt dann nicht mehr), Push auf `main` beider Repositories
   (Betreiber, damit das Secret eingesetzt wird), `termine.php`.
+  Adrian am 30.10.2026: Secret in beiden Repositories eingetragen,
+  Gesprächsbuchung mitnehmen, Datenschutz «wie es der Standard macht, ohne
+  Rechtfertigung». Gebaut: Ablage in `betreiber-eingang.php` (für beide
+  Formulare, vom Webserver gesperrt), `termine.php` legt jede Buchung mit
+  Termin ab, auch wenn der Kalender nicht erreichbar war. Datenschutz:
+  «… mir per E-Mail zugestellt und in meiner passwortgeschützten
+  Kundenverwaltung gespeichert. Die Server stehen in der Schweiz.», beim
+  Gespräch «… und in meiner Kundenverwaltung gespeichert». Lokal geprüft,
+  Prüfungen im Betreiber-Bereich grün. Offen: Push auf `main` (Adrians Wort).
 - [x] **ENT-039** · 29.10.2026 · Betreiber-Bereich: Gestaltungsentwurf der
   Übersicht abgenommen (Adrian: «passt so»), Aufbau wie GuardOpS mit Farben,
   Logo und Schriften von formateins. **Keine Handy-Fassung** (Adrian:

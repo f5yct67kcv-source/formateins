@@ -22,6 +22,7 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
 | `leiste.css`, `leiste.js` | Menü in Kopfzeile und Mitlaufleiste, Handymenü; auf allen Seiten ausser Gespräch und Rechtsseiten |
 | `start-*.webp`, `seite-desktop.webp`, `video-*` | Bilder und Videos der Startseite, Herkunft in den Zeilen unten. `seite-desktop.webp` gibt es zusätzlich verkleinert als `-720` und `-900` (WebP, Qualität 75), das Handy lädt über `srcset` nur die passende Grösse. Nach einer neuen Aufnahme beide neu rechnen. Spot und Reel laden erst, wenn sie laufen sollen (`preload="none"`): der Spot, sobald er ins Bild kommt, das Reel beim Öffnen des Video-Stands. Vorher holte Chrome am Desktop das versteckte Reel fast ganz (über 1 MB) |
 | `anfrage.php` | Nimmt die Anfrage aus dem Rechner an, schickt sie als Mail und legt sie im Betreiber-Bereich ab |
+| `betreiber-eingang.php` | Ablage von Anfragen und Gesprächen im Betreiber-Bereich, mit dem Schlüssel aus dem Deploy (ENT-038) |
 | `gespraech.html`, `termine.php` | Terminbuchung, siehe „Gespräch vereinbaren“ unten |
 | `kalender-zugang.php` | Platzhalter für den Kalenderzugang, der Upload füllt ihn aus den Secrets |
 | `messung.js` | Banner und Messung mit Google, ausgeschaltet bis eine Kennung steht |
@@ -79,8 +80,9 @@ Schriften liegen selbst im Projekt (`schriften/`, `schriften.css`).
   im Betreiber-Bereich ab (ENT-038): ein Aufruf an
   `betreiber.formateins.ch/api/anfrage_eingang.php` mit dem Secret
   `ANFRAGE_SCHLUESSEL`, das in beiden Repositories gleich sein muss. Der
-  Deploy setzt es in `anfrage.php` ein; fehlt es, geht die Anfrage nur per
-  Mail. Angekommen ist die Anfrage, sobald einer der beiden Wege sie hat. Es
+  Deploy setzt es in `betreiber-eingang.php` ein; fehlt es, geht die Anfrage
+  nur per Mail. Angekommen ist die Anfrage, sobald einer der beiden Wege sie
+  hat. Gebuchte Gespräche aus `termine.php` gehen denselben Weg. Es
   bremst nach fuenf Anfragen pro Stunde und Absender, faengt Spam-Programme ueber
   ein unsichtbares Feld und eine Zeitfalle ab (unter acht Sekunden Seitenzeit gibt
   es ein falsches „ok“) und nimmt nur Anfragen von der eigenen Seite an.
