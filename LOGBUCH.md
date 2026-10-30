@@ -423,7 +423,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   ereignisse.js, beleg-seite.js, api/betreiber_*.php, kern/bruecke.php,
   «removing» der alten Beleg- und Adress-Endpunkte, «Sync complete». Die
   Übernahme der bisherigen Daten läuft beim ersten Anmelden.
-- [ ] **ENT-046** · 30.10.2026 · Betreiber-Bereich: neuer Bereich **Akquise**
+- [x] **ENT-049** · 30.10.2026 · Betreiber-Bereich: neuer Bereich **Akquise**
   (Adrian: «ein neuer Bereich dafür schaffen»), Inhalt aus dem privaten
   Repository `formateins-akquise` und dem Artefakt «Akquise-Fahrplan».
   Entscheide (Adrian, je die Empfehlung, wo nicht anders vermerkt): Es gilt
@@ -448,7 +448,19 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   (Commit `ac44534`), alle Prüfungen grün, Gegenprobe ohne 30-Minuten-Sperre
   rot. CSV der 20 Betriebe aus dem Screening auf dem Arbeitszweig von
   `formateins-akquise` (`akquise/phase-1/betriebe.csv`, Commit `8b5c6cd`).
-  Offen: Push auf `main` von `formateins-betreiber` (geht live, braucht
-  Adrians Wort), danach Import von fahrplan.md und der CSV im Bereich.
-  Datenschutzerklärung von formateins.ch um die Zählung ergänzen, vor dem
-  ersten Versand (eigener Punkt, braucht Text und Adrians Wort).
+  Live am 30.10.2026 mit Adrians Wort («push auf main, beide repos»):
+  `formateins-betreiber` `main` auf ac44534, Lauf «Betreiber zu Hostpoint»
+  Nr. 6 (41036958965) erfolgreich, Prüfungen grün, «uploading» akquise.js,
+  api/akquise*.php, kern/akquise.php, «replacing» .htaccess (Regel für
+  /q/), index.html, betreiber.js, kern/tabellen.php, «Sync complete». Die
+  Tabellen legt die Einrichtung beim ersten Anmelden an. Import von
+  fahrplan.md und der CSV macht Adrian im Bereich.
+  Zuerst als ENT-046 erfasst. Die Nummer hatte eine andere Sitzung kurz
+  vorher für den Projekt-Timer vergeben (Eintrag 09:00 gegen 09:02), darum
+  hier ENT-049. Commits, Code und das Repository formateins-akquise nennen
+  noch ENT-046; im Code wird es mit dem nächsten Push nachgeführt.
+- [ ] **ENT-050** · 30.10.2026 · Datenschutzerklärung von formateins.ch um die
+  Zählung des QR-Codes im Akquise-Brief ergänzen (ENT-049): gespeichert
+  werden Zeit und Gerät, keine IP, kein Cookie. Muss vor dem ersten Brief
+  online sein. Text kommt als Vorschlag zu Adrian, dann Bau und Push mit
+  seinem Wort.
