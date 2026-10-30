@@ -930,3 +930,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Schublade (C Tisch und Fallstudie, A Fallstudie, B Planschrank). Als
   Nächstes Schritt 1.1: Name, Geschichte und Strategieblatt der Schreinerei
   als Text in den Chat; das braucht 4 und 5 noch nicht.
+- [x] **ENT-068** · 30.10.2026 · Betreiber-Bereich: **Archiv für Anfragen**
+  (Adrian: «einen Ordner, wo die Anfragen archiviert werden und nicht mehr im
+  Eingang stehen»). Gewählt aus zwei Bildern Variante A: Reiter **Offen ·
+  Erledigt · Archiv**, «Alle» fällt weg. Jede Zeile hat am Ende «⋯» mit
+  «Öffnen» und «Archivieren», im Archiv «Zurückholen» (Adrian: «drei Punkte
+  rechts … mit Dropdown archivieren»). Der Status bleibt beim Archivieren,
+  unter ihm steht «archiviert» mit Datum; archivierte Anfragen zählen in der
+  Übersicht und im Zähler am Reiter nicht mit. Spalte `anfragen.archiviert_am`,
+  Endpunkt `api/anfrage_archiv.php`, Eintrag im Verlauf. Prüfungen grün,
+  Gegenprobe: ohne Ausschluss in der Übersicht wird die Prüfung rot.
+  Im Browser durchgespielt: Menü öffnen, Escape, Archivieren, Reiter Archiv,
+  Zurückholen, Öffnen. Betreiber `7e497c9` auf `main`.
