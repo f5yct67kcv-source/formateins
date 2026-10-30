@@ -654,3 +654,14 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   74 → 39 ms. Leiste gleich wie vorher: unsichtbar beim Runterscrollen, da
   beim Hochscrollen, weg ganz oben. Auf dem Arbeitszweig, live mit Adrians
   Wort.
+- [ ] **ENT-065** · 30.10.2026 · Punkt 1 aus ENT-063 (Bilder kleiner), Bilder
+  alt neben neu an Adrian, Pixel für Pixel wie auf dem Gerät. Gemessene
+  Anzeigebreite der Arbeiten-Bilder: 346 px am Handy, 381 px am Computer,
+  in der vergrösserten Werkbank 726 px. Auf dem iPhone (dreifache Dichte)
+  braucht es also schon im Arbeiten-Bereich rund 1040 px; die 260 KB aus
+  dem Bericht rechnen mit der Dichte von PageSpeed (1,75). Real möglich:
+  A) Vorschaubilder Reel und Spot als WebP in gleicher Grösse, kein
+  sichtbarer Unterschied, −39 KB (Reel 82 → 50 KB). B) zusätzlich die
+  Arbeiten-Bilder auf 800 px, weitere −35 KB, aber am Handy leicht und in
+  der Werkbank am Retina-Bildschirm deutlich weicher (kleine Schrift).
+  Empfehlung A. Offen: Adrian wählt.
