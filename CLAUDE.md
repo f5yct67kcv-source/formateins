@@ -8,6 +8,14 @@ Beleg (Commit, Lauf). `[x]` = erledigt und belegt, `[ ]` = offen. Nummern nie
 neu vergeben; ein geänderter Entscheid bekommt eine neue Nummer mit Verweis.
 Eintrag im selben Commit wie die Änderung, im Chat die Nummer nennen. Vor der
 Arbeit `LOGBUCH.md` lesen: offene Punkte stehen dort, nicht nur im README.
+
+Mehrere Sitzungen schreiben ins selbe Logbuch (am 29. und 30.10.2026 zweimal
+doppelt vergeben: ENT-035/036 und ENT-042). Darum vor jeder neuen Nummer
+`git fetch origin main` und die nächste freie Nummer **nach der höchsten auf
+`origin/main`** nehmen, nicht nach der höchsten im eigenen Zweig. Ist die
+Nummer beim Push trotzdem belegt: die eigene umnummerieren, mit dem Vermerk
+«zuerst als ENT-… vergeben», und im Code und in Commit-Texten nachziehen. Die
+fremde Nummer nie anfassen.
 Die Datei geht nicht auf den Webserver (Ausnahme im Workflow).
 
 ## Vor jedem Push
@@ -46,8 +54,12 @@ echten Dateien und die Entwurfsdateien verschwinden.
 
 ### Die Vorschau auf GitHub Pages
 
-Pages ist eingeschaltet und baut aus **`main`**, mit der klassischen
+Pages ist eingeschaltet und baut seit dem 28.10.2026 aus dem Vorschau-Zweig
+**`claude/stoic-archimedes-xpyk3n`** (ENT-021), mit der klassischen
 Zweig-Veroeffentlichung (Lauf «pages build and deployment» nach jedem Push).
+Die Vorschau zieht man nach, indem man den Arbeitsstand dorthin schiebt; vorher
+pruefen, dass auf dem Zweig nichts liegt, was nicht von dieser Arbeit stammt
+(`git log HEAD..origin/claude/stoic-archimedes-xpyk3n`).
 Adresse: `https://f5yct67kcv-source.github.io/formateins/`. Das Repository ist
 oeffentlich.
 
@@ -87,6 +99,12 @@ auf `main` abfragen. Ein Lauf kann auch mal Minuten in der Warteschlange stehen.
 blockt den Host. Ein `curl` darauf liefert nichts und beweist nichts — weder
 dass die Seite alt ist noch dass sie neu ist. Der Beleg fuer einen erfolgreichen
 Livegang sind die Logs der Action («replacing index.html», «Sync complete»).
+
+Von aussen pruefen geht trotzdem, ueber das Firecrawl-Werkzeug: `firecrawl_scrape`
+holt eine Seite von formateins.ch ueber das offene Netz (so am 30.10.2026
+bestaetigt: `robots.txt` antwortet mit 200), `firecrawl_search` zeigt, was ein
+Suchindex kennt. Bing laesst sich per `curl` auf `www.bing.com/search` abfragen.
+Was KI-Suchen sehen und wo die Hebel liegen: README, Abschnitt «KI-Suchen».
 
 ## Aenderungen zuerst zeigen
 

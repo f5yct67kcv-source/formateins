@@ -63,8 +63,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
 - [ ] **ENT-020** · offen · Zweite Sitzung (v2-Zweig) ist pausiert. Sie hat in
   `entwurf-v2.html` gearbeitet, die seit ENT-009 `index.html` ist. Vor dem
   Weiterarbeiten `main` holen und in `index.html` arbeiten.
-- [ ] **ENT-021** · offen · `CLAUDE.md` korrigieren: GitHub Pages baut aus
+- [x] **ENT-021** · 30.10.2026 · `CLAUDE.md` korrigieren: GitHub Pages baut aus
   `claude/stoic-archimedes-xpyk3n`, nicht aus `main`.
+  Erledigt am 30.10.2026: Abschnitt «Die Vorschau auf GitHub Pages» in
+  `CLAUDE.md` nennt den Vorschau-Zweig und wie man ihn nachzieht.
 - [x] **ENT-022** · 28.10.2026 · KI-Auffindbarkeit: Bestandsaufnahme gemacht.
   Adrian nimmt strukturierte Preise, llms.txt und IndexNow (ENT-023 bis
   ENT-025), die Verknüpfung mit dem Google-Profil folgt (ENT-018).
@@ -81,6 +83,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   formateins.ch?». Stimmen die Zahlen, lassen Hostpoint und robots.txt die
   Crawler durch. IndexNow ist schon bestätigt: Lauf #33 meldete Startseite und
   Preisseite, Antwort 202 (angenommen).
+  Nachtrag 30.10.2026: Termin um den 06.11.2026. Testfragen in Bing, ChatGPT
+  und Perplexity: «Was kostet eine Website bei formateins.ch?», «formateins
+  Olten», «Webdesign Olten». Bing lieferte am 30.10.2026 für
+  `site:formateins.ch` noch nichts (ENT-052). Liefert Bing um den 27.11.2026
+  immer noch nichts: Ticket beim Bing-Support.
 - [ ] **ENT-027** · offen · Einträge bei local.ch und search.ch anlegen (Adrian),
   mit demselben Namen, derselben Adresse und Telefonnummer wie auf der Seite.
   Danach die Adressen in `sameAs` auf der Startseite ergänzen.
@@ -562,3 +569,26 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «replacing» gespraech.html und sitemap.xml (alle Seiten mit Stand
   30.10.2026), «Sync complete», IndexNow 200. Offen bleiben Adrians Schritte
   ausserhalb der Seite und die Nachprüfung (ENT-026, um den 06.11.2026).
+- [ ] **ENT-053** · offen, um den 20.11.2026 · Zugriffsprotokolle bei Hostpoint
+  prüfen (Adrian lädt sie im Control Panel unter dem Webhosting herunter).
+  Suchen nach `OAI-SearchBot`, `bingbot`, `Claude-SearchBot`, `PerplexityBot`,
+  `Applebot`, `Googlebot`: Kommen sie, mit welchem Status (200 oder 403)? Nur
+  so ist belegt, dass Hostpoint die KI-Crawler durchlässt; `robots.txt` allein
+  beweist es nicht (OpenAI verlangt das ausdrücklich). Aus ENT-052.
+- [ ] **ENT-054** · offen · `messung.js` hat keine GA4-Mess-ID
+  (`analytics: ''`). Ohne sie lässt sich nicht messen, ob Besucher aus
+  ChatGPT, Perplexity oder Copilot kommen. Adrian gibt die ID (G-…), falls ein
+  GA4-Konto besteht; das Zustimmungsbanner ist schon gebaut.
+- [ ] **ENT-055** · offen · Instagram-Profil «formateins.ch» als `sameAs` in
+  die strukturierten Daten der Startseite. Adrian schickt den genauen Link;
+  danach auch local.ch und search.ch (ENT-027).
+- [ ] **ENT-056** · offen · Soll «Trimbach bei Olten» sichtbar im Text stehen
+  (heute nur «Region Olten», die volle Adresse bleibt im Impressum, ENT-052)?
+  Textfrage, Varianten zuerst im Chat.
+- [x] **ENT-057** · 30.10.2026 · Erkenntnisse zu KI-Suchen festgehalten:
+  README neuer Abschnitt «KI-Suchen» (Index je Anbieter, was wirkt, Adrians
+  Schritte, Termine zum Nachprüfen), Recherche mit Quellen in
+  `quellen/recherche-ki-suchen-2026-10.md` (nicht auf dem Webserver),
+  `CLAUDE.md` mit der Regel gegen doppelte ENT-Nummern und dem Weg, von aussen
+  zu prüfen. README-Korrekturen: `llms.txt` gibt es (stand noch «bewusst
+  weggelassen»), im Fuss steht keine Adresse.

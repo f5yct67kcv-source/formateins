@@ -438,9 +438,11 @@ im Code mit `LIVEGANG` markiert — `grep -rn LIVEGANG .` findet sie alle.
    Postfach existieren.
 4. **Kontaktangaben** stehen: pzu consulting gmbh, Hochgasse 7, 4632
    Trimbach (Sitz laut Handelsregister), `adrian@formateins.ch`,
-   079 686 84 86. So in Impressum, Fuss und JSON-LD. Genau dieselben Angaben im
-   Google-Unternehmensprofil und in den Verzeichnissen verwenden, im Profil
-   als Einzugsgebiet ohne sichtbare Adresse.
+   079 686 84 86. So im Impressum und im JSON-LD; im Fuss steht nur «Region
+   Olten». Adrian arbeitet beim Kunden oder per Video (30.10.2026, ENT-052),
+   darum keine volle Adresse im sichtbaren Text der Seiten. Genau dieselben
+   Angaben im Google-Unternehmensprofil und in den Verzeichnissen verwenden,
+   im Profil als Einzugsgebiet ohne sichtbare Adresse.
 5. **Google-Unternehmensprofil anlegen.** Bei lokalen Suchen dominiert das
    Kartenpaket ueber den organischen Treffern, und auch KI-Assistenten stützen
    Empfehlungen wie „Webdesigner in Olten“ stark auf Profile und Bewertungen.
@@ -477,8 +479,11 @@ den alten Titel und die alte Beschreibung, und neue Seiten bleiben unbekannt.
 5. **Nach einer Woche nachsehen.** Unter Seiten: Sind die neuen Adressen
    indexiert? Unter Leistung: Erscheint der neue Titel in den Suchergebnissen?
 
-Bewusst weggelassen: `llms.txt`. Kein grosser KI-Anbieter nutzt die Datei
-nachweislich (Stand Oktober 2026).
+`llms.txt` gibt es seit dem 28.10.2026 doch (ENT-024). Kein grosser
+KI-Anbieter liest sie nachweislich (Google sagt, man könne sie weglassen; in
+einer Log-Studie von Ahrefs bekamen 97 % solcher Dateien keinen Abruf). Sie
+schadet nicht, wird aber nicht ausgebaut. Bei Preis- oder Textänderungen
+trotzdem nachführen, damit sie nichts Falsches sagt.
 
 Was bereits liegt: Favicons samt `site.webmanifest`, `teilen.png` (Open-Graph-Bild 1200x630),
 `robots.txt`, `sitemap.xml`, JSON-LD-Geruest, `lang="de-CH"`, Open Graph und
@@ -491,6 +496,71 @@ als Frage und Antwort lesen. Nach jeder Änderung an den Fragen ausführen:
 ```bash
 python3 quellen/faq-daten.py
 ```
+
+## KI-Suchen (Stand 30.10.2026)
+
+Hintergrund: ChatGPT fand «formateins aus Olten» am 30.10.2026 nicht, Google
+zeigte die Seite für «formateins olten» schon zuoberst. Recherche mit Quellen
+in `quellen/recherche-ki-suchen-2026-10.md`, Entscheide unter ENT-052 im
+Logbuch.
+
+**Jede KI-Suche hat ihren eigenen Index.** «Belegt» heisst: der Anbieter sagt
+es selbst.
+
+| KI-Suche | Woher sie Seiten kennt | Bot, der durch muss |
+|---|---|---|
+| Google AI Overviews, AI Mode, Gemini | normaler Google-Index (belegt) | Googlebot |
+| Microsoft Copilot | Bing-Index (belegt) | Bingbot |
+| ChatGPT | eigener Index plus Drittanbieter, vor allem wohl Bing (Bing nicht namentlich belegt) | OAI-SearchBot |
+| Claude | Brave Search (belegt) plus Claude-SearchBot | Claude-SearchBot; Brave folgt den Googlebot-Regeln |
+| Perplexity | eigener Index plus ungenannte Partner (belegt) | PerplexityBot |
+| Siri, Spotlight, Safari | Apples eigener Index (belegt) | Applebot (folgt ohne eigene Regel Googlebot) |
+
+`robots.txt` mit `User-agent: *` und `Allow: /` lässt alle durch, ein eigener
+Eintrag pro Bot ändert nichts. Googlebot nie sperren: Brave (also Claude) und
+Applebot richten sich danach. Die Crawler von OpenAI, Anthropic und
+Perplexity führen kein JavaScript aus, darum muss jeder wichtige Text und das
+JSON-LD im HTML stehen, nicht per Skript.
+
+**Was die Seite schon hat und was nichts bringt.** Technik ist vollständig:
+`robots.txt`, Sitemap mit echten Änderungsdaten, kanonische Adressen,
+JSON-LD (Firma, Fragen, Preise), IndexNow nach jedem Upload, `llms.txt`.
+Mehr Schema, Wikidata und ein Ausbau von `llms.txt` bringen nach heutigem
+Wissen nichts. Die Hebel liegen ausserhalb der Seite.
+
+**Was Adrian tun muss** (Stand 30.10.2026, alles gratis ausser Gewerbe Olten):
+
+1. Bing Webmaster Tools: Seite aus der Search Console übernehmen, Sitemap
+   einreichen, URL-Prüfung der Startseite. Am 30.10.2026 lieferte Bing für
+   `site:formateins.ch` noch keinen einzigen Treffer.
+2. local.ch und search.ch: Gratiseintrag, vorher prüfen, ob die pzu
+   consulting gmbh schon einen hat (ENT-027).
+3. Gewerbe Olten: Probemitgliedschaft, erstes Jahr gratis, zweites halb,
+   danach CHF 365 im Jahr (CHF 250 plus CHF 115 Kantonalverband). ChatGPT hat
+   dort nach formateins gesucht.
+4. Bing Places (Import aus dem Google-Profil, Freischaltung teils über einen
+   Monat), Apple Business (seit April 2026 gratis), Brave «Submit URL» für
+   Startseite und Preisseite.
+5. Google-Profil als Dienstleister: Adresse ausblenden, Einzugsgebiet Olten,
+   Solothurn, Aargau.
+6. Echte Erwähnungen: Vermerk auf Kundenseiten (siehe oben, Punkt 8), Instagram
+   mit Link und Ort, AVADAM verlinkt bereits.
+
+**Nachprüfen** (im Logbuch als offene Punkte):
+
+- um den 06.11.2026: Testfragen in Bing, ChatGPT und Perplexity, zum Beispiel
+  «Was kostet eine Website bei formateins.ch?» und «Webdesign Olten» (ENT-026)
+- um den 20.11.2026: Zugriffsprotokolle bei Hostpoint (Control Panel,
+  Webhosting) herunterladen und nach `OAI-SearchBot`, `bingbot`,
+  `Claude-SearchBot`, `PerplexityBot`, `Applebot` durchsuchen. Nur so ist
+  belegt, dass Hostpoint die Bots durchlässt (ENT-053)
+- um den 27.11.2026: liefert Bing dann noch nichts, Ticket beim Bing-Support
+- laufend: Search Console (Leistung und Bericht zu generativer KI) und Bing
+  Webmaster Tools (AI Performance) für «Webdesign Olten», «Branding Olten»,
+  «Imagefilm Olten»
+
+Messen lässt sich der Verkehr aus KI-Suchen in GA4 erst, wenn in
+`messung.js` eine Mess-ID steht (ENT-054).
 
 ## Massnahmen aus dem Vergleich mit beyondweb.ch
 
