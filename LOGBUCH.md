@@ -476,6 +476,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   dann Fallstudie»; Demo-Website in reinem HTML. Offen: Adrians sechs
   Entscheide. Nummer: ENT-042 ist auf `claude/epic-mayer-2x1fei` schon vom
   Betreiber-Bereich belegt.
+  Vier der sechs Entscheide am 30.10.2026 gefallen, siehe ENT-067.
 - [x] **ENT-044** · 30.10.2026 · Das Musterprojekt Breitbild (ENT-043) wird von
   Anfang an als Roadmap dokumentiert: `quellen/muster-breitbild/ROADMAP.md`.
   Etappen nach den vier Schritten der Startseite, Soll vor dem Start und Ist
@@ -915,3 +916,17 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Lesezeit nach dem Whiteboard (09:21 bis 09:45) ist als Eintrag von Hand
   nachgetragen, nach Adrians Entscheid in ENT-046. Damit zeigt der Timer für
   Schritt 0.1 dieselben 42 Min. wie das Journal.
+- [ ] **ENT-067** · 30.10.2026 · Entscheide zum Musterprojekt Breitbild
+  (ENT-043, Whiteboard https://claude.ai/artifact/2cbLpn6LntXZgMbVfhgJGu).
+  Adrian: «1A, 2 ja, 3 Schreinerei, 4 offen, 5 offen, 6 HTML».
+  1 Umfang A: Breitbild voll ausgebaut, alles aus dem Paket und die
+  Optionen, jedes Stück mit Etikett «im Paket» oder «+ 600».
+  2 Ja: «Vorlagen für Social Media» (+ 400) kommt als vierte Option auf die
+  Karte Breitbild. Ändert `preise.html` und `preise.js`: zuerst als Bild
+  zeigen, live erst mit Adrians Wort (Roadmap 4.5).
+  3 Sparte Schreinerei: Handwerk in zweiter Generation, Region Olten.
+  6 Demo-Website in reinem HTML.
+  Offen: 4 Film (A KI mit Hinweis oder B echter Drehtag) und 5 Form der
+  Schublade (C Tisch und Fallstudie, A Fallstudie, B Planschrank). Als
+  Nächstes Schritt 1.1: Name, Geschichte und Strategieblatt der Schreinerei
+  als Text in den Chat; das braucht 4 und 5 noch nicht.

@@ -64,7 +64,7 @@ für das Muster setzen wir, sobald die Entscheide aus 0.3 stehen.
 |---|---|---|---|---|---|
 | 0.1 | Whiteboard: Umfang, Sparte, Schublade, Form, Technik | – | 30.10.2026 | 30.10.2026 | erledigt |
 | 0.2 | Roadmap anlegen, Blogbeitrag vorbereiten | – | 30.10.2026 | 30.10.2026 | erledigt |
-| 0.3 | Sechs Entscheide aus dem Whiteboard | – | | | offen, Adrian |
+| 0.3 | Sechs Entscheide aus dem Whiteboard | – | | | 1, 2, 3, 6 entschieden (ENT-067), offen 4 Film und 5 Form |
 | 0.4 | Repository und Hosting der Demo-Website klären (demo.formateins.ch) | – | | | offen, Adrian |
 | 0.5 | Soll-Daten für die Etappen 1 bis 5 setzen | – | | | offen |
 | 0.6 | Projekt-Timer für die Zeitmessung (ENT-046) | – | | 30.10.2026 | erledigt, live (ENT-066) |
@@ -113,6 +113,7 @@ bis 2.2.
 | 4.2 | Übergabe-Ordner, wie ihn der Kunde bekommt | W8 | | | offen |
 | 4.3 | Schublade: Entwurf, Bild, Abnahme, dann unter `arbeiten/` | nur Muster | | | offen |
 | 4.4 | Link «So sieht Breitbild aus →» auf `/preise`, Push auf `main` mit Adrians Wort | nur Muster | | | offen |
+| 4.5 | Option «Vorlagen für Social Media» (+ 400) auf der Karte Breitbild (`preise.html`, `preise.js`): zuerst als Bild, live mit Adrians Wort (ENT-067) | nur Muster | | | offen |
 
 ### 5 · Auswerten und erzählen
 
