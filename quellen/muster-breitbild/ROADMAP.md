@@ -76,13 +76,13 @@ für das Muster setzen wir, sobald die Entscheide aus 0.3 stehen.
 |---|---|---|---|---|---|
 | 1.1 | Firma erfinden: Name (in zefix.ch und bei Google geprüft), Geschichte, Leute, Ort | W1 | 31.10.2026 | 30.10.2026 | erledigt (ENT-070) |
 | 1.2 | Vorher-Auftritt festhalten: altes Logo, alte Website, schlafendes Profil | W1 | 02.11.2026 | 30.10.2026 | erledigt (ENT-071) |
-| 1.3 | Erstgespräch als Protokoll: was der Kunde erzählt, was er will, was er nicht braucht | W1 | 02.11.2026 | | Entwurf in [`ERSTGESPRAECH.md`](ERSTGESPRAECH.md), Freigabe offen |
+| 1.3 | Erstgespräch als Protokoll: was der Kunde erzählt, was er will, was er nicht braucht | W1 | 02.11.2026 | 30.10.2026 | erledigt, [`ERSTGESPRAECH.md`](ERSTGESPRAECH.md) (ENT-072) |
 
 ### 2 · Du bekommst ein Angebot
 
 | Nr | Schritt | Kunde | Soll | Ist | Status |
 |---|---|---|---|---|---|
-| 2.1 | Strategieblatt: wen wir erreichen, was hängen bleibt, welcher Ton | W1 | 03.11.2026 | | offen |
+| 2.1 | Strategieblatt: wen wir erreichen, was hängen bleibt, welcher Ton | W1 | 03.11.2026 | | Entwurf in [`STRATEGIE.md`](STRATEGIE.md), Kernsatz offen |
 | 2.2 | Offerte mit Festpreis: Breitbild und die gewählten Optionen | W1 | 04.11.2026 | | offen |
 | 2.3 | Freigabe von Strategie und Offerte (Adrian als Kunde) | W1 | 05.11.2026 | | offen |
 
@@ -253,6 +253,32 @@ Chronologisch, der neueste Eintrag unten. Vorlage für jeden Eintrag:
 - Für den Blog: Logo A neben dem neuen Logo, die Website von 2011 neben der
   neuen. Die Varianten B und C als Blick hinter die Kulissen.
 
+### 30.10.2026 · 1.3 Erstgespräch
+
+- Gemacht: Das Gespräch als Protokoll, so wie Adrian es nach einem echten
+  Erstgespräch festhalten würde: was Nina erzählt, was sie will, was sie nicht
+  braucht, was ich mitnehme, wie es weitergeht. In `ERSTGESPRAECH.md`.
+- Freigabe: Adrian als Kunde: «passt», nach der Frage «was willst du am Schluss
+  mit diesen Infos? für den Blog?». Antwort: Das Protokoll ist der Auftrag für
+  alles Weitere, in den Blog kommen nur drei, vier Sätze. Adrian: «dass wir uns
+  auch als Herausforderung an das herangehen müssen, was sich der Kunde
+  wünscht. schlau».
+- Beleg: ENT-072, `ERSTGESPRAECH.md`
+- Zeit: aus dem Timer. Claude 3 Min. (das Protokoll entstand zusammen mit dem
+  Abschluss von 1.2), Adrian 12 Min. Durchlauf: am selben Abend, drei Tage vor
+  dem Soll. Runden: 1, dazu eine Frage.
+- KI-Kosten: keine
+- Gelernt: Die wichtigsten Sätze im Protokoll sind die, die später zur Aufgabe
+  werden: «Der Hobel darf bleiben, aber nicht so» für das Logo, «ein Beitrag
+  pro Woche, vom Lernenden gemacht» für die Vorlagen. So lässt sich jeder
+  Entscheid auf einen Satz des Kunden zurückführen. Und: Adrian fragte, wofür
+  das Protokoll gut ist. Ein echter Kunde fragt das auch. Darum gleich zu
+  Beginn des Gesprächs sagen, warum mitgeschrieben wird.
+- Beim echten Kunden anders: Das Gespräch dauert länger und springt hin und
+  her. Das Protokoll geht danach an den Kunden zur Bestätigung.
+- Für den Blog: «Ich habe euch zuerst gar nicht gefunden» und «Der Hobel darf
+  bleiben, aber nicht so». Dazu der Gedanke, dass Wünsche zur Aufgabe werden.
+
 ## Lernliste
 
 Was wir für echte Projekte mitnehmen. Ein Punkt pro Erkenntnis, mit Datum und
@@ -269,6 +295,10 @@ Verweis aufs Journal.
   Region oder neutral sein soll (1.1).
 - 30.10.2026 · Einen alten Auftritt an Spuren zeigen, nicht durch Spott. Der
   Kunde liest mit (1.2).
+- 30.10.2026 · Im Erstgespräch die Sätze festhalten, die zur Aufgabe werden.
+  Jede Gestaltung führt dann auf einen Satz des Kunden zurück (1.3).
+- 30.10.2026 · Zu Beginn des Gesprächs sagen, warum mitgeschrieben wird und
+  was mit dem Protokoll passiert (1.3).
 
 ## Muster und echter Auftrag
 

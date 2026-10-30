@@ -978,4 +978,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `quellen/muster-breitbild/vorher/`, die Bilder rechnet Playwright daraus.
   Entwurf des Erstgesprächs (1.3) in `quellen/muster-breitbild/ERSTGESPRAECH.md`,
   Freigabe offen.
+- [x] **ENT-072** · 30.10.2026 · Musterprojekt Breitbild, Schritt 1.3: Das
+  **Erstgespräch** mit der Schreinerei Kully ist freigegeben (Adrian:
+  «passt»). Das Protokoll ist der Auftrag für Strategie, Offerte, Logo,
+  Website und Social Media; in den Blog kommen nur drei, vier Sätze (Adrian:
+  «dass wir uns auch als Herausforderung an das herangehen müssen, was sich
+  der Kunde wünscht. schlau»). Entwurf des Strategieblatts (2.1) in
+  `quellen/muster-breitbild/STRATEGIE.md`, Kernsatz zur Wahl (A «Bei Kully
+  siehst du, wer baut.», B, C), Freigabe mit der Offerte (2.3).
 
