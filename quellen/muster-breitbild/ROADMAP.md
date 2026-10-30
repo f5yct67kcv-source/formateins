@@ -144,7 +144,7 @@ Chronologisch, der neueste Eintrag unten. Vorlage für jeden Eintrag:
   Schreinerei, Gartenbau, Hofmanufaktur), acht Fächer der Schublade, drei
   Formen, Technik, Zeitplan, sechs Entscheide mit Empfehlung. Bestehende Demos
   geprüft: Lindenfeld (Sport), Hakuro (Gastro), Kaffee Fulehorn, Malerei Max.
-- Beleg: Whiteboard (Artifact), `c00f806` (ENT-043)
+- Beleg: Whiteboard (Artifact), Commit «Logbuch: Musterprojekt Breitbild, Whiteboard (ENT-043)»
 - Zeit: aus dem Verlauf nachgerechnet. Claude 09:02–09:11 (9 Min.), danach
   Adrian 33 Min. bis zur nächsten Nachricht, ganz gezählt: Er hat in der Zeit
   das Whiteboard gelesen (Adrian, 30.10.2026). Zusammen 42 Min. Das Tippen der
