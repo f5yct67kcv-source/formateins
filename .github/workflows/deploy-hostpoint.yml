@@ -86,6 +86,28 @@ jobs:
           open(pfad, 'w', encoding='utf-8').write(text)
           PY
 
+      # Schluessel fuer den Eingang im Betreiber-Bereich (ENT-038), derselbe Wert
+      # wie das Secret ANFRAGE_SCHLUESSEL in formateins-betreiber. Fehlt er,
+      # gehen Anfragen nur per Mail.
+      - name: Schluessel fuer den Betreiber-Bereich eintragen
+        env:
+          ANFRAGE_SCHLUESSEL: ${{ secrets.ANFRAGE_SCHLUESSEL }}
+        run: |
+          python3 - <<'PY'
+          import os
+          pfad = 'dist/anfrage.php'
+          wert = os.environ.get('ANFRAGE_SCHLUESSEL', '').strip()
+          if wert:
+              php = lambda w: w.replace('\\', '\\\\').replace("'", "\\'")
+              text = open(pfad, encoding='utf-8').read()
+              neu = text.replace("'__ANFRAGE_SCHLUESSEL__'", "'" + php(wert) + "'", 1)
+              if neu == text: raise SystemExit('Platzhalter in anfrage.php nicht gefunden')
+              open(pfad, 'w', encoding='utf-8').write(neu)
+              print('eingetragen in', pfad)
+          else:
+              print('::warning::Secret ANFRAGE_SCHLUESSEL fehlt, Anfragen kommen nur per Mail, nicht im Betreiber-Bereich')
+          PY
+
       - name: Zugangsdaten vorhanden?
         env:
           HOST: ${{ secrets.HOSTPOINT_FTP_HOST }}

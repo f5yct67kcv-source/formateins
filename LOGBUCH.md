@@ -334,6 +334,17 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Anfrage an `api/anfrage_eingang.php`, mit Secret `ANFRAGE_SCHLUESSEL` in
   beiden Repositories. Die Mail läuft unverändert weiter. Änderung an
   formateins.ch, braucht Adrians Wort zum Push.
+  Adrian am 30.10.2026: «fixen, dass es auch funktioniert». Befund: Der
+  Eingang im Betreiber-Bereich stand, `anfrage.php` rief ihn aber nie auf,
+  und live antwortet er «nicht eingerichtet» (503), das Secret fehlt in
+  `formateins-betreiber`. Gebaut für den Kostenrechner (Arbeitszweig):
+  `anfrage.php` legt nach der Mail ab, höchstens fünf Sekunden; der Deploy
+  setzt `ANFRAGE_SCHLUESSEL` ein. Lokal geprüft: Anfrage landet mit Betreff
+  und Inhalt im Reiter, bei falschem Schlüssel oder ohne Betreiber geht die
+  Mail trotzdem; scheitert die Mail, reicht die Ablage. Offen: Secret in
+  beiden Repositories, Satz in der Datenschutzerklärung («wird nicht
+  gespeichert» stimmt dann nicht mehr), Push auf `main` beider Repositories
+  (Betreiber, damit das Secret eingesetzt wird), `termine.php`.
 - [x] **ENT-039** · 29.10.2026 · Betreiber-Bereich: Gestaltungsentwurf der
   Übersicht abgenommen (Adrian: «passt so»), Aufbau wie GuardOpS mit Farben,
   Logo und Schriften von formateins. **Keine Handy-Fassung** (Adrian:
