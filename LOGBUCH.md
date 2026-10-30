@@ -430,6 +430,19 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   ereignisse.js, beleg-seite.js, api/betreiber_*.php, kern/bruecke.php,
   «removing» der alten Beleg- und Adress-Endpunkte, «Sync complete». Die
   Übernahme der bisherigen Daten läuft beim ersten Anmelden.
+- [ ] **ENT-043** · 30.10.2026 · Musterprojekt für das Paket Breitbild: Ein
+  erfundener Kunde bekommt das ganze Paket (Strategie, Logo und Drucksachen,
+  Website, Imagefilm, Social Media), alles auf einer Seite («Schublade»),
+  verlinkt bei der Karte Breitbild auf `/preise`. Whiteboard mit Auftrag,
+  Paketinhalt, Sparten im Vergleich, acht Fächern der Schublade, Form,
+  Technik und Zeitplan: https://claude.ai/artifact/2cbLpn6LntXZgMbVfhgJGu
+  (privat, nur Adrian). Empfehlungen: Breitbild mit seinen drei Optionen und
+  Etikett pro Stück; «Vorlagen für Social Media» (+ 400) neu auch als Option
+  bei Breitbild; Sparte Schreinerei (Getränke-Startup später als Muster für
+  Startformat); Bilder und Film mit KI und Hinweis auf der Seite; Form «Tisch,
+  dann Fallstudie»; Demo-Website in reinem HTML. Offen: Adrians sechs
+  Entscheide. Nummer: ENT-042 ist auf `claude/epic-mayer-2x1fei` schon vom
+  Betreiber-Bereich belegt.
 - [x] **ENT-049** · 30.10.2026 · Betreiber-Bereich: neuer Bereich **Akquise**
   (Adrian: «ein neuer Bereich dafür schaffen»), Inhalt aus dem privaten
   Repository `formateins-akquise` und dem Artefakt «Akquise-Fahrplan».
