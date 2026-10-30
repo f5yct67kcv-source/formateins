@@ -516,3 +516,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   im Text stehen soll (Textfrage, Varianten zuerst).
   Nummer: zuerst als ENT-042 vergeben, die war auf `main` schon vom
   Betreiber-Bereich belegt (andere Sitzung); deshalb neu ENT-052.
+  Website-Teil live am 30.10.2026 mit Adrians Wort («push»): `main` auf
+  3bb2771, Lauf «Website zu Hostpoint» Nr. 51 (41050159537) erfolgreich,
+  «replacing» gespraech.html und sitemap.xml (alle Seiten mit Stand
+  30.10.2026), «Sync complete», IndexNow 200. Offen bleiben Adrians Schritte
+  ausserhalb der Seite und die Nachprüfung (ENT-026, um den 06.11.2026).
