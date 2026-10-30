@@ -9,7 +9,8 @@ Schluss.
 |---|---|
 | Logbuch | ENT-043 (Muster), ENT-044 (diese Roadmap), ENT-045 (Blogbeitrag) |
 | Whiteboard | https://claude.ai/artifact/2cbLpn6LntXZgMbVfhgJGu (privat, nur Adrian) |
-| Originale | Google Drive, `Demo Projekte / …` (Ordner folgt mit dem Namen der Firma) |
+| Firma | Schreinerei Kully AG, Wangen bei Olten, erfunden: Steckbrief in [`FIRMA.md`](FIRMA.md) (ENT-070) |
+| Originale | Google Drive, `Demo Projekte / Schreinerei Kully` |
 | Stand | 30.10.2026 |
 
 ## So wird die Roadmap geführt
@@ -73,7 +74,7 @@ für das Muster setzen wir, sobald die Entscheide aus 0.3 stehen.
 
 | Nr | Schritt | Kunde | Soll | Ist | Status |
 |---|---|---|---|---|---|
-| 1.1 | Firma erfinden: Name (in zefix.ch und bei Google geprüft), Geschichte, Leute, Ort | W1 | 31.10.2026 | | läuft |
+| 1.1 | Firma erfinden: Name (in zefix.ch und bei Google geprüft), Geschichte, Leute, Ort | W1 | 31.10.2026 | 30.10.2026 | erledigt (ENT-070) |
 | 1.2 | Vorher-Auftritt festhalten: altes Logo, alte Website, schlafendes Profil | W1 | 02.11.2026 | | offen |
 | 1.3 | Erstgespräch als Protokoll: was der Kunde erzählt, was er will, was er nicht braucht | W1 | 02.11.2026 | | offen |
 
@@ -196,6 +197,34 @@ Chronologisch, der neueste Eintrag unten. Vorlage für jeden Eintrag:
 - Für den Blog: Bild des Reiters «Zeit» mit dem Tagesband und die Zahl, wie
   viel davon Claude war.
 
+### 30.10.2026 · 1.1 Firma erfinden
+
+- Gemacht: Namen gesucht und geprüft, im Handelsregister (zefix), bei Google
+  und in der Region, dazu die Domain. Runde 1 mit frei gewählten
+  Familiennamen: rund 55 geprüft, übrig Lattmann und Kully. Runde 2 aus dem
+  Familiennamenbuch der Schweiz: Geschlechter, die in 29 Gemeinden um Olten
+  vor 1800 eingebürgert wurden, 52 geprüft, übrig Kully, Morach und Borrer.
+  Dazu Geschichte, Leute und Ort. Steckbrief in `FIRMA.md`, Ordner in Drive.
+- Freigabe: Adrian als Kunde wollte nach Runde 1 «ein authentisches
+  Geschlecht aus der Region». Nach Runde 2: «A, passt». Damit heisst die
+  Firma Schreinerei Kully AG, Wangen bei Olten. Die Geschichte blieb, nur der
+  Gründer kommt jetzt aus dem Dorf statt aus dem Zürcher Oberland.
+- Beleg: ENT-070, `FIRMA.md`, Drive `Demo Projekte / Schreinerei Kully`
+- Zeit: aus dem Timer, bis zur Freigabe um 20:37. Adrian 8 Min., Claude
+  13 Min. Durchlauf: am selben Abend, einen Tag vor dem Soll. Runden: 2
+- KI-Kosten: rund 64 Firecrawl-Credits für die Suche, sonst keine.
+- Gelernt: Ein Name braucht drei Prüfungen: Handelsregister, Google und die
+  Region. Gisiger war im Register und bei den Schreinereien sauber. Erst über
+  eine Holding kam heraus, dass zwei Brüder Gisiger in Obergösgen einen
+  Familienbetrieb in dritter Generation führen, mitten in der Region.
+  Authentisch und trotzdem unverwechselbar ist ein altes Geschlecht, das kaum
+  noch vorkommt: Kully steht im Telefonbuch des Kantons nur noch einmal. Und:
+  zuerst fragen, ob der Name echt aus der Region oder neutral sein soll. Das
+  hätte die erste Runde gespart.
+- Beim echten Kunden anders: Der Name ist gegeben. Eine Namensfindung wäre
+  ein eigener Auftrag, nicht Teil von Breitbild.
+- Für den Blog: ein Satz in der Einleitung, warum die Firma Kully heisst.
+
 ## Lernliste
 
 Was wir für echte Projekte mitnehmen. Ein Punkt pro Erkenntnis, mit Datum und
@@ -205,6 +234,11 @@ Verweis aufs Journal.
 - 30.10.2026 · Die schwierige Stelle beim Zeitmessen ist die Lücke zwischen
   zwei Nachrichten: Lesen sieht kein Programm. Pausen müssen sich darum von
   Hand umbuchen lassen (ENT-046).
+- 30.10.2026 · Einen Namen dreifach prüfen: Handelsregister, Google und die
+  Region. Ein gleicher Name in einem anderen Gewerbe im Nachbardorf genügt
+  schon für eine Verwechslung (1.1).
+- 30.10.2026 · Bei einer Namensfrage zuerst fragen, ob der Name echt aus der
+  Region oder neutral sein soll (1.1).
 
 ## Muster und echter Auftrag
 
@@ -214,6 +248,7 @@ richtig gelesen werden und der Blogbeitrag nichts beschönigt.
 | Im Muster | Beim echten Kunden |
 |---|---|
 | Firma, Leute und Vorher sind erfunden | Das Erstgespräch liefert sie, oft ungeordnet |
+| Der Name wird gesucht und geprüft (1.1) | Der Name ist gegeben, eine Namensfindung wäre ein eigener Auftrag |
 | Adrian ist Gestalter und Kunde zugleich | Der Kunde hat eigene Meinungen, Termine und Ferien, Freigaben dauern länger |
 | Bilder und Film entstehen mit KI | Ein Drehtag vor Ort: Wetter, Licht, Leute, die vor der Kamera nervös sind |
 | Texte schreibt Adrian selbst | Texte kommen oft spät oder gar nicht (Option «Texte schreibe ich») |

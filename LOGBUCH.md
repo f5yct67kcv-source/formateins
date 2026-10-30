@@ -956,3 +956,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Abweichungen von GuardOpS mit Adrians Wort, in `CLAUDE.md` des Betreibers
   nachgeführt. Prüfungen grün, im Browser durchgespielt. Betreiber `7e1bb01`
   und `ee9c5f7` auf `main`.
+- [x] **ENT-070** · 30.10.2026 · Musterprojekt Breitbild, Schritt 1.1: Die
+  Musterfirma heisst **Schreinerei Kully AG, Wangen bei Olten** (Adrian:
+  «ich tendiere eher zu einem authentischen Geschlecht aus der Region», dann
+  «A, passt»). Kully ist ein echtes Oltner Geschlecht (Bürger seit 1545,
+  Familiennamenbuch: Olten und Wangen bei Olten), Firma und Leute sind
+  erfunden: 1988 gegründet von Werner Kully, AG und Logo 1994, Website 2011,
+  Facebook still seit 2019, 2024 übernimmt Tochter Nina, neun Leute, davon
+  zwei Lernende. Geprüft im Handelsregister, bei Google und in der Region;
+  verworfen u. a. Gisiger (Familienbetrieb in Obergösgen) und Lattmann (nicht
+  aus der Region). Steckbrief `quellen/muster-breitbild/FIRMA.md`, Ordner
+  `Demo Projekte / Schreinerei Kully` in Drive. Soll für die Etappen 1 und 2
+  in der Roadmap gesetzt, 3 bis 5 nach Entscheid 4 (Film).
