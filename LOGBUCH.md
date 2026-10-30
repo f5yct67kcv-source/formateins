@@ -493,7 +493,19 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   bei jedem Start neu entstehen: über das Setup-Skript der Cloud-Umgebung
   (Adrian trägt es ein, es kann keine Secrets lesen, der Hook liest den
   Schlüssel erst zur Laufzeit aus der Umgebung). Am Mac einmal in
-  `~/.claude/settings.json`. Offen: «fertig» und «Nachricht» im Protokoll.
+  `~/.claude/settings.json`. Test vollständig: «fertig» (09:32 UTC),
+  Sitzungsstart nach einem Neustart (09:53) und «Nachricht» (09:53) kamen an
+  beiden Orten an, im Repository nie. Test-Hooks am 30.10.2026 wieder
+  gelöscht, das Protokoll liegt nur im Arbeitsordner der Sitzung.
+  Schlüssel, Empfehlung vom 30.10.2026: In der Cloud kein Umgebungs-
+  Variable mehr, sondern ein «Network secret» der Umgebung. Der Proxy setzt
+  den Schlüssel erst ausserhalb des Containers in jede Anfrage an
+  betreiber.formateins.ch (Kopfzeile `X-Zeit-Schluessel`, ohne Präfix); er
+  steht weder in der Umgebung noch in einer Datei, Claude sieht ihn nie. Der
+  Server nimmt ihn auch als `Authorization: Bearer`, für das kurze Formular
+  ohne eigene Kopfzeile. Auf dem Server kommt er als Secret
+  `ZEIT_SCHLUESSEL` von `formateins-betreiber` über den Deploy in die
+  Konfiguration, wie `ANFRAGE_SCHLUESSEL`. Am Mac später lokal.
 - [x] **ENT-047** · 30.10.2026 · Ausnahme von ENT-035 und ENT-039 («keine
   Handy-Fassung»): Der Projekt-Timer (ENT-046) bekommt am Handy eine kleine
   Anzeige mit «Jetzt» und dem Tagesband. Der übrige Betreiber-Bereich bleibt
