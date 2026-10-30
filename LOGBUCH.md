@@ -407,3 +407,13 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   MWST-Spalte bleibt, Vorgabe 0 %. Nummern wie GuardOpS: OF-0001, RE-0001,
   VE-0001, Adressen K0001, Leistungen P0001. Schon vergebene Nummern bleiben.
   Ersetzt in diesen Punkten den Aufbau aus ENT-037.
+  Stand 30.10.2026: gebaut auf dem Arbeitszweig von `formateins-betreiber`
+  (Commits `6b48ab2`, `509df4f`, `80c0741`), alle Prüfungen grün, auch gegen
+  die zusammengestellte Auslieferung. Mit dabei: Adressbuch mit
+  Ansprechpersonen, Kommunikationswegen und CSV-Import; Offerten mit
+  Fassungen, Verlauf, Änderungswünschen, Annahme mit Unterschrift und Code,
+  unterschriebenem PDF; Leistungen; Briefkopf mit QR-Zahlteil; Rechnungen mit
+  «bezahlt»; Verträge mit Laufzeit; eigene Unterschrift im Kontomenü. Bisherige
+  Adressen, Belege und der Briefkopf werden beim ersten Anmelden nach dem
+  Deploy übernommen, die alten Tabellen bleiben stehen. Texte an Kunden in der
+  du-Form. Offen: Push auf `main` (geht live), braucht Adrians Wort.
