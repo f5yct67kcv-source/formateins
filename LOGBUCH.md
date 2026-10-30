@@ -620,7 +620,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `gespraech.html` und `kostenrechner.html` (`toolname`,
   `tooldescription`, `toolparamdescription`), sobald der Standard stabil ist
   und Lighthouse ihn bewertet. Beispiel in `quellen/agentic-browsing-2026-10.md`.
-- [ ] **ENT-063** · 30.10.2026 · PageSpeed-Bericht der Startseite (Adrian,
+- [x] **ENT-063** · 30.10.2026 · PageSpeed-Bericht der Startseite (Adrian,
   30.10.2026, 12:45): Handy 98/100/100/100, Computer 100 überall, CLS 0.
   Speed Index Handy 3,7 s, Gewicht Computer 1'476 KB. Die fünf Vorschläge
   am Code geprüft:
@@ -644,7 +644,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
      beim ersten Scrollen lesen, eine Zeile, nichts sichtbar.
   5. Zwischenspeicher 1 Jahr: nur mit neuen Dateinamen bei jeder Änderung,
      sonst sehen Besucher alte Bilder. Später.
-  Offen: Adrian wählt, was gebaut wird.
+  Adrian wählt: Punkt 4 bauen (ENT-064), Punkt 1 als Variante A (ENT-065);
+  2, 3 und 5 nicht.
 - [ ] **ENT-064** · 30.10.2026 · Aus ENT-063 wählt Adrian: Punkt 4 bauen, für
   Punkt 1 zuerst Bilder zeigen (ENT-065). Punkt 4 gebaut: Die Mitlauf-Leiste
   der Startseite liest `scrollY` erst beim ersten Scrollen, nicht mehr beim
@@ -664,4 +665,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   sichtbarer Unterschied, −39 KB (Reel 82 → 50 KB). B) zusätzlich die
   Arbeiten-Bilder auf 800 px, weitere −35 KB, aber am Handy leicht und in
   der Werkbank am Retina-Bildschirm deutlich weicher (kleine Schrift).
-  Empfehlung A. Offen: Adrian wählt.
+  Empfehlung A. Adrian wählt A. Gebaut: `video-reel.webp` (50 KB) und
+  `video-spot.webp` (6 KB), Qualität 75, gleiche Pixelzahl, als `poster` an
+  allen drei Stellen der Startseite. Die JPG bleiben (`entwurf.html` braucht
+  `video-spot.jpg`). Lokal geprüft: keine fehlende Datei, Vorschaubild steht,
+  Startseite 617 → 579 KB beim ersten Laden.
