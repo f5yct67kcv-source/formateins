@@ -6,7 +6,7 @@ Kunde mit der Offerte bekommt. Freigabe zusammen mit der Offerte (2.3).
 | | |
 |---|---|
 | Stand | Entwurf vom 30.10.2026 |
-| Offen | Kernsatz: A, B oder C |
+| Offen | Kernsatz und Claim: Adrian überlegt noch (31.10.2026) |
 
 ## Ausgangslage
 
@@ -52,6 +52,20 @@ Ein Kernsatz, der beide Gruppen trägt. Zur Wahl:
 - **C · «Werners Hobel, Ninas Werkstatt.»** Erzählt den Wechsel mit einem
   Augenzwinkern. Stark im Film und auf der Seite «Über uns», als Kernsatz für
   Fremde aber zu wenig klar.
+
+Weitere Ideen vom 31.10.2026 (Adrian: «weitere Ideen?»): D «Du kennst die
+Hände, die deine Küche bauen.», E «Hier baut nicht irgendwer.», F «Aus der
+Werkstatt, nicht aus dem Katalog.», G «Gebaut in Wangen. Zehn Minuten von
+dir.», H «Gebaut für die nächsten 30 Jahre.», I «Massarbeit, die du jeden Tag
+in die Hand nimmst.», J «Gelernt beim Vater. Gebaut für dich.», K «Seit 1988.
+Jetzt erst recht.»
+
+**Kernsatz und Claim.** Der Kernsatz ist intern, der Claim steht neben dem
+Logo, nie darin, wie «Just do it» neben dem Swoosh (Adrian fragte danach).
+Ein Claim hat zwei bis drei Wörter. Kurze Fassungen: «Sieh, wer baut.»
+(Empfehlung, bei Google nicht gefunden), «Werkstatt statt Katalog.» (mehrere
+deutsche Firmen brauchen ihn schon als Überschrift), «Gelernt. Gebaut.»,
+«Echt Kully.»
 
 Drei Belege, die überall vorkommen:
 

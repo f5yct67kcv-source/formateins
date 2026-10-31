@@ -82,8 +82,8 @@ für das Muster setzen wir, sobald die Entscheide aus 0.3 stehen.
 
 | Nr | Schritt | Kunde | Soll | Ist | Status |
 |---|---|---|---|---|---|
-| 2.1 | Strategieblatt: wen wir erreichen, was hängen bleibt, welcher Ton | W1 | 03.11.2026 | | Entwurf in [`STRATEGIE.md`](STRATEGIE.md), Kernsatz offen |
-| 2.2 | Offerte mit Festpreis: Breitbild und die gewählten Optionen | W1 | 04.11.2026 | | offen |
+| 2.1 | Strategieblatt: wen wir erreichen, was hängen bleibt, welcher Ton | W1 | 03.11.2026 | | Entwurf in [`STRATEGIE.md`](STRATEGIE.md), Kernsatz und Claim offen (Adrian überlegt) |
+| 2.2 | Offerte mit Festpreis: Breitbild und die gewählten Optionen | W1 | 04.11.2026 | | Entwurf in [`OFFERTE.md`](OFFERTE.md), CHF 8'650 (ENT-073) |
 | 2.3 | Freigabe von Strategie und Offerte (Adrian als Kunde) | W1 | 05.11.2026 | | offen |
 
 Auf der Startseite steht: Angebot innert drei Tagen. Das ist das Soll für 1.3
