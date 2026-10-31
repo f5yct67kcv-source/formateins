@@ -22,7 +22,7 @@ Nina die Firma. Der Auftritt zeigt davon nichts.
   Gemessen: mindestens drei Anfragen pro Monat über die Website.
 - Jugendliche melden sich für eine Schnupperlehre. Gemessen: fünf Anfragen bis
   zu den Sommerferien.
-- Eine Offerte ist in zehn Minuten geschrieben und sieht aus wie der Rest.
+- Jede Offerte und Rechnung aus Ninas Programm trägt den neuen Auftritt.
 
 ## Wen wir erreichen
 

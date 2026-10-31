@@ -8,7 +8,7 @@ lokal (`offerte/LIESMICH.md`). Freigabe zusammen mit dem Strategieblatt (2.3).
 | Nummer | OF-0001 (nur lokal) |
 | Titel | Dein neuer Auftritt: Logo, Website und Imagefilm |
 | Gültig bis | 30.11.2026 |
-| Stand | Entwurf, Freigabe offen |
+| Stand | Entwurf, Freigabe offen. Am 31.10.2026 nachgeführt: Briefkopf statt Vorlagen für Offerte und Rechnung (ENT-075) |
 
 ## Positionen
 
@@ -17,7 +17,7 @@ andere 20 % weniger, wie auf `/preise` gerechnet (`preise.js`, `kombi`).
 
 | Nr | Leistung | Liste | Offerte |
 |---|---|---|---|
-| B-03 | Logo und Erscheinungsbild mit Drucksachen | 2'900 | 2'320 |
+| B-03 | Logo und Erscheinungsbild mit Drucksachen (Briefkopf für Offerten und Rechnungen aus Ninas Programm) | 2'900 | 2'320 |
 | W-02 | Firmenwebsite, 3 bis 5 Seiten (fünf Seiten, mit Lehrstellen) | 3'050 | 3'050 |
 | V-02 | Imagefilm, 30 bis 60 Sekunden (rund 45, ein Drehtag) | 2'700 | 2'160 |
 | V-32 | Zweites Format (Hochformat) | 400 | 320 |

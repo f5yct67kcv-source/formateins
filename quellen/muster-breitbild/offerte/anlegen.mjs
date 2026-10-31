@@ -37,7 +37,7 @@ const kat = (await api('betreiber_produkt_list.php', { token })).produkte;
 const P = (nr, beschreibung, rabatt = 0) => { const p = kat.find(x => x.nummer === nr);
   return { produkt_id: p.id, produkt_name: p.name, beschreibung, menge: 1, einheit: p.einheit, einzelpreis_rappen: p.einzelpreis_rappen, rabatt_bp: rabatt, mwst_satz_bp: 0 }; };
 const positionen = [
-  P('B-03', 'Neues Logo mit dem Hobel als Zeichen, Farben, Schriften und Regeln auf einem Markenblatt. Dazu Visitenkarte, Briefbogen, Vorlagen für Offerte und Rechnung, Mail-Signatur. Mehrere Bereiche: 20 % weniger.', 2000),
+  P('B-03', 'Neues Logo mit dem Hobel als Zeichen, Farben, Schriften und Regeln auf einem Markenblatt. Dazu Visitenkarte, Briefbogen, Briefkopf für Offerten und Rechnungen aus deinem Programm, Mail-Signatur. Mehrere Bereiche: 20 % weniger.', 2000),
   P('W-02', 'Fünf Seiten: Start, Arbeiten, Werkstatt und Team, Lehrstellen, Kontakt. Für Handy und Computer.'),
   P('V-02', 'Rund 45 Sekunden, ein Drehtag in der Werkstatt in Wangen. Dazu Standbilder aus dem Dreh für die Website. Mehrere Bereiche: 20 % weniger.', 2000),
   P('V-32', 'Der Film auch im Hochformat, für Instagram und TikTok. Mehrere Bereiche: 20 % weniger.', 2000),

@@ -7,7 +7,7 @@ echten Erstgespräch festhalten würde. Firma und Leute siehe `FIRMA.md`.
 |---|---|
 | Wo | In der Werkstatt in Wangen bei Olten, eine Stunde |
 | Dabei | Nina Kully, gegen Schluss Werner Kully, Adrian |
-| Stand | 30.10.2026, von Adrian freigegeben («passt», ENT-072) |
+| Stand | 30.10.2026, von Adrian freigegeben («passt», ENT-072). Am 31.10.2026 nachgeführt: Offerten macht Nina im Programm, nicht in Word (ENT-075) |
 
 ## Was Nina erzählt
 
@@ -19,8 +19,8 @@ echten Erstgespräch festhalten würde. Firma und Leute siehe `FIRMA.md`.
   euch zuerst gar nicht gefunden.»
 - Über die Website kam in zwei Jahren keine einzige Bewerbung. Die beiden
   Lernenden kamen über Bekannte zur Schnupperlehre.
-- Die Offerten schreibt Nina am Abend in einer Word-Vorlage von 2008. Das Logo
-  darin ist ein unscharfes Bild. Eine Offerte dauert eine Stunde.
+- Offerten und Rechnungen macht Nina in einem Programm für Schreinereien. Oben
+  steht das Logo von 1994, als unscharfes Bild.
 - Das Logo ist fast so alt wie sie. Der Bus von 2015 trägt es noch als
   Kleber.
 - Werner hängt am Hobel im Logo. Nina: «Der Hobel darf bleiben, irgendwie.
@@ -34,7 +34,8 @@ echten Erstgespräch festhalten würde. Firma und Leute siehe `FIRMA.md`.
    Werkstatt zu und her geht.
 3. Ein Auftritt, der zu ihr passt und den Vater trotzdem nicht vor den Kopf
    stösst.
-4. Offerten, die in zehn Minuten geschrieben sind und gut aussehen.
+4. Offerten und Rechnungen, die zum neuen Auftritt passen. Das Programm
+   bleibt.
 5. Fertig vor den Schnupperlehren im März.
 
 ## Was sie nicht braucht
@@ -44,6 +45,7 @@ echten Erstgespräch festhalten würde. Firma und Leute siehe `FIRMA.md`.
 - Keine tägliche Arbeit auf Social Media. Höchstens ein Beitrag pro Woche, und
   den soll ein Lernender mit dem Handy machen können.
 - Keine zweite Sprache.
+- Kein neues Programm für Offerten und Rechnungen.
 
 ## Was ich mitnehme
 
@@ -60,5 +62,5 @@ echten Erstgespräch festhalten würde. Firma und Leute siehe `FIRMA.md`.
 ## Wie es weitergeht
 
 - Strategieblatt bis 3.11. (2.1), Offerte bis 4.11. (2.2).
-- Nina schickt Fotos von Bus und Briefpapier, die Word-Vorlage und den Zugang
+- Nina schickt Fotos von Bus und Briefpapier, eine Offerte aus dem Programm und den Zugang
   zum Hosting der alten Website.
