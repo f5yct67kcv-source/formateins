@@ -986,4 +986,22 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   der Kunde wünscht. schlau»). Entwurf des Strategieblatts (2.1) in
   `quellen/muster-breitbild/STRATEGIE.md`, Kernsatz zur Wahl (A «Bei Kully
   siehst du, wer baut.», B, C), Freigabe mit der Offerte (2.3).
+- [ ] **ENT-073** · 31.10.2026 · Musterprojekt Breitbild, Schritt 2.2:
+  **Offerte an die Schreinerei Kully** als Entwurf, erstellt im echten
+  Offerten-Werkzeug des Betreiber-Bereichs, aber lokal mit eigener Datenbank
+  (nichts auf betreiber.formateins.ch). Positionen aus dem Leistungskatalog:
+  B-03, W-02, V-02, V-32, V-41, B-11, die teuerste Richtung voll, alles andere
+  20 % weniger wie auf `/preise`: **Festpreis CHF 8'650** ohne Mehrwertsteuer,
+  drei Etappen (Branding 2'640, Website 3'050, Film 2'960). Texte schreiben
+  (W-12, CHF 960) nur als Notiz, weil das Budget bei rund CHF 9'000 liegt.
+  Kernsatz und Claim: Adrian überlegt noch («Überlege noch. Weiter»); dazu
+  festgehalten, dass der Claim neben das Logo kommt, nicht hinein. Offen bis
+  zur Freigabe (2.3). `quellen/muster-breitbild/OFFERTE.md`, Skripte in
+  `quellen/muster-breitbild/offerte/`.
+- [ ] **ENT-074** · 31.10.2026 · Betreiber-Bereich, Offerten: Der Ausdruck
+  zeigt den **Rabatt einer Position** nicht. Einzelpreis CHF 2'900 und Summe
+  CHF 2'320 stehen ohne Erklärung nebeneinander (gefunden mit der Offerte an
+  Kully, ENT-073). Vorschlag: eine Zeile «20 % Rabatt» unter der Beschreibung
+  oder eine Spalte. Abweichung vom GuardOpS-Aufbau, braucht Adrians Wort;
+  zuerst als Bild zeigen.
 
