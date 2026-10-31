@@ -22,8 +22,8 @@ const PREISE = {
   },
   marke: {
     // Erscheinungsbild = Logo, Farben, Schriften, Regeln, zusammengefasst auf einem
-    // Markenblatt. Drucksachen = Erscheinungsbild plus Visitenkarte, Briefbogen,
-    // Vorlagen, Signatur. Name entschieden am 28.10.2026: Die Leistung heisst
+    // Markenblatt. Drucksachen = Erscheinungsbild plus Visitenkarte, Office-Vorlagen,
+    // Mail-Signatur (ENT-075). Name entschieden am 28.10.2026: Die Leistung heisst
     // "Logo und Erscheinungsbild", das Markenblatt ist, was man am Ende bekommt.
     auffrischung:900, erscheinungsbild:1900, drucksachen:2900,
     social:400                                        // Vorlagen fuer Social Media
