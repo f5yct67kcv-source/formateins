@@ -95,7 +95,7 @@ bis 2.2.
 |---|---|---|---|---|---|
 | 3.1 | Logo: Varianten als Bild, Wahl, Reinzeichnung | W1–3 | | | offen |
 | 3.2 | Markenblatt: Farben, Schriften, Regeln | W2–3 | | | offen |
-| 3.3 | Drucksachen: Visitenkarte, Briefbogen, Offerte, Rechnung | W3–4 | | | offen |
+| 3.3 | Drucksachen: Visitenkarte, Briefbogen, Briefkopf für Offerten und Rechnungen aus dem Programm der Schreinerei, Mail-Signatur (ENT-075) | W3–4 | | | offen |
 | 3.4 | Anwendungen als Bild: Bus, Arbeitskleider, Schild | W3–4 | | | offen |
 | 3.5 | Drehbuch und Shotlist, Freigabe | W3 | | | offen |
 | 3.6 | Drehtag: Szenen und Standbilder, ein Ort, dieselben Leute | W4 | | | offen |
@@ -299,6 +299,9 @@ Verweis aufs Journal.
   Jede Gestaltung führt dann auf einen Satz des Kunden zurück (1.3).
 - 30.10.2026 · Zu Beginn des Gesprächs sagen, warum mitgeschrieben wird und
   was mit dem Protokoll passiert (1.3).
+- 31.10.2026 · Nicht liefern, was der Kunde schon hat. Offerten und
+  Rechnungen macht ein Betrieb in seinem Programm; er braucht den Briefkopf
+  dafür, keine Vorlage (Adrian, 2.2).
 
 ## Muster und echter Auftrag
 
@@ -344,7 +347,7 @@ Zahlen aus dem Journal, nicht geschönt.
 - [x] Vorher-Auftritt (1.2): Logo von 1994 mit den verworfenen Varianten B und C, Website von 2011, Profil von 2019 (Quellen in `vorher/`)
 - [ ] Ausschnitt aus dem Strategieblatt (2.1)
 - [ ] Logo-Varianten, auch die verworfenen (3.1)
-- [ ] Offerte im neuen Briefbogen (3.3)
+- [ ] Eine Offerte aus Ninas Programm mit dem neuen Briefkopf (3.3)
 - [ ] Shotlist neben einem Bild vom Drehtag (3.5, 3.6)
 - [ ] Website als Bauplan und fertig, mit `quellen/bauplan.js` (3.8, 3.9)
 - [ ] Profil vorher und nachher (3.12)

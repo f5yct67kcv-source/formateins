@@ -1004,4 +1004,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Kully, ENT-073). Vorschlag: eine Zeile «20 % Rabatt» unter der Beschreibung
   oder eine Spalte. Abweichung vom GuardOpS-Aufbau, braucht Adrians Wort;
   zuerst als Bild zeigen.
+- [ ] **ENT-075** · 31.10.2026 · Drucksachen: **Briefkopf statt Vorlagen
+  für Offerte und Rechnung** (Adrian: «Ich denke, Offerten macht kein Sinn.
+  Weil diese Betriebe schon Tools haben. Briefkopf Vorlagen passen besser»).
+  Ein Betrieb macht Offerten und Rechnungen in seinem Programm; geliefert wird
+  der Briefkopf dafür. Im Musterprojekt nachgeführt: Steckbrief, Erstgespräch
+  (Nina arbeitet mit einem Programm für Schreinereien, kein neues Programm),
+  Strategieblatt, Offerte OF-0001 (Position B-03 neu beschrieben, Preis
+  gleich), Roadmap 3.3, Lernliste. Offen: Auf formateins.ch steht noch
+  «Vorlage für Offerte und Rechnung» an sechs Stellen (`preise.html` viermal
+  mit den Daten für Suchmaschinen, `kostenrechner.html`, `llms.txt`).
+  Textvorschlag im Chat, live erst mit Adrians Wort.
 

@@ -43,13 +43,15 @@ Bauherrschaften im Umkreis von 20 km.
 
 - Nina findet keine Lernenden mehr.
 - Bauherrschaften im Umkreis von 20 km finden die Firma im Netz nicht.
-- Die Offerten gehen als Word-Datei mit dem Logo von 1994 hinaus.
+- Offerten und Rechnungen kommen aus dem Branchenprogramm, oben das Logo
+  von 1994.
 
 ## Vorher (Schritt 1.2)
 
 Logo von 1994 (Variante A: Oval mit Hobel, braun, freigegeben am 30.10.2026),
-Website von 2011, eine Facebook-Seite, die seit 2019 still ist, Offerte als
-Word-Datei. Quellen und Fotos: `vorher/LIESMICH.md`.
+Website von 2011, eine Facebook-Seite, die seit 2019 still ist, Offerten aus
+dem Branchenprogramm mit dem alten Kopf. Quellen und Fotos:
+`vorher/LIESMICH.md`.
 
 ## Wie der Name gefunden wurde (30.10.2026)
 
