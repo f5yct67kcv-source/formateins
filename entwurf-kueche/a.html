@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Morach Küchen · Entwurf A «Die Küche entsteht»</title>
+<meta name="robots" content="noindex">
+<!-- Entwurf (ENT-078). Arbeitsname Morach Küchen AG, erfunden. Variante A: Die Küche
+     steht als Explosionszeichnung im Raum, mit dem Scrollen setzt sie sich zusammen
+     und die Linien füllen sich mit Material. Kein Foto, alles SVG. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papier:#f3efe7;--tinte:#17150f;--linie:#8a8274;--holz:#b98a5a;--holz-d:#8d6239;
+  --stein:#2b2a28;--stahl:#b9bcbf;--akzent:#d8551e;
+  --p:0; /* Fortschritt 0 = Explosion, 1 = zusammengesetzt */
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:"Space Grotesk",system-ui,sans-serif;background:var(--papier);color:var(--tinte);line-height:1.4}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+header{position:fixed;inset:0 0 auto 0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:22px 40px;mix-blend-mode:multiply}
+.logo{font-weight:700;letter-spacing:.32em;font-size:15px;text-transform:uppercase}
+.logo small{display:block;letter-spacing:.14em;font-size:10px;font-weight:500;color:var(--linie)}
+nav ul{display:flex;gap:28px;list-style:none;padding:0;font-size:14px}
+nav a{color:inherit;text-decoration:none}
+.knopf{border:1.5px solid var(--tinte);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:500}
+.hero{position:relative;height:100vh;min-height:720px;overflow:hidden}
+.hero svg{position:absolute;right:-4vw;top:50%;transform:translateY(-50%);width:68vw;max-width:1100px;height:auto}
+.raster{position:absolute;inset:0;background-image:linear-gradient(var(--linie) .6px,transparent .6px),linear-gradient(90deg,var(--linie) .6px,transparent .6px);background-size:48px 48px;opacity:.18;mask-image:radial-gradient(60% 70% at 70% 50%,#000 30%,transparent 100%)}
+.text{position:absolute;left:40px;bottom:72px;max-width:520px}
+.zeile{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--linie);margin-bottom:18px;display:flex;gap:14px;align-items:center}
+.zeile i{display:inline-block;width:40px;height:1px;background:var(--akzent)}
+h1{font-size:clamp(40px,5.4vw,74px);line-height:.98;letter-spacing:-.02em;font-weight:500}
+h1 b{font-weight:700;color:var(--akzent)}
+.hero p{margin-top:22px;font-size:18px;max-width:420px;color:#3d3930}
+.cta{margin-top:28px;display:flex;gap:14px;align-items:center}
+.cta .knopf.voll{background:var(--tinte);color:var(--papier);border-color:var(--tinte)}
+.mass{position:absolute;left:40px;top:120px;font-size:11px;color:var(--linie);line-height:1.8}
+.mass b{color:var(--tinte);font-weight:500}
+.fortschritt{position:absolute;right:40px;bottom:72px;width:180px;font-size:11px;color:var(--linie)}
+.fortschritt .balken{height:2px;background:#d9d3c7;margin-top:8px;position:relative}
+.fortschritt .balken i{position:absolute;left:0;top:0;bottom:0;background:var(--akzent);width:calc(var(--p)*100%)}
+.teil{color:var(--tinte)}
+/* Teile: Versatz der Explosion schrumpft mit --p auf 0, die Füllung erscheint */
+g.t{transition:none}
+g.t .f{fill-opacity:calc(var(--p)*var(--p))}
+g.t .l{stroke:var(--tinte);stroke-width:1.1;fill:none;opacity:calc(1 - var(--p)*.55)}
+g.t .m{stroke:var(--akzent);stroke-width:1;fill:none;opacity:calc(1 - var(--p))}
+.mtext{font:500 12px "IBM Plex Mono",monospace;fill:var(--akzent);opacity:calc(1 - var(--p))}
+.spur{position:absolute;left:40px;bottom:30px;font-size:11px;color:var(--linie);display:flex;gap:10px;align-items:center}
+.spur i{width:1px;height:28px;background:var(--linie);display:inline-block}
+section.weiter{min-height:140vh;padding:120px 40px;max-width:1100px}
+section.weiter h2{font-size:34px;font-weight:500;letter-spacing:-.02em;max-width:560px}
+section.weiter p{margin-top:14px;max-width:520px;font-size:17px;color:#3d3930}
+@media(max-width:860px){
+  header{padding:18px 20px}nav ul{display:none}
+  .hero{min-height:0;height:auto;padding:120px 20px 40px}
+  .hero svg{position:relative;right:auto;top:auto;transform:none;width:100%;margin:0 0 24px}
+  .text{position:static;max-width:none}.mass,.fortschritt{display:none}
+  h1{font-size:40px}.spur{display:none}
+  section.weiter{padding:60px 20px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Morach<small>Küchen seit 1952</small></div>
+  <nav><ul><li><a href="#">Küchen</a></li><li><a href="#">Material</a></li><li><a href="#">Werk</a></li><li><a href="#">Ausstellung</a></li></ul></nav>
+  <a class="knopf" href="#">Beratung buchen</a>
+</header>
+
+<div class="hero" id="hero">
+  <div class="raster"></div>
+  <div class="mass mono">BLATT 01 · ISO 1:20<br>KORPUS <b>19 mm</b> · FRONT <b>22 mm</b><br>ARBEITSPLATTE <b>STEIN 20 mm</b><br>STAND <b>WERK DÄNIKEN</b></div>
+  <svg id="iso" viewBox="0 0 1100 780" aria-hidden="true"></svg>
+  <div class="text">
+    <div class="zeile mono"><i></i>Die meistgebaute Küche der Schweiz</div>
+    <h1>Jede dritte Küche im Land <b>entsteht hier.</b></h1>
+    <p>Von der Zeichnung bis zur Montage aus einem Werk. Scroll, und du siehst, wie sie zusammenkommt.</p>
+    <div class="cta"><a class="knopf voll" href="#">Küche planen</a><a class="knopf" href="#">Ausstellung Däniken</a></div>
+  </div>
+  <div class="fortschritt mono">MONTAGE <span class="teil" id="teilname">Explosion</span><div class="balken"><i></i></div></div>
+  <div class="spur mono"><i></i>scrollen</div>
+</div>
+
+<section class="weiter">
+  <h2>Was du oben siehst, bauen wir 60-mal am Tag. Jede davon anders.</h2>
+  <p>Platzhalter für den nächsten Abschnitt: Material, Werk, Ausstellung.</p>
+</section>
+
+<script>
+// Isometrische Küche aus Quadern. Jedes Teil hat einen Explosions-Versatz (dx,dy,dz),
+// der mit --p (0..1) auf 0 geht. Reihenfolge der Montage: Sockel, Korpus, Fronten,
+// Arbeitsplatte, Hochschrank, Griffe.
+const svg=document.getElementById('iso');
+const NS='http://www.w3.org/2000/svg';
+const c30=Math.cos(Math.PI/6), s30=Math.sin(Math.PI/6);
+const O={x:560,y:470}; const S=1.15;
+function P(x,y,z){return [O.x+(x-y)*c30*S, O.y+(x+y)*s30*S - z*S];}
+const teile=[];
+function box(name,x,y,z,w,d,h,fills,ex,label){
+  const g=document.createElementNS(NS,'g'); g.setAttribute('class','t'); g.dataset.ex=JSON.stringify(ex); g.dataset.name=name;
+  const faces=[
+    [[x,y,z+h],[x+w,y,z+h],[x+w,y+d,z+h],[x,y+d,z+h]], // oben
+    [[x,y+d,z],[x+w,y+d,z],[x+w,y+d,z+h],[x,y+d,z+h]], // vorne (y+d Seite)
+    [[x+w,y,z],[x+w,y+d,z],[x+w,y+d,z+h],[x+w,y,z+h]], // rechts
+  ];
+  faces.forEach((f,i)=>{
+    const poly=document.createElementNS(NS,'polygon');
+    poly.setAttribute('points',f.map(p=>P(...p).join(',')).join(' '));
+    poly.setAttribute('class','f'); poly.setAttribute('fill',fills[i]); g.appendChild(poly);
+    const lin=poly.cloneNode(); lin.setAttribute('class','l'); lin.removeAttribute('fill'); g.appendChild(lin);
+  });
+  if(label){
+    const a=P(x+w,y+d,z+h); const t=document.createElementNS(NS,'text');
+    t.setAttribute('x',a[0]+14);t.setAttribute('y',a[1]-4);t.setAttribute('class','mtext');t.textContent=label;
+    const m=document.createElementNS(NS,'line');m.setAttribute('class','m');
+    m.setAttribute('x1',a[0]);m.setAttribute('y1',a[1]);m.setAttribute('x2',a[0]+12);m.setAttribute('y2',a[1]-4);
+    g.appendChild(m);g.appendChild(t);
+  }
+  svg.appendChild(g); teile.push(g); return g;
+}
+const holz=['#c9a075','#b98a5a','#8d6239'], stein=['#3a3835','#2b2a28','#1f1e1c'], weiss=['#efe9df','#e4ddd0','#cfc6b6'], stahl=['#d2d4d6','#b9bcbf','#9a9ea2'], dunkel=['#2a2724','#1d1b19','#141311'];
+// Insel: Sockel, Korpus, Fronten, Platte
+box('Sockel',0,0,0,300,110,14,dunkel,{dx:0,dy:0,dz:-70},'SOCKEL 100 mm');
+box('Korpus',0,0,14,300,110,74,weiss,{dx:0,dy:0,dz:0});
+for(let i=0;i<4;i++) box('Front',i*75,110,14,74,2,74,holz,{dx:0,dy:70+i*18,dz:0}, i===3?'FRONT EICHE 22 mm':null);
+box('Arbeitsplatte',-6,-6,88,312,122,4,stein,{dx:0,dy:0,dz:120},'STEIN 20 mm');
+// Hochschrank links hinten
+box('Hochschrank',-160,-80,0,70,110,210,weiss,{dx:-120,dy:-60,dz:0});
+box('Hochfront',-160,30,0,70,2,210,holz,{dx:-120,dy:40,dz:0},'HOCHSCHRANK 2100');
+// Griffe als dünne Leisten
+for(let i=0;i<4;i++) box('Griff',i*75+8,112,78,58,1.5,2,stahl,{dx:0,dy:120+i*10,dz:20});
+// Scroll -> Fortschritt
+const names=['Explosion','Sockel','Korpus','Fronten','Arbeitsplatte','Hochschrank','Griffe','Fertig'];
+function setze(p){
+  document.documentElement.style.setProperty('--p',p);
+  teile.forEach(g=>{const e=JSON.parse(g.dataset.ex); const k=1-p; const v=P(e.dx*k,e.dy*k,e.dz*k); g.setAttribute('transform',`translate(${v[0]-O.x},${v[1]-O.y})`);});
+  document.getElementById('teilname').textContent=names[Math.min(7,Math.floor(p*7.99))];
+}
+function ausScroll(){const h=document.getElementById('hero'); const p=Math.max(0,Math.min(1,window.scrollY/(h.offsetHeight*.9))); setze(p);}
+window.addEventListener('scroll',ausScroll,{passive:true}); 
+// Für die Vorschau: ?p=0.5 setzt den Stand ohne Scrollen
+const q=new URLSearchParams(location.search); if(q.has('p')) setze(parseFloat(q.get('p'))); else ausScroll();
+</script>
+</body>
+</html>

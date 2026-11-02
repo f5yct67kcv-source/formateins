@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Morach Küchen · Entwurf B «Dein Material»</title>
+<meta name="robots" content="noindex">
+<!-- Entwurf (ENT-078). Variante B: Die Küche füllt den Hero als flache Ansicht,
+     wie in der Ausstellung. Fünf Musterplättchen unten; ein Klick oder Wischen
+     wechselt die Fronten der ganzen Küche. Kein Foto, alles SVG. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--wand:#e9e3d8;--boden:#cdbfae;--tinte:#1b1916;--still:#6f685d;--akzent:#1b1916}
+*{box-sizing:border-box;margin:0}
+body{font-family:Inter,system-ui,sans-serif;background:var(--wand);color:var(--tinte)}
+header{position:fixed;inset:0 0 auto 0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:22px 40px}
+.logo{font-family:Fraunces,serif;font-weight:500;font-size:26px;letter-spacing:-.01em}
+.logo small{font-family:Inter;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-left:12px;color:var(--still)}
+nav ul{display:flex;gap:28px;list-style:none;padding:0;font-size:14px}
+nav a{color:inherit;text-decoration:none}
+.knopf{border:1.5px solid var(--tinte);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:500;text-decoration:none;color:inherit}
+.hero{position:relative;height:100vh;min-height:720px;overflow:hidden;background:var(--wand)}
+.hero svg{position:absolute;right:0;bottom:104px;width:min(1100px,70vw);height:auto}
+.hero::after{content:'';position:absolute;left:0;right:0;bottom:104px;height:7vw;max-height:112px;background:var(--boden)}
+.titel{position:absolute;left:40px;top:112px;max-width:600px;z-index:2}
+h1{font-family:Fraunces,serif;font-weight:300;font-size:clamp(40px,4.4vw,62px);line-height:1;letter-spacing:-.02em}
+h1 em{font-style:italic;font-weight:500}
+.titel p{margin-top:16px;font-size:16px;max-width:400px;color:#3f3a33}
+.muster{position:absolute;left:0;right:0;bottom:0;height:104px;padding:0 40px;display:flex;align-items:center;gap:14px;z-index:3;background:#f6f2ea;border-top:1px solid rgba(27,25,22,.1)}
+.muster .hinweis{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--still);margin-right:10px}
+.chip{display:flex;align-items:center;gap:12px;border:0;background:rgba(255,255,255,.55);padding:8px 14px 8px 8px;border-radius:999px;cursor:pointer;font:500 13px Inter;color:var(--tinte);transition:transform .2s,box-shadow .2s}
+.chip i{width:34px;height:34px;border-radius:50%;display:block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.chip[aria-pressed=true]{background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.14);transform:translateY(-3px)}
+.chip small{display:block;font-weight:400;color:var(--still);font-size:11px}
+.preis{margin-left:auto;text-align:right;font-size:12px;color:var(--still)}
+.preis b{display:block;font:500 22px Fraunces,serif;color:var(--tinte)}
+/* Fronten wechseln mit Wisch von links */
+.front{transition:fill .5s ease}
+section.weiter{padding:120px 40px;max-width:1100px}
+section.weiter h2{font-family:Fraunces,serif;font-weight:300;font-size:36px;letter-spacing:-.02em;max-width:620px}
+section.weiter p{margin-top:14px;max-width:520px;font-size:17px;color:#3f3a33}
+@media(max-width:860px){
+  header{padding:18px 20px}nav ul{display:none}
+  .hero{min-height:0;height:auto;padding:110px 0 0}
+  .hero svg{position:relative;right:auto;bottom:auto;width:100%;display:block}
+  .hero::after{display:none}
+  .titel{position:static;padding:0 20px 20px;max-width:none}
+  h1{font-size:40px}
+  .muster{position:static;height:auto;flex-wrap:nowrap;overflow-x:auto;padding:16px 20px;gap:10px;background:#fff}
+  .chip{flex:0 0 auto}
+  .muster .hinweis{display:none}.preis{display:none}
+  section.weiter{padding:60px 20px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Morach<small>Küchen</small></div>
+  <nav><ul><li><a href="#">Küchen</a></li><li><a href="#">Material</a></li><li><a href="#">Werk</a></li><li><a href="#">Ausstellung</a></li></ul></nav>
+  <a class="knopf" href="#">Beratung buchen</a>
+</header>
+
+<div class="hero">
+  <div class="titel">
+    <h1>Wähl dein Material. <em>Den Rest</em> bauen wir.</h1>
+    <p>Fünf Oberflächen, eine Küche. Tipp auf ein Plättchen und sieh, wie sie sich verändert. In der Ausstellung in Däniken kannst du es anfassen.</p>
+  </div>
+
+  <svg viewBox="0 0 1500 620" aria-hidden="true" style="z-index:1">
+    <defs>
+      <pattern id="eiche" width="60" height="620" patternUnits="userSpaceOnUse">
+        <rect width="60" height="620" fill="#c99f6c"/>
+        <path d="M8 0v620M19 0v620M33 0v620M47 0v620" stroke="#b78a57" stroke-width="2"/>
+        <path d="M13 0v620M41 0v620" stroke="#d4ad7c" stroke-width="1"/>
+      </pattern>
+      <pattern id="nuss" width="70" height="620" patternUnits="userSpaceOnUse">
+        <rect width="70" height="620" fill="#5a3a26"/>
+        <path d="M6 0v620M22 0v620M39 0v620M58 0v620" stroke="#4a2e1d" stroke-width="3"/>
+        <path d="M14 0v620M49 0v620" stroke="#6b4731" stroke-width="1.5"/>
+      </pattern>
+      <filter id="korn"><feTurbulence baseFrequency=".9" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 .18 0 0 0 0 .17 0 0 0 0 .16 0 0 0 .35 0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in2="SourceGraphic" mode="multiply"/></filter>
+      <linearGradient id="stahl" x1="0" x2="1"><stop offset="0" stop-color="#cfd3d6"/><stop offset=".5" stop-color="#eef0f1"/><stop offset="1" stop-color="#b8bcc0"/></linearGradient>
+      <linearGradient id="licht" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    </defs>
+    <!-- Fenster -->
+    <rect x="610" y="40" width="300" height="200" fill="#dfe6e8"/><rect x="610" y="40" width="300" height="200" fill="url(#licht)"/>
+    <path d="M760 40v200M610 140h300" stroke="#fff" stroke-width="6"/>
+    <!-- Dunstabzug -->
+    <rect x="1010" y="120" width="190" height="60" fill="#2a2724"/><rect x="1080" y="60" width="50" height="60" fill="#2a2724"/>
+    <!-- Hängeschränke links -->
+    <g class="fronten">
+      <rect class="front" x="80" y="110" width="170" height="150"/><rect class="front" x="256" y="110" width="170" height="150"/>
+      <!-- Hochschränke -->
+      <rect class="front" x="1270" y="110" width="110" height="480"/><rect class="front" x="1386" y="110" width="110" height="480"/>
+      <!-- Unterschränke -->
+      <rect class="front" x="80" y="400" width="170" height="190"/><rect class="front" x="256" y="400" width="170" height="190"/>
+      <rect class="front" x="432" y="400" width="170" height="90"/><rect class="front" x="432" y="496" width="170" height="94"/>
+      <rect class="front" x="920" y="400" width="170" height="90"/><rect class="front" x="920" y="496" width="170" height="94"/>
+      <rect class="front" x="1096" y="400" width="170" height="190"/>
+    </g>
+    <!-- Backofen und Spüle -->
+    <rect x="608" y="400" width="306" height="190" fill="#1d1b19"/><rect x="630" y="430" width="262" height="110" fill="#0f0e0d"/><rect x="630" y="412" width="262" height="6" fill="#444"/>
+    <rect x="1130" y="376" width="110" height="10" fill="#333" rx="2"/><path d="M1180 376v-50h30" stroke="#333" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <!-- Arbeitsplatte -->
+    <rect class="platte" x="60" y="382" width="1216" height="18" fill="#2b2a28"/>
+    <rect x="60" y="382" width="1216" height="18" fill="#2b2a28" filter="url(#korn)" opacity=".8"/>
+    <!-- Sockel -->
+    <rect x="80" y="590" width="1416" height="30" fill="#1d1b19"/>
+    <!-- Griffe -->
+    <g fill="#1d1b19" opacity=".85">
+      <rect x="95" y="248" width="40" height="3"/><rect x="391" y="248" width="40" height="3"/>
+      <rect x="95" y="412" width="40" height="3"/><rect x="391" y="412" width="40" height="3"/>
+      <rect x="447" y="412" width="40" height="3"/><rect x="447" y="508" width="40" height="3"/>
+      <rect x="935" y="412" width="40" height="3"/><rect x="935" y="508" width="40" height="3"/><rect x="1111" y="412" width="40" height="3"/>
+      <rect x="1365" y="340" width="3" height="40"/><rect x="1401" y="340" width="3" height="40"/>
+    </g>
+    <!-- Fugen -->
+    <g stroke="rgba(0,0,0,.18)" stroke-width="1.5" fill="none">
+      <rect x="80" y="110" width="170" height="150"/><rect x="256" y="110" width="170" height="150"/><rect x="1270" y="110" width="110" height="480"/><rect x="1386" y="110" width="110" height="480"/>
+      <rect x="80" y="400" width="170" height="190"/><rect x="256" y="400" width="170" height="190"/><rect x="432" y="400" width="170" height="90"/><rect x="432" y="496" width="170" height="94"/>
+      <rect x="920" y="400" width="170" height="90"/><rect x="920" y="496" width="170" height="94"/><rect x="1096" y="400" width="170" height="190"/>
+    </g>
+  </svg>
+
+  <div class="muster" role="group" aria-label="Material wählen">
+    <span class="hinweis">Front</span>
+    <button class="chip" data-fill="url(#eiche)" data-preis="24'800" aria-pressed="true"><i style="background:repeating-linear-gradient(90deg,#c99f6c 0 4px,#b78a57 4px 6px)"></i><span>Eiche natur<small>furniert, geölt</small></span></button>
+    <button class="chip" data-fill="url(#nuss)" data-preis="27'200"><i style="background:repeating-linear-gradient(90deg,#5a3a26 0 5px,#4a2e1d 5px 7px)"></i><span>Nussbaum<small>furniert, geölt</small></span></button>
+    <button class="chip" data-fill="#9aa58f" data-preis="23'400"><i style="background:#9aa58f"></i><span>Salbei<small>Lack matt</small></span></button>
+    <button class="chip" data-fill="#f1ece3" data-preis="21'900"><i style="background:#f1ece3"></i><span>Kreide<small>Lack matt</small></span></button>
+    <button class="chip" data-fill="url(#stahl)" data-preis="31'600"><i style="background:linear-gradient(90deg,#cfd3d6,#eef0f1,#b8bcc0)"></i><span>Edelstahl<small>gebürstet</small></span></button>
+    <div class="preis">Diese Küche, 3,6 m, ab<b>CHF <span id="preis">24'800</span></b></div>
+  </div>
+</div>
+
+<section class="weiter">
+  <h2>Was du gerade gewählt hast, steht morgen in der Ausstellung. Und in 8 Wochen bei dir.</h2>
+  <p>Platzhalter für den nächsten Abschnitt: Küchen, Werk, Ausstellung.</p>
+</section>
+
+<script>
+const fronten=document.querySelectorAll('.front'); const chips=document.querySelectorAll('.chip');
+function setze(chip){chips.forEach(c=>c.setAttribute('aria-pressed',c===chip)); fronten.forEach((f,i)=>{setTimeout(()=>f.setAttribute('fill',chip.dataset.fill),i*40)}); document.getElementById('preis').textContent=chip.dataset.preis;}
+chips.forEach(c=>c.addEventListener('click',()=>setze(c)));
+const q=new URLSearchParams(location.search); setze(chips[q.has('m')?+q.get('m'):0]);
+</script>
+</body>
+</html>

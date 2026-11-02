@@ -1045,3 +1045,23 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   der Startseite, neben Google-Profil und Instagram (ENT-018, ENT-057). Adrian
   schickt die Links oder sie werden von hier aus gesucht. Geht auf `main` erst
   mit Adrians Wort.
+- [ ] **ENT-078** · 02.11.2026 · **Neue Demo: Website für einen Marktführer im
+  Küchenbau** (Adrian: «erstelle mir eine 8k für den marktführer in
+  küchenbau/schreinerei … nicht 0815 … vom Hero weg einzigartig … das Verweilen
+  soll ein Erlebnis sein»). Verstanden als eigene Demo in der obersten
+  Preisklasse (rund CHF 8'000), nicht als Teil des Musterprojekts Kully.
+  Arbeitsname **Morach Küchen AG**, Däniken, erfunden: Morach ist der
+  übriggebliebene Name aus der Kully-Suche (ENT-070, Runde 2, Handelsregister,
+  Google und Region geprüft), der endgültige Name ist Adrians Wahl. Drei
+  Hero-Varianten als Entwurf in `entwurf-kueche/` (a, b, c), alles SVG, keine
+  Fotos, keine KI-Credits: **A «Die Küche entsteht»** (isometrische
+  Explosionszeichnung, die sich mit dem Scrollen zusammensetzt und mit
+  Material füllt), **B «Wähl dein Material»** (flache Küche wie in der
+  Ausstellung, fünf Musterplättchen wechseln die Fronten und den Preis),
+  **C «Eine Küche für den ganzen Tag»** (Tageszeit-Regler: Sonne wandert
+  durchs Fenster, am Abend gehen die Leuchten an; läuft von selbst). Bilder im
+  Chat vom 02.11.2026 (Desktop und Handy). Offen: Adrians Wahl, Name, Umfang
+  (eine lange Seite oder vier Seiten), Fotos mit KI oder ohne, Ablage
+  (demo.formateins.ch wie Lindenfeld und Hakuro oder dieses Repository),
+  Technik (Empfehlung reines HTML, siehe CLAUDE.md). Geht nie auf
+  formateins.ch (`entwurf*` ist vom Deploy ausgeschlossen).

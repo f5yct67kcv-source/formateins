@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Morach Küchen · Entwurf C «Ein Tag in der Küche»</title>
+<meta name="robots" content="noindex">
+<!-- Entwurf (ENT-078). Variante C: Der Hero ist eine Küche, in der ein ganzer Tag
+     vergeht. Der Besucher zieht die Sonne von 6 Uhr bis Mitternacht: Das Licht
+     wandert durchs Fenster, am Abend gehen die Leuchten unter den Schränken an.
+     Ohne Eingriff läuft der Tag langsam von selbst ab. Kein Foto, alles SVG. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--t:0.35;--tinte:#f4efe6;--still:#b9b0a2;--akzent:#e2a04a}
+*{box-sizing:border-box;margin:0}
+body{font-family:Manrope,system-ui,sans-serif;background:#0d0c0b;color:var(--tinte)}
+header{position:fixed;inset:0 0 auto 0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:22px 40px}
+.logo{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:30px;letter-spacing:.04em}
+nav ul{display:flex;gap:28px;list-style:none;padding:0;font-size:14px}
+nav a{color:inherit;text-decoration:none;opacity:.85}
+.knopf{border:1px solid rgba(244,239,230,.6);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:500;text-decoration:none;color:inherit}
+.hero{position:relative;height:100vh;min-height:720px;overflow:hidden}
+.hero svg{position:absolute;inset:0;width:100%;height:100%}
+.text{position:absolute;left:40px;bottom:120px;max-width:620px;z-index:2}
+h1{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(44px,6vw,86px);line-height:.98;letter-spacing:-.01em}
+h1 i{font-style:italic;color:var(--akzent)}
+.text p{margin-top:18px;font-size:17px;max-width:460px;color:var(--still)}
+.cta{margin-top:26px;display:flex;gap:12px}
+.cta .voll{background:var(--tinte);color:#0d0c0b;border-color:var(--tinte)}
+.uhr{position:absolute;right:40px;bottom:100px;text-align:right;z-index:2}
+.uhr b{display:block;font:400 64px/1 "Cormorant Garamond",serif;letter-spacing:.02em}
+.uhr span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--still)}
+.tag{position:absolute;left:40px;right:40px;bottom:40px;z-index:2;display:flex;align-items:center;gap:18px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--still)}
+.tag input{flex:1;-webkit-appearance:none;appearance:none;height:1px;background:rgba(244,239,230,.35);outline:0}
+.tag input::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--akzent);box-shadow:0 0 0 6px rgba(226,160,74,.25),0 0 30px rgba(226,160,74,.6);cursor:grab}
+.szene text{font:400 11px Manrope;letter-spacing:.14em;fill:var(--still)}
+section.weiter{padding:120px 40px;max-width:1100px}
+section.weiter h2{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:40px;max-width:640px}
+section.weiter p{margin-top:14px;max-width:520px;font-size:17px;color:var(--still)}
+@media(max-width:860px){
+  header{padding:18px 20px}nav ul{display:none}
+  .hero{min-height:0;height:auto}
+  .hero svg{position:relative;display:block;height:auto;aspect-ratio:1/1.1}
+  .text{position:static;padding:10px 20px 0;max-width:none}h1{font-size:46px}
+  .uhr{position:static;text-align:left;padding:14px 20px 0}.uhr b{font-size:40px;display:inline;margin-right:10px}
+  .tag{position:static;padding:24px 20px 10px}
+  section.weiter{padding:60px 20px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Morach</div>
+  <nav><ul><li><a href="#">Küchen</a></li><li><a href="#">Material</a></li><li><a href="#">Werk</a></li><li><a href="#">Ausstellung</a></li></ul></nav>
+  <a class="knopf" href="#">Beratung buchen</a>
+</header>
+
+<div class="hero" id="hero">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="himmel" x1="0" y1="0" x2="0" y2="1"><stop id="h1" offset="0" stop-color="#7fa7c9"/><stop id="h2" offset="1" stop-color="#f1d2a4"/></linearGradient>
+      <linearGradient id="lichtkegel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd9a0" stop-opacity=".55"/><stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/></linearGradient>
+      <radialGradient id="led" cx=".5" cy="0" r="1"><stop offset="0" stop-color="#ffcf8a" stop-opacity=".9"/><stop offset="1" stop-color="#ffcf8a" stop-opacity="0"/></radialGradient>
+      <linearGradient id="pendel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd59a" stop-opacity=".55"/><stop offset="1" stop-color="#ffd59a" stop-opacity="0"/></linearGradient>
+      <linearGradient id="kopf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d0c0b" stop-opacity=".45"/><stop offset="1" stop-color="#0d0c0b" stop-opacity="0"/></linearGradient>
+      <linearGradient id="schatten" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#0d0c0b" stop-opacity=".85"/><stop offset=".55" stop-color="#0d0c0b" stop-opacity="0"/></linearGradient>
+      <pattern id="eiche" width="44" height="900" patternUnits="userSpaceOnUse"><rect width="44" height="900" fill="#b58a5c"/><path d="M6 0v900M17 0v900M31 0v900" stroke="#a4784c" stroke-width="2"/></pattern>
+    </defs>
+    <!-- Raum: Wand und Boden -->
+    <rect id="wand" width="1440" height="900" fill="#d9cfc0"/>
+    <rect id="boden" y="700" width="1440" height="200" fill="#8c7a66"/>
+    <!-- Fenster mit Himmel -->
+    <rect x="860" y="110" width="420" height="330" fill="url(#himmel)"/>
+        <path d="M1070 110v330M860 275h420" stroke="#f2ede4" stroke-width="10"/>
+    <rect x="852" y="102" width="436" height="346" fill="none" stroke="#f2ede4" stroke-width="16"/>
+    <!-- Lichtkegel auf Boden und Insel -->
+    <polygon id="kegel" points="860,440 1280,440 1440,900 520,900" fill="url(#lichtkegel)"/>
+    <!-- Hängeschränke -->
+    <g id="haenge"><rect x="120" y="150" width="200" height="220" fill="url(#eiche)"/><rect x="330" y="150" width="200" height="220" fill="url(#eiche)"/><rect x="540" y="150" width="200" height="220" fill="url(#eiche)"/></g>
+    <!-- LED-Leisten unter den Hängeschränken -->
+    <g id="leds" opacity="0"><rect x="120" y="370" width="620" height="200" fill="url(#led)"/><rect x="120" y="368" width="620" height="3" fill="#ffe2b0"/></g>
+    <!-- Hochschrank -->
+    <rect x="1300" y="150" width="120" height="580" fill="url(#eiche)"/>
+    <!-- Unterschränke und Platte -->
+    <rect x="120" y="470" width="1160" height="18" fill="#2a2826"/>
+    <g id="unter"><rect x="120" y="488" width="200" height="220" fill="url(#eiche)"/><rect x="330" y="488" width="200" height="220" fill="url(#eiche)"/><rect x="540" y="488" width="200" height="220" fill="#1d1b19"/><rect x="750" y="488" width="200" height="220" fill="url(#eiche)"/><rect x="960" y="488" width="320" height="220" fill="url(#eiche)"/></g>
+    <rect x="120" y="708" width="1160" height="22" fill="#1d1b19"/>
+    <!-- Insel -->
+    <g id="insel"><rect x="380" y="620" width="700" height="14" fill="#55504a"/><rect x="380" y="634" width="700" height="186" fill="#2f2b27"/><rect x="380" y="820" width="700" height="16" fill="#141311"/></g>
+    <!-- Pendelleuchten -->
+    <g id="pendel"><path d="M560 0v150M730 0v150M900 0v150" stroke="#1d1b19" stroke-width="2"/><ellipse cx="560" cy="160" rx="40" ry="14" fill="#1d1b19"/><ellipse cx="730" cy="160" rx="40" ry="14" fill="#1d1b19"/><ellipse cx="900" cy="160" rx="40" ry="14" fill="#1d1b19"/>
+      <g id="pendellicht" opacity="0"><polygon points="520,160 600,160 760,620 360,620" fill="url(#pendel)"/><polygon points="690,160 770,160 930,620 530,620" fill="url(#pendel)"/><polygon points="860,160 940,160 1100,620 700,620" fill="url(#pendel)"/></g></g>
+    <!-- Dunkelheit über allem, Stärke nach Tageszeit -->
+    <rect id="nacht" width="1440" height="900" fill="#07080c" opacity="0"/>
+    <clipPath id="fensterclip"><rect x="860" y="110" width="420" height="330"/></clipPath>
+    <circle id="sonne" cx="930" cy="300" r="34" fill="#fff3d0" opacity=".9" clip-path="url(#fensterclip)"/>
+    <!-- Lichter nochmals über der Nacht, damit sie leuchten -->
+    <g id="leds2" opacity="0"><rect x="120" y="370" width="620" height="200" fill="url(#led)"/><rect x="120" y="368" width="620" height="3" fill="#ffe2b0"/></g>
+    <g id="pendellicht2" opacity="0"><polygon points="520,160 600,160 760,620 360,620" fill="url(#pendel)"/><polygon points="690,160 770,160 930,620 530,620" fill="url(#pendel)"/><polygon points="860,160 940,160 1100,620 700,620" fill="url(#pendel)"/></g>
+    <rect width="1440" height="900" fill="url(#schatten)"/>
+    <rect width="1440" height="160" fill="url(#kopf)"/>
+  </svg>
+
+  <div class="uhr"><b id="zeit">10:12</b><span id="wort">Vormittag</span></div>
+  <div class="text">
+    <h1>Eine Küche <i>für den ganzen Tag.</i></h1>
+    <p>Vom ersten Kaffee bis zum letzten Glas. Zieh die Sonne über den Tag und schau, wie sich deine Küche verändert. Seit 1952 bauen wir die meisten Küchen der Schweiz, jede einzelne für Jahrzehnte.</p>
+    <div class="cta"><a class="knopf voll" href="#">Küche planen</a><a class="knopf" href="#">Ausstellung Däniken</a></div>
+  </div>
+  <div class="tag"><span>06:00</span><input id="slider" type="range" min="0" max="1" step=".001" value=".35" aria-label="Tageszeit"><span>24:00</span></div>
+</div>
+
+<section class="weiter">
+  <h2>Die Küche, die du oben gesehen hast, baut gerade jemand in Däniken. Mit 480 Leuten, in 8 Wochen.</h2>
+  <p>Platzhalter für den nächsten Abschnitt: Küchen, Material, Werk.</p>
+</section>
+
+<script>
+const $=id=>document.getElementById(id);
+function mix(a,b,t){return a+(b-a)*t}
+function hex(r,g,b){return '#'+[r,g,b].map(v=>Math.round(Math.max(0,Math.min(255,v))).toString(16).padStart(2,'0')).join('')}
+function lerpHex(h1,h2,t){const p=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));const a=p(h1),b=p(h2);return hex(mix(a[0],b[0],t),mix(a[1],b[1],t),mix(a[2],b[2],t))}
+const worte=[[0,'Frühmorgens'],[.2,'Vormittag'],[.4,'Mittag'],[.55,'Nachmittag'],[.7,'Abend'],[.85,'Nacht']];
+function setze(t){
+  // Uhr: 06:00 bis 24:00
+  const h=6+t*18, hh=Math.floor(h), mm=Math.floor((h-hh)*60);
+  $('zeit').textContent=String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0');
+  $('wort').textContent=worte.filter(w=>t>=w[0]).pop()[1];
+  // Himmel: Morgenrot -> Blau -> Abendrot -> Nacht
+  let o1,o2; if(t<.15){o1=lerpHex('#f0a97a','#7fa7c9',t/.15);o2=lerpHex('#f7cfa6','#e8e2cf',t/.15)}
+  else if(t<.6){o1='#7fa7c9';o2='#e8e2cf'}
+  else if(t<.8){const k=(t-.6)/.2;o1=lerpHex('#7fa7c9','#4a3a5a',k);o2=lerpHex('#e8e2cf','#f08a4c',k)}
+  else{const k=(t-.8)/.2;o1=lerpHex('#4a3a5a','#0a0d18',k);o2=lerpHex('#f08a4c','#1a1b2a',k)}
+  $('h1').setAttribute('stop-color',o1);$('h2').setAttribute('stop-color',o2);
+  // Sonne wandert von links unten über oben nach rechts unten
+  const a=Math.PI*(1-Math.min(1,t/.8)); $('sonne').setAttribute('cx',1070+180*Math.cos(a)); $('sonne').setAttribute('cy',400-250*Math.sin(a)); $('sonne').setAttribute('opacity',t<.8?.9*(1-Math.max(0,(t-.6)/.2)*.4):0);
+  // Lichtkegel: Richtung je nach Sonnenstand, verschwindet nachts
+  const dx=-300+600*Math.min(1,t/.8); $('kegel').setAttribute('points',`860,440 1280,440 ${1280+dx+160},900 ${860+dx-160},900`); $('kegel').setAttribute('opacity',t<.75?.9:0);
+  // Nacht legt sich über den Raum ab 17 Uhr
+  const n=t<.6?0:Math.min(.82,(t-.6)/.3*.82); $('nacht').setAttribute('opacity',n);
+  // Leuchten an ab Dämmerung
+  const l=t<.62?0:Math.min(1,(t-.62)/.1); $('leds2').setAttribute('opacity',l);$('pendellicht2').setAttribute('opacity',l*.7);
+  // Wand wärmt sich am Abend
+  $('wand').setAttribute('fill',lerpHex('#d9cfc0','#c9b394',t<.6?0:Math.min(1,(t-.6)/.2)));
+}
+const sl=$('slider'); sl.addEventListener('input',()=>{setze(+sl.value);still=true});
+let still=false; const q=new URLSearchParams(location.search);
+if(q.has('t')){sl.value=q.get('t');setze(+sl.value)}else{setze(+sl.value);
+  // Der Tag läuft von selbst, ein Tag in 40 Sekunden, bis jemand den Regler anfasst
+  (function lauf(){if(!still){let v=+sl.value+.0006;if(v>1)v=0;sl.value=v;setze(v)}requestAnimationFrame(lauf)})();}
+</script>
+</body>
+</html>
