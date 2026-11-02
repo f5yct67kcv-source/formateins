@@ -1065,3 +1065,16 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   (demo.formateins.ch wie Lindenfeld und Hakuro oder dieses Repository),
   Technik (Empfehlung reines HTML, siehe CLAUDE.md). Geht nie auf
   formateins.ch (`entwurf*` ist vom Deploy ausgeschlossen).
+- [ ] **ENT-079** · 02.11.2026 · Demo Küchenbau (ENT-078), **Variante D in
+  echtem 3D** (Adrian: «wie würde die Seite aussehen, wenn du sie 3d animiert
+  bauen würdest?»). `entwurf-kueche/d.html`: WebGL mit Three.js, die Küche als
+  Raum aus Quadern ohne Modell-Datei, Schatten, Sonne durchs Fenster,
+  Pendelleuchten und LED als echte Lichtquellen. Das Scrollen führt durch vier
+  Kapitel: Werk (Explosionszeichnung setzt sich zusammen), Raum (Kamera fährt
+  hinein), Material (fünf Plättchen wechseln die Fronten an der Geometrie),
+  Abend (Sonne sinkt, Leuchten gehen an). Vereint A, B und C aus ENT-078 in
+  einer Szene. Gerendert mit Playwright und SwiftShader, Bilder im Chat.
+  Preis dafür: rund 650 KB JavaScript (Three.js), braucht WebGL, am Handy mehr
+  Akku und Wärme, ohne WebGL braucht es ein Standbild als Ersatz; für den Bau
+  Three.js selbst ausliefern statt vom CDN. Offen: Adrians Wahl zwischen
+  Fläche (A bis C) und 3D (D) oder Mischung, sonst wie ENT-078.

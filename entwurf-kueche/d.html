@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Morach Küchen · Entwurf D «Die Küche im Raum» (3D)</title>
+<meta name="robots" content="noindex">
+<!-- Entwurf (ENT-079). Variante D: echtes 3D mit WebGL (Three.js). Eine Küche als
+     Raum, gebaut aus Quadern, ohne Modell-Datei. Das Scrollen führt durch vier
+     Kapitel: die Teile setzen sich zusammen, die Kamera fährt in den Raum, das
+     Material wechselt an echter Geometrie, der Tag geht in den Abend über und die
+     Leuchten gehen an. Three.js für den Entwurf vom CDN, beim Bau selbst ausliefern. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--tinte:#f4efe6;--still:#b9b0a2;--akzent:#e2a04a}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,system-ui,sans-serif;background:#0d0c0b;color:var(--tinte)}
+canvas#b{position:fixed;inset:0;width:100%;height:100%;display:block}
+header{position:fixed;inset:0 0 auto 0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:22px 40px;background:linear-gradient(rgba(13,12,11,.55),transparent)}
+.logo{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:30px;letter-spacing:.04em}
+nav ul{display:flex;gap:28px;list-style:none;padding:0;font-size:14px}
+nav a{color:inherit;text-decoration:none;opacity:.85}
+.knopf{border:1px solid rgba(244,239,230,.6);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:500;text-decoration:none;color:inherit}
+.knopf.voll{background:var(--tinte);color:#0d0c0b;border-color:var(--tinte)}
+main{position:relative;z-index:2;pointer-events:none}
+.kap{height:100vh;display:flex;align-items:flex-end;padding:0 40px 110px}
+.kap>div{max-width:640px;pointer-events:auto}
+.kap:nth-child(3){padding-bottom:190px}
+.kap.rechts{justify-content:flex-end;text-align:right}
+.zeile{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--akzent);margin-bottom:14px}
+h1,h2{font-family:"Cormorant Garamond",serif;font-weight:400;line-height:.98;letter-spacing:-.01em;text-shadow:0 2px 30px rgba(0,0,0,.5)}
+h1{font-size:clamp(44px,6vw,86px)}h2{font-size:clamp(36px,4.6vw,64px)}
+h1 i,h2 i{font-style:italic;color:var(--akzent)}
+.kap p{margin-top:16px;font-size:17px;max-width:460px;color:var(--still);text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.kap.rechts p{margin-left:auto}
+.cta{margin-top:24px;display:flex;gap:12px}.kap.rechts .cta{justify-content:flex-end}
+.muster{position:fixed;left:0;right:0;bottom:0;z-index:4;padding:18px 40px;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(10px);transition:.4s;pointer-events:none}
+.muster.da{opacity:1;transform:none;pointer-events:auto}
+.muster .hinweis{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--still);margin-right:8px}
+.chip{display:flex;align-items:center;gap:10px;border:1px solid rgba(244,239,230,.25);background:rgba(13,12,11,.55);backdrop-filter:blur(8px);padding:6px 14px 6px 6px;border-radius:999px;cursor:pointer;font:500 13px Manrope;color:var(--tinte);transition:.2s}
+.chip i{width:30px;height:30px;border-radius:50%;display:block}
+.chip[aria-pressed=true]{background:var(--tinte);color:#0d0c0b;transform:translateY(-3px)}
+.chip small{display:block;font-weight:400;opacity:.7;font-size:11px}
+.uhr{position:fixed;right:40px;top:108px;z-index:4;text-align:right;opacity:0;transition:.4s}
+.uhr.da{opacity:1}
+.uhr b{display:block;font:400 56px/1 "Cormorant Garamond",serif}
+.uhr span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--still)}
+.fort{position:fixed;left:40px;top:120px;z-index:4;display:flex;flex-direction:column;gap:14px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--still)}
+.fort span{display:flex;align-items:center;gap:10px}.fort i{width:14px;height:1px;background:var(--still);display:block;transition:.3s}
+.fort span.an{color:var(--tinte)}.fort span.an i{width:34px;background:var(--akzent)}
+.spur{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:4;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--still);transition:.4s}
+.spur.weg{opacity:0}
+@media(max-width:860px){header{padding:18px 20px}nav ul{display:none}.kap{padding:0 20px 150px}.fort{display:none}.muster{padding:12px 20px;overflow-x:auto}.chip{flex:0 0 auto}.muster .hinweis{display:none}.uhr{right:20px;top:84px}.uhr b{font-size:40px}h1{font-size:46px}}
+</style>
+</head>
+<body>
+<canvas id="b"></canvas>
+<header>
+  <div class="logo">Morach</div>
+  <nav><ul><li><a href="#">Küchen</a></li><li><a href="#">Material</a></li><li><a href="#">Werk</a></li><li><a href="#">Ausstellung</a></li></ul></nav>
+  <a class="knopf" href="#">Beratung buchen</a>
+</header>
+
+<div class="fort" aria-hidden="true"><span class="an"><i></i>Werk</span><span><i></i>Raum</span><span><i></i>Material</span><span><i></i>Abend</span></div>
+
+<main>
+  <section class="kap"><div>
+    <div class="zeile">Die meistgebaute Küche der Schweiz</div>
+    <h1>Jede dritte Küche im Land <i>entsteht hier.</i></h1>
+    <p>Von der Zeichnung bis zur Montage aus einem Werk in Däniken. Scroll, und du gehst mit ihr durch den Tag.</p>
+    <div class="cta"><a class="knopf voll" href="#">Küche planen</a><a class="knopf" href="#">Ausstellung Däniken</a></div>
+  </div></section>
+  <section class="kap rechts"><div>
+    <div class="zeile">Kapitel 2 · Der Raum</div>
+    <h2>Gebaut für <i>deinen</i> Raum. Nicht für den Katalog.</h2>
+    <p>Jede Küche wird einzeln geplant und einzeln gefertigt. 480 Leute, 60 Küchen am Tag, keine zweimal gleich.</p>
+  </div></section>
+  <section class="kap"><div>
+    <div class="zeile">Kapitel 3 · Das Material</div>
+    <h2>Wähl dein Material. <i>Den Rest</i> bauen wir.</h2>
+    <p>Fünf Oberflächen, dieselbe Küche. Tipp auf ein Plättchen. In der Ausstellung kannst du es anfassen.</p>
+  </div></section>
+  <section class="kap rechts"><div>
+    <div class="zeile">Kapitel 4 · Der Abend</div>
+    <h2>Eine Küche <i>für den ganzen Tag.</i></h2>
+    <p>Vom ersten Kaffee bis zum letzten Glas. Gebaut für die nächsten dreissig Jahre.</p>
+    <div class="cta"><a class="knopf voll" href="#">Beratung buchen</a></div>
+  </div></section>
+</main>
+
+<div class="muster" id="muster" role="group" aria-label="Material wählen">
+  <span class="hinweis">Front</span>
+  <button class="chip" data-m="eiche" aria-pressed="true"><i style="background:repeating-linear-gradient(90deg,#c99f6c 0 4px,#b78a57 4px 6px)"></i><span>Eiche natur<small>furniert, geölt</small></span></button>
+  <button class="chip" data-m="nuss"><i style="background:repeating-linear-gradient(90deg,#5a3a26 0 5px,#4a2e1d 5px 7px)"></i><span>Nussbaum<small>furniert, geölt</small></span></button>
+  <button class="chip" data-m="salbei"><i style="background:#8f9c85"></i><span>Salbei<small>Lack matt</small></span></button>
+  <button class="chip" data-m="kreide"><i style="background:#ece6da"></i><span>Kreide<small>Lack matt</small></span></button>
+  <button class="chip" data-m="stahl"><i style="background:linear-gradient(90deg,#cfd3d6,#eef0f1,#b8bcc0)"></i><span>Edelstahl<small>gebürstet</small></span></button>
+</div>
+<div class="uhr" id="uhr"><b id="zeit">10:00</b><span id="wort">Vormittag</span></div>
+<div class="spur" id="spur">scrollen</div>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+const canvas=document.getElementById('b');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
+renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.05;
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+const scene=new THREE.Scene();
+const cam=new THREE.PerspectiveCamera(38,1,.1,60);
+
+// ---- Materialien
+function holzTextur(hell,dunkel,breite){
+  const c=document.createElement('canvas');c.width=512;c.height=512;const g=c.getContext('2d');
+  g.fillStyle=hell;g.fillRect(0,0,512,512);
+  for(let x=0;x<512;x+=breite){g.fillStyle=dunkel;g.globalAlpha=.25+Math.random()*.5;g.fillRect(x+Math.random()*3,0,1+Math.random()*2,512);}
+  g.globalAlpha=.12;for(let i=0;i<60;i++){g.fillStyle=Math.random()<.5?hell:dunkel;g.fillRect(Math.random()*512,Math.random()*512,2,40+Math.random()*200);}
+  const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.wrapS=t.wrapT=THREE.RepeatWrapping;return t;
+}
+const M={
+  eiche:new THREE.MeshStandardMaterial({map:holzTextur('#c9a06c','#a97f4f',7),roughness:.6}),
+  nuss:new THREE.MeshStandardMaterial({map:holzTextur('#5b3a27','#3f2616',8),roughness:.55}),
+  salbei:new THREE.MeshStandardMaterial({color:'#8f9c85',roughness:.85}),
+  kreide:new THREE.MeshStandardMaterial({color:'#ece6da',roughness:.85}),
+  stahl:new THREE.MeshStandardMaterial({color:'#d5d8db',metalness:.9,roughness:.32}),
+};
+const korpus=new THREE.MeshStandardMaterial({color:'#e9e2d6',roughness:.9});
+const stein=new THREE.MeshStandardMaterial({color:'#2b2a28',roughness:.35,metalness:.05});
+const dunkel=new THREE.MeshStandardMaterial({color:'#1d1b19',roughness:.6});
+const wand=new THREE.MeshStandardMaterial({color:'#d8cfc0',roughness:1});
+const boden=new THREE.MeshStandardMaterial({map:holzTextur('#9c8468','#7d6650',22),roughness:.8});
+boden.map.repeat.set(4,4);
+const glas=new THREE.MeshStandardMaterial({color:'#e6f0f7',emissive:'#dbe9f3',emissiveIntensity:2.2,roughness:.1});
+
+// ---- Teile: jeder Quader kennt Ruhelage und Explosions-Versatz
+const teile=[]; const fronten=[];
+function quader(w,h,d,mat,x,y,z,ex=[0,0,0],istFront=false){
+  const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);
+  m.position.set(x,y+h/2,z);m.castShadow=true;m.receiveShadow=true;
+  m.userData={ruhe:new THREE.Vector3(x,y+h/2,z),ex:new THREE.Vector3(...ex)};
+  const kanten=new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry),new THREE.LineBasicMaterial({color:'#2a2724',transparent:true,opacity:1}));
+  m.add(kanten);m.userData.kanten=kanten;
+  scene.add(m);teile.push(m);if(istFront)fronten.push(m);return m;
+}
+// Raum
+const bodenM=new THREE.Mesh(new THREE.PlaneGeometry(9,8),boden);bodenM.rotation.x=-Math.PI/2;bodenM.receiveShadow=true;scene.add(bodenM);
+const wandM=new THREE.Mesh(new THREE.PlaneGeometry(9,3.2),wand);wandM.position.set(0,1.6,-2.5);wandM.receiveShadow=true;scene.add(wandM);
+const wandL=new THREE.Mesh(new THREE.PlaneGeometry(8,3.2),wand);wandL.rotation.y=Math.PI/2;wandL.position.set(-4.5,1.6,0);wandL.receiveShadow=true;scene.add(wandL);
+// Fenster in der Rückwand
+const fenster=new THREE.Mesh(new THREE.PlaneGeometry(1.6,1.2),glas);fenster.position.set(1.3,1.75,-2.49);scene.add(fenster);
+const rahmen=new THREE.Mesh(new THREE.BoxGeometry(1.72,1.32,.06),new THREE.MeshStandardMaterial({color:'#f2ede4'}));rahmen.position.set(1.3,1.75,-2.47);scene.add(rahmen);
+const sprosseV=new THREE.Mesh(new THREE.BoxGeometry(.04,1.2,.05),rahmen.material);sprosseV.position.set(1.3,1.75,-2.46);scene.add(sprosseV);
+const sprosseH=new THREE.Mesh(new THREE.BoxGeometry(1.6,.04,.05),rahmen.material);sprosseH.position.set(1.3,1.75,-2.46);scene.add(sprosseH);
+// Küchenzeile an der Rückwand: Sockel, Korpus, Fronten, Platte
+const zx=-.6, zb=4.2, tiefe=.6;
+quader(zb,.1,tiefe-.05,dunkel,zx,0,-2.5+tiefe/2+.02,[0,-.6,0]);
+quader(zb,.78,tiefe-.04,korpus,zx,.1,-2.5+tiefe/2,[0,0,0]);
+const nF=7; for(let i=0;i<nF;i++){const w=zb/nF-.012;const x=zx-zb/2+zb/nF*(i+.5);
+  if(i===3){quader(w,.78,.03,dunkel,x,.1,-2.5+tiefe+.015,[0,0,1.1+i*.12]);continue;} // Backofen-Front
+  quader(w,.78,.022,M.eiche,x,.1,-2.5+tiefe+.011,[0,0,1.1+i*.12],true);
+  quader(.16,.012,.02,dunkel,x,.78,-2.5+tiefe+.035,[0,.3,1.6+i*.12]);
+}
+quader(zb+.04,.04,tiefe+.02,stein,zx,.88,-2.5+tiefe/2+.01,[0,1.2,0]);
+// Hängeschränke
+for(let i=0;i<4;i++){const w=.72;const x=zx-zb/2+.1+w/2+i*(w+.012);
+  quader(w,.7,.33,korpus,x,1.45,-2.5+.17,[0,.8,0]);
+  quader(w-.012,.7,.022,M.eiche,x,1.45,-2.5+.35,[0,.8,.6+i*.1],true);
+}
+// Hochschrank rechts
+quader(.6,2.2,tiefe,korpus,2.4,0,-2.5+tiefe/2,[1.2,0,0]);
+quader(.29,2.2,.022,M.eiche,2.25,0,-2.5+tiefe+.011,[1.2,0,.8],true);
+quader(.29,2.2,.022,M.eiche,2.55,0,-2.5+tiefe+.011,[1.2,0,1.0],true);
+// Insel
+quader(2.4,.1,.85,dunkel,0,0,0,[0,-.7,0]);
+quader(2.4,.78,.9,korpus,0,.1,0,[0,0,0]);
+for(let i=0;i<3;i++){const w=2.4/3-.012;const x=-1.2+2.4/3*(i+.5);quader(w,.78,.022,M.eiche,x,.1,.461,[0,0,1.3+i*.15],true);}
+quader(2.5,.04,1.0,stein,0,.88,0,[0,1.4,0]);
+// Pendelleuchten und ihre Lichter
+const pendel=[];for(let i=0;i<3;i++){const x=-.8+i*.8;
+  const schirm=new THREE.Mesh(new THREE.CylinderGeometry(.16,.12,.14,32,1,true),new THREE.MeshStandardMaterial({color:'#1d1b19',side:THREE.DoubleSide}));schirm.position.set(x,1.95,0);scene.add(schirm);
+  const schnur=new THREE.Mesh(new THREE.CylinderGeometry(.004,.004,1.2),dunkel);schnur.position.set(x,2.6,0);scene.add(schnur);
+  const l=new THREE.PointLight('#ffcf8a',0,5,1.6);l.position.set(x,1.85,0);l.castShadow=i===1;scene.add(l);pendel.push(l);
+}
+// LED unter den Hängeschränken
+const leds=[];for(let i=0;i<3;i++){const l=new THREE.PointLight('#ffe2b0',0,2.2,1.8);l.position.set(zx-1.4+i*1.4,1.42,-2.1);scene.add(l);leds.push(l);}
+// Sonne durchs Fenster und Himmel
+const sonne=new THREE.DirectionalLight('#fff1d6',3.2);sonne.position.set(3,4,-6);sonne.target.position.set(0,.9,0);scene.add(sonne,sonne.target);
+sonne.castShadow=true;sonne.shadow.mapSize.set(2048,2048);sonne.shadow.camera.left=-5;sonne.shadow.camera.right=5;sonne.shadow.camera.top=5;sonne.shadow.camera.bottom=-5;sonne.shadow.bias=-.0005;
+const himmel=new THREE.HemisphereLight('#cfe0ef','#6b5a48',1.1);scene.add(himmel);
+const fuell=new THREE.PointLight('#fff','.6');fuell.position.set(-2,2.6,3);scene.add(fuell);
+
+// ---- Kamera-Pfad über vier Kapitel
+const pfad=[
+  {p:new THREE.Vector3(5.2,4.2,5.6),z:new THREE.Vector3(.2,.9,-.6)},   // Werk: Iso von oben
+  {p:new THREE.Vector3(-1.2,1.5,5.2),z:new THREE.Vector3(.2,1.0,-1.2)},  // Raum: frontal, tief
+  {p:new THREE.Vector3(-2.4,1.55,3.0),z:new THREE.Vector3(.5,.85,-.4)},   // Material: nah an der Insel
+  {p:new THREE.Vector3(3.6,1.7,4.6),z:new THREE.Vector3(-.4,1.1,-1.2)},  // Abend: weit, seitlich
+];
+const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const lerpHex=(a,b,t)=>new THREE.Color(a).lerp(new THREE.Color(b),t);
+const fort=[...document.querySelectorAll('.fort span')];
+function setze(s){
+  // Montage 0..0.28
+  const p=Math.min(1,s/.28);
+  teile.forEach(m=>{const k=1-ease(p);m.position.copy(m.userData.ruhe).addScaledVector(m.userData.ex,k);m.material.transparent=true;m.material.opacity=Math.min(1,.08+p*1.1);m.userData.kanten.material.opacity=Math.max(0,1-p*1.3);});
+  // Kamera
+  const seg=Math.min(2.999,s*3);const i=Math.floor(seg);const t=ease(seg-i);
+  cam.position.lerpVectors(pfad[i].p,pfad[i+1].p,t);const ziel=new THREE.Vector3().lerpVectors(pfad[i].z,pfad[i+1].z,t);cam.lookAt(ziel);
+  // Tageszeit ab 0.6: Sonne sinkt, Raum wird warm und dunkel, Lichter an
+  const n=Math.max(0,Math.min(1,(s-.6)/.35));
+  sonne.intensity=3.2*(1-n*.95);sonne.color=lerpHex('#fff1d6','#ff9a4a',n);sonne.position.set(3,4-3.4*n,-6);
+  himmel.intensity=1.1*(1-n*.72);himmel.color=lerpHex('#cfe0ef','#5a4634',n);
+  fuell.intensity=.6*(1-n);
+  glas.emissive=lerpHex('#dbe9f3','#141628',n);glas.color=lerpHex('#e6f0f7','#141628',n);glas.emissiveIntensity=2.2-1.4*n;
+  scene.background=lerpHex('#d9d2c6','#0d0c0b',Math.min(1,s*1.2+n));
+  const an=Math.max(0,Math.min(1,(n-.35)/.3));pendel.forEach(l=>l.intensity=an*2.4);leds.forEach(l=>l.intensity=an*1.6);
+  // Uhr
+  const h=10+n*11,hh=Math.floor(h),mm=Math.floor((h-hh)*60);document.getElementById('zeit').textContent=String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0');
+  document.getElementById('wort').textContent=n<.2?'Vormittag':n<.5?'Nachmittag':n<.8?'Abend':'Nacht';
+  document.getElementById('uhr').classList.toggle('da',s>.55);
+  document.getElementById('muster').classList.toggle('da',s>.4&&s<.85);
+  document.getElementById('spur').classList.toggle('weg',s>.05);
+  fort.forEach((f,j)=>f.classList.toggle('an',j===Math.min(3,Math.floor(s*4))));
+}
+// Material
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));fronten.forEach((f,i)=>setTimeout(()=>{f.material=M[c.dataset.m];f.material.transparent=true;},i*35));}));
+// Grösse, Scroll, Schleife
+function groesse(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();}
+addEventListener('resize',groesse);groesse();
+const q=new URLSearchParams(location.search);const fest=q.has('s')?parseFloat(q.get('s')):null;
+if(fest!==null&&q.has('m')){const c=document.querySelector(`.chip[data-m=${q.get('m')}]`);c&&c.click();}
+let ziel=fest??0,ist=fest??0;
+addEventListener('scroll',()=>{if(fest!==null)return;ziel=Math.max(0,Math.min(1,scrollY/(document.body.scrollHeight-innerHeight)));},{passive:true});
+function schleife(){ist+=(ziel-ist)*.08;setze(ist);renderer.render(scene,cam);requestAnimationFrame(schleife);}
+if(fest!==null){ist=ziel=fest;}
+schleife();
+window.__fertig=true;
+</script>
+</body>
+</html>
