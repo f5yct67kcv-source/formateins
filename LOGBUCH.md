@@ -779,9 +779,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   (`analytics: ''`). Ohne sie lässt sich nicht messen, ob Besucher aus
   ChatGPT, Perplexity oder Copilot kommen. Adrian gibt die ID (G-…), falls ein
   GA4-Konto besteht; das Zustimmungsbanner ist schon gebaut.
-- [ ] **ENT-057** · offen · Instagram-Profil «formateins.ch» als `sameAs` in
-  die strukturierten Daten der Startseite. Adrian schickt den genauen Link;
-  danach auch local.ch und search.ch (ENT-027).
+- [x] **ENT-057** · 02.11.2026 · Instagram-Profil «formateins.ch» als `sameAs` in
+  die strukturierten Daten der Startseite: `https://www.instagram.com/formateins.ch/`
+  (Link über die Suche bestätigt, Adrian: «Mach auch gleich das Instagram-Profil
+  als sameAs rein»). Auf `main` im Anschluss an ENT-076. Offen bleiben
+  local.ch und search.ch (ENT-027).
 - [ ] **ENT-058** · offen · Soll «Trimbach bei Olten» sichtbar im Text stehen
   (heute nur «Region Olten», die volle Adresse bleibt im Impressum, ENT-054)?
   Textfrage, Varianten zuerst im Chat.
