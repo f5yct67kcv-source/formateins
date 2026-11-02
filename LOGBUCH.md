@@ -1016,3 +1016,21 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   mit den Daten für Suchmaschinen, `kostenrechner.html`, `llms.txt`).
   Textvorschlag im Chat, live erst mit Adrians Wort.
 
+- [ ] **ENT-076** · 02.11.2026 · Suchmaschinen, Sitelinks: Adrian fragt, wie
+  Google die Unterseiten direkt unter dem Treffer zeigt (Beispiel Brack). Die
+  Brack-Liste sind bezahlte Sitelinks einer Anzeige; organische Sitelinks
+  vergibt Google selbst, vor allem nach Markensuchen, kein Antrag möglich.
+  **Prüfung des Schemas:** Firma (`ProfessionalService` mit `#formateins`),
+  Startseite, FAQ, Preise, Artikel und die zwei Arbeiten sind vorhanden und
+  gültig. Gefehlt haben ein eigenes `WebSite`-Objekt mit Kennung,
+  `BreadcrumbList` auf allen Unterseiten, ein `WebPage` auf Kostenrechner
+  und Gespräch, und `isPartOf` auf Preise und Artikel. **Als Entwurf auf dem
+  Arbeitszweig ergänzt** (`index.html`: `WebSite` mit `#website`;
+  `preise`, `kostenrechner`, `website-kosten`, `gespraech`,
+  `arbeiten/guardops`, `arbeiten/craniosacral-praxis`: `BreadcrumbList`
+  Startseite › Seite, bei den Arbeiten Startseite › Arbeiten › Arbeit; alle
+  Seiten hängen mit `isPartOf` an `#website`). Nur Daten für Suchmaschinen,
+  nichts Sichtbares. Alle Blöcke parsen, Seiten laden ohne Skriptfehler
+  (Playwright, lokal). Offen: Adrians Wort für `main`; danach in der Search
+  Console unter «Navigationspfade» prüfen. Verwandt: ENT-057 (Instagram als
+  `sameAs`).

@@ -338,6 +338,7 @@ html{scroll-behavior:smooth}
   "about": {
     "@id": "https://www.formateins.ch/#formateins"
   },
+  "isPartOf": { "@id": "https://www.formateins.ch/#website" },
   "mainEntity": {
     "@type": "OfferCatalog",
     "name": "Preise von formateins",
@@ -533,6 +534,27 @@ html{scroll-behavior:smooth}
       }
     ]
   }
+}
+</script>
+<!-- Pfad fuer Suchmaschinen (BreadcrumbList): Startseite > diese Seite. Google nimmt ihn fuer die
+     Zeile ueber dem Titel und als Hinweis fuer Sitelinks (ENT-076). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://www.formateins.ch/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Preise"
+    }
+  ]
 }
 </script>
 </body>
