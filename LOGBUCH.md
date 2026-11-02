@@ -88,9 +88,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Olten», «Webdesign Olten». Bing lieferte am 30.10.2026 für
   `site:formateins.ch` noch nichts (ENT-054). Liefert Bing um den 27.11.2026
   immer noch nichts: Ticket beim Bing-Support.
-- [ ] **ENT-027** · offen · Einträge bei local.ch und search.ch anlegen (Adrian),
-  mit demselben Namen, derselben Adresse und Telefonnummer wie auf der Seite.
-  Danach die Adressen in `sameAs` auf der Startseite ergänzen.
+- [x] **ENT-027** · 02.11.2026 · Einträge bei local.ch und search.ch angelegt
+  (Adrian: «local und search sind erfasst»), mit demselben Namen, derselben
+  Adresse und Telefonnummer wie auf der Seite. Am 02.11.2026 von hier aus noch
+  nicht auffindbar (Suche auf local.ch und die Telefonbuch-Schnittstelle von
+  search.ch liefern keinen Treffer); neue Einträge brauchen dort ein paar Tage
+  bis zur Freischaltung. Die Adressen in `sameAs` folgen in ENT-077.
 - [x] **ENT-028** · 29.10.2026 · Die grossen Updates sind seit dem 28.10.2026
   abends live. Ab jetzt wird am Entwurf weitergearbeitet (`entwurf*`, Arbeitszweig).
   Nichts geht auf `main` und damit live ohne Adrians ausdrückliches Einverständnis,
@@ -1037,3 +1040,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   pushen»), Commit 4f39bcb auf `main`. Offen bleibt nur die Kontrolle in der
   Search Console unter «Navigationspfade» in ein paar Tagen. Verwandt: ENT-057 (Instagram als
   `sameAs`).
+- [ ] **ENT-077** · 02.11.2026 · Sobald die Einträge bei local.ch und search.ch
+  freigeschaltet sind (ENT-027): beide Adressen als `sameAs` in die Firma auf
+  der Startseite, neben Google-Profil und Instagram (ENT-018, ENT-057). Adrian
+  schickt die Links oder sie werden von hier aus gesucht. Geht auf `main` erst
+  mit Adrians Wort.
