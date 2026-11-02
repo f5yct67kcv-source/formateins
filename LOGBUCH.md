@@ -1057,3 +1057,13 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `quellen/kunden/vesa-solar/IDEEN.md`. Offen: Adrian wählt Richtung, dann
   drei Startseiten-Entwürfe als Bild; du oder Sie; Pflege der Referenzen;
   Technik (Empfehlung Astro, Entscheid Adrian).
+- [ ] **ENT-079** · 02.11.2026 · VeSa Solar, **grobe Entwürfe der drei
+  Richtungen** aus ENT-078 (Adrian: «zeige mir die groben entwürfe»). Drei
+  Startseiten in `quellen/kunden/vesa-solar/`: `entwurf-a.html` Baustelle
+  (Anthrazit, Orange, Barlow Condensed), `entwurf-b.html` Seetal (Beige,
+  Fraunces, Mundart-Titel, Team vorne), `entwurf-c.html` Modulraster (Raster
+  mit Datenzellen, Plex Mono, Tabelle mit Filter). Echte VeSa-Fotos von der
+  heutigen Seite in `fotos/` (WebP, max. 1600 px), Renderings Desktop und
+  Handy in `bilder/`. Zahlen im Entwurf geschätzt, ausser Muri 292 und
+  Luzern 189. Nichts davon geht auf den Webserver (liegt unter `quellen/`).
+  Offen: Adrian wählt die Richtung oder mischt.

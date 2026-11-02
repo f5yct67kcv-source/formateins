@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VeSa Solar · Entwurf A «Baustelle»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#141618;--bg2:#1d2023;--fg:#f3efe8;--mute:#a7a39b;--acc:#f4a63a;--line:#2d3135}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font:16px/1.5 Barlow,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.num{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;line-height:.95;letter-spacing:-.01em;text-transform:uppercase}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+header{position:absolute;inset:0 0 auto 0;z-index:2;padding:22px 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Barlow Condensed";font-weight:800;font-size:26px;text-transform:uppercase}
+.logo svg{width:34px;height:34px}
+nav{display:flex;gap:28px;font-weight:500}
+nav a.cta{background:var(--acc);color:#141618;padding:10px 18px;border-radius:3px;font-weight:600}
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;filter:contrast(1.05) saturate(.9)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,22,24,.25) 0%,rgba(20,22,24,.1) 40%,rgba(20,22,24,.95) 100%)}
+.hero .wrap{position:relative;z-index:1;padding-bottom:64px;width:100%}
+.kicker{color:var(--acc);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:13px;margin-bottom:18px}
+h1{font-size:clamp(56px,8.5vw,128px);max-width:14ch}
+.hero p{max-width:52ch;margin:26px 0 32px;font-size:19px;color:#e4dfd6}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 26px;border-radius:3px;font-weight:600;font-size:17px}
+.btn.p{background:var(--acc);color:#141618}
+.btn.s{border:1.5px solid #6e736f;color:var(--fg)}
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:38px 0;border-right:1px solid var(--line);padding-right:24px}
+.stat:last-child{border-right:0}
+.stat .num{font-size:72px;color:var(--acc)}
+.stat .num small{font-size:28px;color:var(--fg)}
+.stat span{display:block;color:var(--mute);margin-top:6px}
+section{padding:96px 0}
+.sec-h{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:48px}
+h2{font-size:clamp(40px,5vw,72px);max-width:16ch}
+.sec-h p{color:var(--mute);max-width:40ch}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.step{position:relative;aspect-ratio:3/4;overflow:hidden;background:#222}
+.step img{width:100%;height:100%;object-fit:cover;filter:saturate(.85)}
+.step div{position:absolute;inset:auto 0 0 0;padding:18px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.85))}
+.step b{display:block;font-family:"Barlow Condensed";font-weight:800;font-size:30px;text-transform:uppercase;line-height:1}
+.step b i{font-style:normal;color:var(--acc);margin-right:8px}
+.step small{color:#d6d1c8}
+.refs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ref{background:var(--bg2);border:1px solid var(--line)}
+.ref img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.ref .body{padding:22px}
+.ref h3{font-size:34px;margin-bottom:4px}
+.ref .tag{color:var(--acc);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.ref dl{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+.ref dt{color:var(--mute);font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+.ref dd{font-family:"Barlow Condensed";font-weight:800;font-size:28px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top}
+.quote{font-family:"Barlow Condensed";font-weight:600;font-size:34px;line-height:1.15;text-transform:none;margin:20px 0}
+.team{display:flex;gap:18px;margin-top:28px}
+.team figure{width:92px;text-align:center;font-size:13px;color:var(--mute)}
+.team img{width:92px;height:92px;border-radius:50%;object-fit:cover;object-position:top;display:block;margin-bottom:6px;border:2px solid var(--line)}
+.partner{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0}
+.partner .wrap{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:center}
+.partner ul{display:flex;flex-wrap:wrap;gap:12px 28px;color:var(--mute);font-weight:500;list-style:none}
+.partner ul b{color:var(--fg)}
+.cta{background:var(--acc);color:#141618;padding:96px 0}
+.cta h2{max-width:22ch}
+.cta .wrap{display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:center}
+.cta .tel{font-family:"Barlow Condensed";font-weight:800;font-size:56px;line-height:1}
+footer{padding:40px 0;color:var(--mute);font-size:14px;display:flex;justify-content:space-between}
+@media(max-width:900px){
+ .wrap{padding:0 18px} nav{display:none} .hero{min-height:88vh}
+ .stats .wrap{grid-template-columns:1fr 1fr} .stat{border-right:0;padding:20px 0} .stat .num{font-size:52px}
+ .steps{grid-template-columns:1fr 1fr} .refs,.split,.partner .wrap,.cta .wrap{grid-template-columns:1fr}
+ section{padding:64px 0} .sec-h{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <a class="logo" href="#"><svg viewBox="0 0 34 34"><path d="M17 2 32 30H2z" fill="#f4a63a"/><path d="M17 12 24 24H10z" fill="#141618"/></svg>VeSa Solar</a>
+ <nav><a href="#">Montage</a><a href="#">Dächer</a><a href="#">Für Partner</a><a href="#">Dachreinigung</a><a href="#">Team</a><a class="cta" href="#">062 777 28 48</a></nav>
+</div></header>
+
+<div class="hero">
+ <img src="fotos/monteur-dach.webp" alt="">
+ <div class="wrap">
+  <div class="kicker">Photovoltaik-Montage · Boniswil AG · schweizweit</div>
+  <h1>Wir sind die, die auf dem Dach stehen.</h1>
+  <p>Kein Verkäufer, der die Montage weitergibt. Sandro und sein Team montieren seit 15 Jahren Solaranlagen, vom Einfamilienhaus bis zur Halle. Sauber, sicher, termingerecht.</p>
+  <div class="btns"><a class="btn p" href="#">Dach anschauen lassen</a><a class="btn s" href="#">So läuft die Montage</a></div>
+ </div>
+</div>
+
+<div class="stats"><div class="wrap">
+ <div class="stat"><div class="num">4'800<small>+</small></div><span>Module montiert</span></div>
+ <div class="stat"><div class="num">15</div><span>Jahre auf dem Dach</span></div>
+ <div class="stat"><div class="num">120</div><span>Dächer, EFH bis Halle</span></div>
+ <div class="stat"><div class="num">0</div><span>Unfälle. Sicherheit mit 9.81</span></div>
+</div></div>
+
+<section><div class="wrap">
+ <div class="sec-h"><h2>So läuft die Montage, Tag für Tag</h2><p>Jeder Schritt mit echten Bildern von unseren Baustellen. Du weisst vorher, was auf deinem Dach passiert.</p></div>
+ <div class="steps">
+  <div class="step"><img src="fotos/luzern-unterkonstruktion.webp" alt=""><div><b><i>1</i>Gerüst</b><small>Tag 1 · Partner scaffs</small></div></div>
+  <div class="step"><img src="fotos/muri-unterkonstruktion.webp" alt=""><div><b><i>2</i>Unterbau</b><small>Tag 2–3 · Haken, Schienen</small></div></div>
+  <div class="step"><img src="fotos/luzern-189.webp" alt=""><div><b><i>3</i>Module</b><small>Tag 3–4 · 189 Module Luzern</small></div></div>
+  <div class="step"><img src="fotos/module-nah.webp" alt=""><div><b><i>4</i>Elektro</b><small>Tag 5 · Partner Elektriker</small></div></div>
+  <div class="step"><img src="fotos/muri-halle.webp" alt=""><div><b><i>5</i>Abnahme</b><small>Strom fliesst</small></div></div>
+ </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+ <div class="sec-h"><h2>Dächer, die wir gebaut haben</h2><p>Jede Anlage mit Zahlen. Nach Dachart und Grösse filtern.</p></div>
+ <div class="refs">
+  <div class="ref"><img src="fotos/muri-halle.webp" alt=""><div class="body"><div class="tag">Flachdach · Gewerbe</div><h3>Muri AG</h3><dl><div><dt>Module</dt><dd>292</dd></div><div><dt>Leistung</dt><dd>125 kWp</dd></div><div><dt>Montage</dt><dd>6 Tage</dd></div></dl></div></div>
+  <div class="ref"><img src="fotos/luzern-189.webp" alt=""><div class="body"><div class="tag">Steildach · Mehrfamilienhaus</div><h3>Luzern</h3><dl><div><dt>Module</dt><dd>189</dd></div><div><dt>Leistung</dt><dd>80 kWp</dd></div><div><dt>Montage</dt><dd>5 Tage</dd></div></dl></div></div>
+  <div class="ref"><img src="fotos/keller-spreitenbach.webp" alt=""><div class="body"><div class="tag">Flachdach · Industrie</div><h3>Spreitenbach</h3><dl><div><dt>Module</dt><dd>640</dd></div><div><dt>Leistung</dt><dd>270 kWp</dd></div><div><dt>Montage</dt><dd>12 Tage</dd></div></dl></div></div>
+ </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap split">
+ <img src="fotos/sandro.webp" alt="">
+ <div>
+  <div class="kicker">Das Team</div>
+  <h2>Du weisst, wer auf dein Dach steigt.</h2>
+  <p class="quote">«Ich stehe seit 15 Jahren auf Dächern. Eine Anlage, die ich montiere, muss 30 Jahre halten. Das sieht man an jeder Schiene.»</p>
+  <p style="color:var(--mute)">Sandro Nuolf, Geschäftsführung und Montageleitung</p>
+  <div class="team">
+   <figure><img src="fotos/sandro.webp" alt="">Sandro</figure>
+   <figure><img src="fotos/verena.webp" alt="">Verena</figure>
+   <figure><img src="fotos/jennifer.webp" alt="">Jennifer</figure>
+   <figure><img src="fotos/ace.webp" alt="">Ace</figure>
+  </div>
+ </div>
+</div></section>
+
+<div class="partner"><div class="wrap">
+ <div><div class="kicker">Für Solarteure, Elektriker, Dachdecker</div><h2 style="font-size:44px">Montagekapazität mit Erfahrung</h2></div>
+ <ul><li><b>scaffs</b> Gerüst</li><li><b>Brechbühl</b> Holzbau</li><li><b>del Sole</b> Elektro</li><li><b>Swiss Helicopter</b> Transport</li><li><b>9.81</b> Arbeitssicherheit</li><li><b>Solarmarkt</b> Material</li><li><b>Swissolar</b> Mitglied</li></ul>
+</div></div>
+
+<div class="cta"><div class="wrap">
+ <h2>Schick uns ein Foto von deinem Dach. Sandro schaut es an.</h2>
+ <div><div class="tel">062 777 28 48</div><p>Mo bis Fr 7 bis 17 Uhr · info@vesa-solar.ch</p></div>
+</div></div>
+<footer class="wrap"><span>VeSa Solar GmbH · Rütiweg 6 · 5706 Boniswil</span><span>Instagram · Facebook · Impressum</span></footer>
+</body></html>
