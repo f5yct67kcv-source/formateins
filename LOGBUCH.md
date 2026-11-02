@@ -1078,3 +1078,23 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Akku und Wärme, ohne WebGL braucht es ein Standbild als Ersatz; für den Bau
   Three.js selbst ausliefern statt vom CDN. Offen: Adrians Wahl zwischen
   Fläche (A bis C) und 3D (D) oder Mischung, sonst wie ENT-078.
+- [ ] **ENT-080** · 02.11.2026 · Demo Küchenbau (ENT-078, ENT-079), **Variante E
+  mit echter Bildwelt** (Adrian zu A bis D: «haut mich alles nicht vom
+  hocker»). Befund: Gezeichnete Küchen sehen nach Küchenplaner aus, nicht nach
+  Marktführer. Darum neun Bilder mit KI (Higgsfield, `gpt_image_2_5`,
+  **9 Credits**, Stand vorher 458.77, nachher 449.77): Hero-Küche bei Dämmerung
+  in 2k, dazu das dunkle Zwillingsbild als Bearbeitung mit Referenz, zwei
+  weitere Küchen (Salbei am Morgen, Nussbaum und Stahl bei Nacht), vier
+  Material-Makros (Eiche, Nussbaum, Stein, Stahl), Hände am Hobel im Werk.
+  Als WebP in `entwurf-kueche/bilder/` (zusammen 820 KB), Jobs im
+  Higgsfield-Konto. Seite `entwurf-kueche/e.html` «Mach das Licht an»: Der Hero
+  ist dunkel, der Zeiger ist das Licht und holt die beleuchtete Küche aus dem
+  Dunkel (Maske zwischen zwei Bildern); beim Scrollen oder am Schalter geht das
+  Licht ganz an, und der Titel wechselt von «Mach das Licht an.» zu «Jede
+  dritte Küche im Land kommt von hier.» Am Handy folgt das Licht dem Finger und
+  geht nach drei Sekunden von selbst an. Darunter: Material (vier grosse
+  Wörter, der Hintergrund ist das Makro), Werk (Bild steht, Zahlen zählen
+  hoch), drei Küchen mit Ort und Jahr, Ausstellung, Filmkorn über allem.
+  Schriften Instrument Serif und Manrope von Google Fonts, beim Bau selbst
+  ausliefern. Bilder im Chat vom 02.11.2026. Offen: Adrians Wort, sonst wie
+  ENT-078.

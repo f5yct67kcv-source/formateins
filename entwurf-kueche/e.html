@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Morach Küchen · Entwurf E «Mach das Licht an»</title>
+<meta name="robots" content="noindex">
+<!-- Entwurf (ENT-080). Variante E mit echter Bildwelt (KI, Higgsfield). Der Hero ist
+     eine dunkle Küche; der Zeiger ist das Licht und holt die beleuchtete Küche
+     aus dem Dunkel. Beim Scrollen geht das Licht ganz an, und der Titel wechselt
+     von der Aufforderung zur Behauptung. Darunter: Material zum Anfassen, das
+     Werk in Zahlen, drei Küchen mit Ort und Jahr, die Ausstellung. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--tinte:#f3eee6;--still:#a9a195;--akzent:#e4a553;--grund:#0b0a09}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--grund);color:var(--tinte);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400}
+/* Korn über allem, wie Film */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
+header{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:26px 48px;mix-blend-mode:difference}
+.logo{font-family:"Instrument Serif",serif;font-size:34px;letter-spacing:.02em;line-height:1}
+.logo small{display:block;font-family:Manrope;font-size:10px;letter-spacing:.3em;text-transform:uppercase;margin-top:4px;opacity:.8}
+nav ul{display:flex;gap:30px;list-style:none;padding:0;font-size:13px;letter-spacing:.06em}
+.knopf{border:1px solid currentColor;padding:11px 18px;border-radius:999px;font-size:13px;font-weight:500}
+
+/* ---- Hero: dunkel, der Zeiger ist das Licht */
+.hero{position:relative;height:100vh;min-height:720px;overflow:hidden;cursor:none}
+.hero .bild{position:absolute;inset:0;background-size:cover;background-position:center}
+.hero .dunkel{background-image:url(bilder/hero-dunkel.webp)}
+.hero .licht{background-image:url(bilder/hero-licht.webp);--x:50%;--y:50%;--r:0px;
+  -webkit-mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 0,#000 35%,rgba(0,0,0,.6) 60%,transparent 100%);
+  mask-image:radial-gradient(circle var(--r) at var(--x) var(--y),#000 0,#000 35%,rgba(0,0,0,.6) 60%,transparent 100%);
+  transition:opacity .9s ease}
+.hero.an .licht{-webkit-mask-image:none;mask-image:none}
+.hero .schein{position:absolute;left:var(--x);top:var(--y);width:14px;height:14px;border-radius:50%;background:var(--akzent);box-shadow:0 0 40px 18px rgba(228,165,83,.55);transform:translate(-50%,-50%);pointer-events:none;transition:opacity .4s}
+.hero.an .schein{opacity:0}
+.hero .text{position:absolute;left:48px;right:48px;bottom:64px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;pointer-events:none}
+.hero h1{font-size:clamp(56px,9vw,150px);line-height:.92;letter-spacing:-.02em;max-width:11ch}
+.hero h1 i{color:var(--akzent)}
+.hero h1 .b{display:none}
+.hero.an h1 .a{display:none}.hero.an h1 .b{display:block}
+.hero .neben{max-width:300px;font-size:14px;color:var(--still);line-height:1.5}
+.hero .neben b{display:block;color:var(--tinte);font-weight:500;margin-bottom:6px}
+.hero .hinweis{position:absolute;left:48px;top:46%;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--still);transition:opacity .5s}
+.hero.an .hinweis{opacity:0}
+.hero .schalter{position:absolute;right:48px;top:50%;transform:translateY(-50%);pointer-events:auto;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--still);background:none;border:0}
+.hero .schalter i{width:1px;height:90px;background:var(--still);display:block}
+.hero .schalter b{width:14px;height:14px;border-radius:50%;border:1px solid var(--still);display:block}
+.hero.an .schalter b{background:var(--akzent);border-color:var(--akzent);box-shadow:0 0 18px var(--akzent)}
+
+/* ---- Material: grosse Wörter, der Hintergrund ist das Material */
+.material{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 48px;overflow:hidden}
+.material .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .7s ease;transform:scale(1.04)}
+.material .bg.an{opacity:1}
+.material::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,10,9,.97) 0,rgba(11,10,9,.8) 45%,rgba(11,10,9,.25) 100%);z-index:1}
+.material>*{position:relative;z-index:2}
+.material .kopf{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--akzent);margin-bottom:28px}
+.material h2{font-size:clamp(36px,4.4vw,64px);line-height:1;letter-spacing:-.02em;max-width:12ch}
+.material p{margin-top:22px;max-width:420px;color:var(--still);font-size:16px;line-height:1.6}
+.material ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:0}
+.material li{border-top:1px solid rgba(243,238,230,.18);padding:14px 0;display:flex;align-items:baseline;justify-content:space-between;cursor:pointer}
+.material li:last-child{border-bottom:1px solid rgba(243,238,230,.18)}
+.material li span{font-family:"Instrument Serif",serif;font-size:clamp(44px,6.4vw,96px);line-height:1;letter-spacing:-.02em;color:rgba(243,238,230,.45);transition:color .3s,transform .3s}
+.material li small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--still)}
+.material li.an span{color:var(--tinte);transform:translateX(12px)}
+.material li.an small{color:var(--akzent)}
+
+/* ---- Werk: Bild steht, die Zahlen laufen */
+.werk{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.werk .bild{position:sticky;top:0;height:100vh;background:url(bilder/werk.webp) center/cover}
+.werk .zahlen{padding:160px 48px 160px 80px;display:flex;flex-direction:column;gap:120px}
+.werk .zahl b{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(80px,11vw,180px);line-height:.9;letter-spacing:-.03em;display:block}
+.werk .zahl span{display:block;margin-top:18px;max-width:360px;color:var(--still);font-size:16px;line-height:1.6}
+.werk .zahl span b{display:inline;font:inherit;color:var(--tinte);letter-spacing:0}
+
+/* ---- Küchen: drei Bilder mit Ort und Jahr */
+.kuechen{padding:160px 48px}
+.kuechen .kopf{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--akzent);margin-bottom:28px}
+.kuechen h2{font-size:clamp(40px,5vw,80px);line-height:.95;letter-spacing:-.02em;max-width:14ch;margin-bottom:64px}
+.reihe{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px;align-items:end}
+.karte{position:relative;overflow:hidden;aspect-ratio:4/3}
+.karte:first-child{aspect-ratio:16/10}
+.karte img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s ease}
+.karte:hover img{transform:scale(1.04)}
+.karte figcaption{position:absolute;left:20px;bottom:18px;right:20px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 1px 10px rgba(0,0,0,.7)}
+
+/* ---- Ausstellung */
+.ausstellung{position:relative;min-height:90vh;display:flex;align-items:center;padding:120px 48px;overflow:hidden}
+.ausstellung .bg{position:absolute;inset:0;background:url(bilder/hero-licht.webp) center/cover;opacity:.35;filter:saturate(.8)}
+.ausstellung::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(11,10,9,.2),rgba(11,10,9,.85))}
+.ausstellung>.auf{position:relative;max-width:900px}
+.ausstellung h2{font-size:clamp(48px,7vw,120px);line-height:.95;letter-spacing:-.02em}
+.ausstellung h2 i{color:var(--akzent)}
+.ausstellung p{margin-top:24px;color:var(--still);font-size:17px;max-width:480px;line-height:1.6}
+.ausstellung .cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+.ausstellung .knopf.voll{background:var(--tinte);color:var(--grund);border-color:var(--tinte)}
+footer{padding:40px 48px;font-size:12px;color:var(--still);display:flex;justify-content:space-between;border-top:1px solid rgba(243,238,230,.12)}
+
+/* Erscheinen beim Scrollen */
+.auf{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.auf.da{opacity:1;transform:none}
+
+@media(max-width:900px){
+  header{padding:18px 20px}nav ul{display:none}
+  .hero{min-height:0;cursor:auto}.hero .text{left:20px;right:20px;bottom:36px;grid-template-columns:1fr;gap:20px}
+  .hero h1{font-size:56px}.hero .hinweis{left:20px}.hero .schalter{right:20px}
+  .material{grid-template-columns:1fr;padding:100px 20px;gap:48px}.material li span{font-size:48px}
+  .werk{grid-template-columns:1fr}.werk .bild{position:relative;height:60vh}.werk .zahlen{padding:80px 20px;gap:64px}
+  .kuechen{padding:100px 20px}.reihe{grid-template-columns:1fr}
+  .ausstellung{padding:100px 20px}footer{padding:28px 20px;flex-direction:column;gap:8px}
+}
+@media(prefers-reduced-motion:reduce){.auf{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#">Morach<small>Küchen · Däniken</small></a>
+  <nav><ul><li><a href="#material">Material</a></li><li><a href="#werk">Werk</a></li><li><a href="#kuechen">Küchen</a></li><li><a href="#ausstellung">Ausstellung</a></li></ul></nav>
+  <a class="knopf" href="#ausstellung">Beratung buchen</a>
+</header>
+
+<section class="hero" id="hero">
+  <div class="bild dunkel"></div>
+  <div class="bild licht"></div>
+  <div class="schein"></div>
+  <div class="hinweis">Beweg den Zeiger</div>
+  <button class="schalter" aria-label="Licht an" id="schalter"><span>Licht</span><i></i><b></b></button>
+  <div class="text">
+    <h1 class="serif"><span class="a">Mach das <i>Licht</i> an.</span><span class="b">Jede dritte Küche im Land kommt <i>von hier.</i></span></h1>
+    <div class="neben"><b>Morach Küchen AG, seit 1952</b>Gebaut in Däniken, geplant für deinen Raum. Scroll, und du siehst, was wir damit meinen.</div>
+  </div>
+</section>
+
+<section class="material" id="material">
+  <div class="bg" data-m="eiche" style="background-image:url(bilder/eiche.webp)"></div>
+  <div class="bg" data-m="nuss" style="background-image:url(bilder/nuss.webp)"></div>
+  <div class="bg" data-m="stein" style="background-image:url(bilder/stein.webp)"></div>
+  <div class="bg" data-m="stahl" style="background-image:url(bilder/stahl.webp)"></div>
+  <div class="auf">
+    <div class="kopf">Material</div>
+    <h2 class="serif">Du wählst es mit den Händen, nicht aus dem Katalog.</h2>
+    <p>Fahr über ein Material, und du stehst davor. In der Ausstellung in Däniken liegt jedes als Muster auf dem Tisch, geölt, lackiert, gebürstet.</p>
+  </div>
+  <ul class="auf" id="materialliste">
+    <li data-m="eiche" class="an"><span>Eiche</span><small>furniert, geölt</small></li>
+    <li data-m="nuss"><span>Nussbaum</span><small>furniert, geölt</small></li>
+    <li data-m="stein"><span>Stein</span><small>Nero Assoluto, geschliffen</small></li>
+    <li data-m="stahl"><span>Stahl</span><small>gebürstet, 3 mm</small></li>
+  </ul>
+</section>
+
+<section class="werk" id="werk">
+  <div class="bild"></div>
+  <div class="zahlen">
+    <div class="zahl auf"><b class="serif" data-ziel="480">0</b><span><b>Leute</b> bauen in Däniken. Darunter 41 Lernende, und jede Kante geht durch eine Hand, bevor sie geht.</span></div>
+    <div class="zahl auf"><b class="serif" data-ziel="60">0</b><span><b>Küchen am Tag</b> verlassen das Werk. Keine zweimal gleich, jede nach Mass für einen Raum, den wir ausgemessen haben.</span></div>
+    <div class="zahl auf"><b class="serif" data-ziel="30">0</b><span><b>Jahre</b> halten wir für normal. Darum gibt es jedes Scharnier und jede Front auch dann noch, wenn du sie brauchst.</span></div>
+  </div>
+</section>
+
+<section class="kuechen" id="kuechen">
+  <div class="kopf auf">Küchen</div>
+  <h2 class="serif auf">Drei Räume, drei Familien, dieselbe Werkstatt.</h2>
+  <div class="reihe">
+    <figure class="karte auf"><img src="bilder/kueche-morgen.webp" alt="Küche in Salbei mit Eiche, Morgenlicht"><figcaption><span>Salbei und Eiche</span><span>Zug, 2026</span></figcaption></figure>
+    <figure class="karte auf"><img src="bilder/kueche-nacht.webp" alt="Küche in Nussbaum und Stahl bei Nacht"><figcaption><span>Nussbaum und Stahl</span><span>Luzern, 2025</span></figcaption></figure>
+    <figure class="karte auf"><img src="bilder/hero-licht.webp" alt="Küche in dunkler Eiche mit Steininsel"><figcaption><span>Eiche und Stein</span><span>Olten, 2025</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="ausstellung" id="ausstellung">
+  <div class="bg"></div>
+  <div class="auf">
+    <h2 class="serif">Komm vorbei. <i>Das Licht ist an.</i></h2>
+    <p>Ausstellung Däniken, Montag bis Samstag. Bring deinen Grundriss mit, oder einfach ein Foto. In einer Stunde weisst du, was deine Küche kostet.</p>
+    <div class="cta"><a class="knopf voll" href="#">Termin wählen</a><a class="knopf" href="#">Grundriss schicken</a></div>
+  </div>
+</section>
+<footer><span>Morach Küchen AG · Industriestrasse, 4658 Däniken</span><span>Entwurf, Firma erfunden, Bilder mit KI</span></footer>
+
+<script>
+const hero=document.getElementById('hero'),licht=hero.querySelector('.licht'),schein=hero.querySelector('.schein');
+let zx=innerWidth*.5,zy=innerHeight*.5,ix=zx,iy=zy,r=0,zr=0;
+function setzeLicht(x,y){zx=x;zy=y;zr=Math.max(260,Math.min(innerWidth,innerHeight)*.42);}
+hero.addEventListener('pointermove',e=>setzeLicht(e.clientX,e.clientY));
+hero.addEventListener('pointerleave',()=>{zr=0});
+hero.addEventListener('touchmove',e=>{const t=e.touches[0];setzeLicht(t.clientX,t.clientY)},{passive:true});
+(function lauf(){ix+=(zx-ix)*.12;iy+=(zy-iy)*.12;r+=(zr-r)*.1;licht.style.setProperty('--x',ix+'px');licht.style.setProperty('--y',iy+'px');licht.style.setProperty('--r',r+'px');schein.style.left=ix+'px';schein.style.top=iy+'px';requestAnimationFrame(lauf)})();
+function an(){hero.classList.add('an')}
+document.getElementById('schalter').addEventListener('click',()=>hero.classList.toggle('an'));
+addEventListener('scroll',()=>{if(scrollY>innerHeight*.25)an()},{passive:true});
+// Am Handy geht das Licht nach drei Sekunden von selbst an
+if(matchMedia('(hover:none)').matches)setTimeout(an,3000);
+// Material
+const liste=document.getElementById('materialliste');
+function material(m){document.querySelectorAll('.material .bg').forEach(b=>b.classList.toggle('an',b.dataset.m===m));liste.querySelectorAll('li').forEach(l=>l.classList.toggle('an',l.dataset.m===m));}
+liste.querySelectorAll('li').forEach(l=>{l.addEventListener('pointerenter',()=>material(l.dataset.m));l.addEventListener('click',()=>material(l.dataset.m));});
+material('eiche');
+// Erscheinen und Zahlen
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('da');const z=e.target.querySelector('[data-ziel]');if(z&&!z.dataset.lief){z.dataset.lief=1;const ziel=+z.dataset.ziel,t0=performance.now();(function tick(t){const p=Math.min(1,(t-t0)/1400);z.textContent=Math.round(ziel*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)})(t0);}io.unobserve(e.target)}),{threshold:.25});
+document.querySelectorAll('.auf').forEach(el=>io.observe(el));
+// Vorschau: ?licht=1 schaltet an, ?m=nuss wählt Material, ?x=..&y=.. setzt den Zeiger
+const q=new URLSearchParams(location.search);
+if(q.has('m'))material(q.get('m'));
+if(q.has('licht'))an();
+if(q.has('x')){setzeLicht(+q.get('x'),+q.get('y'));}
+if(q.has('sofort'))document.querySelectorAll('.auf').forEach(el=>{el.classList.add('da');const z=el.querySelector('[data-ziel]');if(z)z.textContent=z.dataset.ziel;});
+</script>
+</body>
+</html>
