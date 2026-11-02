@@ -1045,3 +1045,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   der Startseite, neben Google-Profil und Instagram (ENT-018, ENT-057). Adrian
   schickt die Links oder sie werden von hier aus gesucht. Geht auf `main` erst
   mit Adrians Wort.
+- [ ] **ENT-078** · 02.11.2026 · **VeSa Solar GmbH, Boniswil: Ideen für das
+  Redesign** von vesa-solar.ch (Adrian: «komplettes redisgn … die seite soll
+  sich von der konkurrenz abheben. Ideen findung»). Heutige Seite (Hostpoint-
+  Baukasten, sechs Seiten) und vier Schweizer Solar-Websites angeschaut. Befund:
+  alle Konkurrenten verkaufen Anlagen, niemand zeigt die Montage, und Montage
+  ist VeSas Kern. Vorschlag «Die Monteure» mit zehn Bausteinen (Referenzen
+  als Datenblätter, Zähler, Montage Tag für Tag, Film, Team zuoberst,
+  Baustellen-Ticker, Sonnendach-Link, Partnerseite, Richtpreise, Stellen) und
+  drei Gestaltungsrichtungen A Baustelle, B Seetal, C Modulraster.
+  `quellen/kunden/vesa-solar/IDEEN.md`. Offen: Adrian wählt Richtung, dann
+  drei Startseiten-Entwürfe als Bild; du oder Sie; Pflege der Referenzen;
+  Technik (Empfehlung Astro, Entscheid Adrian).
