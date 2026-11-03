@@ -1065,10 +1065,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `kostenrechner.html`, 310'989 Fälle ohne Abweichung; alle 80 festen Zahlen
   gefunden, mit geänderten Preisen stimmen sie mit dem, was die Seite im
   Browser rechnet (18 von 18); Schalten gegen ein nachgebautes GitHub, auch
-  wenn sich `main` dazwischen bewegt. Auf den Arbeitszweigen beider
-  Repositories. **Offen:** (1) Adrians Wort für `main` hier (Umbau
-  `preise.js`, ohne den der Betreiber nicht vergleichen und schalten kann) und
-  im Betreiber; (2) Secret `FORMATEINS_GITHUB_TOKEN` im Repository
+  wenn sich `main` dazwischen bewegt. **Live** mit Adrians Wort am
+  03.11.2026 («Ja, beides auf main pushen»): formateins `58b8c0e` (Lauf
+  «Website zu Hostpoint» #76 grün), Betreiber `bf5d96d` (Lauf «Betreiber zu
+  Hostpoint» #15 grün); Paketpreise auf formateins.ch unverändert, ohne
+  Skriptfehler (Playwright), `api/preise.php` ohne Anmeldung 401.
+  **Offen:** (2) Secret `FORMATEINS_GITHUB_TOKEN` im Repository
   formateins-betreiber (fein abgestuft, nur formateins, Contents lesen und
   schreiben, Actions lesen); ohne liest der Betreiber nur und schaltet nicht;
   (3) eine Anfrage aus dem Rechner mit ihren Antworten im Rechenweg öffnen
