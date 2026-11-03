@@ -1079,3 +1079,25 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   schwarze Zählerleiste) und `entwurf-d-dunkel.html` (#181818 wie die dunklen
   Dreiecke, Logo invertiert, weisse Zählerleiste). A, B, C bleiben als
   Vergleich liegen. Renderings in `bilder/`. Offen: hell oder dunkel.
+- [ ] **ENT-081** · 03.11.2026 · VeSa Solar, **Entwurf E: D mit Schalter und
+  Technik**. Adrian zu ENT-080: «D mit switch hell/dunkel. mir fehlt
+  allerdings das gewisse extra. aktuell ist es eine standart 0815 Seite.
+  Solar und Montage hat etwas mit technik zu tun. das heisst die seite darf
+  auch technisch mehr zeigen». `entwurf-e.html`: Hell/Dunkel-Schalter im
+  Kopf (merkt sich die Wahl, folgt sonst dem System). Drei technische Teile:
+  (1) Live-Tafel im Heldenbild mit Sonnenstand über Boniswil (Höhe, Azimut,
+  Auf- und Untergang, Tagesbogen, im Browser gerechnet), Wetter von
+  open-meteo (Einstrahlung, Wind, «Montagewetter»), dazu in der Zählerleiste
+  «kW jetzt» geschätzt aus dem Sonnenstand; (2) **«Dein Dach, wie der Bund
+  es sieht»**: Adresse eingeben, die Seite holt beim Bund (Sonnendach des
+  BFE über api3.geo.admin.ch, erlaubt Abfragen aus dem Browser, geprüft)
+  Fläche, Neigung, Ausrichtung, Eignung, Ertrag der grössten Dachfläche und
+  rechnet Module, kWp, Montagetage; Rütiweg 6 Boniswil liefert 159 m², 28°,
+  Ost, «Gut», 27'900 kWh/a, 55 Module; (3) **Montagesystem Schicht für
+  Schicht**: Schnittzeichnung Aufdach als SVG (Sparren, Ziegel, Dachhaken,
+  Schiene, Klemmen, Module), Schieber zieht die Schichten auseinander, Liste
+  daneben hebt die Schicht hervor. Referenzkarten mit technischen Angaben.
+  Renderings hell und dunkel in `bilder/`. Wetterdienst aus der Cloud nur
+  manchmal erreichbar (Proxy), im Browser sollte er antworten; die Tafel
+  fällt sonst sauber auf den Sonnenstand zurück. Offen: eigenes Repository
+  (Adrian fragt; aus dieser Sitzung nicht anlegbar, Vorschlag im Chat).
