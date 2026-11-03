@@ -1045,3 +1045,31 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   der Startseite, neben Google-Profil und Instagram (ENT-018, ENT-057). Adrian
   schickt die Links oder sie werden von hier aus gesucht. Geht auf `main` erst
   mit Adrians Wort.
+
+- [ ] **ENT-078** · 03.11.2026 · Betreiber-Bereich: **eigener Bereich «Preise»**
+  mit der Preislogik des Kostenrechners, transparent und mit Eingriffen von
+  Hand (Adrian: Ansätze, Regeln und einzelne Fälle ändern; nur im Betreiber,
+  mit Option auf Live-Schaltung; eigener Bereich). Aus zwei Bildern Variante A:
+  Reiter Rechner (Fall, Rechenweg Zeile für Zeile, «Von Hand», Position dazu,
+  «Als Offerte übernehmen»), Ansätze (mit «Leistungskatalog abgleichen»),
+  Regeln, Verlauf; oben ein Balken, ob der Betreiber von formateins.ch
+  abweicht. Live-Schaltung über einen Commit auf `main` (Adrian: «Commit-Weg
+  passt»): der Knopf zeigt zuerst alt → neu und jede feste Zahl, die sich
+  ändert, und schreibt dann `preise.js` samt den festen Zahlen in
+  `preise.html`, `llms.txt` und `website-kosten.html`; danach läuft «Website
+  zu Hostpoint» wie bei jedem Push. **Hier in formateins:** `preise.js` trägt
+  die Preise neu als JSON zwischen `PREISE-ANFANG` und `PREISE-ENDE`, dazu
+  `rahmen` (−10 %/+15 %, auf 100) statt fest im Code. Werte und Rahmen
+  unverändert (Vergleich alt/neu, 12'000 Beträge), Seite sieht gleich aus.
+  **Geprüft:** Rechenweg im Betreiber gegen den echten Code von
+  `kostenrechner.html`, 310'989 Fälle ohne Abweichung; alle 80 festen Zahlen
+  gefunden, mit geänderten Preisen stimmen sie mit dem, was die Seite im
+  Browser rechnet (18 von 18); Schalten gegen ein nachgebautes GitHub, auch
+  wenn sich `main` dazwischen bewegt. Auf den Arbeitszweigen beider
+  Repositories. **Offen:** (1) Adrians Wort für `main` hier (Umbau
+  `preise.js`, ohne den der Betreiber nicht vergleichen und schalten kann) und
+  im Betreiber; (2) Secret `FORMATEINS_GITHUB_TOKEN` im Repository
+  formateins-betreiber (fein abgestuft, nur formateins, Contents lesen und
+  schreiben, Actions lesen); ohne liest der Betreiber nur und schaltet nicht;
+  (3) eine Anfrage aus dem Rechner mit ihren Antworten im Rechenweg öffnen
+  (Frage 4, «passt vorerst»), braucht die Antworten in der Anfrage.

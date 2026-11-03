@@ -1,53 +1,79 @@
-// Preise an einer Stelle. Die Paketkarten rechnen damit, spaeter auch der
-// Kostenrechner, damit beide nie auseinanderlaufen. Beim Livegang die Ansaetze
-// aus kostenrechner.html (const preis) hierher ziehen und dort einbinden.
+// Preise an einer Stelle. Die Paketkarten und der Kostenrechner rechnen damit,
+// damit beide nie auseinanderlaufen.
 //
-// Website: dieselben Ansaetze wie im Rechner heute.
-// Marke und Video: Entwurf vom 28.10.2026, Lage rund 55-60 % vom Einstieg
-// einer Kleinagentur (Faustregel aus dem Hochzeitsfilm: 2'500 gegen 4'500).
+// Der Block zwischen PREISE-ANFANG und PREISE-ENDE ist reines JSON und gehoert
+// dem Betreiber-Bereich (ENT-078): Dort werden Ansaetze und Regeln gepflegt und
+// mit «Auf formateins.ch schalten» als Commit hierher geschrieben, zusammen mit
+// den festen Zahlen in preise.html, llms.txt und website-kosten.html. Von Hand
+// aendern geht weiterhin, dann zeigt der Betreiber die Abweichung an. Keine
+// Kommentare in den Block, JSON kennt keine.
+//
+// Was die Schluessel bedeuten:
+//   website.grund       Grundpreis nach Umfang (eine Seite, 3 bis 5, ab 6)
+//   website.texteTeil   Texte teilweise vorhanden; website.texte: Texte schreibe ich
+//   website.bilderTeil  Bilder teilweise vorhanden
+//   website.logo        nur Logo oder gar keins: Farben und Schrift festlegen
+//   website.sprache     zweite Sprache: Aufbau, Umschalter, Pflege doppelt, ohne Uebersetzung
+//   website.buchung     fremden Buchungsdienst einrichten und einbinden
+//   website.fotos       halber Tag vor Ort, Anfahrt bis 30 km
+//   website.ueberarbeiten  Faktor, wenn eine bestehende Seite ueberarbeitet statt neu gebaut wird
+//   marke               Erscheinungsbild = Logo, Farben, Schriften, Regeln auf einem
+//                       Markenblatt; Drucksachen = dazu Visitenkarte, Briefbogen, Signatur.
+//                       Name entschieden am 28.10.2026: «Logo und Erscheinungsbild».
+//                       social: Vorlagen fuer Social Media
+//   video               Lage rund 55-60 % vom Einstieg einer Kleinagentur (Entwurf
+//                       28.10.2026); format: zweites Seitenverhaeltnis; schnitte: drei
+//                       Kurzclips aus dem Material; stimme: professionelle Sprecherstimme
+//   weitere             Kombi: die teuerste Richtung voll, jede weitere und alle Optionen
+//                       mal diesen Faktor
+//   eile, eileTage      fester Termin in weniger als eileTage Tagen: mal eile
+//   rahmen              angezeigter Rahmen: Punktwert mal unten (abgerundet) bis mal oben
+//                       (aufgerundet), auf runden Franken
+// PREISE-ANFANG
 const PREISE = {
-  website: {
-    //          eine  firma  gross
-    grund:     { eine:1650, firma:3050, gross:5100 },
-    texteTeil: { eine:350,  firma:600,  gross:1000 },  // Texte teilweise vorhanden
-    texte:     { eine:700,  firma:1200, gross:2000 },  // Texte schreibe ich
-    bilderTeil:{ eine:250,  firma:400,  gross:600  },  // Bilder teilweise vorhanden
-    logo:      { eine:300,  firma:300,  gross:300  },  // Farben und Schrift festlegen
-    // Zweite Sprache: Aufbau, Umschalter und Pflege doppelt, ohne Uebersetzung.
-    // Buchung: fremden Dienst einrichten und einbinden, kaum abhaengig von der Groesse.
-    sprache:   { eine:450,  firma:800,  gross:1300 },
-    buchung:   { eine:350,  firma:350,  gross:350  },
-    fotos:650,                                         // halber Tag vor Ort, Anfahrt bis 30 km
-    ueberarbeiten:0.8                                  // bestehende Seite ueberarbeiten statt neu bauen
+  "website": {
+    "grund": { "eine": 1650, "firma": 3050, "gross": 5100 },
+    "texteTeil": { "eine": 350, "firma": 600, "gross": 1000 },
+    "texte": { "eine": 700, "firma": 1200, "gross": 2000 },
+    "bilderTeil": { "eine": 250, "firma": 400, "gross": 600 },
+    "logo": { "eine": 300, "firma": 300, "gross": 300 },
+    "sprache": { "eine": 450, "firma": 800, "gross": 1300 },
+    "buchung": { "eine": 350, "firma": 350, "gross": 350 },
+    "fotos": 650,
+    "ueberarbeiten": 0.8
   },
-  marke: {
-    // Erscheinungsbild = Logo, Farben, Schriften, Regeln, zusammengefasst auf einem
-    // Markenblatt. Drucksachen = Erscheinungsbild plus Visitenkarte, Briefbogen,
-    // Vorlagen, Signatur. Name entschieden am 28.10.2026: Die Leistung heisst
-    // "Logo und Erscheinungsbild", das Markenblatt ist, was man am Ende bekommt.
-    auffrischung:900, erscheinungsbild:1900, drucksachen:2900,
-    social:400                                        // Vorlagen fuer Social Media
+  "marke": {
+    "auffrischung": 900,
+    "erscheinungsbild": 1900,
+    "drucksachen": 2900,
+    "social": 400
   },
-  video: {
-    //            kurz  mittel lang
-    imagefilm: { kurz:1800, mittel:2700, lang:3800 },
-    animiert:  { kurz:1300, mittel:2400, lang:3500 },
-    produkt:   { kurz:1300, mittel:2000, lang:2900 },
-    format:    { kurz:300,  mittel:400,  lang:500  }, // zweites Seitenverhaeltnis
-    schnitte:600,                                     // drei Kurzclips aus dem Material
-    stimme:450                                        // professionelle Sprecherstimme
+  "video": {
+    "imagefilm": { "kurz": 1800, "mittel": 2700, "lang": 3800 },
+    "animiert": { "kurz": 1300, "mittel": 2400, "lang": 3500 },
+    "produkt": { "kurz": 1300, "mittel": 2000, "lang": 2900 },
+    "format": { "kurz": 300, "mittel": 400, "lang": 500 },
+    "schnitte": 600,
+    "stimme": 450
   },
-  // Kombi: die teuerste Richtung voll, jede weitere 20 % guenstiger.
-  weitere:0.8,
-  eile:1.15, eileTage:42             // fester Termin in weniger als sechs Wochen
+  "weitere": 0.8,
+  "eile": 1.15,
+  "eileTage": 42,
+  "rahmen": {
+    "unten": 0.9,
+    "oben": 1.15,
+    "runden": 100
+  }
 };
+// PREISE-ENDE
 
 // Wohin "berechnen" und "Im Rechner weiter" fuehren.
 const RECHNER = 'kostenrechner';
 
-// Rahmen wie im Rechner: -10 % bis +15 %, auf hundert gerundet.
+// Rahmen wie im Rechner: heute -10 % bis +15 %, auf hundert gerundet.
 function rahmen(punkt){
-  return [Math.floor(punkt * 0.9 / 100) * 100, Math.ceil(punkt * 1.15 / 100) * 100];
+  const { unten, oben, runden } = PREISE.rahmen;
+  return [Math.floor(punkt * unten / runden) * runden, Math.ceil(punkt * oben / runden) * runden];
 }
 
 // Kern je Richtung und Summe der Optionen rein, einzeln und aus einer Hand raus.
