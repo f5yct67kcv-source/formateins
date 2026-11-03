@@ -1101,3 +1101,13 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   manchmal erreichbar (Proxy), im Browser sollte er antworten; die Tafel
   fällt sonst sauber auf den Sonnenstand zurück. Offen: eigenes Repository
   (Adrian fragt; aus dieser Sitzung nicht anlegbar, Vorschlag im Chat).
+- [x] **ENT-082** · 03.11.2026 · VeSa Solar **zieht ins eigene Repository**
+  `f5yct67kcv-source/vesa-solar` (Adrian: «MAchen wir ein eigenes REpo?»,
+  dann «repo ist angelegt»). Ideen, Entwürfe A bis E, Fotos und Renderings
+  übernommen, Bildpfade angepasst, alle Entwürfe laden ohne Fehler, die
+  Dach-Abfrage in E antwortet. Eigenes Logbuch mit Nummern VES-001 bis
+  VES-008, eigene `CLAUDE.md` und `README.md`. Erster Commit `ef37d9f` auf
+  `main` dort, kein Deploy. Hier bleibt nur
+  `quellen/kunden/vesa-solar/LIESMICH.md` als Verweis. ENT-078 bis ENT-081
+  sind damit abgelöst, ihre offenen Punkte stehen dort als VES-005 bis
+  VES-008.
