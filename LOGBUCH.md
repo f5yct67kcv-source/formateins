@@ -1070,7 +1070,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «Website zu Hostpoint» #76 grün), Betreiber `bf5d96d` (Lauf «Betreiber zu
   Hostpoint» #15 grün); Paketpreise auf formateins.ch unverändert, ohne
   Skriptfehler (Playwright), `api/preise.php` ohne Anmeldung 401.
-  **Offen:** (2) Secret `FORMATEINS_GITHUB_TOKEN` im Repository
+  Secret `FORMATEINS_GITHUB_TOKEN` von Adrian eingetragen, Lauf «Betreiber
+  zu Hostpoint» #15 neu gestartet (Versuch 2 grün, «eingetragen in
+  kern/preise.php»). Die erste Schaltung aus dem Betreiber ist der Beleg, dass
+  der Schlüssel die Rechte hat. **Erledigt war:** (2) Secret `FORMATEINS_GITHUB_TOKEN` im Repository
   formateins-betreiber (fein abgestuft, nur formateins, Contents lesen und
   schreiben, Actions lesen); ohne liest der Betreiber nur und schaltet nicht;
   (3) eine Anfrage aus dem Rechner mit ihren Antworten im Rechenweg öffnen
