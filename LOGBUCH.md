@@ -1067,3 +1067,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Handy in `bilder/`. Zahlen im Entwurf geschätzt, ausser Muri 292 und
   Luzern 189. Nichts davon geht auf den Webserver (liegt unter `quellen/`).
   Offen: Adrian wählt die Richtung oder mischt.
+- [ ] **ENT-080** · 03.11.2026 · VeSa Solar, **Entwurf D nach dem Logo**.
+  Adrian zu ENT-079: «Zuerst halte dich an das Logo. Die Idee mit den Zahlen
+  finde ich gut. Von de Farbe nicht. Orientiere dich an den Farben des Logos».
+  Das Logo ist reines Grau: Schwarz, #181818, #484848, #808080, #989898,
+  #b0b0b0, #c8c8c8, Weiss; Dreieck aus neun Dreiecken, «VeSa» in Serife,
+  «Solar GmbH» in Handschrift. Darum Entwurf D ohne Akzentfarbe, Farbe nur
+  aus den Fotos, Serife für Titel und Zahlen (Source Serif 4), echtes Logo
+  im Kopf, Dreieck-Muster aus dem Logo als Ecke am Heldenbild. Zahlen bleiben
+  (Zählerleiste, Datenblätter). Zwei Fassungen: `entwurf-d-hell.html` (Weiss,
+  schwarze Zählerleiste) und `entwurf-d-dunkel.html` (#181818 wie die dunklen
+  Dreiecke, Logo invertiert, weisse Zählerleiste). A, B, C bleiben als
+  Vergleich liegen. Renderings in `bilder/`. Offen: hell oder dunkel.
