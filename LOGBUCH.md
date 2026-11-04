@@ -1078,3 +1078,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   schreiben, Actions lesen); ohne liest der Betreiber nur und schaltet nicht;
   (3) eine Anfrage aus dem Rechner mit ihren Antworten im Rechenweg öffnen
   (Frage 4, «passt vorerst»), braucht die Antworten in der Anfrage.
+
+- [x] **ENT-083** · 04.11.2026 · Startseite, Stand «Video»: Im Reel füllt das
+  Erklärvideo jetzt das Telefon (Adrian wählt A: Telefon bleibt 1:2.164, Reel
+  neu gerechnet). `video-reel-ton` und `video-reel-ohne-titel-ton` (mp4,
+  webm): Teil 4,5–8 s aus der Fassung ohne Titel auf volle Höhe geschnitten
+  (450 × 800 ab 45/80 auf 540 × 960) und um 50 px nach rechts gesetzt, damit
+  «Natur / Burgen / Küste» im sichtbaren Ausschnitt (x 48–492) stehen; rechts
+  schneidet das Telefon dafür Teile der Bildchen ab. In der Fassung mit Titel
+  «Beispiel Erklärvideo» neu mit `titel.html` (Zweig
+  claude/pensive-albattani-870hom) an derselben Stelle wie die anderen Titel.
+  Ton und die anderen drei Teile unverändert übernommen (neu kodiert, H.264
+  440 kbit/s, VP9 500 kbit/s). Auf Adrians Wort («passt, auf main pushen») live am 04.11.2026.
