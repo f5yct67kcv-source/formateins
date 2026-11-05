@@ -1356,3 +1356,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   ein Commit auf main gelegt (der Zweig enthielt ENT-083 schon, die
   Geschichte bleibt auf claude/eager-thompson-m9sxgm). Lauf und Seite siehe
   Nachtrag.
+  Nachtrag 05.11.2026: main 90fed79, Lauf «Website zu Hostpoint» Nr. 81
+  erfolgreich. Geprüft auf www.formateins.ch: /social-media 200 ohne noindex,
+  Preisseite mit Karte, Boost und FAQ, preise.js mit Block social,
+  Vorschaubild und sm-Bilder 200, /entwurf-social-media 404. Betreiber noch
+  nicht auf main (Freigabe in der Sitzung blockiert, Adrian entscheidet).
+  Zu ENT-079, 05.11.2026 (Adrian, Variante B): Einträge in den Kästen der
+  drei Reiter auf der Startseite (Formate, Was du bekommst) mit rundem Pfeil
+  rechts, beim Darüberfahren orange gefüllt; zeigt, dass eine Seite dahinter
+  liegt. Bei Webdesign nicht, dort steht schon «Was sie kostet →».
