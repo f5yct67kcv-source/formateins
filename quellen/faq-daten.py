@@ -13,7 +13,7 @@ def text(roh):
 
 # Ohne Argumente die Live-Seiten; mit Dateinamen als Argument nur diese
 # (zum Beispiel die Entwuerfe: python3 quellen/faq-daten.py entwurf.html).
-for name in sys.argv[1:] or ['index.html', 'kostenrechner.html', 'website-kosten.html']:
+for name in sys.argv[1:] or ['index.html', 'kostenrechner.html', 'website-kosten.html', 'social-media.html', 'preise.html']:
     pfad = wurzel / name
     s = pfad.read_text(encoding='utf-8')
     faq = s[re.search(r'class="faq[" ]', s).start():]

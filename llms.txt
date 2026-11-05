@@ -1,8 +1,8 @@
 # formateins
 
-> formateins ist das Studio von Adrian von Arb in Trimbach bei Olten (Kanton Solothurn). Es macht Websites, Branding (Logo und Erscheinungsbild) und Video für Selbstständige, kleine Unternehmen und Vereine in der Region Olten, Solothurn und Aargau. Alles aus einer Hand, mit Festpreis nach einem kurzen Gespräch.
+> formateins ist das Studio von Adrian von Arb in Trimbach bei Olten (Kanton Solothurn). Es macht Websites, Branding (Logo und Erscheinungsbild), Video und Social Media für Selbstständige, kleine Unternehmen und Vereine in der Region Olten, Solothurn und Aargau. Alles aus einer Hand, mit Festpreis nach einem kurzen Gespräch.
 
-Diese Datei fasst die Seite www.formateins.ch als Text zusammen. Stand: 28.10.2026. Bei Abweichungen gilt die Seite selbst.
+Diese Datei fasst die Seite www.formateins.ch als Text zusammen. Stand: 05.11.2026. Bei Abweichungen gilt die Seite selbst.
 
 ## Kontakt
 
@@ -37,6 +37,15 @@ Pakete (mehr als eine Richtung zusammen: die teuerste voll, jede weitere 20 % g�
 - Vollformat, Branding mit Drucksachen und Firmenwebsite: CHF 4'800 – 6'200, fertig in 5 bis 7 Wochen
 - Breitbild, Branding, Website und Imagefilm mit Drehtag vor Ort: CHF 6'700 – 8'700, fertig in 6 bis 8 Wochen
 
+Social Media (Instagram und Facebook, TikTok oder YouTube auf Wunsch), fester Preis pro Monat, monatlich kündbar, keine Einrichtungsgebühr:
+- Anlauf, 2 Beiträge im Monat: CHF 450 pro Monat
+- Schwung, 4 Beiträge im Monat, dazu Stories: CHF 850 pro Monat
+- Vollgas, 8 Beiträge im Monat, dazu Stories: CHF 1'550 pro Monat
+- Grundcheck einzeln: CHF 290 einmalig, angerechnet bei einer Stufe innert 30 Tagen
+- Mit Website, Branding oder Video zusammen: die ersten drei Monate 20 % günstiger
+
+Kombirabatt und Rabatt bei Social Media gelten nur, wenn gleichzeitig gebucht wird. Kommt später etwas dazu, gilt der Einzelpreis.
+
 Foto und Video vor Ort sind in jedem Bereich als Zusatz möglich und werden separat offeriert. Websites unter CHF 1'000 gibt es nicht.
 
 ## So läuft es ab
@@ -57,6 +66,7 @@ Foto und Video vor Ort sind in jedem Bereich als Zusatz möglich und werden sepa
 
 - [Startseite](https://www.formateins.ch/): Webdesign, Branding und Video aus Olten, Arbeiten, Ablauf, Fragen
 - [Preise](https://www.formateins.ch/preise): alle Preise einzeln und als Paket
+- [Social Media](https://www.formateins.ch/social-media): Kanäle betreuen lassen, drei Stufen pro Monat, Ablauf am Beispiel
 - [Kostenrechner](https://www.formateins.ch/kostenrechner): Preisrahmen in wenigen Fragen, ohne Konto
 - [Website erstellen lassen: Was kostet das?](https://www.formateins.ch/website-kosten): Ratgeber zu Website-Preisen und was sie bewegt
 - [Gespräch vereinbaren](https://www.formateins.ch/gespraech)

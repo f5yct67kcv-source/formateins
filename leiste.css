@@ -8,7 +8,7 @@
 .rechts{display:flex;align-items:center;gap:clamp(22px,3vw,44px)}
 .menu{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px);list-style:none;margin:0;padding:0}
 .menu li{margin:0}
-.menu a{font-size:var(--txt-s);font-weight:600;letter-spacing:.01em;color:var(--auf-grund-still);text-decoration:none;transition:color .2s ease}
+.menu a{white-space:nowrap;font-size:var(--txt-s);font-weight:600;letter-spacing:.01em;color:var(--auf-grund-still);text-decoration:none;transition:color .2s ease}
 .menu a:hover,.menu a[aria-current="page"],.menu a[aria-current="true"]{color:var(--auf-grund)}
 .menu a[aria-current="page"],.menu a[aria-current="true"]{text-decoration:underline;text-decoration-color:var(--signal);text-underline-offset:6px;text-decoration-thickness:1.5px}
 
@@ -18,7 +18,7 @@
   display:inline-flex;align-items:center;gap:8px;
   background:var(--signal);color:#15202a;
   font-weight:700;font-size:var(--txt-s);letter-spacing:-.005em;
-  padding:12px 18px;border:0;border-radius:0;cursor:pointer;text-decoration:none;
+  padding:12px 18px;border:0;border-radius:0;cursor:pointer;text-decoration:none;white-space:nowrap;
   transition:background .2s ease,transform .2s ease;
 }
 .rechts .knopf:hover{background:#ff9f6d;color:#15202a;transform:translateY(-1px)}
@@ -35,7 +35,9 @@
 .menuknopf i::before{top:8px;width:14px;background:var(--signal)}
 .menuknopf i::after{top:16px;width:26px}
 
-@media(max-width:760px){
+/* Seit Social Media im Menue (fuenf Ziele, ENT-079) schon unter 840 statt 760
+   Pixel, sonst bricht die Leiste zwischen 761 und rund 800 Pixel um. */
+@media(max-width:840px){
   .menu{display:none}
   .menuknopf{display:flex}
   /* Oben steht der orange Knopf schon im Hero, einmal reicht. In der

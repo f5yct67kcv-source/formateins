@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>Kostenrechner für Website, Branding und Video | formateins</title>
-<meta name="description" content="Preisrahmen für Website, Branding und Video in wenigen Fragen. Ohne Konto, ohne Telefonnummer. Danach ein verbindliches Festpreisangebot.">
+<title>Kostenrechner für Website, Branding, Video und Social Media | formateins</title>
+<meta name="description" content="Preisrahmen für Website, Branding und Video, Monatspreis für Social Media, in wenigen Fragen. Ohne Konto, ohne Telefonnummer. Danach ein verbindliches Festpreisangebot.">
 
 <!-- ============================================================
      SEO-Grundlage. Seit dem Livegang (26.10.2026) indexierbar, mit
@@ -24,8 +24,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_CH">
 <meta property="og:site_name" content="formateins">
-<meta property="og:title" content="Kostenrechner für Website, Branding und Video | formateins">
-<meta property="og:description" content="In wenigen Fragen zum Preisrahmen für Website, Branding und Video. Ohne Konto, ohne Telefonnummer.">
+<meta property="og:title" content="Kostenrechner für Website, Branding, Video und Social Media | formateins">
+<meta property="og:description" content="In wenigen Fragen zum Preisrahmen für Website, Branding und Video und zum Monatspreis für Social Media. Ohne Konto, ohne Telefonnummer.">
 <!-- WhatsApp und Facebook brauchen eine volle Adresse, relativ zeigen
      manche kein Bild. -->
 <meta property="og:image" content="https://www.formateins.ch/teilen.png">
@@ -388,6 +388,13 @@ footer nav a:hover{color:var(--signal)}
 .spar{display:inline-block;padding:3px 11px;border-radius:99px;background:rgba(255,138,76,.12);color:var(--signal);font-size:var(--txt-s);font-weight:700;white-space:nowrap}
 
 /* Dazu passt: nur bei einer einzelnen Richtung. */
+/* Social Media (ENT-079): Monatspreis getrennt vom Rahmen. */
+.monat{margin-top:22px;padding:18px 20px;border:1px solid var(--signal);background:rgba(255,138,76,.05)}
+.monat[hidden],.resultat .betrag[hidden]{display:none}
+.monat .monat-titel{font-size:var(--txt-xs);letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--signal)}
+.monat .monat-betrag{margin-top:6px;font-family:var(--serif);font-weight:900;font-size:1.6rem;line-height:1.25}
+.monat .monat-betrag em{font-style:normal;font-family:var(--sans);font-weight:600;font-size:.6em;color:var(--auf-grund-still)}
+.monat .monat-text{margin-top:6px;font-size:var(--txt-m);color:var(--auf-grund-still)}
 .dazupasst{margin-top:22px;padding:18px 20px;border:1px dashed var(--linie-hell);display:flex;flex-direction:column;align-items:flex-start;gap:14px}
 .dazupasst[hidden]{display:none}
 .dazupasst p{font-size:var(--txt-m);color:var(--auf-grund-still)}
@@ -402,7 +409,7 @@ footer nav a:hover{color:var(--signal)}
   <div class="spalte">
     <a class="logo" href="./"><span class="s">format</span><span class="p">eins</span></a>
     <nav class="rechts" aria-label="Seite">
-      <ul class="menu"><li><a href="./#leistungen">Bereiche</a></li><li><a href="./#arbeiten">Arbeiten</a></li><li><a href="preise">Preise</a></li><li><a href="./#fragen">Fragen</a></li></ul>
+      <ul class="menu"><li><a href="./#leistungen">Bereiche</a></li><li><a href="social-media">Social Media</a></li><li><a href="./#arbeiten">Arbeiten</a></li><li><a href="preise">Preise</a></li><li><a href="./#fragen">Fragen</a></li></ul>
       <button class="menuknopf" type="button" aria-expanded="false" aria-controls="menuoffen" aria-label="Menü"><i aria-hidden="true"></i></button>
       <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
     </nav>
@@ -412,7 +419,7 @@ footer nav a:hover{color:var(--signal)}
 
 <div class="menuoffen" id="menuoffen" hidden>
   <div class="menukopf"><span class="logo"><span class="s">format</span><span class="p">eins</span></span><button class="zu" type="button" aria-label="Menü schliessen">×</button></div>
-  <ul><li><a href="./#leistungen">Bereiche</a></li><li><a href="./#arbeiten">Arbeiten</a></li><li><a href="preise">Preise</a></li><li><a href="./#fragen">Fragen</a></li></ul>
+  <ul><li><a href="./#leistungen">Bereiche</a></li><li><a href="social-media">Social Media</a></li><li><a href="./#arbeiten">Arbeiten</a></li><li><a href="preise">Preise</a></li><li><a href="./#fragen">Fragen</a></li></ul>
   <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
   <p class="leise"><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a> · <a href="tel:+41796868486">079 686 84 86</a></p>
 </div>
@@ -434,6 +441,7 @@ footer nav a:hover{color:var(--signal)}
         <button class="antwort" data-wert="website" data-text="Website"><span class="kreis"></span><span><b>Website</b><span>Die Seite, die zeigt, was du machst, auf jedem Gerät.</span></span></button>
         <button class="antwort" data-wert="marke" data-text="Branding"><span class="kreis"></span><span><b>Branding</b><span>Logo, Farben, Schriften. Damit man dich überall wiedererkennt.</span></span></button>
         <button class="antwort" data-wert="video" data-text="Video"><span class="kreis"></span><span><b>Video</b><span>Imagefilm, Produktvideo oder animierter Spot.</span></span></button>
+        <button class="antwort" data-wert="social" data-text="Social Media"><span class="kreis"></span><span><b>Social Media</b><span>Jeden Monat neue Beiträge auf deinen Kanälen. Monatlich kündbar.</span></span></button>
         <button class="antwort" data-wert="unklar" data-text="Weiss ich noch nicht"><span class="kreis"></span><span><b>Weiss ich noch nicht</b><span>Sag mir, was sich ändern soll. Ich schlage dir etwas vor.</span></span></button>
       </div>
     </div>
@@ -449,6 +457,7 @@ footer nav a:hover{color:var(--signal)}
         <button class="antwort" data-wert="website" data-text="Gefunden werden"><span class="kreis"></span><span><b>Man soll mich im Netz finden.</b><span>Und dort sehen, was ich mache und wie man mich erreicht.</span></span></button>
         <button class="antwort" data-wert="marke" data-text="Wiedererkannt werden"><span class="kreis"></span><span><b>Man soll mich wiedererkennen.</b><span>Auf der Visitenkarte, am Auto, in der Offerte. Überall gleich.</span></span></button>
         <button class="antwort" data-wert="video" data-text="Zeigen, wie es ist"><span class="kreis"></span><span><b>Man soll sehen, wie es bei mir ist.</b><span>Bewegte Bilder erklären schneller als jeder Text.</span></span></button>
+        <button class="antwort" data-wert="social" data-text="Regelmässig gesehen werden"><span class="kreis"></span><span><b>Man soll regelmässig etwas von mir sehen.</b><span>Auf Instagram und Facebook, ohne dass ich selbst Zeit dafür brauche.</span></span></button>
       </div>
     </div>
 
@@ -633,6 +642,42 @@ footer nav a:hover{color:var(--signal)}
       </div>
     </div>
 
+    <!-- ===== Social Media (ENT-079) ===== -->
+    <div class="frage" data-schluessel="social_stand" data-ast="social">
+      <span class="ziffer" aria-hidden="true"></span>
+      <p class="etikett"><b></b><i aria-hidden="true"></i>Social Media</p>
+      <h1>Wie steht es um deine Kanäle?</h1>
+      <p class="hilfe">Damit ich weiss, wo wir anfangen.</p>
+      <div class="antworten">
+        <button class="antwort" data-wert="eingeschlafen" data-text="Eingeschlafen"><span class="kreis"></span><span><b>Es gibt sie, aber es kommt kaum etwas</b><span>Der letzte Beitrag ist eine Weile her.</span></span></button>
+        <button class="antwort" data-wert="laufend" data-text="Läuft, aber ohne Zeit"><span class="kreis"></span><span><b>Ich poste, aber mir fehlt die Zeit</b><span>Es soll regelmässiger und besser aussehen.</span></span></button>
+        <button class="antwort" data-wert="keine" data-text="Noch keine Kanäle"><span class="kreis"></span><span><b>Es gibt noch keine</b><span>Ich richte die Profile mit dir ein.</span></span></button>
+      </div>
+    </div>
+
+    <div class="frage" data-schluessel="social_menge" data-ast="social">
+      <span class="ziffer" aria-hidden="true"></span>
+      <p class="etikett"><b></b><i aria-hidden="true"></i>Social Media</p>
+      <h1>Wie viel soll jeden Monat kommen?</h1>
+      <p class="hilfe">Regelmässig zählt mehr als viel. Du kannst die Stufe jederzeit wechseln.</p>
+      <div class="antworten">
+        <button class="antwort" data-wert="stufe1" data-text="Anlauf, 2 Beiträge im Monat"><span class="kreis"></span><span><b>Anlauf: 2 Beiträge im Monat</b><span>Ein Clip, der dein Geschäft zeigt, und ein Beitrag aus deinem Alltag. Dazu ein Grundcheck und eine gemeinsame Strategie.</span></span></button>
+        <button class="antwort" data-wert="stufe2" data-text="Schwung, 4 Beiträge im Monat"><span class="kreis"></span><span><b>Schwung: 4 Beiträge im Monat</b><span>Jede Woche etwas, dazu Stories, ein aufgeräumtes Profil und Vorlagen in deinem Erscheinungsbild.</span></span></button>
+        <button class="antwort" data-wert="stufe3" data-text="Vollgas, 8 Beiträge im Monat"><span class="kreis"></span><span><b>Vollgas: 8 Beiträge im Monat</b><span>Jede Woche zwei Beiträge, dazu Stories, kurzfristige Beiträge und ein Themenplan fürs Quartal.</span></span></button>
+      </div>
+    </div>
+
+    <div class="frage" data-schluessel="social_dreh" data-ast="social">
+      <span class="ziffer" aria-hidden="true"></span>
+      <p class="etikett"><b></b><i aria-hidden="true"></i>Social Media</p>
+      <h1>Woher kommen die Bilder?</h1>
+      <p class="hilfe">Handyfotos reichen. Ein Drehtag bringt Material für viele Beiträge.</p>
+      <div class="antworten">
+        <button class="antwort" data-wert="handy" data-text="Fotos und Videos per WhatsApp"><span class="kreis"></span><span><b>Ich schicke Fotos und Handyvideos</b><span>Per WhatsApp, so wie sie im Alltag entstehen.</span></span></button>
+        <button class="antwort" data-wert="dreh" data-text="Dazu ein Drehtag vor Ort"><span class="kreis"></span><span><b>Dazu ein Drehtag vor Ort</b><span>Ich komme vorbei und filme und fotografiere. Separat offeriert.</span></span></button>
+      </div>
+    </div>
+
     <!-- ===== Zeitrahmen, einmal fuer alles ===== -->
     <div class="frage" data-schluessel="zeit" data-ast="zeit">
       <span class="ziffer" aria-hidden="true"></span>
@@ -661,6 +706,13 @@ footer nav a:hover{color:var(--signal)}
         <div class="kombi" id="kombi" hidden>
           <dl class="teile" id="teile"></dl>
           <p class="vergleich"><span class="still">Einzeln gebucht</span><s id="einzeln"></s><span class="spar" id="spar"></span></p>
+        </div>
+
+        <!-- Social Media als Monatspreis, nicht im Rahmen und nicht im Kombi-Rabatt. -->
+        <div class="monat" id="monat" hidden>
+          <p class="monat-titel" id="monat-titel">Dazu jeden Monat</p>
+          <p class="monat-betrag">CHF <span id="monat-zahl">850</span> <em>pro Monat</em></p>
+          <p class="monat-text" id="monat-text"></p>
         </div>
 
         <p class="still hinweis">Ein unverbindlicher Richtwert auf Basis deiner Angaben. Nach kurzer Prüfung bekommst du ein verbindliches Festpreisangebot. Das gilt dann. Mehrwertsteuer kommt keine dazu.</p>
@@ -892,7 +944,7 @@ footer nav a:hover{color:var(--signal)}
 // Ablauf: Weiche (was brauchst du), bei "weiss ich nicht" eine Frage nach dem Ziel,
 // dann je gewaehlte Richtung ihre Fragen, am Schluss einmal der Zeitrahmen.
 // Direktlinks ueberspringen die Weiche:
-//   ?fuer=video  oder  ?fuer=marke,website
+//   ?fuer=video  oder  ?fuer=marke,website  oder  ?fuer=social&stufe=2
 //   ?paket=start|auftritt|film&dazu=texte&dazu=sprache …  (von den Paketkarten)
 const alleFragen = [...document.querySelectorAll('.frage')];
 const frageZu = Object.fromEntries(alleFragen.map(f => [f.dataset.schluessel, f]));
@@ -924,8 +976,17 @@ let selbstWeiter;
 // Richtungen. Kommen aus der Weiche, aus dem Ziel, aus einem Direktlink oder
 // werden unterwegs dazugenommen (Bilder: "auch ein Video", Logo: "mach mir eins",
 // Ergebnis: "dazu passt").
-const RICHTUNGEN = ['marke', 'website', 'video'];   // Reihenfolge der Arbeit
-const NAMEN = { marke:'Branding', website:'Website', video:'Video' };
+const RICHTUNGEN = ['marke', 'website', 'video', 'social'];   // Reihenfolge der Arbeit
+const NAMEN = { marke:'Branding', website:'Website', video:'Video', social:'Social Media' };
+// Social Media ist ein Monatspaket: kein Rahmen, kein Kombi-Rabatt; eigene
+// Rabatte in PREISE.social (ENT-079). projekte() sind die Richtungen mit einmaligem Preis.
+const projekte = () => richtungen().filter(w => w !== 'social');
+// Monatspreise und Rabatte Social Media stehen in preise.js (PREISE.social, ENT-079),
+// gepflegt im Betreiber-Bereich. stufe1..3 sind Anlauf, Schwung, Vollgas.
+const STUFEN = { stufe1:'anlauf', stufe2:'schwung', stufe3:'vollgas' };
+const socialPreis = () => PREISE.social.monat[STUFEN[antwort.social_menge] || 'schwung'];
+const SM = PREISE.social;
+const pilotAn = () => SM.pilot < 1;
 let direkt = null;           // Set aus dem Direktlink, sonst null
 const dazu = new Set();      // unterwegs dazugenommen
 function richtungen(){
@@ -951,7 +1012,7 @@ function folge(){
     const s = f.dataset.schluessel, ast = f.dataset.ast;
     if (s === 'weiche') return !direkt;
     if (s === 'ziel') return !direkt && (antwort.weiche || []).includes('unklar');
-    if (ast === 'zeit') return r.length > 0;
+    if (ast === 'zeit') return projekte().length > 0;
     if (!r.includes(ast)) return false;
     if (s === 'logo') return !r.includes('marke') || antwort.logo === 'marke';
     if (s === 'bilder') return !(gedreht() && !antwort.bilder);
@@ -1003,6 +1064,8 @@ function waehlen(schluessel, wert){
   } else if (p.get('fuer')) {
     const fuer = p.get('fuer').split(',').filter(w => RICHTUNGEN.includes(w));
     if (fuer.length) direkt = new Set(fuer);
+    // Von den Karten der Seite Social Media: ?fuer=social&stufe=1|2|3
+    if (fuer.includes('social') && ['1','2','3'].includes(p.get('stufe'))) waehlen('social_menge', 'stufe' + p.get('stufe'));
   }
 }
 
@@ -1137,7 +1200,7 @@ function zeichnen(){
 
   weiter.disabled = !beantwortet(aktuell);
   const zuletzt = beantwortet(aktuell) && naechste() === ergebnis;
-  weiter.querySelector('.pfeil').previousSibling.textContent = zuletzt ? 'Rahmen anzeigen' : 'Weiter';
+  weiter.querySelector('.pfeil').previousSibling.textContent = zuletzt ? (projekte().length ? 'Rahmen anzeigen' : 'Preis anzeigen') : 'Weiter';
   // Solange nichts gewaehlt ist, steht die Zahl der Fragen noch nicht fest.
   zaehler.textContent = 'Frage ' + nr + (richtungen().length ? ' von ' + f.length : '');
   balken.style.transform = 'scaleX(' + (f.filter(beantwortet).length / f.length) + ')';
@@ -1240,6 +1303,7 @@ const TITEL = {
   umfang:'Website, Umfang', bestand:'Ausgangslage', texte:'Texte', bilder:'Bilder',
   logo:'Logo und Auftritt', funktionen:'Funktionen', zugang:'Selbst ändern',
   video_art:'Video', video_laenge:'Länge', video_ort:'Formate', video_stimme:'Ton',
+  social_stand:'Social Media, Kanäle', social_menge:'Social Media, Umfang', social_dreh:'Social Media, Bilder',
   zeit:'Zeitrahmen'
 };
 // Was in Uebersicht, Mail und Anfrage steht: die Antworten der aktuellen Folge.
@@ -1258,6 +1322,7 @@ const EMPFEHLUNG = {
   video:   { imagefilm:'Ein Imagefilm passt zu dir.', produkt:'Ein Produktvideo passt zu dir.', animiert:'Ein animierter Spot passt zu dir.', unklar:'Ein Video passt zu dir.' }
 };
 function empfehlung(r){
+  if (r.length === 1 && r[0] === 'social') return 'Ein Monatspaket passt zu dir.';
   if (r.length > 1) {
     const n = r.map(w => NAMEN[w]);
     return n.slice(0, -1).join(', ') + ' und ' + n[n.length - 1] + ' aus einer Hand.';
@@ -1281,7 +1346,7 @@ const PASST = {
 };
 function dazuPasst(r, t){
   const kasten = document.getElementById('dazupasst');
-  if (r.length !== 1) { kasten.hidden = true; return; }
+  if (r.length !== 1 || r[0] === 'social') { kasten.hidden = true; return; }
   const vorschlag = r[0] === 'website' ? (antwort.logo === 'da' ? 'video' : 'marke') : 'website';
   const [name, satz, teil] = PASST[vorschlag];
   const mit = kombi([...t.map(x => x.kern), teil.kern], t.reduce((s, x) => s + x.extras, 0));
@@ -1297,17 +1362,42 @@ function dazuPasst(r, t){
 
 function rechnen(){
   const r = richtungen(), t = teile(), s = summe(t);
-  rahmenText = chfRahmen(rahmen(s.hand));
+  rahmenText = projekte().length ? chfRahmen(rahmen(s.hand)) : '';
+  if (r.includes('social')) {
+    const sp = socialPreis();
+    rahmenText += (rahmenText ? ', dazu ' : '') + 'Social Media CHF ' + zahl(sp) + ' pro Monat'
+      + (projekte().length ? ' (erste ' + SM.mitProjektMonate + ' Monate CHF ' + zahl(Math.round(sp * SM.mitProjekt)) + ')'
+        : pilotAn() ? ' (Pilotpreis: erster Monat CHF ' + zahl(Math.round(sp * SM.pilot)) + ')' : '');
+  }
   document.getElementById('empfehlung').textContent = empfehlung(r);
-  document.getElementById('ergebnis-etikett').textContent = r.length > 1 ? 'Aus einer Hand' : 'Dein Preisrahmen';
+  const pr = projekte(), sozial = r.includes('social');
+  document.getElementById('ergebnis-etikett').textContent = !pr.length ? 'Dein Monatspaket' : r.length > 1 ? 'Aus einer Hand' : 'Dein Preisrahmen';
   rahmenZahl(document.getElementById('zahl'), s.hand);
+  document.querySelector('.resultat .betrag').hidden = !pr.length;
+
+  // Social Media: Monatspreis getrennt vom Rahmen.
+  const monat = document.getElementById('monat');
+  monat.hidden = !sozial;
+  if (sozial) {
+    document.getElementById('monat-titel').textContent = pr.length ? 'Dazu jeden Monat: Social Media' : 'Social Media, jeden Monat';
+    const menge = { stufe1:'Anlauf: 2 Beiträge', stufe2:'Schwung: 4 Beiträge', stufe3:'Vollgas: 8 Beiträge' }[antwort.social_menge] || 'Schwung: 4 Beiträge';
+    const dreh = antwort.social_dreh === 'dreh' ? ' Den Drehtag offeriere ich separat.' : '';
+    const preis = socialPreis();
+    document.getElementById('monat-zahl').textContent = zahl(preis);
+    // Rabatte (ENT-079): mit Projekt die ersten 3 Monate -20 %, sonst Pilotpreis
+    // (erster Monat halb, erste drei Kunden, ENT-081). Es gilt der hoehere, nie beide.
+    const rabatt = pr.length
+      ? ' Mit ' + pr.map(w => NAMEN[w]).join(' und ') + ' zusammen: die ersten ' + SM.mitProjektMonate + ' Monate CHF ' + zahl(Math.round(preis * SM.mitProjekt)) + ', danach CHF ' + zahl(preis) + '.'
+      : pilotAn() ? ' Pilotpreis für die ersten drei Kunden: der erste Monat CHF ' + zahl(Math.round(preis * SM.pilot)) + '.' : '';
+    document.getElementById('monat-text').textContent = menge + ' im Monat, Texte, Planung und Veröffentlichung. Keine Einrichtungsgebühr, monatlich kündbar.' + rabatt + dreh;
+  }
 
   // Mehrere Richtungen: jede mit ihrem Rahmen, dazu der Vergleich.
   const kombiKasten = document.getElementById('kombi');
-  kombiKasten.hidden = r.length < 2;
+  kombiKasten.hidden = pr.length < 2;
   const dl = document.getElementById('teile');
   dl.innerHTML = '';
-  if (r.length > 1) {
+  if (pr.length > 1) {
     const f = eilig ? P.eile : 1;
     for (const x of t) {
       const zeile = document.createElement('div');

@@ -24,8 +24,8 @@ const MINDESTDAUER_MS = 8000;
 // Seit dem Rechner fuer Website, Branding und Video (28.10.2026): richtungen und
 // ziel koennen mehrere Werte haben, kommagetrennt (siehe MEHRFACH).
 const ANTWORTEN = [
-  'richtungen'       => ['Gewählt', ['website' => 'Website', 'marke' => 'Branding', 'video' => 'Video']],
-  'ziel'             => ['Ziel', ['website' => 'Gefunden werden', 'marke' => 'Wiedererkannt werden', 'video' => 'Zeigen, wie es ist']],
+  'richtungen'       => ['Gewählt', ['website' => 'Website', 'marke' => 'Branding', 'video' => 'Video', 'social' => 'Social Media']],
+  'ziel'             => ['Ziel', ['website' => 'Gefunden werden', 'marke' => 'Wiedererkannt werden', 'video' => 'Zeigen, wie es ist', 'social' => 'Regelmässig gesehen werden']],
   'marke_stand'      => ['Branding', ['nichts' => 'Logo und Erscheinungsbild neu', 'auffrischen' => 'Logo auffrischen', 'neu' => 'Logo und Erscheinungsbild neu']],
   'marke_reichweite' => ['Branding, Umfang', ['blatt' => 'Logo und Erscheinungsbild', 'drucksachen' => 'Mit Drucksachen', 'social' => 'Mit Drucksachen und Social-Media-Vorlagen']],
   'umfang'           => ['Website, Umfang', ['eine' => 'Eine Seite', 'firma' => 'Firmenwebsite, 3 bis 5 Seiten', 'gross' => 'Grössere Website, ab 6 Seiten']],
@@ -39,6 +39,10 @@ const ANTWORTEN = [
   'video_laenge'     => ['Länge', ['kurz' => 'Bis 20 Sekunden', 'mittel' => '30 bis 60 Sekunden', 'lang' => '1 bis 2 Minuten']],
   'video_ort'        => ['Formate', ['eins' => 'Ein Format', 'beide' => 'Hoch- und Querformat', 'clips' => 'Hoch- und Querformat, drei Kurzclips']],
   'video_stimme'     => ['Ton', ['musik' => 'Nur Musik', 'profi' => 'Professionelle Stimme', 'selbst' => 'Du sprichst selbst']],
+  // Social Media (ENT-079), Monatspaket.
+  'social_stand'     => ['Social Media, Kanäle', ['eingeschlafen' => 'Gibt es, aber es kommt kaum etwas', 'laufend' => 'Läuft, aber es fehlt die Zeit', 'keine' => 'Noch keine Kanäle']],
+  'social_menge'     => ['Social Media, Umfang', ['stufe1' => 'Anlauf, 2 Beiträge im Monat', 'stufe2' => 'Schwung, 4 Beiträge im Monat', 'stufe3' => 'Vollgas, 8 Beiträge im Monat']],
+  'social_dreh'      => ['Social Media, Bilder', ['handy' => 'Fotos und Videos per WhatsApp', 'dreh' => 'Dazu ein Drehtag vor Ort']],
   'zeit'             => ['Zeitrahmen', ['offen' => 'Keine Eile', 'normal' => 'In den nächsten zwei Monaten', 'datum' => 'Bis zu einem festen Datum']],
 ];
 const MEHRFACH = ['richtungen', 'ziel'];
@@ -121,7 +125,7 @@ $fragen = ['weiche' => 'Gewählt'] + array_map(fn($a) => $a[0], ANTWORTEN);
 unset($fragen['richtungen']);
 
 $text = [];
-$text[] = 'Preisrahmen: ' . (zeile('rahmen', 60) ?: '–');
+$text[] = 'Preisrahmen: ' . (zeile('rahmen', 160) ?: '–');
 if (($separat = zeile('separat')) !== '') $text[] = 'Separat offerieren: ' . $separat;
 $text[] = '';
 foreach ($fragen as $schluessel => $titel) {
@@ -219,9 +223,12 @@ function bestaetigen(string $name, string $mail): void {
     $zeilen[] = [$titel, $text];
   }
 
-  // Nur ein Rahmen in der Form, wie ihn der Rechner baut.
-  $rahmen = zeile('rahmen', 40);
-  if (!preg_match('/^CHF [0-9’\'\s]+ – [0-9’\'\s]+$/u', $rahmen)) $rahmen = '';
+  // Nur ein Rahmen in der Form, wie ihn der Rechner baut: Preisrahmen, dazu
+  // oder allein der Monatspreis Social Media (ENT-079).
+  $rahmen = zeile('rahmen', 160);
+  $z = '[0-9’\'\s]+';
+  if (!preg_match("/^(CHF {$z} – {$z})?(, dazu )?(Social Media CHF {$z} pro Monat( \\((erste \\d+ Monate|Pilotpreis: erster Monat) CHF {$z}\\))?)?$/u", $rahmen)) $rahmen = '';
+  $nurMonat = $rahmen !== '' && str_starts_with($rahmen, 'Social Media');
 
   $anrede = $vorname !== '' ? 'Danke, ' . $vorname . '.' : 'Danke.';
   $betreff = 'Deine Anfrage ist angekommen · formateins';
@@ -230,7 +237,7 @@ function bestaetigen(string $name, string $mail): void {
   $text = [$anrede . ' Deine Anfrage ist da.', '',
     'Ich schaue mir deine Angaben an und rufe dich in der Regel innerhalb von zwei Arbeitstagen kurz an, um zu verstehen, was du dir vorstellst. Danach bekommst du ein Festpreisangebot.', ''];
   if ($rahmen !== '') {
-    $text[] = 'Dein Preisrahmen: ' . $rahmen;
+    $text[] = ($nurMonat ? 'Dein Monatspreis: ' : 'Dein Preisrahmen: ') . $rahmen;
     $text[] = 'Unverbindlicher Richtwert. Verbindlich ist das Festpreisangebot.';
     $text[] = '';
   }
@@ -251,13 +258,14 @@ function bestaetigen(string $name, string $mail): void {
   $etikett = "margin:0;font-family:$sans;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700";
 
   $rahmenHtml = '';
+  $gross = mb_strlen($rahmen) > 26 ? '22px' : '30px';   // mit Monatspreis laenger
   if ($rahmen !== '') {
     $rahmenHtml = <<<HTML
   <tr><td style="padding:28px 36px 0">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f6f4ef;border-left:3px solid #ff7a3d;border-radius:4px">
       <tr><td style="padding:20px 22px">
-        <p style="$etikett;color:#6b7a83">Dein Preisrahmen</p>
-        <p style="margin:6px 0 0;font-family:$serif;font-size:30px;color:#0f1a21;font-weight:700">{$h($rahmen)}</p>
+        <p style="$etikett;color:#6b7a83">{$h($nurMonat ? 'Dein Monatspreis' : 'Dein Preisrahmen')}</p>
+        <p style="margin:6px 0 0;font-family:$serif;font-size:{$gross};color:#0f1a21;font-weight:700">{$h($rahmen)}</p>
         <p style="margin:6px 0 0;font-family:$sans;font-size:13px;line-height:1.5;color:#6b7a83">Unverbindlicher Richtwert. Verbindlich ist das Festpreisangebot.</p>
       </td></tr>
     </table>

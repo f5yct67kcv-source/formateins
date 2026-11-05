@@ -40,5 +40,5 @@
   }));
   addEventListener('keydown', e => { if (e.key === 'Escape') schliessen(); });
   // Wird das Fenster breit, ist das Menue in der Leiste, das offene braucht es nicht mehr.
-  matchMedia('(min-width:761px)').addEventListener('change', e => { if (e.matches) schliessen(); });
+  matchMedia('(min-width:841px)').addEventListener('change', e => { if (e.matches) schliessen(); });
 })();

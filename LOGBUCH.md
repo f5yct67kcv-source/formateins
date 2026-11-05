@@ -1079,6 +1079,208 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   (3) eine Anfrage aus dem Rechner mit ihren Antworten im Rechenweg öffnen
   (Frage 4, «passt vorerst»), braucht die Antworten in der Anfrage.
 
+- [ ] **ENT-079** · 04.11.2026 · **Neue Rubrik «Social Media»** mit Monatspaket:
+  eigene Seite `/social-media` (Entwurf `entwurf-social-media.html`), Punkt im
+  Menü aller Seiten, Kostenrechner um `?fuer=social` ergänzt. Der Knopf
+  aus der Akquise führt auf `/social-media` ohne Zusatz: Adrian am
+  04.11.2026, die Seite ist neutral für alle Besucher, kein eigener Gruss
+  für Leute aus dem Brief. Botschaft: dazubuchen oder einzeln, keine Zeit,
+  Kanäle gepflegt, hochwertiger Inhalt, die Jungen schauen gezielt in den
+  sozialen Medien nach. Offen bei Adrian: Preis pro Monat, Name, endgültiger
+  Inhalt, Stufen im Rechner, Start einmalig oder inbegriffen, Kombi-Rabatt,
+  Kanäle, Platz im Menü. Die oft zitierten «fast 40 %» von Google (Junge
+  suchen das Mittagessen auf TikTok oder Instagram) bewusst nicht: interne
+  US-Umfrage, nur Restaurants, «something like» (TechCrunch, 12.07.2022).
+  Adrian am 04.11.2026: Instagram im Titel ist zu allgemein; «die Jungen»
+  heisst nicht nur Teenager, sondern auch um 30 (Beispiel: seine Frau, 31,
+  und ihre Kolleginnen suchen viel über Instagram und Facebook). Kern der
+  Seite: die Jungen als Problem ansprechen und dass die Kanäle gepflegt sein
+  müssen. Belege dafür: IGEM-Digimonitor 2026 (15–75 Jahre, Schweiz):
+  Instagram 64 %, Facebook 48 %, Durchschnittsalter Instagram 39, Facebook 45
+  (igem.ch/mediennutzung-werbemarkt/online, Stand 02.11.2026); Bernet
+  Relations, 23.10.2025, Meta-Werbeplattform: 20- bis 29-Jährige sind die
+  grösste Altersgruppe auf Instagram. Für «suchen gezielt dort» weiter keine
+  belegte Zahl. Korrektur Adrian, gleicher Tag: Der Kern ist **nicht** das
+  Problem der Jungen, sondern allgemein, wie wichtig gepflegte Kanäle sind.
+  Die Jungen bleiben ein Argument unter mehreren.
+  Titel (Adrian, 04.11.2026): «Keine Zeit für Social Media? / Ich sorge
+  wieder für den nötigen Schwung.» Der Satz zum Verhalten («Bevor jemand
+  anruft, schaut er sich an, was du zeigst») steht als Adrians Beobachtung in
+  Ich-Form, ohne Zahl.
+  **Entwurf gebaut** (Adrian: «Bau den Entwurf mit Platzhaltern, Rest
+  entscheide ich danach»): `entwurf-social-media.html` und
+  `entwurf-kostenrechner.html` (Weiche und Zielfrage mit Social Media, drei
+  Fragen, Monatspreis getrennt vom Rahmen und ohne Kombi-Rabatt, Zeitrahmen
+  nur bei Projekten). Gelb = Platzhalter: Name, Preis, Start, Stufen,
+  Rabatt, Kanäle. Beide mit noindex. Lokal mit Playwright geprüft, ohne
+  Skriptfehler. Gefunden: Mit fünf Menüpunkten bricht die Leiste zwischen
+  761 und rund 800 Pixel um («Social Media» und der Knopf zweizeilig).
+  Vorschlag für den Livegang: `white-space:nowrap` und das Handy-Menü
+  schon unter 840 statt 760 Pixel (`leiste.css`, `leiste.js`). Beim
+  Livegang auch `anfrage.php` auf die neuen Schlüssel `social_*` prüfen.
+  **Drei Stufen** (Adrian, 04.11.2026: «identische Cards … drei
+  verschiedene Abstufungen … Starter, Mitte, Maximum», Namen noch offen,
+  höhere Stufe proportional mehr Inhalt): Paket als drei Karten wie auf
+  `preise.html`. Vorschlag 2 / 4 / 8 Beiträge im Monat, je «Alles aus 01,
+  dazu». Neu und gelb als «Vorschlag» markiert: Stories (Stufe 2 und 3),
+  Tipp im Monatsbericht, Antworten auf Kommentare und Nachrichten, 30 statt
+  15 Minuten Abstimmung (Stufe 3). Rechner: Frage «Wie viel soll jeden Monat
+  kommen?» mit den drei Stufen, Karten springen mit `?fuer=social&stufe=1|2|3`
+  hinein. Geprüft lokal mit Playwright, ohne Skriptfehler.
+  Namen (Adrian, 04.11.2026): **Anlauf, Schwung, Vollgas**. Stufe Anlauf
+  nach Adrian: Grundcheck (Analyse der Social-Media-Auftritte), 2 Beiträge
+  von Adrian erstellt (1 Clip, der das Geschäft zeigt, 1 Beitrag aus dem
+  Alltag), Texte, Hashtags, Planung, Veröffentlichung, Monatsbericht nur,
+  wenn Adrian die Kanäle verwaltet, Inhalte per WhatsApp. Profil aufräumen,
+  Vorlagen, Logo-Clip und die 15 Minuten Abstimmung sind aus Stufe 1
+  heraus; ob sie anderswo hingehören, ist offen.
+  Adrian, gleicher Tag: Grundcheck heisst nicht «ich sage dir», sondern
+  gemeinsam eine Strategie erarbeiten, mit den Vorstellungen des Kunden.
+  Karten dürfen länger werden, Vollgas braucht mehr Punkte mit Nutzen.
+  Umgesetzt: Anlauf 5, Schwung 6 (Profil aufräumen und Vorlagen von Anlauf
+  hierher, 15 Minuten Abstimmung), Vollgas 7 Punkte (Logo-Clip, Stories,
+  Antworten auf Kommentare und Nachrichten, kurzfristige Beiträge,
+  Quartalsrückblick mit Themenplan, 30 Minuten). Ablauf neu: Grundcheck,
+  Strategie gemeinsam, jeden Monat.
+  Adrian: Punkte passen als Entwurf. Kanäle: Instagram und Facebook, TikTok
+  oder YouTube auf Wunsch (Frage auf der Seite angepasst). Menü: «Variante
+  B, nach Bereichen», im Entwurf bleibt Social Media nach Bereiche
+  (Rückfrage, weil B im Bild nach Arbeiten stand). Preise: Konkurrenz
+  erhoben in `quellen/recherche-social-media-preise-2026-11.md`, Vorschlag
+  im Chat, Entscheid bei Adrian.
+  Adrian: Kommentare und Nachrichten beantworten bietet er nicht an (frisst
+  zu viel Zeit, ständig am Handy); aus Vollgas gestrichen, auf der Seite als
+  Frage «Beantwortest du auch Kommentare und Nachrichten?» mit «Nein, das
+  bleibt bei dir». Zeit: ein kurzer Motion-Clip mit Logo, 8 bis 15 Sekunden,
+  braucht mit Korrekturschlaufe höchstens 30 Minuten (Adrian), mit Rezepten
+  und Vorlagen pro Kunde. Neue Zeitrechnung und Preisvorschlag im Chat.
+- [ ] **ENT-080** · 04.11.2026 · Preise Social Media nach drei Monaten oder
+  drei Kunden prüfen: gemessene Stunden pro Stufe aus dem Projekt-Timer
+  (ENT-046), Wahl der Kunden, Rückmeldungen. Danach Preise für neue Kunden
+  anpassen. Gehört zu ENT-079.
+  Preise festgelegt (Adrian, 04.11.2026): **Anlauf CHF 450, Schwung CHF
+  850, Vollgas CHF 1'550 pro Monat**, keine Einrichtungsgebühr. Vollgas mit
+  siebtem Punkt «Jedes Quartal ein längerer Clip, 20 bis 30 Sekunden, auch
+  als Werbung nutzbar». In Seite und Rechner (Entwurf) eingesetzt. Offen:
+  Grundcheck einzeln (Adrian fragt CHF 99?), Rabatt beim Dazubuchen.
+  Recherche zum Grundcheck in `quellen/recherche-social-media-preise-2026-11.md`.
+  Grundcheck einzeln (Adrian: «290.- angerechnet einverstanden»): einmalig
+  CHF 290, angerechnet bei einer Stufe innert 30 Tagen. Inhalt nach
+  Vorschlag: Profil, erster Eindruck, Rhythmus, stärkste Beiträge, passt
+  zu Logo und Website, zwei, drei Mitbewerber, drei Sofortmassnahmen,
+  30 Minuten Strategie gemeinsam, Ergebnis auf einem Blatt. Auf der Seite
+  unter den Karten und als Frage. Rabatt: Modell im Chat, Entscheid offen.
+  Rabatte (Adrian: «beide so einbauen»): (1) fest: mit Website, Branding
+  oder Video kosten die ersten drei Monate Social Media 20 % weniger
+  (Anlauf 360, Schwung 680, Vollgas 1'240); (2) Pilotpreis: erste drei
+  Kunden, erster Monat zum halben Preis, dafür Arbeit als Beispiel. Rabatte
+  zählen nicht zusammen, es gilt der höhere. Seite und Rechner (Entwurf):
+  mit Projekt «die ersten 3 Monate CHF 680, danach CHF 850», ohne Projekt
+  der Pilotpreis. Geprüft lokal mit Playwright, ohne Skriptfehler.
+- [ ] **ENT-081** · 04.11.2026 · Pilotpreis Social Media (ENT-079) von der
+  Seite und aus dem Rechner nehmen, sobald drei Kunden ihn genutzt haben.
+  Stellen: `social-media.html` (Hinweis `.pilot` über den Karten),
+  Kostenrechner (Text im Monatskasten und in der Anfrage). Geht live nur mit
+  Adrians Wort.
+  Zu ENT-079, 04.11.2026: Abschnitt «Warum» (64 % / 48 %) bringt laut Adrian
+  keinen Mehrwert; statt dessen eine **visuelle Roadmap** im Zickzack mit
+  drei Stationen und Motion im Handy: Grundcheck als Scanner, Strategie als
+  Plan, der entsteht, Ergebnis mit Wisch vorher/nachher und Beiträgen, die
+  ins Raster fallen. Die Zahlen bleiben als dezenter Vermerk mit Quelle,
+  die KI-Zeile unter dem Ablauf fällt weg. Beispielprofil: Adrian schlägt
+  eine Bäckerei vor (Video in einer anderen Sitzung), Rückfrage offen. Belegte Zahl für
+  die Seite: JAMES-Studie 2024 (ZHAW, Swisscom), 83 % der Jugendlichen mit
+  sozialen Netzwerken sind mindestens mehrmals pro Woche auf Instagram,
+  Facebook 4 % (Abb. 42). Danach Entwurf als Bild, live erst mit Adrians Wort.
+  Zu ENT-079, 04.11.2026: Roadmap im Entwurf gebaut. Beispiel ist die
+  erfundene Bäckerei **Aarbach** aus Folge 5 (formateins-reels, Zweig
+  claude/optimistic-bell-73jt25, Namensprüfung dort vom 4.11.2026). Bilder
+  von dort übernommen, keine neuen Higgsfield-Bilder nötig (0 Credits): Profil
+  vorher (Raster-b, Canva-Posts) und nachher (Spot-Bilder, Fassade, Torte,
+  Sauerteig, Cappuccino, Tartelettes), als entwurf-sm-*.webp verkleinert.
+  Profile in HTML nachgebaut, **ohne Zahlen** für Beiträge und Follower
+  (Adrian: Zahlen weglassen, keine erfundene Wirkung). 01 Scanner mit vier
+  Markierungen, 02 Plan mit Logo alt/neu (Vermerk: neues Logo eigener
+  Auftrag), Themen, Monatsplan, 03 Wisch vorher/nachher zum Ziehen, danach
+  fallen neun Beiträge ins Raster. Linie zeichnet sich beim Scrollen, auf dem
+  Handy senkrecht; reduzierte Bewegung zeigt den Endzustand. IGEM-Zahlen als
+  Fussnote ¹ im Hero, KI offen im Satz unter der Roadmap.
+  Zu ENT-079, 04.11.2026 (Adrian): Desktop umgedreht, 01 mit Handy links und
+  Text rechts, Text mittig neben dem Bild, damit kein langer gerader Strich
+  am Anfang steht. Linie im Stil des Pfeils «Selbst ausprobieren» der
+  Vorschlagsseiten (durchgezogen, 2,6 px, runde Enden, offene Spitze vor
+  jedem Punkt), ohne gepunktete Spur. Linie liegt über den Schatten.
+  Zu ENT-079, 04.11.2026 (Adrian: exakter arbeiten): Logos als SVG, Schrift
+  bleibt im Ring. Linie endet und beginnt mit 10 px Abstand zum Ring (Fehler
+  war das Hochgleiten der Stationen beim Messen, Gleiten entfernt). Scan
+  deutlicher: Strahl mit Spur, ungescannte Fläche grau, Rahmen mit Ecken wie
+  beim Reel der Startseite, Zähler «Grundcheck · 3 von 3 Punkten». Drei
+  Befunde statt vier. Zur Wahl: aussen als Beschriftung mit Pfeil wie auf der
+  Startseite (Vorschlag, ab 1100 px) oder als Etikett im Handy (?befund=innen).
+  Zu ENT-079, 04.11.2026 (Adrian): Variante aussen, ohne Rahmen und Ecken
+  ums Handy. Links eine «Auswertung» mit Massnahmen statt Befunden, Fassung A:
+  «Profiltext schärfen.», «Bilder statt Textplakate.», «Ein Look für den
+  ganzen Feed.» Logo wird nicht erwähnt (es geht um Social Media), erste
+  Fundstelle nur der Profiltext. Scan startet erst, wenn das Handy zu 70 %
+  sichtbar ist, plus 0,9 s. Zähler «Auswertung · 3 Punkte».
+  Zu ENT-079, 04.11.2026 (Adrian): Zähler unter dem Handy entfernt. Scan
+  läuft neu, wenn das Handy wieder ganz unterhalb des Bildschirms war
+  (hinaufgescrollt). Aktive Punkte 01–03 pulsieren wie der aktive Punkt im
+  Kostenrechner (punktpuls).
+  Zu ENT-079, 04.11.2026 (Adrian): Linie folgt dem Scrollen in beide
+  Richtungen, zieht sich beim Hinaufscrollen zurück, Spitzen verschwinden
+  mit. Ein Punkt pulsiert nur, solange die Linie ihn erreicht hat.
+  Zu ENT-079, 04.11.2026 (Adrian): Station 02 ohne Erscheinungsbild (eigener
+  Bereich). Plan entsteht wie ein Briefing (Variante 1): «Wen erreichen?»
+  (Familien im Quartier, Pendler am Morgen, Firmen für Apéros), «Was zeigen?»
+  als Ring (Ware 40 %, Backstube 30 %, Team 20 %, Anlässe 10 %), «Was bleibt
+  hängen?» getippt («Handwerk seit 1952, jeden Morgen frisch.»), dann fliegen
+  4 Beiträge und 4 Stories aus ihrem Thema in den Monatsplan, Rahmen in der
+  Themenfarbe. Werte erfunden fürs Beispiel. Text daneben angepasst.
+  Zu ENT-079, 04.11.2026 (Adrian): Linie 02→03 lief vor, weil der getippte
+  Satz umbrach und die Seite danach 24 px tiefer stand. Satz reserviert jetzt
+  seinen Platz, Linie rechnet sich bei jeder Höhenänderung neu
+  (ResizeObserver), jedes Stück wächst gleichmässig mit dem Scrollen, auch der
+  waagrechte Schwung. Profil nachher mit Story-Highlights als Icons (Gipfeli,
+  Torten, Brot, Backstube, Laden) in Dunkel und Messing, Profilbild mit
+  feinem Messingring.
+  Zu ENT-079, 04.11.2026 (Adrian): Satz unter der Roadmap «Die Bäckerei
+  Aarbach und ihre Bilder habe ich mit KI erstellt …» entfernt. Dass die
+  Bäckerei erfunden ist, steht weiter im Satz über der Roadmap.
+  Zu ENT-079, 04.11.2026 (Adrian): Notiz unter den Karten (Einrichtung,
+  Grundcheck, WhatsApp, Drehtag, Mehrwertsteuer) aufgelöst und in die Fragen
+  verteilt: neu «Gibt es eine Einrichtungsgebühr?» und «Kommt noch
+  Mehrwertsteuer dazu?», WhatsApp und Drehtag in den bestehenden Antworten,
+  Grundcheck für CHF 290 stand schon in den Fragen.
+  Zu ENT-079, 04.11.2026 (Adrian): Scan startet früher (Handy zu 40 %
+  sichtbar, 0,3 s). Pfeile der Auswertung gleichmässig in den Dritteln der
+  Handyhöhe. 02 läuft schneller (Satz ab 1,9 s, Flüge 0,55 s) und neu, wenn
+  man über die Station hinaufgescrollt hat, wie der Scan. Profilbild nachher:
+  goldenes Gipfeli auf dunklem Grund statt Schriftzug AARBACH.
+  Zu ENT-079, 04.11.2026 (Adrian): Profilbild wie das alte Logo aufgebaut,
+  goldenes Gipfeli über dem Schriftzug AARBACH. Linie 02→03 stand immer schon
+  da: Chrome beginnt das Strichmuster bei jedem Teilstück eines Pfads neu, das
+  zweite Stück war darum immer ganz gezeichnet. Jetzt ein Pfad pro Stück.
+  Schwung: senkrecht nur neben dem Text, darunter weiter Bogen über die Mitte.
+  Zu ENT-079, 04.11.2026 (Adrian): Profilbild nachher aufgebaut wie das alte
+  Logo, aber in Dunkel und Messing: gezeichnete Brezel (ein Strang, Arme
+  gekreuzt, Enden auf dem Bauch) über «Aarbach» in Playfair kursiv, darunter
+  «BÄCKEREI · KONDITOREI» in gesperrten Versalien.
+  Danach (Adrian): untere Zeile weg, «Aarbach» grösser, Brezel und Schriftzug
+  etwas tiefer gesetzt.
+  Zu ENT-079, 04.11.2026 (Adrian): Reel im Hero auf video-reel-voll-ton
+  umgestellt. video-reel-ton ist für das Telefon im Stand der Startseite
+  (schneidet links und rechts je 9 % ab) und zeigt das Erklärvideo verkleinert
+  mit Rand; das Handy hier zeigt das ganze 9:16.
+  Zu ENT-079, 05.11.2026 (Adrian): 03 wischt wie 01 und 02 neu, wenn man
+  hinauf- und wieder hinunterscrollt (Handy ganz unterhalb des Bildschirms:
+  zurück auf «vorher»). Der Griff bleibt am Ende sichtbar stehen, der Kreis
+  rückt am Rand nach innen, damit er ganz im Bild bleibt.
+
+- [x] **ENT-082** · 04.11.2026 · Videos (Scroll, Vorschau) nur auf Adrians
+  Wort rendern, sie verbrennen Tokens. Prüfen per Standbild oder im Code.
+  Festgehalten in CLAUDE.md, Abschnitt «Aenderungen zuerst zeigen».
+
 - [x] **ENT-083** · 04.11.2026 · Startseite, Stand «Video»: Im Reel füllt das
   Erklärvideo jetzt das Telefon (Adrian wählt A: Telefon bleibt 1:2.164, Reel
   neu gerechnet). `video-reel-ton` und `video-reel-ohne-titel-ton` (mp4,
@@ -1089,4 +1291,68 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «Beispiel Erklärvideo» neu mit `titel.html` (Zweig
   claude/pensive-albattani-870hom) an derselben Stelle wie die anderen Titel.
   Ton und die anderen drei Teile unverändert übernommen (neu kodiert, H.264
-  440 kbit/s, VP9 500 kbit/s). Auf Adrians Wort («passt, auf main pushen») live am 04.11.2026.
+  440 kbit/s, VP9 500 kbit/s). Auf Adrians Wort («passt, auf main pushen») live am 04.11.2026, Commit 75221ff, Lauf «Website zu Hostpoint» Nr. 79 erfolgreich.
+
+- [ ] **ENT-084** · 05.11.2026 · Social Media im Betreiber-Bereich, Bereich
+  «Preise» (Adrian: «mit denselben Kriterien und demselben Layout»). Neu in
+  `preise.js` der Block `social` (Monatspreise Anlauf 450, Schwung 850,
+  Vollgas 1'550, Grundcheck 290, mit Projekt × 0.8 für 3 Monate, Pilotpreis
+  × 0.5 für den ersten Monat, 1 = aus); der Entwurf des Kostenrechners liest
+  ihn statt fester Zahlen. Betreiber (formateins-betreiber, Zweig
+  claude/eager-thompson-m9sxgm): vierte Richtung «Social Media» im Rechner
+  mit eigenem Teil «Jeden Monat» (kein Rahmen, kein Kombirabatt, keine
+  Eile), Frage zum Pilotpreis, Ansätze-Gruppe Social Media, drei neue
+  Regeln, «Als Offerte übernehmen» mit Einheit Monat und Rabatt auf den
+  ersten Monaten, Leistungen S-01 bis S-03 und S-11 (fehlende lassen sich im
+  Abgleich anlegen), feste Zahlen auf `social-media.html` beim Schalten
+  (Karten, Rabatt, Grundcheck, Pilotpreis als Wort). Fehlt
+  `social-media.html` auf main, überspringt das Schalten sie. Ein
+  gespeicherter Stand ohne die neuen Schlüssel wird ergänzt. Prüfungen grün
+  (`pruefungen/alle.sh` mit Testdatenbank). Live erst mit dem Livegang von
+  ENT-079 und Adrians Wort: zuerst formateins (preise.js mit `social`,
+  `social-media.html`), danach der Betreiber.
+  Zu ENT-079/084, 05.11.2026 (Adrian: Menü nach «Bereiche» ja, Link im
+  Video-Stand ja, Preisseite Karte und Vermerk, eigenes Vorschaubild; «bau es
+  auf der Vorschau»): Livegang auf dem Arbeitszweig gebaut, noch nicht auf
+  main. `social-media.html` aus dem Entwurf (ohne noindex, Angebot mit
+  Monatspreisen und FAQ-Daten für Suchmaschinen, eigenes Vorschaubild
+  `teilen-social-media.jpg`, aus der Seite gerendert, keine Credits), Bilder
+  als `sm-*.webp`, `kostenrechner.html` mit dem Zweig Social Media,
+  Entwürfe entfernt. Menüpunkt «Social Media» nach «Bereiche» auf allen
+  Seiten mit Menü, Leiste: Handy-Menü schon unter 840 Pixel, Einträge ohne
+  Umbruch. Startseite: «Content für Social Media» führt auf `/social-media`,
+  Fussliste mit Link. `preise.html`: vierte Karte Social Media (zwei mal
+  zwei) und Zeile unter den Paketen; dabei behoben, dass die Paketkarten
+  zwischen 900 und 980 Pixel seitwärts scrollten (schon vorher so, jetzt
+  einspaltig bis 980). `anfrage.php`: Social-Media-Fragen und Richtung in
+  Mail und Bestätigung, Rahmen mit Monatspreis bis 160 Zeichen, «Dein
+  Monatspreis» ohne Projekt. `sitemap.xml`, `llms.txt` (Preise Social
+  Media, Stand 05.11.2026), `quellen/faq-daten.py` kennt die Seite.
+  Betreiber: Stellen auch auf `preise.html` (Karte, Zeile) und in
+  `llms.txt`, Angebot für Suchmaschinen; Grundcheck in Frage und FAQ-Daten
+  beide (Option «alle»). Geprüft: Menü 700 bis 1440 Pixel ohne Umbruch und
+  ohne seitliches Scrollen auf sechs Seiten, keine 404 und keine
+  Skriptfehler, `pruefungen/alle.sh` grün mit 108 Stellen.
+  Zu ENT-079, 05.11.2026 (Adrian: die Zeile unter den Paketen wirkt wie ein
+  Nachtrag, Varianten A/B/C, gewählt A): `preise.html` unter den Paketen der
+  Block «Hol dir den Social-Media-Boost.» mit Abzeichen «Dazu buchbar», ab
+  CHF 450 pro Monat und Knopf «Social Media ansehen». Betreiber-Stelle «ab»
+  auf den Block umgestellt.
+  Zu ENT-079, 05.11.2026 (Adrian): `preise.html` hatte keinen Fuss,
+  `social-media.html` einen kleineren. Beide jetzt mit dem Fuss der
+  Startseite (Leistungen mit Preise, Social Media, Kostenrechner, Was kostet
+  eine Website?; Kontakt mit Symbolen), die aktuelle Seite orange.
+  Beschreibung im Fuss der Startseite mit Social Media.
+
+- [x] **ENT-085** · 05.11.2026 · Rabatte nur bei gleichzeitiger Buchung
+  (Adrian): Kombirabatt der Pakete und Rabatt mit Projekt bei Social Media
+  gelten nicht, wenn später etwas dazugebucht wird; dann gilt der
+  Einzelpreis. Steht im neuen FAQ der Preisseite (fünf Fragen: Rahmen,
+  Mehrwertsteuer, Bezahlung in Etappen, Kosten nach dem Livegang, Rabatt
+  später; Antworten aus bestehenden Texten, FAQ-Daten mit
+  `quellen/faq-daten.py`) und in `llms.txt`. Auf der Vorschau, live mit
+  ENT-079.
+  Zu ENT-079/084/085, 05.11.2026: Adrian «auf main pushen». Arbeitszweig als
+  ein Commit auf main gelegt (der Zweig enthielt ENT-083 schon, die
+  Geschichte bleibt auf claude/eager-thompson-m9sxgm). Lauf und Seite siehe
+  Nachtrag.

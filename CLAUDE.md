@@ -141,6 +141,11 @@ Formulierung zur Wahl, kommen die Varianten als Text in den Chat — kein Umbau,
 kein Rendern. Bilder erst, wenn die Form zur Frage gehoert (Umbruch, Hoehe,
 Abstaende) oder Adrian sie verlangt.
 
+**Videos nur auf Adrians Wort** (04.11.2026, ENT-082): Scroll- und
+Vorschauvideos werden nur gerendert, wenn Adrian sie verlangt. Sie kosten viel
+und bringen ihm wenig. Selbst pruefen per Standbild oder im Code, ihm den
+Vorschau-Link schicken.
+
 ## Schreibstil der Seite
 
 Festgelegt von Adrian am 26.10.2026. Gilt fuer alle Texte auf formateins.ch

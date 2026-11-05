@@ -24,6 +24,13 @@
 //   video               Lage rund 55-60 % vom Einstieg einer Kleinagentur (Entwurf
 //                       28.10.2026); format: zweites Seitenverhaeltnis; schnitte: drei
 //                       Kurzclips aus dem Material; stimme: professionelle Sprecherstimme
+//   social              Social Media, Monatspaket (ENT-079): monat = Preis pro Monat der
+//                       Stufen Anlauf, Schwung, Vollgas; grundcheck = einmalig, angerechnet
+//                       bei einer Stufe innert 30 Tagen; mitProjekt = Faktor fuer die
+//                       ersten mitProjektMonate Monate, wenn Website, Branding oder Video
+//                       dabei ist; pilot = Faktor fuer den ersten Monat ohne Projekt
+//                       (erste drei Kunden, ENT-081), 1 = kein Pilotpreis. Rabatte zaehlen
+//                       nicht zusammen. Kein Rahmen, kein Kombi.
 //   weitere             Kombi: die teuerste Richtung voll, jede weitere und alle Optionen
 //                       mal diesen Faktor
 //   eile, eileTage      fester Termin in weniger als eileTage Tagen: mal eile
@@ -55,6 +62,13 @@ const PREISE = {
     "format": { "kurz": 300, "mittel": 400, "lang": 500 },
     "schnitte": 600,
     "stimme": 450
+  },
+  "social": {
+    "monat": { "anlauf": 450, "schwung": 850, "vollgas": 1550 },
+    "grundcheck": 290,
+    "mitProjekt": 0.8,
+    "mitProjektMonate": 3,
+    "pilot": 0.5
   },
   "weitere": 0.8,
   "eile": 1.15,

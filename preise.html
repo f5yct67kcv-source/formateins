@@ -165,11 +165,77 @@ html{scroll-behavior:smooth}
 @media (max-width:900px){ .sprung{display:inline-flex} }
 
 .fuss-notiz{margin-top:28px;font-size:var(--txt-s);color:var(--auf-grund-still);max-width:72ch}
+/* Social Media (ENT-079): vierte Karte oben, Monatspreis. Zwei mal zwei, am
+   Handy eine; vier nebeneinander waeren fuer Bezeichnung und Preis zu schmal. */
+.karten.liste{grid-template-columns:repeat(2,minmax(0,1fr))}
+.karte .pro-monat{font-weight:600;font-size:.8em;color:var(--auf-grund-still)}
+/* Social-Media-Boost unter den Paketen (Variante A, Adrian 05.11.2026):
+   eigener Block mit Abzeichen wie «Grösste Ersparnis», Preis und Knopf. */
+.boost{position:relative;margin-top:26px;border:1px solid var(--signal);background:linear-gradient(110deg,rgba(255,138,76,.10),rgba(14,24,32,.35) 60%);
+  display:grid;grid-template-columns:minmax(0,1.4fr) auto;gap:30px;align-items:center;padding:34px 34px 30px}
+.boost .abzeichen{left:26px}
+.boost h3{font-family:var(--serif);font-weight:800;font-size:1.9rem;line-height:1.1;margin:0}
+.boost p{margin:10px 0 0;color:var(--auf-grund-still);max-width:56ch;font-size:var(--txt-m)}
+.boost-preis{text-align:right}
+.boost-ab{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--auf-grund-still)}
+.boost-gross{font-family:var(--serif);font-weight:900;font-size:2.2rem;line-height:1.1;margin-top:4px;white-space:nowrap}
+.boost-gross em{font-style:normal;font-family:var(--sans);font-size:.42em;font-weight:600;color:var(--auf-grund-still)}
+.boost .hin{display:inline-flex;align-items:center;gap:10px;margin-top:16px;padding:14px 22px;border:1px solid var(--signal);background:var(--signal);color:var(--tinte);
+  font-size:var(--txt-m);font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s ease}
+.boost .hin:hover{background:#ff9f6d}
+@media (max-width:760px){ .boost{grid-template-columns:1fr;padding:32px 22px 26px} .boost-preis{text-align:left} }
 
+/* Die drei Paketkarten brauchen fuer «Aus einer Hand» und den Preis auf einer
+   Zeile rund 980 Pixel; darunter scrollte die Seite seitwaerts (05.11.2026). */
+@media (max-width:980px){ .karten{grid-template-columns:1fr} .karte .wen{min-height:0} }
 @media (max-width:900px){
-  .karten{grid-template-columns:1fr}
+  .karten,.karten.liste{grid-template-columns:1fr}
   .karte .wen{min-height:0}
 }
+/* Fragen (ENT-079, 05.11.2026), wie auf der Social-Media-Seite. */
+.faq{border-top:1px solid var(--linie);margin-top:34px;max-width:780px}
+.faq details{border-bottom:1px solid var(--linie)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 36px 18px 0;position:relative;font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:1.4rem;color:var(--signal);line-height:1;transition:transform .2s ease}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{color:var(--auf-grund-still);padding:0 0 18px;max-width:62ch}
+/* Fuss wie auf der Startseite (ENT-079, 05.11.2026), aus recht.css uebernommen. */
+footer{
+  border-top:1px solid var(--linie);background:var(--grund-tief);
+  padding:clamp(56px,9vh,96px) 0 clamp(26px,4vh,38px);font-size:var(--txt-l);
+}
+.fussraster{display:grid;grid-template-columns:1fr;gap:44px}
+@media(min-width:820px){
+  .fussraster{grid-template-columns:1.2fr 1fr 1.1fr;gap:0}
+  .fussraster > *{padding-inline:clamp(26px,3.2vw,48px)}
+  .fussraster > :first-child{padding-left:0}
+  .fussraster > :last-child{padding-right:0}
+  .fussraster > * + *{border-left:1px solid var(--linie)}
+}
+footer .logo{font-size:clamp(1.9rem,2.7vw,2.5rem);text-decoration:none}
+.fussmarke p{margin-top:18px;color:var(--auf-grund-still);max-width:30ch}
+.fusstitel{
+  display:flex;align-items:center;gap:14px;margin-bottom:24px;
+  font-family:var(--serif);font-weight:900;font-size:clamp(1.35rem,1.8vw,1.6rem);letter-spacing:-.015em;line-height:1.1;
+}
+.fusstitel i{flex:none;width:30px;height:1.5px;background:var(--signal)}
+.fussliste{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:15px}
+.fussliste a{text-decoration:none;transition:color .2s ease}
+.fussliste a:hover{color:var(--signal)}
+.rechtliches a[aria-current]{color:var(--auf-grund)}
+.fussliste li{display:flex;align-items:center;gap:16px}
+.fussliste li + li{margin-top:0}
+.fussliste svg{flex:none;width:24px;height:24px;fill:none;stroke:var(--signal);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.fussliste .folgt{color:var(--auf-grund-still)}
+.rechtliches{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 26px;
+  margin-top:clamp(52px,8vh,80px);padding-top:20px;border-top:1px solid var(--linie);
+  font-size:var(--txt-s);color:var(--auf-grund-still);
+}
+.rechtliches nav{display:flex;flex-wrap:wrap;gap:8px 26px}
+.rechtliches a{text-decoration:none}
+.fussliste a[aria-current]{color:var(--signal)}
 </style>
 </head>
 
@@ -178,7 +244,7 @@ html{scroll-behavior:smooth}
   <div class="spalte">
     <a class="logo" href="./"><span class="s">format</span><span class="p">eins</span></a>
     <nav class="rechts" aria-label="Seite">
-      <ul class="menu"><li><a href="./#leistungen">Bereiche</a></li><li><a href="./#arbeiten">Arbeiten</a></li><li><a href="preise" aria-current="page">Preise</a></li><li><a href="./#fragen">Fragen</a></li></ul>
+      <ul class="menu"><li><a href="./#leistungen">Bereiche</a></li><li><a href="social-media">Social Media</a></li><li><a href="./#arbeiten">Arbeiten</a></li><li><a href="preise" aria-current="page">Preise</a></li><li><a href="./#fragen">Fragen</a></li></ul>
       <button class="menuknopf" type="button" aria-expanded="false" aria-controls="menuoffen" aria-label="Menü"><i aria-hidden="true"></i></button>
       <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
     </nav>
@@ -187,7 +253,7 @@ html{scroll-behavior:smooth}
 
 <div class="menuoffen" id="menuoffen" hidden>
   <div class="menukopf"><span class="logo"><span class="s">format</span><span class="p">eins</span></span><button class="zu" type="button" aria-label="Menü schliessen">×</button></div>
-  <ul><li><a href="./#leistungen">Bereiche</a></li><li><a href="./#arbeiten">Arbeiten</a></li><li><a href="preise" aria-current="page">Preise</a></li><li><a href="./#fragen">Fragen</a></li></ul>
+  <ul><li><a href="./#leistungen">Bereiche</a></li><li><a href="social-media">Social Media</a></li><li><a href="./#arbeiten">Arbeiten</a></li><li><a href="preise" aria-current="page">Preise</a></li><li><a href="./#fragen">Fragen</a></li></ul>
   <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
   <p class="leise"><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a> · <a href="tel:+41796868486">079 686 84 86</a></p>
 </div>
@@ -233,6 +299,17 @@ html{scroll-behavior:smooth}
         </dl>
         <p class="hinweis">Länge, Formate und Ton verschieben den Preis.</p>
         <a class="hin" href="kostenrechner?fuer=video" data-rechner="fuer=video">Video berechnen →</a>
+      </article>
+      <!-- Social Media (ENT-079): Monatspreise. Die Zahlen zieht der Betreiber-Bereich beim Schalten nach (ENT-084). -->
+      <article class="karte">
+        <p class="nr">Social Media</p>
+        <dl>
+          <div><dt>Anlauf, 2 Beiträge im Monat</dt><dd class="betrag" data-monat="social.monat.anlauf">CHF 450 <span class="pro-monat">pro Monat</span></dd></div>
+          <div><dt>Schwung, 4 Beiträge im Monat</dt><dd class="betrag" data-monat="social.monat.schwung">CHF 850 <span class="pro-monat">pro Monat</span></dd></div>
+          <div><dt>Vollgas, 8 Beiträge im Monat</dt><dd class="betrag" data-monat="social.monat.vollgas">CHF 1'550 <span class="pro-monat">pro Monat</span></dd></div>
+        </dl>
+        <p class="hinweis">Monatlich kündbar, keine Einrichtungsgebühr. Mit Website, Branding oder Video die ersten drei Monate 20 % günstiger.</p>
+        <a class="hin" href="social-media">Social Media ansehen →</a>
       </article>
     </div>
   </div>
@@ -320,13 +397,123 @@ html{scroll-behavior:smooth}
 
     </div>
 
+    <aside class="boost" aria-label="Social Media dazu">
+      <span class="abzeichen">Dazu buchbar</span>
+      <div>
+        <h3>Hol dir den Social-Media-Boost.</h3>
+        <p>Dein neuer Auftritt soll auch gesehen werden. Ich bespiele Instagram und Facebook jeden Monat mit Beiträgen in deinem neuen Look. Mit einem Paket kosten die ersten drei Monate 20 % weniger.</p>
+      </div>
+      <div class="boost-preis">
+        <div class="boost-ab">Ab</div>
+        <div class="boost-gross">CHF 450 <em>pro Monat</em></div>
+        <a class="hin" href="social-media">Social Media ansehen →</a>
+      </div>
+    </aside>
     <p class="fuss-notiz">Preisrahmen wie im Kostenrechner, der Festpreis folgt nach einem kurzen Gespräch. Mehrwertsteuer kommt keine dazu. Bezahlt wird in Etappen: Branding, Website, Film.</p>
+  </div>
+</section>
+<section class="abschnitt" id="fragen">
+  <div class="spalte">
+    <p class="oben"><b>Fragen</b><i></i>Zu den Preisen</p>
+    <h2>Was oft gefragt wird.</h2>
+    <div class="faq">
+      <details><summary>Wie genau ist der Rahmen?</summary><p>Der Rechner arbeitet mit denselben Ansätzen wie mein Angebot, der Festpreis liegt in aller Regel darin. Brauchst du weniger als angekreuzt, sage ich es dir, und der Preis sinkt. Kommt etwas dazu, das der Rechner nicht abfragt, erfährst du vorher, was und warum.</p></details>
+      <details><summary>Kommt Mehrwertsteuer dazu?</summary><p>Nein. formateins ist nicht mehrwertsteuerpflichtig, die genannten Beträge sind Endpreise.</p></details>
+      <details><summary>Wie bezahle ich?</summary><p>In Etappen, so wie ich liefere: zuerst das Branding, dann die Website, dann der Film. Social Media bezahlst du monatlich.</p></details>
+      <details><summary>Was kostet es nach dem Livegang?</summary><p>Bei der Website nur Hosting und Domain, rund CHF 200 bis 250 im Jahr, direkt beim Anbieter. Kein Abo. Willst du WordPress, kommt eine Jahrespauschale von CHF 360 für die Updates dazu. Änderungen, die du nicht selbst machst, rechne ich nach Aufwand ab.</p></details>
+      <details><summary>Gilt der Rabatt auch, wenn ich später dazubuche?</summary><p>Nein. Der Rabatt bei den Paketen und bei Social Media gilt, wenn du gleichzeitig buchst. Kommt später etwas dazu, gilt der Preis für die einzelne Leistung.</p></details>
+    </div>
   </div>
 </section>
 </main>
 
+<footer>
+  <div class="spalte">
+    <div class="fussraster">
+      <div class="fussmarke">
+        <a class="logo" href="./" aria-label="formateins, zur Startseite"><span class="s">format</span><span class="p">eins</span></a>
+        <p>Webdesign, Branding, Video und Social Media für Selbstständige, kleine Unternehmen und Vereine in Olten und der Region.</p>
+      </div>
+      <div>
+        <p class="fusstitel"><i aria-hidden="true"></i>Leistungen</p>
+        <ul class="fussliste">
+          <li><a href="preise" aria-current="page">Preise</a></li>
+          <li><a href="social-media">Social Media</a></li>
+          <li><a href="kostenrechner">Kostenrechner</a></li>
+          <li><a href="website-kosten">Was kostet eine Website?</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="fusstitel"><i aria-hidden="true"></i>Kontakt</p>
+        
+        <ul class="fussliste">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Region Olten</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><a href="tel:+41796868486">079 686 84 86</a></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><a href="gespraech">Gespräch vereinbaren</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rechtliches">
+      <nav><a href="impressum">Impressum</a><a href="datenschutz">Datenschutz</a><a href="#" data-cookies hidden>Cookies</a></nav>
+      <span>© 2026 formateins, eine Marke der pzu consulting gmbh</span>
+    </div>
+  </div>
+</footer>
+
 <!-- Preise maschinenlesbar, fuer Suchmaschinen und KI-Antworten (ENT-023).
      Bei jeder Preisaenderung hier mitziehen, sonst widerspricht die Seite sich. -->
+<!-- FAQ-DATEN -->
+<!-- Erzeugt aus den Fragen oben mit quellen/faq-daten.py, nicht von Hand aendern. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie genau ist der Rahmen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Rechner arbeitet mit denselben Ansätzen wie mein Angebot, der Festpreis liegt in aller Regel darin. Brauchst du weniger als angekreuzt, sage ich es dir, und der Preis sinkt. Kommt etwas dazu, das der Rechner nicht abfragt, erfährst du vorher, was und warum."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kommt Mehrwertsteuer dazu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. formateins ist nicht mehrwertsteuerpflichtig, die genannten Beträge sind Endpreise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie bezahle ich?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Etappen, so wie ich liefere: zuerst das Branding, dann die Website, dann der Film. Social Media bezahlst du monatlich."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kostet es nach dem Livegang?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bei der Website nur Hosting und Domain, rund CHF 200 bis 250 im Jahr, direkt beim Anbieter. Kein Abo. Willst du WordPress, kommt eine Jahrespauschale von CHF 360 für die Updates dazu. Änderungen, die du nicht selbst machst, rechne ich nach Aufwand ab."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gilt der Rabatt auch, wenn ich später dazubuche?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Der Rabatt bei den Paketen und bei Social Media gilt, wenn du gleichzeitig buchst. Kommt später etwas dazu, gilt der Preis für die einzelne Leistung."
+      }
+    }
+  ]
+}
+</script>
+<!-- /FAQ-DATEN -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
