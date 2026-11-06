@@ -1629,3 +1629,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Preis angeglichen: «Ja. Mit «Startseite zuerst» machen wir den Vorschlag für
   CHF 1'200 zu Ihrer Startseite. …». Gilt für alle Seiten. Ausgeliefert mit
   Lauf «Vorschlag zu Hostpoint» Nr. 128, live geprüft.
+
+- [x] **ENT-116** · 06.11.2026 · Akquise, Frage 2 «Wie viel Arbeit habe ich
+  damit?» (Adrian, Fassung B1): «So viel, wie Sie möchten. Im Gespräch legen
+  wir fest, was es braucht und wie stark Sie mitreden wollen.» Mit «Startseite
+  zuerst» zusätzlich «Bei der Startseite ist das meist wenig, eine ganze
+  Website braucht mehr von Ihnen.» Kein Verweis mehr auf den Entwurf, WhatsApp
+  nicht erwähnt (erklärt Adrian im Gespräch). Akquise 3dcd5bb, ausgeliefert
+  mit Lauf Nr. 129, live geprüft.
