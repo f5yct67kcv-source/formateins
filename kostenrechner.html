@@ -1196,6 +1196,13 @@ function knotenZeichnen(){
   });
 }
 
+// Ohne Verlauf (Start ueber einen Direktlink mit Vorwahl) fuehrt Zurueck zur
+// Frage davor in der Folge, damit man die vorgewaehlten Antworten sieht.
+function vorher(){
+  const f = folge();
+  const i = aktuell === ergebnis ? f.length : f.indexOf(aktuell);
+  return i > 0 ? f[i - 1] : null;
+}
 function gehe(ziel, merken = true){
   if (merken && aktuell && aktuell !== ziel) verlauf.push(aktuell);
   if (ziel === ergebnis) rechnen();
@@ -1210,7 +1217,7 @@ function zeichnen(){
   const amEnde = aktuell === ergebnis;
   ergebnis.classList.toggle('dran', amEnde);
   steuerung.style.display = amEnde ? 'none' : '';
-  zurueck.hidden = !verlauf.length;
+  zurueck.hidden = !verlauf.length && vorher() === null;
 
   if (amEnde) {
     zaehler.textContent = 'Ergebnis';
@@ -1306,7 +1313,10 @@ zurueck.addEventListener('click', () => {
   const f = folge();
   let ziel;
   while (verlauf.length && !f.includes(ziel = verlauf.pop())) ziel = null;
-  if (ziel) gehe(ziel, false);
+  if (!ziel) ziel = vorher();
+  // Wer zurueckgeht, geht danach der Reihe nach wieder vorwaerts, auch durch
+  // Fragen, die schon beantwortet oder vorgewaehlt sind.
+  if (ziel) { durchgehen = true; gehe(ziel, false); }
 });
 // Antworten bleiben stehen, man klickt sich nur durch, was sich aendern soll.
 document.getElementById('aendern').addEventListener('click', () => {
@@ -1614,7 +1624,9 @@ formular.addEventListener('submit', async (e) => {
 // Vorbelegte Antworten aus dem Direktlink zeigen, dann bei der ersten offenen Frage beginnen.
 for (const [s, w] of Object.entries(antwort))
   frageZu[s].querySelector('.antwort[data-wert="' + w + '"]')?.setAttribute('aria-pressed', 'true');
-aktuell = naechste();
+// Mit vorgewaehltem Erklaervideo-Paket beginnt der Rechner bei der Paketfrage,
+// das Paket ist angekreuzt, Weiter fuehrt zum Rest (ENT-091).
+aktuell = antwort.erklaer_paket && folge().includes(frageZu.erklaer_paket) ? frageZu.erklaer_paket : naechste();
 zusatzfelder();
 zeichnen();
 </script>

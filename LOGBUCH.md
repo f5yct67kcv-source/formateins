@@ -1600,3 +1600,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «Schalten» den Block ohne `erklaer` zurück; beim Livegang `preise.html`
   (Spot-Zeile) anpassen und die festen Zahlen der Erklärvideo-Seite in
   `preise_stellen()` aufnehmen.
+  Nachtrag (Adrian: «kommt direkt Frage 3, kein Zurück»): Mit vorgewähltem
+  Paket beginnt der Rechner bei der Paketfrage, das Paket ist angekreuzt.
+  Zurück geht ohne Verlauf zur Frage davor, danach Weiter der Reihe nach.
+  Gilt auch für die Paketlinks von `preise.html` (`?paket=`), dort fehlte
+  Zurück ebenfalls.
