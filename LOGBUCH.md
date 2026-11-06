@@ -1695,3 +1695,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   «Start». Der Clip ist ein kurzes Video mit Logo, nicht «das Logo als Film».
   Social Media bleibt hier Ansporn, kein Teil des Verkaufs. Nur daten.json von
   AMMANN. Akquise 22ec27d.
+- [x] **ENT-125** · 06.11.2026 · Schluss der Vorschlagsseiten (Adrian): Titel
+  «Wenn Sie mein Vorschlag anspricht, freue ich mich, von Ihnen zu hören.» statt
+  «Reden wir 30 Minuten über Ihre Startseite.» (zu fordernd, 30 Minuten kein
+  Richtwert). Text «In einem unverbindlichen Gespräch finden wir gemeinsam
+  heraus, was Ihr Auftritt braucht. Danach wissen Sie, was es kostet, und
+  entscheiden in Ruhe.» Kein Besuch beim Kunden mehr (für ein paar Fragen lohnt
+  sich das nicht), «kein Verkaufsgespräch» und «Der Vorschlag gehört Ihnen»
+  fallen weg. `vorschlag.besuch` bleibt in den Daten, wird nicht mehr gezeigt.
+  Gilt für alle Seiten. Akquise 910f3c5.
