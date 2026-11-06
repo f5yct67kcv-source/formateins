@@ -1559,3 +1559,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Nr. 120, live geprüft. Offen: eigene Texte von Weidmann, Z&H, Zulliger und
   PUR (zusammen 9 Stellen), Öffnungszeiten «Mo–Fr 07:00–12:00» im Entwurf,
   `CLAUDE.md` hier auf `main` (Adrians Wort).
+- [x] **ENT-106** · 06.11.2026 · Akquise, Vorschlagsseite Schritt für Schritt
+  (Adrian): Knopf «Mehr zu Social Media» unter dem Satz statt daneben, orange
+  statt weiss umrandet (er führt zum eigentlichen Angebot, der Betreuung). Gilt
+  für alle Seiten mit Starthilfe. Ausgeliefert mit Lauf «Vorschlag zu
+  Hostpoint» Nr. 121, live geprüft. Beleg: formateins-akquise
+  `vorschlag/src/vorschlag/Vorschlag.astro`, `vorschlag.css`.
