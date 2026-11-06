@@ -1515,8 +1515,19 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Variante A gebaut, B (Schlaufe) gezeigt; Adrian wählt A. Ausgeliefert mit
   Lauf «Vorschlag zu Hostpoint» Nr. 117, live geprüft.
   Beleg: formateins-akquise `vorschlag/src/vorschlag/HandyAenderungen.astro`.
-- [ ] **ENT-101** · 06.11.2026 · Akquise, Vorschlagsseite Schritt für Schritt
+- [x] **ENT-101** · 06.11.2026 · Akquise, Vorschlagsseite Schritt für Schritt
   (Adrian): unter dem Vergleich «Fragen zum Vorschlag? Rufen Sie an oder
   schreiben Sie mir auf WhatsApp.» (vorher «schreiben Sie auf WhatsApp»).
-  Gilt für alle Seiten. Offen: ausliefern. Beleg: formateins-akquise
+  Gilt für alle Seiten. Ausgeliefert mit ENT-102. Beleg: formateins-akquise
   `vorschlag/src/vorschlag/Vorschlag.astro`.
+- [x] **ENT-102** · 06.11.2026 · Akquise, Vorschlagsseite Schritt für Schritt
+  (Adrian: wirkte wie ein hineingestampfter Werbeblock; Fassung C, Satz 1):
+  Social Media als Teil des Auftritts. Augenbraue «Ihr Auftritt», Titel «Ihre
+  Website zeigt, was Sie können. Social Media zeigt, dass Sie es jeden Tag
+  tun.», Text «Wer regelmässig zeigt, was er baut, bleibt im Kopf. Dafür
+  braucht ein Kanal Pflege, nicht nur einen guten Start. Damit der Start
+  leicht fällt: Ihr Logo als kurzer Film, geschenkt.», unten «Keine Zeit
+  dafür? Ich betreue Ihren Kanal und sorge dafür, dass jeden Monat etwas Neues
+  kommt.» Keine Zahlen zu Film und Followern. Zuerst bei AMMANN, ausgeliefert
+  (Lauf «Vorschlag zu Hostpoint»). Beleg: formateins-akquise
+  `akquise/betriebe/09-ammann-oberentfelden/daten.json`.
