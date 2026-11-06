@@ -1531,3 +1531,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   kommt.» Keine Zahlen zu Film und Followern. Zuerst bei AMMANN, ausgeliefert
   (Lauf «Vorschlag zu Hostpoint»). Beleg: formateins-akquise
   `akquise/betriebe/09-ammann-oberentfelden/daten.json`.
+- [ ] **ENT-103** · 06.11.2026 · Akquise, Vorschlagsseite Schritt für Schritt
+  (Adrian, Mischung aus A und B): Satz unter Social Media «Keine Zeit zwischen
+  zwei Aufträgen? Ich betreue Ihre Kanäle, damit Sie auch in den sozialen
+  Medien gesehen werden.» (ändert den Satz unten aus ENT-102). Zuerst bei
+  AMMANN. Offen: ausliefern. Beleg: formateins-akquise
+  `akquise/betriebe/09-ammann-oberentfelden/daten.json`.
