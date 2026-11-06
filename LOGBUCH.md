@@ -1365,7 +1365,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   drei Reiter auf der Startseite (Formate, Was du bekommst) mit rundem Pfeil
   rechts, beim Darüberfahren orange gefüllt; zeigt, dass eine Seite dahinter
   liegt. Bei Webdesign nicht, dort steht schon «Was sie kostet →».
-- [ ] **ENT-086** · 06.11.2026 · Search Console, Videoindexierung: «Das Video
+- [x] **ENT-086** · 06.11.2026 · Search Console, Videoindexierung: «Das Video
   befindet sich nicht auf einer Wiedergabeseite» für `video-spot.mp4` auf der
   Startseite (erstmals erkannt 29.10.2026). Die Videos sind Kacheln, nie der
   Hauptinhalt; eine eigene Wiedergabeseite hat Adrian nicht gewählt. Lösung:
@@ -1374,3 +1374,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   nicht. Auf Arbeitszweig `claude/sharp-faraday-t6rehp`, noch nicht live.
   Offen: Livegang auf Adrians Wort, danach Kopf auf www.formateins.ch prüfen
   und in der Search Console «Fehlerbehebung überprüfen» starten.
+  Nachtrag 06.11.2026: Adrian «auf main pushen». main 70ffff0, Lauf «Website
+  zu Hostpoint» Nr. 83 erfolgreich. Geprüft auf www.formateins.ch:
+  `video-spot.mp4` und `.webm` mit `x-robots-tag: noindex` (auch bei
+  Teilabruf 206), Startseite und `video-spot.webp` ohne. Bleibt bei Adrian:
+  «Fehlerbehebung überprüfen» in der Search Console.
