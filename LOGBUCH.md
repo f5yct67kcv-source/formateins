@@ -1531,9 +1531,20 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   kommt.» Keine Zahlen zu Film und Followern. Zuerst bei AMMANN, ausgeliefert
   (Lauf «Vorschlag zu Hostpoint»). Beleg: formateins-akquise
   `akquise/betriebe/09-ammann-oberentfelden/daten.json`.
-- [ ] **ENT-103** · 06.11.2026 · Akquise, Vorschlagsseite Schritt für Schritt
+- [x] **ENT-103** · 06.11.2026 · Akquise, Vorschlagsseite Schritt für Schritt
   (Adrian, Mischung aus A und B): Satz unter Social Media «Keine Zeit zwischen
   zwei Aufträgen? Ich betreue Ihre Kanäle, damit Sie auch in den sozialen
   Medien gesehen werden.» (ändert den Satz unten aus ENT-102). Zuerst bei
-  AMMANN. Offen: ausliefern. Beleg: formateins-akquise
+  AMMANN. Ausgeliefert mit ENT-104. Beleg: formateins-akquise
   `akquise/betriebe/09-ammann-oberentfelden/daten.json`.
+- [x] **ENT-104** · 06.11.2026 · Akquise, Vorschlagsseite Schritt für Schritt
+  (Adrian, Fassung A): «Wer das macht» persönlich statt Leistungsliste (die
+  steht im Brief): «Meine Stärke ist die Gestaltung. Ich weiss, wie ein
+  Auftritt online heute wirken muss, und habe das Bild im Kopf, bevor er
+  gebaut ist. Der Vorschlag oben ist meine Idee. Gebaut wird Ihre: Zuerst
+  höre ich zu, dann legen wir gemeinsam fest, wohin es geht.» Auftritt statt
+  nur Website; der Kunde und seine Vorstellung im Zentrum, nicht «visionär»
+  als Selbstbezeichnung. Satz zur Nähe (`vorschlag.naehe`) dort entfallen.
+  Gilt für alle Seiten. Auf der ganzen Seite weiter vermitteln, dass gemeinsam
+  erarbeitet wird (Preis, Fragen, Schluss). Ausgeliefert (Lauf «Vorschlag zu
+  Hostpoint»). Beleg: formateins-akquise `vorschlag/src/vorschlag/Vorschlag.astro`.
