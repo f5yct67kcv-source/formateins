@@ -1605,3 +1605,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Zurück geht ohne Verlauf zur Frage davor, danach Weiter der Reihe nach.
   Gilt auch für die Paketlinks von `preise.html` (`?paket=`), dort fehlte
   Zurück ebenfalls.
+  Spot-Zeile (Adrian, 06.11.2026): Auf `preise.html` (Karte Video und Daten
+  für Suchmaschinen) und in `llms.txt` steht statt «Kurzer Spot, animiert,
+  bis 20 Sekunden, CHF 1'100 – 1'500» jetzt «Erklärvideo, animiert, 30
+  Sekunden, CHF 1'400», als fester Preis (`data-fest`, ohne Rahmen). Hinweis
+  der Karte: fester Preis beim Erklärvideo, sonst verschieben Länge, Formate
+  und Ton. Betreiber zieht die drei Stellen beim Schalten nach (rot geprüft).

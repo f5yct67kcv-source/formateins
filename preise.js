@@ -157,6 +157,10 @@ document.querySelectorAll('[data-punkt]').forEach(el => {
   const punkt = el.dataset.punkt.split('.').reduce((o, k) => o[k], PREISE);
   el.textContent = chfRahmen(rahmen(punkt));
 });
+// Feste Preise (Erklaervideo, ENT-091): data-fest zeigt den Ansatz ohne Rahmen.
+document.querySelectorAll('[data-fest]').forEach(el => {
+  el.textContent = 'CHF ' + zahl(el.dataset.fest.split('.').reduce((o, k) => o[k], PREISE));
+});
 
 document.querySelectorAll('[data-rechner]').forEach(a => a.href = RECHNER + '?' + a.dataset.rechner);
 
