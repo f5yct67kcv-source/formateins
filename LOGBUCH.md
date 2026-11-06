@@ -1565,3 +1565,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   für alle Seiten mit Starthilfe. Ausgeliefert mit Lauf «Vorschlag zu
   Hostpoint» Nr. 121, live geprüft. Beleg: formateins-akquise
   `vorschlag/src/vorschlag/Vorschlag.astro`, `vorschlag.css`.
+- [x] **ENT-107** · 06.11.2026 · Akquise, Gesamtcheck (Adrian: Pfeil
+  unsauber, fünf Zeilen Kleingedrucktes wirken untransparent): Pfeil zwischen
+  den Noten neu, Spitze entlang der Linie. Statt Fusstext «Wie ich gemessen
+  habe» zum Aufklappen, zugeklappt, vier kurze Punkte in normaler Schrift
+  (Feld `wie`; ohne Feld ein Satz `fuss_kurz`). Ausgeliefert mit Lauf
+  «Vorschlag zu Hostpoint» Nr. 122, live geprüft. Beleg: formateins-akquise
+  `vorschlag/src/vorschlag/Gesamtcheck.astro`.
