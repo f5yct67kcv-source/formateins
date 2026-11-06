@@ -1049,13 +1049,17 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   pushen»), Commit 4f39bcb auf `main`. Offen bleibt nur die Kontrolle in der
   Search Console unter «Navigationspfade» in ein paar Tagen. Verwandt: ENT-057 (Instagram als
   `sameAs`).
-- [ ] **ENT-077** · 02.11.2026 · Sobald die Einträge bei local.ch und search.ch
+- [x] **ENT-077** · 02.11.2026 · Sobald die Einträge bei local.ch und search.ch
   freigeschaltet sind (ENT-027): beide Adressen als `sameAs` in die Firma auf
   der Startseite, neben Google-Profil und Instagram (ENT-018, ENT-057). Adrian
   schickt die Links oder sie werden von hier aus gesucht. Geht auf `main` erst
   mit Adrians Wort.
   Nachtrag 06.11.2026: Beide Einträge sind freigeschaltet, die Adressen
   stehen bei ENT-027. Bereit zum Einbau.
+  Nachtrag 06.11.2026: Adrian «ENT-077 einbauen und auf main pushen».
+  `index.html`: beide Adressen in `sameAs` der Firma (`#formateins`), nach
+  Google-Profil und Instagram. `entwurf.html` hat noch kein `sameAs`, dort
+  bleibt der Hinweis für den Livegang.
 
 - [ ] **ENT-078** · 03.11.2026 · Betreiber-Bereich: **eigener Bereich «Preise»**
   mit der Preislogik des Kostenrechners, transparent und mit Eingriffen von
