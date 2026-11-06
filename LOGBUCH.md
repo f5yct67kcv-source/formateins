@@ -1554,5 +1554,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Bindestriche in Wörtern. Festgehalten in `CLAUDE.md` (Schreibstil) und in
   formateins-akquise `CLAUDE.md`, `.claude/skills/HAUSREGELN.md`,
   `.agents/product-marketing.md` v1.3. Sofort korrigiert «Gebaut wird Ihre.»
-  in «Wer das macht». Offen: die übrigen Stellen auf der Vorschlagsseite und im
-  Entwurf, `CLAUDE.md` hier auf `main` (Adrians Wort).
+  in «Wer das macht». Dazu neun Stellen bei AMMANN (Vorschlagsseite und
+  Entwurf) ohne «:» und «–», ausgeliefert mit Lauf «Vorschlag zu Hostpoint»
+  Nr. 120, live geprüft. Offen: eigene Texte von Weidmann, Z&H, Zulliger und
+  PUR (zusammen 9 Stellen), Öffnungszeiten «Mo–Fr 07:00–12:00» im Entwurf,
+  `CLAUDE.md` hier auf `main` (Adrians Wort).
