@@ -1672,3 +1672,13 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Abstand (Adrian): oben und unten clamp(64px,8vw,112px) statt 160 px (Handy
   64 statt 88). Gilt für alle Seiten. Akquise fdc06c4, Lauf Nr. 134, live
   gemessen.
+
+- [x] **ENT-122** · 06.11.2026 · Impressum und Datenschutz (Adrian): Im Fuss der
+  Vorschlagsseiten «Impressum · Datenschutz», verlinkt auf formateins.ch (Akquise
+  afafca6, Lauf «Vorschlag zu Hostpoint» Nr. 135). Datenschutz auf formateins.ch,
+  Kurzfassung (beide Fassungen): «sehe ich, wann und mit welchem Gerät du den
+  QR-Code scannst» statt nur «wann», wie im Abschnitt zum Brief und wie der
+  QR-Code wirklich zählt. Direkt auf main 55c0d31, Lauf «Website zu Hostpoint»
+  Nr. 88, live geprüft. Einschätzung, keine Rechtsberatung.
+- [ ] Datenschutz auf formateins.ch hat noch Doppelpunkte («Kurz gesagt:», «Mehr
+  nicht: keine IP-Adresse …»), ENT-105. Nur auf Adrians Wort.
