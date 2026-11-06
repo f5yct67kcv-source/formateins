@@ -1616,3 +1616,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   geprüft, auf allen fünf Seiten kein «Mehrwertsteuer» mehr. Offen: ob
   formateins.ch (Preise, Social Media, Kostenrechner) es weiter nennt,
   entscheidet Adrian; im Impressum bleibt es.
+- [x] **ENT-114** · 06.11.2026 · Akquise, «Was es kostet» (Adrian: der Kunde
+  ist nicht abhängig von mir): Angabe neu «Die Seite gehört Ihnen. Kein Abo
+  und keine Abhängigkeit von mir.» (wie «Die Seite gehört dir.» auf
+  formateins.ch), auch in der Fassung ohne «Startseite zuerst». Intern: gehört
+  dem Kunden, sobald bezahlt ist. Ausgeliefert mit Lauf «Vorschlag zu
+  Hostpoint» Nr. 127, live geprüft. Beleg: formateins-akquise
+  `vorschlag/src/vorschlag/Vorschlag.astro`.
