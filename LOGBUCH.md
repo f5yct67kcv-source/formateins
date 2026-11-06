@@ -1585,3 +1585,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `.agents/product-marketing.md` v1.4, README AMMANN. Ausgeliefert mit Lauf
   «Vorschlag zu Hostpoint» Nr. 123, live geprüft. Beleg: formateins-akquise
   `akquise/betriebe/09-ammann-oberentfelden/daten.json`.
+- [x] **ENT-110** · 06.11.2026 · Akquise, «Was es kostet» (Adrian: weisser
+  Kasten gefällt nicht, links und rechts ungleich): Stufen ohne Kästen, nur
+  Linie oben (erster Schritt orange), beide Spalten gleich breit, beide Preise
+  gleich gross, gleicher Aufbau mit Kurzzeile und zwei gleich langen Punkten.
+  Domain, Festpreis und Mehrwertsteuer darunter für beide. Ausgeliefert mit
+  Lauf «Vorschlag zu Hostpoint» Nr. 124, live geprüft. Beleg:
+  formateins-akquise `vorschlag/src/vorschlag/Vorschlag.astro`, `vorschlag.css`.
