@@ -1414,3 +1414,103 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Zugangsdaten und der einmalige Übertragungs-Token gelöscht.
   Offen: `datenschutz-demo.html` beschreibt eine abgeschaltete
   Demo-Umgebung, klären ob sie bleibt.
+
+- [x] **ENT-088** · 05.11.2026 · Akquise, Türöffner (zuerst als ENT-084, dann
+  als ENT-086, dann als ENT-087 vergeben): Gesamtcheck auf der Vorschlagsseite (geschenkt, ohne
+  E-Mail-Adresse) und «Startseite zuerst» als erster bezahlter Schritt
+  (Vorschlag CHF 1'200, voll an die Website angerechnet, sehen vor dem
+  Zahlen). Ausgearbeitet in formateins-akquise `akquise/tueroeffner.md`.
+  Entschieden mit ENT-094.
+
+- [x] **ENT-089** · 05.11.2026 · Akquise, Ton im Gesamtcheck (Adrian; zuerst
+  als ENT-085, dann als ENT-087, dann als ENT-088 vergeben): Auf der Vorschlagsseite wird ehrlich
+  bewertet, mit Rot, wo es rot ist («im Business, nicht am
+  Kindergeburtstag»). Bedingung: fair, also nur Gemessenes mit Datum und
+  Werkzeug, feste Grenzen für alle Betriebe, Stärken sichtbar, sachliche
+  Sätze. Ausnahme zu «Helfen statt mahnen» (04.11.2026), das für Brief und
+  übrige Texte weiter gilt. Darstellung «Eine ehrliche Bewertung» (Ring oben
+  rechts, Balken rot bis grün). Beleg: formateins-akquise
+  `akquise/tueroeffner.md`, `.agents/product-marketing.md` v1.1,
+  `vorschlag/src/vorschlag/Gesamtcheck.astro`.
+
+- [x] **ENT-090** · 05.11.2026 · Akquise, «Was ich geändert habe» (Adrian;
+  zuerst als ENT-086, dann als ENT-088, dann als ENT-089 vergeben): am Computer unter dem
+  Schieber heute/Vorschlag der Vorschlag als Handy mit geschwungenen
+  Handpfeilen; am Handy der Schieber mit Nummern auf dem Vorschlag, Griff bei
+  18 %, Liste darunter. Nahaufnahmen fallen weg. Gerüst
+  `stil.aenderungen = "handy"`, zuerst bei AMMANN. Ohne style-Attribute (CSP
+  der Seite), die Auslieferung prüft darauf. Live:
+  vorschlag.formateins.ch/amm-sd4vai9d/ (Läufe «Vorschlag zu Hostpoint» #112, #113).
+
+- [x] **ENT-091** · 05.11.2026 · Akquise, Starthilfe Social Media (Adrian;
+  zuerst als ENT-089, dann als ENT-090 vergeben): Der Knopf unter «Keine Zeit für Social
+  Media?» führt neu auf `formateins.ch/social-media` statt auf WhatsApp,
+  Beschriftung «Mehr zu Social Media». Gilt für Z&H, AMMANN, PUR. Noch nicht
+  ausgeliefert.
+
+- [x] **ENT-092** · 06.11.2026 · Akquise, Gesamtcheck (Adrian, ändert die
+  Zeile «Ihr Ruf» aus ENT-089; zuerst als ENT-090, dann als ENT-091 vergeben): Ein Fremder
+  bewertet nicht den Ruf einer Firma. Die Zeile heisst «Google-Bewertungen»,
+  nennt nur, was Google zeigt, und ob man es auf der Startseite sieht; sie
+  steht bei den Google-Punkten. Note unverändert. Noch nicht ausgeliefert.
+
+- [x] **ENT-093** · 06.11.2026 · (zuerst als ENT-092 vergeben) Akquise, Gesamtcheck mit zweiter Note
+  (Adrian: «übernehmen, vor den Preis setzen»): Neben «heute» steht die Note
+  «mit dem Vorschlag», gemessen am Entwurf mit denselben Werkzeugen und
+  derselben Regel (AMMANN: heute 3,5, mit Vorschlag 9,5; der Suchplatz zählt
+  wie heute, weil er erst online messbar ist). Auf jedem Balken ein zweiter,
+  hohler Punkt. Die Bewertung steht neu direkt vor dem Preis. Entwürfe haben
+  eine Beschreibung für Suchmaschinen. Vor dem Ausliefern eine Kopie der
+  alten Seite gesichert: formateins-akquise
+  `akquise/betriebe/09-ammann-oberentfelden/archiv/vorschlag-vor-update-2026-11-05/`
+  (Bilder, Neubau über Commit 16485c8). Ausgeliefert mit ENT-091 und ENT-092.
+
+- [x] **ENT-094** · 06.11.2026 · (zuerst als ENT-093 vergeben) Akquise, Entscheide zum Türöffner (Adrian,
+  «1–7 wie empfohlen», schliesst ENT-088): «Startseite zuerst» CHF 1'200,
+  nach dem Livegang; wer die fertige Seite nicht will, zahlt nichts;
+  Anrechnung während 12 Monaten; nur technischer Fall A oder B, bei C oder
+  unklar ohne den Block. AMMANN ist Fall C (Nameserver und Hosting bei der
+  Agentur), Block darum weg. Grenzen der Bewertung übernommen. Die Bewertung
+  wird beim Frisch-Check neu gemessen (Prüfliste im Skill `akquise-brief`).
+  Zusammenführen auf `main` später. Beleg: formateins-akquise
+  `akquise/tueroeffner.md`, `.agents/product-marketing.md` v1.2.
+- [x] **ENT-095** · 06.11.2026 · (zuerst als ENT-094 vergeben) Akquise, Vorschlagsseite Schritt für Schritt
+  (Adrian): Augenbraue oben neu «<Kurzname> · Vorschlag vom <Datum>» statt
+  «Ihre neue Startseite» («neue» nimmt den Entscheid vorweg, der Titel sagt
+  schon «mein Vorschlag»). Neues Feld `vorschlag.datum` in `daten.json`, beim
+  Versand aufs Briefdatum setzen; ohne Feld bleibt der alte Text. Zuerst bei
+  AMMANN. Ausgeliefert mit ENT-099. Beleg: formateins-akquise
+  `vorschlag/src/vorschlag/Vorschlag.astro`.
+- [x] **ENT-096** · 06.11.2026 · (zuerst als ENT-095 vergeben) Akquise, Vorschlagsseite Schritt für Schritt
+  (Adrian, Fassung A): Einleitung unter dem Titel als kurzes Willkommen,
+  «Schön, dass Sie reinschauen. Auf dieser Seite sehen Sie, was ich an Ihrer
+  Startseite ändern würde und was es bringt.» Der Brief hat schon vorgestellt,
+  die Seite muss nicht mehr erklären. Zuerst bei AMMANN. Ausgeliefert mit ENT-099.
+  Beleg: formateins-akquise `akquise/betriebe/09-ammann-oberentfelden/daten.json`.
+- [x] **ENT-097** · 06.11.2026 · (zuerst als ENT-096 vergeben) Akquise, Vorschlagsseite Schritt für Schritt
+  (Adrian, Fassung A): Knopf unter den Geräten «Den Vorschlag ansehen» statt
+  «Den Entwurf ansehen», damit oben überall dasselbe Wort steht. Gilt für alle
+  Seiten mit Knopf (AMMANN, Z&H, Zulliger, PUR). Ausgeliefert mit ENT-099. Beleg:
+  formateins-akquise `vorschlag/src/vorschlag/Vorschlag.astro`.
+- [x] **ENT-098** · 06.11.2026 · (zuerst als ENT-097 vergeben) Akquise, Vorschlagsseite Schritt für Schritt
+  (Adrian, Fassung A): Vergleich am Computer mit Augenbraue «Am Computer»
+  (Paar mit «Am Handy»), Text nur noch «Ziehen Sie den Griff nach links oder
+  rechts.», Bildunterschrift bei AMMANN «Ihre Startseite am 2. November 2026.»
+  ohne Pixelangabe. Augenbraue und Text gelten für alle Seiten mit Schieber
+  oben. Das Video erscheint bei AMMANN nicht (ohne Video ausgeblendet); die
+  Briefvorlage verspricht es noch, beim Schritt Brief neu fassen. Offen:
+  ausliefern. Beleg: formateins-akquise `vorschlag/src/vorschlag/Vergleich.astro`.
+- [x] **ENT-099** · 06.11.2026 · (zuerst als ENT-098 vergeben) Akquise, Vorschlagsseite Schritt für Schritt
+  (Adrian, Fassung B, «dann live»): Abschnitt «Am Handy» mit Titel «Ihre
+  Startseite, heute und im Vorschlag.» und Text «Die Nummern zeigen, was ich
+  geändert habe. Ziehen Sie den Griff, um Ihre heutige Seite zu sehen.» Datum
+  in der Augenbraue kurz (05.11.2026), damit es am Handy auf eine Zeile passt.
+  Ausgeliefert zusammen mit ENT-095 bis 097 (Lauf «Vorschlag zu Hostpoint»).
+  Beleg: formateins-akquise `vorschlag/src/vorschlag/Vergleich.astro`.
+- [ ] **ENT-100** · 06.11.2026 · (zuerst als ENT-099 vergeben) Akquise, Vorschlagsseite, Handpfeile bei «Was
+  ich geändert habe» (Adrian: alle gleich geschwungen, Spitzen unsauber): jede
+  Form anders (Bogen von oben, S, Bogen von unten; pro Punkt `handy_form`),
+  letzte 40 px fast gerade, Spitze mit zwei ungleichen Haken entlang der Linie,
+  mit Ring endet der Pfeil am Rand des Rings (Pfeil 1 zeigte vorher aufs Menü).
+  Variante A gebaut, B (Schlaufe) gezeigt. Offen: Adrians Wahl, ausliefern.
+  Beleg: formateins-akquise `vorschlag/src/vorschlag/HandyAenderungen.astro`.
