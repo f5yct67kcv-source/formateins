@@ -1600,3 +1600,19 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   wie sie sind.» Intern: bezahlt wird, wenn die Seite online geht, steht in der
   Offerte (`akquise/tueroeffner.md`, `.agents/product-marketing.md`).
   Ausgeliefert mit Lauf «Vorschlag zu Hostpoint» Nr. 125, live geprüft.
+- [x] **ENT-112** · 06.11.2026 · Akquise, «Was es kostet» (Adrian): Angaben
+  unter den Stufen als Reihe mit Symbolen statt Strichliste (klar getrennt
+  von den Punkten der Stufen). «Auf Wunsch fotografiere ich» als Tipp-Kasten
+  im Stil der Box «Zweiter Weg» von formateins.ch: «Tipp · Fotos vor Ort»,
+  «Wann gab es die letzten Fotos vom Team?», Knopf «Darüber reden» auf
+  formateins.ch/gespraech. Grund: viele Betriebe schieben neue Fotos vor sich
+  her (Teamfotos von 2016 und 2017 gesehen). Gilt für alle Seiten mit Preis.
+  Ausgeliefert mit ENT-113.
+- [x] **ENT-113** · 06.11.2026 · Akquise, Mehrwertsteuer auf der
+  Vorschlagsseite nicht mehr erwähnen (Adrian): bringt Firmen mit
+  Vorsteuerabzug nichts und verrät den Umsatz. Ersetzt durch «Kein Abo.
+  Danach zahlen Sie nur Hosting und Domain.» `.agents/product-marketing.md`
+  nachgeführt. Ausgeliefert mit Lauf «Vorschlag zu Hostpoint» Nr. 126, live
+  geprüft, auf allen fünf Seiten kein «Mehrwertsteuer» mehr. Offen: ob
+  formateins.ch (Preise, Social Media, Kostenrechner) es weiter nennt,
+  entscheidet Adrian; im Impressum bleibt es.
