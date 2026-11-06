@@ -1379,3 +1379,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `video-spot.mp4` und `.webm` mit `x-robots-tag: noindex` (auch bei
   Teilabruf 206), Startseite und `video-spot.webp` ohne. Bleibt bei Adrian:
   «Fehlerbehebung überprüfen» in der Search Console.
+- [ ] **ENT-087** · 06.11.2026 · Search Console: `/social-media` (live seit
+  ENT-079) noch über «URL-Prüfung» → «Indexierung beantragen» eintragen. Am
+  06.11. nicht möglich: Bericht «Seiten» zeigt «Daten werden verarbeitet»,
+  URL-Prüfung ausgegraut, Suchfeld fehlt, Direktlink 404. Seite selbst geprüft:
+  200, kein noindex, canonical auf sich, in `sitemap.xml`. Erneut versuchen,
+  sobald der Bericht wieder Zahlen zeigt. Bleibt die Prüfung mehrere Tage weg,
+  Ursache suchen (Berechtigung, Property).
