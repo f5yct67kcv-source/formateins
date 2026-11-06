@@ -391,6 +391,9 @@ footer nav a:hover{color:var(--signal)}
 /* Social Media (ENT-079): Monatspreis getrennt vom Rahmen. */
 .monat{margin-top:22px;padding:18px 20px;border:1px solid var(--signal);background:rgba(255,138,76,.05)}
 .monat[hidden],.resultat .betrag[hidden]{display:none}
+/* Erklaervideo (ENT-091): fester Preis oder Ab-Preis statt Rahmen. */
+.resultat .fest{margin-top:10px;font-size:var(--txt-m);color:var(--auf-grund-still)}
+.waehrung[hidden],.resultat .fest[hidden]{display:none}
 .monat .monat-titel{font-size:var(--txt-xs);letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--signal)}
 .monat .monat-betrag{margin-top:6px;font-family:var(--serif);font-weight:900;font-size:1.6rem;line-height:1.25}
 .monat .monat-betrag em{font-style:normal;font-family:var(--sans);font-weight:600;font-size:.6em;color:var(--auf-grund-still)}
@@ -440,7 +443,7 @@ footer nav a:hover{color:var(--signal)}
       <div class="antworten">
         <button class="antwort" data-wert="website" data-text="Website"><span class="kreis"></span><span><b>Website</b><span>Die Seite, die zeigt, was du machst, auf jedem Gerät.</span></span></button>
         <button class="antwort" data-wert="marke" data-text="Branding"><span class="kreis"></span><span><b>Branding</b><span>Logo, Farben, Schriften. Damit man dich überall wiedererkennt.</span></span></button>
-        <button class="antwort" data-wert="video" data-text="Video"><span class="kreis"></span><span><b>Video</b><span>Imagefilm, Produktvideo oder animierter Spot.</span></span></button>
+        <button class="antwort" data-wert="video" data-text="Video"><span class="kreis"></span><span><b>Video</b><span>Imagefilm, Produktvideo oder Erklärvideo.</span></span></button>
         <button class="antwort" data-wert="social" data-text="Social Media"><span class="kreis"></span><span><b>Social Media</b><span>Jeden Monat neue Beiträge auf deinen Kanälen. Monatlich kündbar.</span></span></button>
         <button class="antwort" data-wert="unklar" data-text="Weiss ich noch nicht"><span class="kreis"></span><span><b>Weiss ich noch nicht</b><span>Sag mir, was sich ändern soll. Ich schlage dir etwas vor.</span></span></button>
       </div>
@@ -597,12 +600,27 @@ footer nav a:hover{color:var(--signal)}
       <div class="antworten">
         <button class="antwort" data-wert="imagefilm" data-text="Imagefilm"><span class="kreis"></span><span><b>Imagefilm</b><span>Ich drehe bei dir: Menschen, Arbeit, Ort. Zeigt, wie es bei dir ist.</span></span></button>
         <button class="antwort" data-wert="produkt" data-text="Produktvideo"><span class="kreis"></span><span><b>Produktvideo</b><span>Dein Produkt im Mittelpunkt, gedreht und sauber ausgeleuchtet.</span></span></button>
-        <button class="antwort" data-wert="animiert" data-text="Animierter Spot"><span class="kreis"></span><span><b>Animierter Spot</b><span>Schrift, Grafik und Bewegung, ganz ohne Dreh. Gut für Angebote, Aktionen und Erklärungen.</span></span></button>
+        <!-- Erklaervideo (ENT-091): ersetzt den animierten Spot. Animiert in drei Paketen
+             mit festem Preis, mit Dreh ab einem Grundpreis, Festpreis nach dem Gespraech. -->
+        <button class="antwort" data-wert="erklaer" data-text="Erklärvideo, animiert"><span class="kreis"></span><span><b>Erklärvideo, animiert</b><span>Bild, Grafik und Bildschirm, ganz ohne Dreh. Drei Pakete mit festem Preis.</span></span></button>
+        <button class="antwort" data-wert="erklaerdreh" data-text="Erklärvideo mit Dreh"><span class="kreis"></span><span><b>Erklärvideo mit Dreh</b><span>Ich filme bei dir, Stimme und Animation kommen dazu. Den Festpreis bekommst du nach dem Gespräch.</span></span></button>
         <button class="antwort" data-wert="unklar" data-text="Form noch offen, gerechnet als Imagefilm"><span class="kreis"></span><span><b>Weiss ich noch nicht</b><span>Ich rechne mit einem Imagefilm und sage dir im Gespräch, ob etwas anderes besser passt.</span></span></button>
       </div>
       <div class="feld zusatzfeld" id="drehortfeld">
         <label for="drehort">Wo wird gedreht? (freiwillig, Anfahrt bis 30 km ist inbegriffen)</label>
         <input type="text" id="drehort" name="drehort" placeholder="PLZ und Ort" autocomplete="address-level2">
+      </div>
+    </div>
+
+    <div class="frage" data-schluessel="erklaer_paket" data-ast="video">
+      <span class="ziffer" aria-hidden="true"></span>
+      <p class="etikett"><b></b><i aria-hidden="true"></i>Erklärvideo</p>
+      <h1>Welches Paket passt?</h1>
+      <p class="hilfe">Die Länge bestimmt den Preis. Stimme, Musik, Untertitel, Quer- und Hochformat sind in jedem Paket drin.</p>
+      <div class="antworten">
+        <button class="antwort" data-wert="kurz" data-text="Kurz, 30 Sekunden"><span class="kreis"></span><span><b>Kurz, 30 Sekunden</b><span>Wenn eine Sache schnell verstanden sein soll: ein Angebot, eine Aktion, ein Ablauf.</span></span></button>
+        <button class="antwort" data-wert="klar" data-text="Klar, 60 Sekunden"><span class="kreis"></span><span><b>Klar, 60 Sekunden</b><span>Wenn die Leute verstehen sollen, was du machst und warum sie zu dir kommen sollen.</span></span></button>
+        <button class="antwort" data-wert="ausfuehrlich" data-text="Ausführlich, 90 Sekunden"><span class="kreis"></span><span><b>Ausführlich, 90 Sekunden</b><span>Wenn dein Angebot mehr Erklärung braucht, etwa mehrere Schritte oder Varianten.</span></span></button>
       </div>
     </div>
 
@@ -699,7 +717,8 @@ footer nav a:hover{color:var(--signal)}
       <div class="resultat">
         <p class="etikett"><i aria-hidden="true"></i><span id="ergebnis-etikett">Dein Preisrahmen</span></p>
         <h2 id="empfehlung">Dein Preisrahmen</h2>
-        <p class="betrag"><span class="waehrung">CHF</span><span class="zahl" id="zahl">———</span></p>
+        <p class="betrag"><span class="waehrung" id="ab" hidden>ab</span><span class="waehrung">CHF</span><span class="zahl" id="zahl">———</span></p>
+        <p class="fest" id="fest" hidden></p>
 
         <!-- Nur bei mehr als einer Richtung: jede Richtung mit ihrem eigenen Rahmen,
              darunter der Vergleich mit einzeln gebucht. -->
@@ -945,6 +964,7 @@ footer nav a:hover{color:var(--signal)}
 // dann je gewaehlte Richtung ihre Fragen, am Schluss einmal der Zeitrahmen.
 // Direktlinks ueberspringen die Weiche:
 //   ?fuer=video  oder  ?fuer=marke,website  oder  ?fuer=social&stufe=2
+//   ?fuer=video&video=erklaer|kurz|klar|ausfuehrlich  (Erklaervideo, ENT-091)
 //   ?paket=start|auftritt|film&dazu=texte&dazu=sprache …  (von den Paketkarten)
 const alleFragen = [...document.querySelectorAll('.frage')];
 const frageZu = Object.fromEntries(alleFragen.map(f => [f.dataset.schluessel, f]));
@@ -1000,7 +1020,9 @@ function richtungen(){
 
 // Wird gedreht? Dann kommen die Bilder fuer die Website aus dem Dreh, und wer
 // die Bildfrage noch nicht beantwortet hat, bekommt sie gar nicht erst.
-const DREH = ['imagefilm', 'produkt', 'unklar'];
+const DREH = ['imagefilm', 'produkt', 'erklaerdreh', 'unklar'];
+// Erklaervideo (ENT-091): Paket statt Laenge, Formate und Stimme sind inbegriffen.
+const ERKLAER = ['erklaer', 'erklaerdreh'];
 function gedreht(){
   return richtungen().includes('video') && (!antwort.video_art || DREH.includes(antwort.video_art));
 }
@@ -1016,6 +1038,8 @@ function folge(){
     if (!r.includes(ast)) return false;
     if (s === 'logo') return !r.includes('marke') || antwort.logo === 'marke';
     if (s === 'bilder') return !(gedreht() && !antwort.bilder);
+    if (s === 'erklaer_paket') return antwort.video_art === 'erklaer';
+    if (['video_laenge', 'video_ort', 'video_stimme'].includes(s)) return !ERKLAER.includes(antwort.video_art);
     return true;
   });
 }
@@ -1066,6 +1090,12 @@ function waehlen(schluessel, wert){
     if (fuer.length) direkt = new Set(fuer);
     // Von den Karten der Seite Social Media: ?fuer=social&stufe=1|2|3
     if (fuer.includes('social') && ['1','2','3'].includes(p.get('stufe'))) waehlen('social_menge', 'stufe' + p.get('stufe'));
+    // Von der Seite Erklaervideo: ?fuer=video&video=erklaer oder gleich das Paket.
+    const ev = p.get('video');
+    if (fuer.includes('video') && ['erklaer', 'kurz', 'klar', 'ausfuehrlich'].includes(ev)) {
+      waehlen('video_art', 'erklaer');
+      if (ev !== 'erklaer') waehlen('erklaer_paket', ev);
+    }
   }
 }
 
@@ -1098,7 +1128,13 @@ function teile(){
     t.push({ richtung:'website', kern, extras,
       text: { eine:'Eine Seite', firma:'Firmenwebsite, 3 bis 5 Seiten', gross:'Grössere Website, ab 6 Seiten' }[g] });
   }
-  if (r.includes('video')) {
+  if (r.includes('video') && ERKLAER.includes(antwort.video_art)) {
+    // Fester Preis je Paket; mit Dreh ein Ab-Preis, der Festpreis kommt nach dem Gespraech.
+    const V = P.video, dreh = antwort.video_art === 'erklaerdreh';
+    const pk = V.erklaer[antwort.erklaer_paket] ? antwort.erklaer_paket : 'klar';
+    t.push({ richtung:'video', kern: dreh ? V.erklaerDreh : V.erklaer[pk], extras:0, fest: !dreh, ab: dreh,
+      text: dreh ? 'Erklärvideo mit Dreh' : 'Erklärvideo ' + { kurz:'Kurz, 30 s', klar:'Klar, 60 s', ausfuehrlich:'Ausführlich, 90 s' }[pk] });
+  } else if (r.includes('video')) {
     const V = P.video;
     const art = V[antwort.video_art] ? antwort.video_art : 'imagefilm';
     const l = V[art][antwort.video_laenge] ? antwort.video_laenge : 'mittel';
@@ -1302,7 +1338,7 @@ const TITEL = {
   marke_stand:'Branding', marke_reichweite:'Branding, Umfang',
   umfang:'Website, Umfang', bestand:'Ausgangslage', texte:'Texte', bilder:'Bilder',
   logo:'Logo und Auftritt', funktionen:'Funktionen', zugang:'Selbst ändern',
-  video_art:'Video', video_laenge:'Länge', video_ort:'Formate', video_stimme:'Ton',
+  video_art:'Video', erklaer_paket:'Paket', video_laenge:'Länge', video_ort:'Formate', video_stimme:'Ton',
   social_stand:'Social Media, Kanäle', social_menge:'Social Media, Umfang', social_dreh:'Social Media, Bilder',
   zeit:'Zeitrahmen'
 };
@@ -1319,7 +1355,7 @@ function zeilen(){
 
 const EMPFEHLUNG = {
   website: { eine:'Eine Seite passt zu dir.', firma:'Eine Firmenwebsite passt zu dir.', gross:'Das wird eine grössere Website.' },
-  video:   { imagefilm:'Ein Imagefilm passt zu dir.', produkt:'Ein Produktvideo passt zu dir.', animiert:'Ein animierter Spot passt zu dir.', unklar:'Ein Video passt zu dir.' }
+  video:   { imagefilm:'Ein Imagefilm passt zu dir.', produkt:'Ein Produktvideo passt zu dir.', erklaer:'Ein Erklärvideo passt zu dir.', erklaerdreh:'Ein Erklärvideo mit Dreh passt zu dir.', unklar:'Ein Video passt zu dir.' }
 };
 function empfehlung(r){
   if (r.length === 1 && r[0] === 'social') return 'Ein Monatspaket passt zu dir.';
@@ -1362,7 +1398,14 @@ function dazuPasst(r, t){
 
 function rechnen(){
   const r = richtungen(), t = teile(), s = summe(t);
-  rahmenText = projekte().length ? chfRahmen(rahmen(s.hand)) : '';
+  // Erklaervideo allein: fester Preis statt Rahmen, mit Dreh ein Ab-Preis (ENT-091).
+  const allein = t.length === 1 ? t[0] : null;
+  const fest = allein && allein.fest && !eilig, ab = t.some(x => x.ab);
+  // Mit Dreh zusammen mit anderem: «ab» und die untere Grenze, ein Ab-Preis hat kein Oben.
+  const unten = allein ? s.hand : rahmen(s.hand)[0];
+  rahmenText = !projekte().length ? '' : fest ? 'CHF ' + zahl(s.hand) + ', fester Preis'
+    : ab ? 'ab CHF ' + zahl(unten) + ', Festpreis nach dem Gespräch'
+    : chfRahmen(rahmen(s.hand));
   if (r.includes('social')) {
     const sp = socialPreis();
     rahmenText += (rahmenText ? ', dazu ' : '') + 'Social Media CHF ' + zahl(sp) + ' pro Monat'
@@ -1372,7 +1415,12 @@ function rechnen(){
   document.getElementById('empfehlung').textContent = empfehlung(r);
   const pr = projekte(), sozial = r.includes('social');
   document.getElementById('ergebnis-etikett').textContent = !pr.length ? 'Dein Monatspaket' : r.length > 1 ? 'Aus einer Hand' : 'Dein Preisrahmen';
-  rahmenZahl(document.getElementById('zahl'), s.hand);
+  if (r.length === 1 && (fest || ab)) document.getElementById('ergebnis-etikett').textContent = 'Dein Preis';
+  if (fest || ab) document.getElementById('zahl').textContent = zahl(ab ? unten : s.hand);
+  else rahmenZahl(document.getElementById('zahl'), s.hand);
+  document.getElementById('ab').hidden = !ab;
+  document.getElementById('fest').hidden = !fest && !ab;
+  document.getElementById('fest').textContent = fest ? 'Fester Preis.' : 'Den Festpreis bekommst du nach dem Gespräch.';
   document.querySelector('.resultat .betrag').hidden = !pr.length;
 
   // Social Media: Monatspreis getrennt vom Rahmen.
@@ -1404,7 +1452,8 @@ function rechnen(){
       const dt = document.createElement('dt'); dt.textContent = NAMEN[x.richtung];
       const was = document.createElement('span'); was.textContent = x.text;
       dt.append(was);
-      const dd = document.createElement('dd'); dd.textContent = chfRahmen(rahmen((x.kern + x.extras) * f));
+      const dd = document.createElement('dd');
+      dd.textContent = (x.fest || x.ab) && !eilig ? (x.ab ? 'ab ' : '') + 'CHF ' + zahl(x.kern) : chfRahmen(rahmen((x.kern + x.extras) * f));
       zeile.append(dt, dd); dl.appendChild(zeile);
     }
     document.getElementById('einzeln').textContent = chfRahmen(rahmen(s.einzeln));

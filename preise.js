@@ -59,6 +59,8 @@ const PREISE = {
     "imagefilm": { "kurz": 1800, "mittel": 2700, "lang": 3800 },
     "animiert": { "kurz": 1300, "mittel": 2400, "lang": 3500 },
     "produkt": { "kurz": 1300, "mittel": 2000, "lang": 2900 },
+    "erklaer": { "kurz": 1400, "klar": 2400, "ausfuehrlich": 3400 },
+    "erklaerDreh": 2400,
     "format": { "kurz": 300, "mittel": 400, "lang": 500 },
     "schnitte": 600,
     "stimme": 450

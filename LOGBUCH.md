@@ -1580,3 +1580,19 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   (6 MB) und `.webm` (8 MB), Vorschaubild bei 12 s («50+ Ziele»). Läuft mit
   Ton und Steuerung, startet erst auf Klick, auf der Referenzseite im
   Ergebnis und auf der Erklärvideo-Seite bei der Referenz.
+
+- [ ] **ENT-091** · 06.11.2026 · Kostenrechner für die Erklärvideo-Pakete
+  (Adrian): «Animierter Spot» wird «Erklärvideo, animiert» mit den Paketen
+  Kurz 30 s CHF 1'400, Klar 60 s CHF 2'400, Ausführlich 90 s CHF 3'400
+  (fester Preis, Stimme, Musik, Untertitel, Quer- und Hochformat inbegriffen,
+  darum keine Fragen nach Länge, Formaten und Ton). Neu «Erklärvideo mit
+  Dreh», ab CHF 2'400, Festpreis nach dem Gespräch. Zusammen mit anderem
+  gilt die Kombi-Regel (−20 % auf die übrigen Teile). Die Karten der
+  Erklärvideo-Seite wählen ihr Paket vor:
+  `kostenrechner?fuer=video&video=kurz|klar|ausfuehrlich`, sonst
+  `&video=erklaer`. Preise in `preise.js` (`video.erklaer`,
+  `video.erklaerDreh`), `anfrage.php` kennt die neuen Antworten.
+  `video.animiert` bleibt vorerst für die Zeile «Kurzer Spot» auf
+  `preise.html`. Offen: Betreiber nachziehen (Ansätze, Regeln, Rechnen,
+  `preise-faelle.json`), sonst schreibt «Schalten» den Block ohne
+  `erklaer` zurück; beim Livegang `preise.html` (Spot-Zeile) anpassen.
