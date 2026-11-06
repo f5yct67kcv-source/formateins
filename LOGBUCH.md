@@ -1642,3 +1642,13 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   etwas?» (Adrian, Fassung B): «Nein. Das Gespräch ist kostenlos und
   unverbindlich. Danach haben Sie den Festpreis und entscheiden in Ruhe.» Gilt
   für alle Seiten. Akquise f198777, ausgeliefert mit Lauf Nr. 130, live geprüft.
+
+- [x] **ENT-118** · 06.11.2026 · Akquise, Frage 4 «Wie lange dauert es?»
+  (Adrian, Fassung B, «meist» statt «höchstens»): «Die Startseite steht meist
+  nach zwei Wochen, die ganze Website nach sechs Wochen. Wie schnell es geht,
+  hängt vor allem davon ab, wann Texte und Bilder bereit sind.» Ohne «Startseite
+  zuerst» nur «Die ganze Website steht meist nach sechs Wochen.» und der zweite
+  Satz. Nachgezogen in `tueroeffner.md` und im Brief-Werkzeug `aus-daten.js`.
+  Akquise 7d11840, ausgeliefert mit Lauf Nr. 131, live geprüft.
+- [ ] formateins.ch nennt unter den Fragen noch «rund zwei Monate» (index.html,
+  entwurf.html). Anpassen nur auf Adrians Wort, Push auf main ist live (ENT-118).
