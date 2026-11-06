@@ -94,6 +94,15 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   nicht auffindbar (Suche auf local.ch und die Telefonbuch-Schnittstelle von
   search.ch liefern keinen Treffer); neue Einträge brauchen dort ein paar Tage
   bis zur Freischaltung. Die Adressen in `sameAs` folgen in ENT-077.
+  Nachtrag 06.11.2026: localsearch hat beide Basiseinträge freigeschaltet
+  (Mail an adrian@formateins.ch, Case 01666234, 06.11.2026 08:53). Adressen:
+  `https://www.local.ch/de/d/trimbach/4632/formateins-vXDmp3F7IBKxwlzGKiC3zg`
+  (in der Mail die französische Fassung `/fr/`, gleicher Eintrag) und
+  `https://search.ch/tel/trimbach/hochgasse-7/formateins`. Von hier aus
+  geprüft, alle drei mit 200: Hochgasse 7, 4632 Trimbach, 079 686 84 86, wie
+  auf der Seite. Der Name steht dort als «Formateins» mit grossem F. Die
+  Angebote zum Wechsel auf SWISS LIST oder digitalONE (bezahlt) nicht
+  angenommen; es bleibt beim Gratiseintrag. Damit ist ENT-077 frei.
 - [x] **ENT-028** · 29.10.2026 · Die grossen Updates sind seit dem 28.10.2026
   abends live. Ab jetzt wird am Entwurf weitergearbeitet (`entwurf*`, Arbeitszweig).
   Nichts geht auf `main` und damit live ohne Adrians ausdrückliches Einverständnis,
@@ -1045,6 +1054,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   der Startseite, neben Google-Profil und Instagram (ENT-018, ENT-057). Adrian
   schickt die Links oder sie werden von hier aus gesucht. Geht auf `main` erst
   mit Adrians Wort.
+  Nachtrag 06.11.2026: Beide Einträge sind freigeschaltet, die Adressen
+  stehen bei ENT-027. Bereit zum Einbau.
 
 - [ ] **ENT-078** · 03.11.2026 · Betreiber-Bereich: **eigener Bereich «Preise»**
   mit der Preislogik des Kostenrechners, transparent und mit Eingriffen von

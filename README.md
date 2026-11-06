@@ -541,7 +541,7 @@ Wissen nichts. Die Hebel liegen ausserhalb der Seite.
    einreichen, URL-Prüfung der Startseite. Am 30.10.2026 lieferte Bing für
    `site:formateins.ch` noch keinen einzigen Treffer.
 2. local.ch und search.ch: erledigt, Adrian hat beide Einträge am 02.11.2026
-   erfasst (ENT-027). Sobald sie freigeschaltet sind, kommen die Adressen als
+   erfasst, freigeschaltet am 06.11.2026 (ENT-027). Die Adressen kommen als
    `sameAs` auf die Startseite (ENT-077).
 3. Gewerbe Olten: Probemitgliedschaft, erstes Jahr gratis, zweites halb,
    danach CHF 365 im Jahr (CHF 250 plus CHF 115 Kantonalverband). ChatGPT hat
