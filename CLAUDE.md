@@ -126,6 +126,13 @@ bestaetigt: `robots.txt` antwortet mit 200), `firecrawl_search` zeigt, was ein
 Suchindex kennt. Bing laesst sich per `curl` auf `www.bing.com/search` abfragen.
 Was KI-Suchen sehen und wo die Hebel liegen: README, Abschnitt «KI-Suchen».
 
+## Fragen an Adrian
+
+Seit dem 05.11.2026 auf Adrians Wunsch (ENT-089): Fragen immer so stellen,
+dass er sie mit einer Auswahl beantworten kann. Zwei bis vier Optionen, die
+empfohlene zuerst und als «(Empfohlen)» markiert, jede mit kurzer
+Begruendung. Im Chat ueber das Frage-Werkzeug, nicht als offene Liste.
+
 ## Aenderungen zuerst zeigen
 
 Gestaltung erst vorfuehren, dann bauen: Entwuerfe als Bild rendern (Playwright,

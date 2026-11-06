@@ -1414,3 +1414,169 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Zugangsdaten und der einmalige Übertragungs-Token gelöscht.
   Offen: `datenschutz-demo.html` beschreibt eine abgeschaltete
   Demo-Umgebung, klären ob sie bleibt.
+
+  Zu ENT-079 (aus Sitzung Erklärvideo): Nachtrag 05.11.2026: main ed2ce49, Lauf «Website zu Hostpoint» Nr. 82
+  erfolgreich, Pfeil-CSS auf www.formateins.ch geprüft.
+
+- [ ] **ENT-088** · 05.11.2026 · (zuerst als ENT-086, dann als ENT-087 vergeben) Eigene Seite Erklärvideo, zuerst als
+  `entwurf-erklaervideo.html` (Interview mit Adrian). Weicht vom Entscheid
+  zu den Formaten ab (Formate als Referenzen unter /arbeiten/, eigene Seiten
+  nur für separat Buchbares): Erklärvideo wird als Test eigenständig; ob
+  Werbevideo, Imagefilm folgen, entscheidet Adrian danach.
+  Festgelegt: für Dienstleister und Produkt-Firmen; Titel «In 60 Sekunden
+  verstanden, was du machst.»; Aufbau wie Social Media plus Abschnitt «Wo
+  dein Video arbeitet» (Website, Social Media, Präsentation und Messe);
+  Adresse /erklaervideo ohne Menüpunkt, erreichbar über den Stand Video,
+  Preise und Fuss; im Hero das Muster-Erklärvideo im Handy; Beispiele zuerst
+  das Muster, echte Projekte unter /arbeiten/, nichts aus der Akquise.
+  Pakete Kurz 30 s CHF 1'400, Klar 60 s CHF 2'400, Ausführlich 90 s
+  CHF 3'400 (Konkurrenz 05.11.2026: Agenturen CH ab rund CHF 5'000 für
+  60 s, Freelancer CHF 1'000–5'000, DACH-Median Einstieg rund 2'300 €).
+  Inklusive: Erstgespräch mit Audit (was du anbietest und zeigen willst),
+  Skript mit Rücksprache, zwei Korrekturrunden, professionelle Stimme,
+  Musik, Untertitel, quer und hoch. Zusatz Dreh vor Ort, halber Tag ab
+  CHF 600. Eigene Stimme des Kunden nur auf seinen Wunsch, dann mit
+  professioneller Aufnahme (Handy klingt unprofessionell). Lieferzeit 2 bis
+  3 Wochen. Normale Kombi-Regel, nur bei gleichzeitiger Buchung (ENT-085).
+  Neue Preise in `preise.js` und im Betreiber, sobald der Entwurf steht.
+  Erster Entwurf 05.11.2026: `entwurf-erklaervideo.html` (Hero mit Ausschnitt
+  aus dem Muster im Reel als Schleife `entwurf-erklaervideo-muster.*`,
+  Einsatz, Ablauf in fünf Schritten, Pakete, Dazu buchbar, Beispiele, FAQ,
+  Schluss) und `entwurf-start.html` (Startseite, Eintrag Erklärvideo im Stand
+  Video führt auf den Entwurf). Beide noindex, nur Vorschau.
+  Hero-Text gekürzt (Adrian: Ablauf steht schon unten), vorläufig «Deine
+  komplexe Angelegenheit, einfach erklärt.» plus ein Satz; die endgültige
+  Fassung legt Adrian später fest.
+  Danach Adrian (Fassung A): «Du bringst ein neues Produkt oder eine neue
+  Dienstleistung? Oder du willst endlich zeigen, was du machst, modern und
+  verständlich? Dann bist du hier genau richtig.» Die Einsatzorte stehen nur
+  noch im Abschnitt darunter.
+  Abschnitt Einsatz (Adrian): bleibt, aber ohne die drei Kacheln. Varianten
+  gezeigt: drei Geräte mit drei Videos (überladen), Gruppe als Standbild,
+  ein Gerät mit Umschalter, nur Text. Gewählt: nur Text, redaktionell, drei
+  grosse Wörter Website, Social Media, Messe mit je einem Satz, rechts das
+  Muster als Standbild im Handy (fällt auf schmalen Bildschirmen weg).
+  Danach (Adrian): Handy im Einsatz entfernt, weil es schon im Hero steht;
+  Text über die ganze Breite, «Quer und hoch inklusive» als Zeile darunter.
+  Ablauf (Adrian, 06.11.2026): gleiches Layout wie «So läuft es ab» auf der
+  Startseite, links Titel, Satz und Knopf (dockt an), rechts fünf Schritte
+  mit Balken, der sich mit dem Scrollen füllt; Nummern werden orange.
+  Dazu buchbar (Adrian, 06.11.2026): Dreh vor Ort als Box wie der
+  Social-Media-Boost auf der Preisseite, Abzeichen «Tipp · Dazu buchbar»,
+  Titel «Echte Bilder von dir gleich mitnehmen.», ab CHF 600 halber Tag,
+  Knopf «Dreh anfragen». Kombirabatt als Zeile darunter. Dieselbe Box später
+  auch auf Social Media, Inhalt offen.
+  Danach (Adrian): kein Festpreis, ein halber Tag reicht je nach Grösse nicht
+  (z. B. 20 Portraits plus Werkstatt plus Video). Box zeigt «Ab CHF 600, je
+  nach Umfang»; Fotos sind nicht dabei, sie werden separat offeriert (mehr
+  Zeit und Preis). Titel «Echte Bilder von dir im Video.», FAQ angepasst.
+  Danach gekürzt (Adrian: die Seite verkauft das Erklärvideo): Fotos nicht
+  mehr erwähnt, Text zwei Sätze, auch im FAQ.
+  Zwei Arten (Adrian, 06.11.2026): Der Dreh ist kein Zusatz, wenn das Video
+  echte Aufnahmen braucht; er prägt das Endprodukt. Darum zwei Wege: die drei
+  Pakete gelten für das animierte Erklärvideo (Software, Karten, Abläufe);
+  die Box wird zum zweiten Weg «Erklärvideo mit Dreh» (Handwerk, Laden,
+  Produkt), ab CHF 2'400, Festpreis nach dem Gespräch. Der Dreh ab CHF 600
+  als Zusatz entfällt. FAQ angepasst. Kostenrechner und preise.js folgen
+  nach Abnahme.
+  Titel der Box (Adrian): «in echt» wertet das animierte Video ab; neu
+  «Braucht dein Video mehr als Animation?», Text nennt Betrieb, Team, Produkt.
+  Kombirabatt (Adrian, 06.11.2026): Der zweizeilige Hinweis unter der Box
+  wirkte wie Kleingedrucktes. Drei Varianten gezeigt (Preisschild, Leiste,
+  Stempel), gewählt das Preisschild: es hängt an einer Kordel genau an der
+  oberen rechten Kartenecke (am Handy an der ersten Karte), «Kombi · −20 % ·
+  zusammen gebucht», pendelt leicht (ruhig bei reduzierter Bewegung) und
+  führt in den Kostenrechner. Der Kleintext entfällt.
+  Nachgebessert (Adrian): Das Schild deckte am Computer die Beschreibung der
+  dritten Karte ab. Jetzt hält der Text dort rechts Abstand; per Playwright
+  auf sechs Breiten und an beiden Enden des Pendelns geprüft: kein Text unter
+  dem Schild.
+  Zurück zur ersten Form (Adrian: das hohe Schild ist zu dick): wieder das
+  schlanke, liegende Schild «−20 % · zusammen gebucht». Es liegt über der
+  Ecke der dritten Karte (am Handy der ersten), eine Kordel führt vom Loch
+  zur Ecke. Die Karten rücken dafür nach unten, kein Text liegt darunter
+  (Playwright, sechs Breiten, beide Enden des Pendelns). Der Abstand im
+  Text der dritten Karte entfällt wieder.
+  Richtig verstanden (Adrian: «nach unten hängend»): das schlanke Schild
+  hängt senkrecht an einer kurzen Kordel von der Kartenecke, Spitze mit Loch
+  oben, Schrift läuft von oben nach unten, pendelt leicht. Am Computer an
+  der dritten Karte, halb über dem Rand; am Handy an der ersten, nach innen
+  versetzt. Der Text daneben hält Abstand. Geprüft per Playwright von 360
+  bis 1700 px an beiden Enden des Pendelns: kein Text unter dem Schild,
+  kein Überlauf.
+  Kordel (Adrian): wieder die Kordel vom ersten hängenden Schild, mit
+  Schlaufe um die Ecke, Knoten und zweitem Strang.
+  Trennstriche (Adrian, 06.11.2026): Die Linie zwischen den Abschnitten
+  entfällt, die Seite soll aus einem Guss wirken. Gilt im Entwurf
+  Erklärvideo und in der Referenz Butterfly Cottage; preise.html und
+  social-media.html (live) verlieren sie beim Livegang des Erklärvideos
+  (Adrian), nicht vorher.
+  Referenz (Adrian, 06.11.2026): Handy gleich gross wie im Hero (290 px,
+  am Handy 240 px), kein Rahmen um den Block, das umrandete Etikett wird
+  zur Zeile in Grossbuchstaben, «Ganze Geschichte ansehen» als oranger
+  Knopf. Video: Standbild mit orangem Play-Knopf, startet erst auf Klick,
+  dann mit Ton und Bedienleiste; hält an, wenn man weiterscrollt. Geprüft
+  per Playwright: Klick startet, Ton an, keine Fehler.
+  Referenz zu nackt (Adrian): drei Varianten gezeigt (Zahlen, Karte,
+  Steckbrief), gewählt die Karte mit grösserem Ausschnitt samt
+  Kategorie-Knöpfen (Bildschirmfoto von Adrian, arbeiten/entwurf-butterfly-
+  karte-gross.webp). Dazu ein grösserer Titel und etwas grösserer Text.
+  FAQ (Adrian): von acht auf fünf Fragen. Weg sind «Wie lange dauert es?»
+  (Hero und Ablauf), «Echte Bilder?» (Box «Mit Dreh») und «Mehrwertsteuer?».
+  «Muss ich selbst etwas vorbereiten?» ersetzt (Adrian: wer anfragt, ist
+  vorbereitet): neu «Mein Vorhaben ist noch nicht fertig. Geht das
+  trotzdem?», Antwort mit Entwürfen, Skizzen oder Bildschirmfotos.
+  Korrekturen (Adrian): keine feste Zahl mehr. Zuerst ein wasserdichtes
+  Skript, dann der Bau; am optischen Aufbau feilen wir, bis das Video
+  passt. Paket: «Anpassungen an der Optik, bis es passt» statt «Zwei
+  Korrekturrunden». Kostenrechner, preise.js und Betreiber nachziehen,
+  falls dort Runden stehen (beim Livegang prüfen).
+  Danach (Adrian): Die Antwort hängt nicht am Skript, sie spricht nur von
+  optischen Anpassungen (Farben, Bilder, Schrift, Tempo), bis es passt.
+  «Darf ich das Video überall zeigen?» gestrichen (Adrian: selbstverständlich,
+  das Video gehört dem Kunden). Es bleiben vier Fragen.
+  KI-Antwort (Adrian): offen, wie die ganze Branche; schneller und günstiger,
+  Strategie, Gestaltung und Kontakt bleiben bei Adrian. Keine Aussage über
+  andere Agenturen (nicht belegbar).
+  Einsatz (Adrian: schwächstes Element): drei Varianten gezeigt
+  (Lesezeile, Linien-Icons, Laufband), gewählt die Lesezeile. Grosse Worte,
+  zuerst blass; beim Scrollen leuchtet jede Zeile auf und ein oranger Strich
+  zieht darunter durch. Text rechts grösser und heller (Adrian). Bei
+  reduzierter Bewegung gleich sichtbar.
+  Nachgebessert (Adrian: kein Effekt sichtbar): Die Zeilen leuchteten nur
+  einmal auf, auf hohen Bildschirmen schon beim Laden. Jetzt ans Scrollen
+  gebunden wie der Ablauf: an bei 60 % der Fensterhöhe, aus beim
+  Zurückscrollen; das Wort gleitet dabei leicht ein.
+  Orange wandert (Adrian): nicht mehr fix bei Social Media; die zuletzt
+  erreichte Zeile ist orange, die darüber weiss.
+  Abstand FAQ zum Schluss verringert (Adrian): von rund 200 auf 96 px.
+
+- [x] **ENT-089** · 05.11.2026 · (zuerst als ENT-087, dann als ENT-088 vergeben) Fragen an Adrian immer mit Auswahl und
+  Empfehlung (Adrian): Optionen zum Anklicken, die empfohlene zuerst, mit
+  kurzer Begründung. Steht in `CLAUDE.md`.
+
+- [ ] **ENT-090** · 06.11.2026 · (zuerst als ENT-088, dann als ENT-089 vergeben) Referenzen (Adrian): Übersicht `/arbeiten`
+  mit allen echten Projekten (filterbar nach Website, Branding, Video,
+  Social Media) und je eine Detailseite `/arbeiten/<name>` mit Kunde,
+  Herausforderung, Lösung, Ergebnis. «Arbeiten» im Menü führt dann auf die
+  Übersicht, der Abschnitt auf der Startseite bleibt als Auswahl mit Link
+  «Alle Arbeiten». Bereichsseiten wie Erklärvideo zeigen ein bis zwei
+  Referenzen kurz und verlinken auf die Detailseite. Ergänzt ENT-088 und den
+  Entscheid zu den Formaten (Referenzen unter /arbeiten/).
+  Erste Referenz: Garden Park Guest House, interaktive Karte mit
+  Erklärvideo, echtes Kundenprojekt, mit Name und Link (Adrian: Freigabe
+  ja). Zuerst die Detailseite als Entwurf, sie wird Vorlage; danach die
+  Übersicht und der Kasten auf der Erklärvideo-Seite. Material: Link und
+  Stichworte von Adrian im Chat.
+  Erster Entwurf 06.11.2026: `arbeiten/entwurf-butterfly-cottage.html` mit
+  Steckbrief (Daniel & Sarah Muccio, Grantown-on-Spey, Erklärvideo, Link zur
+  Karte), Bildschirmfoto der Karte, Herausforderung, Lösung, Ergebnis. Von
+  formateins nur das Erklärvideo, die Karte nicht (Adrian). Das Muster im
+  Reel ist dieses Video: auf der Erklärvideo-Seite heisst es nicht mehr
+  Muster, der Kasten Beispiele zeigt die Referenz und verlinkt sie. Offen:
+  ganzes Video (Link von Adrian), Satz zur Wirkung bei den Gästen bestätigen.
+  Ganzes Video von Adrian (06.11.2026, 47,5 s, 1080×1920, Deutsch):
+  verkleinert auf 720×1280 als `arbeiten/entwurf-butterfly-video.mp4`
+  (6 MB) und `.webm` (8 MB), Vorschaubild bei 12 s («50+ Ziele»). Läuft mit
+  Ton und Steuerung, startet erst auf Klick, auf der Referenzseite im
+  Ergebnis und auf der Erklärvideo-Seite bei der Referenz.

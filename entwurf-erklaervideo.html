@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<!-- ENTWURF Erklärvideo (ENT-088). Nur Vorschau: Der Workflow lädt entwurf* nicht
+     auf formateins.ch. Preise noch nicht in preise.js, darum hier fest. -->
+<meta name="robots" content="noindex">
+<title>Erklärvideo für kleine Unternehmen in Olten | formateins</title>
+<meta name="description" content="In 60 Sekunden verstanden, was du machst. Erklärvideos für Selbstständige und kleine Unternehmen: Skript, Stimme, Musik und Animation zum festen Preis, fertig in 2 bis 3 Wochen.">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#1b2a33">
+<link rel="preload" href="schriften/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="schriften/playfair-display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="schriften.css">
+<link rel="stylesheet" href="recht.css">
+<link rel="stylesheet" href="leiste.css">
+<script src="leiste.js" defer></script>
+<style>
+/* Grundlage recht.css (Kopf, Fuss, Farben), hier breiter und in Abschnitten
+   wie die Preisseite. */
+:root{--spalte:min(1120px,calc(100% - 2 * clamp(16px,5vw,56px)));--tinte:#15202a;--linie-hell:#3f5e70;--txt-m:.95rem}
+main{padding-block:0}
+main .spalte > *{max-width:none}
+h1,h2,h3{text-wrap:balance}
+h1{font-size:clamp(2.15rem,4.5vw,3.6rem);line-height:1.06;margin-bottom:0}
+h2{font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.08;margin:0}
+h1 .zweite,h2 .zweite{display:block;font-family:var(--sans);font-weight:600;font-size:.98em;letter-spacing:-.04em}
+h1 .zweite{color:var(--signal)}
+h2:has(.zweite){color:var(--auf-grund-still)}
+h2 .zweite{color:var(--auf-grund)}
+h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1.15;font-size:1.25rem}
+p{max-width:62ch}
+.lead{font-size:clamp(1.04rem,1.35vw,1.18rem);color:var(--auf-grund-still);max-width:56ch}
+.lead + .lead{margin-top:.8em}
+
+.abschnitt{padding:clamp(56px,8vw,100px) 0}
+.oben{display:flex;align-items:center;gap:14px;margin-bottom:18px;
+  font-size:var(--txt-xs);letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--auf-grund-still)}
+.oben b{color:var(--signal)}
+.oben i{width:34px;height:1px;background:var(--signal)}
+
+.knopf{display:inline-flex;align-items:center;gap:11px;background:var(--signal);color:var(--tinte);font-weight:700;padding:16px 26px;text-decoration:none;transition:background .2s ease,transform .2s ease}
+.knopf:hover{color:var(--tinte);background:#ff9f6d;transform:translateY(-2px)}
+.knopf .pfeil{transition:transform .2s ease}
+.knopf:hover .pfeil{transform:translateX(4px)}
+.knopf.umriss{background:transparent;color:var(--auf-grund);padding:15px 25px;border:1px solid color-mix(in srgb,var(--auf-grund) 55%,transparent)}
+.knopf.umriss:hover{background:rgba(255,255,255,.05);color:var(--auf-grund)}
+.handeln{display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center;margin-top:30px}
+.klarzeile{margin-top:14px;font-size:var(--txt-s);color:var(--auf-grund-still)}
+
+
+/* ---------- Hero ---------- */
+.fn{font-size:.6em;line-height:0;margin-left:1px}.fn a{color:var(--auf-grund-still);text-decoration:none}
+.vermerk{margin-top:28px;font-size:var(--txt-xs);color:var(--auf-grund-still);max-width:60ch;opacity:.85}
+.vermerk a{color:inherit}
+.hero{padding:clamp(48px,7vw,96px) 0 clamp(56px,8vw,100px)}
+.heroraster{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:clamp(32px,6vw,90px);align-items:center}
+.heroraster .lead{margin-top:26px}
+.handy{justify-self:center;width:min(100%,290px);aspect-ratio:9/16;border-radius:30px;overflow:hidden;
+  border:4px solid #0a1219;box-shadow:0 30px 60px -20px rgba(0,0,0,.6),0 0 0 1px var(--linie);background:#000}
+.handy video,.handy img{width:100%;height:100%;object-fit:cover;display:block}
+.handy-unter{margin-top:12px;text-align:center;font-size:var(--txt-xs);color:var(--auf-grund-still)}
+@media(max-width:820px){
+  .heroraster{grid-template-columns:1fr}
+  .handy{width:min(62vw,240px)}
+}
+
+/* ---------- Ablauf als Roadmap (Zickzack, Linie zeichnet sich beim Scrollen) ---------- */
+.route-lead{margin-top:18px}
+.route{position:relative;margin-top:clamp(40px,6vw,72px);display:grid;gap:clamp(90px,11vw,150px)}
+.route-linie{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.route-linie{z-index:2}
+.route-linie path{fill:none;stroke:var(--signal);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.route-linie .spitze{opacity:0;transition:opacity .2s ease}
+.route-linie .spitze.da{opacity:1}
+.station{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center}
+.station.gegen .st-text{order:2}
+.st-text{position:relative;padding-left:72px;align-self:center}
+.punkt{position:absolute;left:0;top:0;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
+  font-weight:700;font-size:var(--txt-s);letter-spacing:.06em;color:var(--auf-grund-still);
+  background:var(--grund,#0e1820);border:2px solid var(--linie);transition:border-color .4s ease,color .4s ease,background .4s ease,box-shadow .4s ease;z-index:1}
+.station.an .punkt{border-color:var(--signal);color:var(--tinte);background:var(--signal)}
+.station.erreicht .punkt{animation:punktpuls 2s ease infinite}
+/* Puls wie der aktive Punkt im Kostenrechner */
+@keyframes punktpuls{
+  0%  {transform:scale(.95);box-shadow:0 0 0 0    rgba(255,138,76,1)}
+  70% {transform:scale(1);  box-shadow:0 0 0 14px rgba(255,138,76,0)}
+  100%{transform:scale(.95);box-shadow:0 0 0 0    rgba(255,138,76,0)}
+}
+.st-text .nr{font-size:var(--txt-xs);letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--signal);margin-bottom:8px}
+.st-text h3{font-size:clamp(1.35rem,2.2vw,1.7rem)}
+.st-text p:not(.nr){margin-top:12px;color:var(--auf-grund-still)}
+.st-bild{justify-self:center;width:100%;display:flex;flex-direction:column;align-items:center}
+.bild-unter{margin-top:12px;font-size:var(--txt-xs);color:var(--auf-grund-still);text-align:center}
+.station{opacity:.35;transition:opacity .7s ease}
+.station.an{opacity:1}
+
+/* Handy mit nachgebautem Profil. Masse in cqw: 1080 px Vorlage = 100cqw. */
+.tel{position:relative;width:min(100%,320px);aspect-ratio:9/18.5;border-radius:34px;padding:9px;background:#0a1219;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.65),0 0 0 1px var(--linie)}
+.schirm{position:relative;width:100%;height:100%;border-radius:26px;overflow:hidden;background:#fff;container-type:inline-size}
+.ig{position:absolute;inset:0;background:#fff;color:#111;font-family:Inter,system-ui,-apple-system,sans-serif;line-height:1.35}
+.ig-kopf{display:flex;align-items:center;gap:3cqw;height:16cqw;padding:3cqw 4cqw 0;font-weight:700;font-size:4.6cqw}
+.ig-kopf .zurueck{width:2.6cqw;height:2.6cqw;border-left:2px solid #111;border-bottom:2px solid #111;transform:rotate(45deg);margin-left:1cqw}
+.ig-kopf .mehr{margin-left:auto;font-size:5cqw;letter-spacing:.2cqw}
+.ig-info{display:flex;gap:4.5cqw;align-items:center;padding:2cqw 4cqw 0}
+.ig .bio{font-size:3.5cqw;line-height:1.42}
+.ig .bio b{font-weight:700}
+.av{flex:none;width:21cqw;height:21cqw;border-radius:50%}
+.av svg{display:block;width:100%;height:100%;overflow:visible}
+.ig-hl{display:flex;gap:3.4cqw;padding:4cqw 4cqw 0}
+.ig-hl i{font-style:normal;font-size:2.4cqw;text-align:center;width:14cqw;color:#111}
+/* Highlight-Cover in den Farben des Logos: dunkler Grund, Messing, feine Linie */
+.hl-k{display:grid;place-items:center;width:14cqw;height:14cqw;border-radius:50%;margin-bottom:1cqw;padding:.6cqw;
+  border:1px solid #d6cbbb;background:#fff content-box}
+.hl-k svg{width:100%;height:100%;border-radius:50%;padding:2.6cqw;box-sizing:border-box;color:#c9a46a;
+  background:radial-gradient(circle at 35% 30%,#2b231e,#16110e 70%);box-shadow:inset 0 0 0 .35cqw rgba(201,164,106,.55)}
+.ig-knoepfe{display:flex;gap:1.4cqw;padding:3.4cqw 4cqw 0}
+.ig-knoepfe i{flex:1;font-style:normal;height:7.4cqw;border-radius:1.6cqw;background:#efefef;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:2.9cqw}
+.ig-knoepfe i.blau{background:#2f6fed;color:#fff}
+.ig-tabs{display:flex;margin-top:3.4cqw;border-top:1px solid #e5e5e5}
+.ig-tabs i{flex:1;height:9cqw;display:flex;align-items:center;justify-content:center}
+.ig-tabs i::before{content:"";width:4cqw;height:4cqw;border:1.5px solid #aaa;border-radius:1cqw}
+.ig-tabs i.an{border-bottom:2px solid #111}
+.ig-tabs i.an::before{border-color:#111;border-radius:0;background:linear-gradient(90deg,transparent 30%,#111 30% 36%,transparent 36% 64%,#111 64% 70%,transparent 70%),linear-gradient(transparent 30%,#111 30% 36%,transparent 36% 64%,#111 64% 70%,transparent 70%)}
+.raster{display:grid;grid-template-columns:repeat(3,1fr);gap:.4cqw}
+.raster > *{aspect-ratio:3/4;width:100%;height:auto;object-fit:cover;display:block;background:#e9e4dc}
+.post{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1cqw;padding:2cqw}
+.post span{font-size:6cqw;line-height:1}
+.post b{font-size:3.6cqw;line-height:1.05}
+.post small{font-size:2.1cqw;line-height:1.25}
+.stelle{background:#f7e27c !important;color:#7a3b10;font-family:"Comic Sans MS","Comic Neue","Chalkboard SE",cursive}
+.ferien{background:linear-gradient(160deg,#3fc6c9,#2a8fd6) !important;color:#fff}
+.ferien b{font-style:italic;font-weight:900}
+
+/* 01 Grundcheck: Scan von oben nach unten. Was der Strahl noch nicht erreicht hat,
+   liegt grau und gedämpft; jeder Befund leuchtet auf, sobald der Strahl ihn trifft.
+   Befunde aussen wie die Beschriftungen auf der Startseite (ab 1100 px),
+   sonst als Etikett im Handy. */
+.scan-feld{position:relative;width:100%;display:flex;justify-content:center}
+.tel.scan{--scan:0%}
+.noch{position:absolute;left:0;right:0;bottom:0;top:var(--scan);background:rgba(21,32,42,.42);-webkit-backdrop-filter:grayscale(1) blur(1px);backdrop-filter:grayscale(1) blur(1px);pointer-events:none;z-index:4}
+.strahl{position:absolute;left:0;right:0;top:var(--scan);height:2px;margin-top:-1px;background:#ffd2b8;box-shadow:0 0 10px 2px var(--signal),0 0 26px 4px rgba(255,138,76,.55);opacity:0;pointer-events:none;z-index:5;transition:opacity .25s ease}
+.strahl::before{content:"";position:absolute;left:0;right:0;bottom:2px;height:70px;
+  background:repeating-linear-gradient(to bottom,rgba(255,138,76,.0) 0 3px,rgba(255,138,76,.22) 3px 4px),linear-gradient(to bottom,rgba(255,138,76,0),rgba(255,138,76,.28));
+  -webkit-mask:linear-gradient(to bottom,transparent,#000);mask:linear-gradient(to bottom,transparent,#000)}
+#st1.scannt .strahl{opacity:1}
+.mark{position:relative}
+.mark::after{content:"";position:absolute;inset:-1cqw;border:2px solid var(--signal);border-radius:1.6cqw;opacity:0;transform:scale(1.06);
+  transition:opacity .3s ease,transform .3s ease;pointer-events:none;z-index:6;box-shadow:0 0 0 0 rgba(255,138,76,.5)}
+.mark.gefunden::after{opacity:1;transform:none;animation:fund .7s ease-out}
+@keyframes fund{0%{box-shadow:0 0 0 0 rgba(255,138,76,.6)}100%{box-shadow:0 0 0 3cqw rgba(255,138,76,0)}}
+.raster.mark::after{inset:.5cqw}
+.bio.mark::after{inset:-1.4cqw -2cqw}
+.bio.mark::before{left:0;transform:translate(0,-4px)}
+.bio.mark.gefunden::before{transform:none}
+.mark::before{content:attr(data-m);position:absolute;z-index:7;left:50%;top:calc(100% + 1.4cqw);transform:translate(-50%,-4px);white-space:nowrap;
+  background:var(--signal);color:#15202a;font:700 3.7cqw/1 system-ui,-apple-system,sans-serif;padding:1.5cqw 2.4cqw;border-radius:99px;opacity:0;
+  transition:opacity .3s ease .1s,transform .3s ease .1s;pointer-events:none}
+.raster.mark::before{top:auto;bottom:4cqw}
+.post.mark::before{left:auto;right:0;transform:translate(0,-4px)}
+.mark.gefunden::before{opacity:1;transform:translate(-50%,0)}
+.post.mark.gefunden::before{transform:none}
+.befund,.befund-kopf{display:none}
+@media(min-width:1100px){
+  #st1.aussen{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr)}
+  #st1.aussen .scan-feld{justify-content:flex-end}
+  #st1.aussen .befund{display:block;list-style:none;margin:0;padding:0;position:absolute;inset:0;pointer-events:none}
+  #st1.aussen .befund li{position:absolute;margin:0;width:17ch;text-align:right;transform:translateY(-50%);opacity:.18;transition:opacity .4s ease}
+  #st1.aussen .befund li.gefunden{opacity:1}
+  #st1.aussen .befund b{display:block;font-family:var(--serif);font-weight:700;font-size:1.22rem;line-height:1.2;color:var(--auf-grund);text-wrap:balance}
+  #st1.aussen .befund li::after{content:"";position:absolute;left:calc(100% + 12px);top:50%;width:34px;height:1px;background:var(--signal)}
+  #st1.aussen .befund li::before{content:"";position:absolute;left:calc(100% + 42px);top:calc(50% - 3.5px);border:4px solid transparent;border-left:6px solid var(--signal);border-right:0}
+  #st1.aussen .mark::before{display:none}
+  #st1.aussen .befund-kopf{display:flex;position:absolute;align-items:center;gap:12px;margin:0;font-size:var(--txt-xs);letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--signal);opacity:0;transition:opacity .4s ease}
+  #st1.aussen .befund-kopf::after{content:"";width:34px;height:1px;background:var(--signal)}
+  #st1.scannt .befund-kopf,#st1.fertig .befund-kopf{opacity:1}
+  #st1.aussen .bild-unter{align-self:flex-end}
+}
+#st1 .st-bild{align-items:center}
+/* 02 Plan: entsteht wie ein Briefing. Wen, was zeigen (Ring), was bleibt (getippt),
+   dann fliegen die Beiträge aus ihrem Thema in den Monatsplan. */
+.plan{position:relative;width:min(100%,440px);background:#f6f1ea;color:#1c1714;border-radius:6px;padding:26px 26px 22px;
+  box-shadow:0 30px 60px -24px rgba(0,0,0,.7);font-size:.92rem}
+.plan-kopf{font-size:var(--txt-xs);letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#8a6a3b;margin-bottom:4px}
+.plan-zeile{padding:15px 0;border-top:1px solid #e2d8c9}
+.plan-kopf + .plan-zeile{border-top:0}
+.frage{font-family:var(--serif);font-size:1.05rem;margin:0 0 10px;color:#5d5248}
+.frage b{color:#1c1714;font-weight:700}
+.plan-klein{font-size:.76rem;color:#6d6257;margin-top:10px;max-width:none}
+.wen{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:7px}
+.wen li{margin:0;padding:6px 12px;border-radius:99px;background:#1c1714;color:#efe3cc;font-size:.8rem;font-weight:600;
+  opacity:0;transform:translateX(-18px);transition:opacity .35s ease,transform .45s cubic-bezier(.2,1.3,.4,1);transition-delay:calc(.15s + var(--d) * .1s)}
+#st2.spielt .wen li{opacity:1;transform:none}
+.themen{display:flex;align-items:center;gap:20px}
+.ring{width:108px;height:108px;flex:none;transform:rotate(-90deg);overflow:visible}
+.ring circle{fill:none;stroke-width:16}
+.ring-grund{stroke:#ece4d8}
+.seg{stroke:var(--farbe);stroke-dasharray:0 276.46;stroke-dashoffset:calc(var(--von) * -2.7646);
+  transition:stroke-dasharray .45s cubic-bezier(.6,0,.3,1);transition-delay:calc(.55s + var(--d) * .3s)}
+#st2.spielt .seg{stroke-dasharray:calc(var(--anteil) * 2.7646 - 1.5) 276.46}
+.legende-themen{list-style:none;padding:0;margin:0;display:grid;gap:5px;flex:1}
+.legende-themen li{margin:0;display:flex;align-items:center;gap:8px;font-size:.82rem;color:#6d6257;font-variant-numeric:tabular-nums;
+  opacity:0;transform:translateY(4px);transition:opacity .3s ease,transform .3s ease;transition-delay:calc(.7s + var(--d) * .3s)}
+.legende-themen li::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--farbe)}
+.legende-themen li{white-space:nowrap}
+.legende-themen b{color:#1c1714;font-weight:600;min-width:6.2em}
+#st2.spielt .legende-themen li{opacity:1;transform:none}
+.kernsatz{position:relative;font-family:var(--serif);font-weight:700;font-style:italic;font-size:1.18rem;line-height:1.3;margin:0;max-width:none}
+/* der ganze Satz reserviert unsichtbar seinen Platz, damit beim Tippen nichts verrutscht */
+.kernsatz::before{content:attr(data-satz);visibility:hidden}
+.kernsatz .tippfeld{position:absolute;inset:0}
+.schreibmarke{display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:#b8893f;opacity:0}
+#st2.tippt .schreibmarke{opacity:1;animation:blinken .6s steps(1) infinite}
+@keyframes blinken{50%{opacity:0}}
+.kalender{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.kalender .wt{font-size:.66rem;color:#8a7d70;text-align:center;font-weight:600}
+.kalender .tag{position:relative;aspect-ratio:1;border-radius:4px;background:#ece4d8}
+.kalender .tag img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:4px;opacity:0}
+.kalender .tag.voll img{opacity:1}
+.kalender .tag.beitrag::after{content:"";position:absolute;inset:-2px;border-radius:6px;border:2px solid var(--farbe);opacity:0;transition:opacity .3s ease}
+.kalender .tag.beitrag.voll::after{opacity:1}
+.kalender .tag.story::after{content:"";position:absolute;left:50%;top:50%;width:36%;height:36%;border-radius:50%;transform:translate(-50%,-50%) scale(0);
+  border:2px solid var(--farbe);transition:transform .35s cubic-bezier(.2,1.5,.4,1)}
+.kalender .tag.story.voll::after{transform:translate(-50%,-50%) scale(1)}
+@media(max-width:480px){
+  .plan{padding:20px 18px 18px}
+  .themen{gap:16px}
+  .ring{width:88px;height:88px}
+  .legende-themen b{min-width:5.6em}
+}
+.flug{position:absolute;z-index:5;border-radius:4px;object-fit:cover;pointer-events:none;box-shadow:0 8px 18px -6px rgba(0,0,0,.5)}
+.legende{display:flex;align-items:center;gap:6px}
+.legende i{display:inline-block;width:10px;height:10px;border-radius:2px;background:#1c1714}
+.legende .lg-s{border-radius:50%;background:none;border:2px solid #b8893f;margin-left:10px}
+
+/* 03 Vorher und nachher wischen, dann kommen die Beiträge */
+.vergleich .nachher{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.vergleich .griff{position:absolute;top:9px;bottom:9px;left:calc(9px + (100% - 18px) * var(--pos) / 100%);width:2px;margin-left:-1px;background:var(--signal);pointer-events:none;z-index:3}
+.vergleich .griff::after{content:"‹ ›";position:absolute;top:50%;left:50%;transform:translate(calc(-50% - var(--zug,0px)),-50%);width:34px;height:34px;border-radius:50%;
+  background:var(--signal);color:#15202a;font-weight:700;font-size:15px;display:grid;place-items:center;letter-spacing:2px;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.vergleich .schieber{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:4;margin:0}
+.etikett{position:absolute;bottom:22px;z-index:3;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:99px;pointer-events:none}
+.e-vor{right:20px;background:rgba(17,17,17,.75);color:#fff}
+.e-nach{left:20px;background:var(--signal);color:#15202a;opacity:0;transition:opacity .3s ease}
+.vergleich.offen .e-nach{opacity:1}
+.e-vor{transition:opacity .3s ease}.vergleich.zu .e-vor{opacity:0}
+/* Der Griff bleibt stehen, auch ganz rechts: man sieht, dass man ziehen kann.
+   Der Kreis rückt am Rand nach innen (--zug), damit er ganz im Bild bleibt. */
+.raster.neu img{opacity:0;transform:translateY(-14%) scale(1.06);transition:opacity .4s ease,transform .5s cubic-bezier(.2,1.2,.4,1);transition-delay:calc(var(--d) * .16s)}
+.raster.neu.drin img{opacity:1;transform:none}
+.schieber:focus-visible + *,.vergleich:has(.schieber:focus-visible){outline:2px solid var(--signal);outline-offset:4px}
+
+@media(max-width:820px){
+  .route{gap:72px}
+  .station,.station.gegen{grid-template-columns:1fr;gap:28px}
+  .station.gegen .st-text{order:0}
+  .st-text{padding-left:64px}
+  .st-bild{padding-left:64px;align-items:flex-start}
+  .tel{width:min(100%,270px)}
+  .bild-unter{text-align:left}
+}
+@media(max-width:420px){.st-text,.st-bild{padding-left:54px}.punkt{width:40px;height:40px}.tel{width:100%}}
+@media(max-width:1099px){.scan-feld{padding-inline:14px}}
+
+@media(prefers-reduced-motion:reduce){
+  .station,.station *,.station *::before,.station *::after{transition:none !important;animation:none !important}
+  .station{opacity:1;transform:none}
+}
+
+/* ---------- Pakete: Karten wie auf der Preisseite ---------- */
+.karten{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;align-items:stretch}
+.karte{position:relative;display:flex;flex-direction:column;border:1px solid var(--linie);background:rgba(14,24,32,.35);padding:30px 26px 26px}
+.karte.voll{border-color:var(--signal);background:rgba(255,138,76,.05)}
+.karte .nr{font-size:var(--txt-xs);letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--signal);margin-bottom:10px}
+.karte h3{font-size:1.35rem}
+.karte .zeit{margin-top:6px;font-size:var(--txt-s);color:var(--auf-grund-still)}
+.karte .wen{margin-top:16px;font-size:var(--txt-m);min-height:4.8em}
+.karte .preis{margin-top:18px;padding:16px 0 18px;border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+.karte .preis small{display:block;font-size:var(--txt-xs);letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--auf-grund-still)}
+.karte .hand{display:block;font-family:var(--serif);font-weight:900;font-size:1.75rem;letter-spacing:-.01em;line-height:1.3}
+.karte .vergleich{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-top:8px;font-size:var(--txt-s)}
+.kuendbar{display:inline-block;padding:3px 10px;border-radius:99px;background:rgba(255,138,76,.12);color:var(--signal);font-size:var(--txt-s);font-weight:700;white-space:nowrap}
+.karte .plus{margin-top:20px;font-size:var(--txt-s);font-weight:700;color:var(--signal)}
+ul.inhalt{list-style:none;padding:0;margin:12px 0 0}
+.inhalt li{position:relative;padding-left:32px;font-size:var(--txt-m);margin:0 0 10px;line-height:1.5}
+.inhalt li + li{margin-top:0}
+.inhalt li::before{content:"";position:absolute;left:0;top:.12em;width:20px;height:20px;border-radius:50%;
+  background:rgba(255,138,76,.14) no-repeat center/11px
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.4l2.6 2.4L10 3.4' fill='none' stroke='%23ff8a4c' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.karte .hin{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:auto;padding:12px 18px;
+  border:1px solid var(--linie-hell);font-size:var(--txt-s);font-weight:700;text-decoration:none}
+.karte ul.inhalt{margin-bottom:22px}
+.karte.voll .hin{background:var(--signal);border-color:var(--signal);color:var(--tinte)}
+@media(max-width:900px){.karten{grid-template-columns:1fr}.karte .wen{min-height:0}}
+
+.dazu{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;margin-top:22px;padding:22px 24px;border:1px solid var(--linie);background:rgba(14,24,32,.35)}
+.dazu b{font-family:var(--serif);font-weight:700;font-size:1.2rem}
+.dazu p{color:var(--auf-grund-still);grid-column:1/-1;max-width:70ch}
+.dazu a{font-weight:700;color:var(--auf-grund)}
+.dazu .still-b{font-family:var(--sans);font-size:inherit;font-weight:700;color:var(--auf-grund)}
+.pilot{display:inline-block;margin-top:22px;padding:10px 16px;border:1px dashed var(--signal);border-radius:3px;font-size:var(--txt-s);color:var(--auf-grund-still);max-width:none}
+.pilot b{color:var(--signal)}
+
+/* ---------- Fragen ---------- */
+.faq{border-top:1px solid var(--linie);margin-top:34px;max-width:780px}
+.faq details{border-bottom:1px solid var(--linie)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 36px 18px 0;position:relative;font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:1.4rem;color:var(--signal);line-height:1;transition:transform .2s ease}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{color:var(--auf-grund-still);padding:0 0 18px;max-width:62ch}
+
+.schluss{text-align:left}
+#fragen{padding-bottom:clamp(32px,4vw,48px)}
+#fragen + .schluss{padding-top:clamp(32px,4vw,48px)}
+.fussliste a[aria-current]{color:var(--signal)}
+
+/* ---------- Erklärvideo (Entwurf, ENT-088) ---------- */
+/* Einsatz als Lesezeile (ENT-088) */
+.quer-hoch{margin-top:24px;font-size:var(--txt-s);color:var(--auf-grund-still)}
+.lz{list-style:none;margin:44px 0 0;padding:0}
+.lz li{position:relative;display:grid;grid-template-columns:3.2em minmax(0,1.1fr) 1fr;gap:24px;align-items:baseline;padding:30px 0}
+.lz .nr{font-weight:700;font-size:var(--txt-xs);letter-spacing:.16em;color:var(--auf-grund-still)}
+.lz .w{font-family:var(--serif);font-weight:900;font-size:clamp(2.4rem,5.4vw,4.6rem);letter-spacing:-.03em;line-height:.95;color:rgba(232,238,242,.16);transform:translateX(-14px);transition:color .6s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.lz .s{font-size:clamp(1.08rem,1.35vw,1.25rem);line-height:1.5;color:var(--auf-grund);opacity:.35;transform:translateY(8px);transition:opacity .6s ease,transform .6s ease}
+.lz .strich{position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(255,255,255,.07)}
+.lz .strich::after{content:"";position:absolute;inset:0;background:var(--signal);transform:scaleX(0);transform-origin:0 50%;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.lz li.an .w{color:var(--auf-grund)}.lz li.jetzt .w{color:var(--signal)}
+.lz li.an .s{opacity:1;transform:none}.lz li.an .w{transform:none}.lz li.an .nr{color:var(--signal)}
+.lz li.an .strich::after{transform:scaleX(1)}
+@media(max-width:820px){.lz li{grid-template-columns:1fr;gap:8px}}
+@media(prefers-reduced-motion:reduce){.lz li .w{color:var(--auf-grund);transform:none}.lz li .s{opacity:1;transform:none}}
+
+/* Ablauf wie auf der Startseite (index.html, Abschnitt Ablauf) */
+.ablauf{display:grid;grid-template-columns:1fr;gap:clamp(30px,4vw,70px);align-items:start}
+.ablaufkopf .still{margin-top:1.2em;max-width:40ch;color:var(--auf-grund-still)}
+.ablaufkopf .knopf{margin-top:clamp(22px,3vh,34px)}
+.stufen{position:relative;padding-left:clamp(22px,3vw,40px)}
+.stufen::before,.stufen::after{content:"";position:absolute;left:0;top:6px;width:1.5px}
+.stufen::before{bottom:6px;background:var(--linie)}
+.stufen::after{height:var(--fuell,0px);background:var(--signal)}
+.stufe{display:grid;grid-template-columns:2.2em 1fr;column-gap:clamp(10px,1.5vw,20px);row-gap:6px;align-items:start;padding:clamp(20px,3vh,30px) 0;border-bottom:1px solid var(--linie)}
+.stufe:first-child{padding-top:0}
+.stufe:last-child{border-bottom:0;padding-bottom:0}
+.stufe .nr{grid-row:1/3;font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.15;padding-top:.08em;font-variant-numeric:tabular-nums;color:var(--auf-grund-still);transition:color .5s ease}
+.stufe.erreicht .nr{color:var(--signal)}
+.stufe h3{font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.15}
+.stufe p{color:var(--auf-grund-still);max-width:50ch}
+@media(min-width:900px){
+  .ablauf{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+  .ablaufkopf{position:sticky;top:clamp(72px,10vh,110px);transition:top .4s cubic-bezier(.16,1,.3,1)}
+  html.leiste-da .ablaufkopf{top:calc(clamp(72px,10vh,110px) + 60px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .stufen::after{height:auto;bottom:6px}
+  .stufe .nr{color:var(--signal);transition:none}
+}
+
+.muster{display:grid;grid-template-columns:290px minmax(0,560px);gap:clamp(36px,6vw,80px);align-items:center;margin-top:44px}
+.muster .handy{justify-self:start}
+.muster .etikett-m{display:block;color:var(--signal);font-size:var(--txt-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.muster h3{margin-top:14px}
+.muster p{margin-top:10px;color:var(--auf-grund-still)}
+.muster .knopf{margin-top:28px}
+.muster h3{margin-top:16px;font-size:clamp(1.6rem,2.6vw,2.3rem);line-height:1.12}
+.muster>div>p{font-size:1.06rem;max-width:52ch}
+.kartebild{margin-top:28px;border-radius:12px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.8);border:1px solid var(--linie);max-width:560px}.kartebild img{display:block;width:100%;height:auto}.kartebild-unter{margin-top:10px;font-size:var(--txt-xs);color:var(--auf-grund-still)}
+.ref-video{position:relative}
+.abspielen{position:absolute;inset:0;z-index:2;display:grid;place-items:center;border:0;padding:0;background:rgba(14,24,32,.18);cursor:pointer;transition:background .2s ease}
+.abspielen span{width:76px;height:76px;border-radius:50%;background:var(--signal);box-shadow:0 14px 34px -8px rgba(0,0,0,.6);display:grid;place-items:center;transition:transform .2s ease}
+.abspielen span::before{content:"";margin-left:6px;border-style:solid;border-width:14px 0 14px 23px;border-color:transparent transparent transparent var(--tinte)}
+.abspielen:hover{background:rgba(14,24,32,.05)}.abspielen:hover span{transform:scale(1.07)}
+.abspielen:focus-visible span{outline:3px solid #fff;outline-offset:4px}
+.ref-video.laeuft .abspielen{display:none}
+@media(max-width:700px){.muster{grid-template-columns:1fr}.muster .handy{justify-self:center}}
+/* Box wie auf der Preisseite (preise.html, Social-Media-Boost) */
+.abzeichen{display:inline-block;position:absolute;top:0;left:26px;transform:translateY(-50%);
+  padding:4px 12px;border-radius:99px;background:var(--signal);color:var(--tinte);
+  font-size:var(--txt-xs);font-weight:700;letter-spacing:.06em;white-space:nowrap}
+.boost{position:relative;margin-top:26px;border:1px solid var(--signal);background:linear-gradient(110deg,rgba(255,138,76,.10),rgba(14,24,32,.35) 60%);
+  display:grid;grid-template-columns:minmax(0,1.4fr) auto;gap:30px;align-items:center;padding:34px 34px 30px}
+.boost .abzeichen{left:26px}
+.boost h3{font-family:var(--serif);font-weight:800;font-size:1.9rem;line-height:1.1;margin:0}
+.boost p{margin:10px 0 0;color:var(--auf-grund-still);max-width:56ch;font-size:var(--txt-m)}
+.boost-preis{text-align:right}
+.boost-ab{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--auf-grund-still)}
+.boost-gross{font-family:var(--serif);font-weight:900;font-size:2.2rem;line-height:1.1;margin-top:4px;white-space:nowrap}
+.boost-gross em{font-style:normal;font-family:var(--sans);font-size:.42em;font-weight:600;color:var(--auf-grund-still)}
+.boost .hin{display:inline-flex;align-items:center;gap:10px;margin-top:16px;padding:14px 22px;border:1px solid var(--signal);background:var(--signal);color:var(--tinte);
+  font-size:var(--txt-m);font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s ease}
+.boost .hin:hover{background:#ff9f6d}
+@media (max-width:760px){ .boost{grid-template-columns:1fr;padding:32px 22px 26px} .boost-preis{text-align:left} }
+.boost{margin-top:40px}
+.entwurf-hinweis{margin-top:18px;font-size:var(--txt-s);color:var(--auf-grund-still);border-left:2px dashed var(--signal);padding-left:14px}
+
+/* Kombirabatt: schlankes Preisschild, hängt an einer Kordel senkrecht von der Kartenecke (ENT-088) */
+.karten{position:relative}
+.schild{position:absolute;right:0;top:0;width:0;height:0;z-index:3;text-decoration:none;color:var(--tinte)}
+.schild .kordel{position:absolute;left:-16px;top:-8px;width:32px;height:46px;overflow:visible;pointer-events:none;z-index:2}
+.schild .kordel path{fill:none;stroke:#e9e2d6;stroke-width:2;stroke-linecap:round}
+.schild .kordel circle{fill:#e9e2d6}
+.schild .kordel .handy{display:none}
+.schild .tag{position:absolute;left:-16px;top:38px;margin-top:-34px;height:68px;box-sizing:border-box;display:block;white-space:nowrap;background:var(--signal);padding:10px 18px 10px 36px;clip-path:polygon(18px 0,100% 0,100% 100%,18px 100%,0 50%);transform-origin:16px 50%;transform:rotate(90deg);animation:pendel 6s ease-in-out infinite;filter:drop-shadow(0 12px 20px rgba(0,0,0,.5))}
+.schild .tag::before{content:"";position:absolute;left:16px;top:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:#0e1820}
+.schild b{display:block;font-family:var(--serif);font-weight:900;font-size:1.6rem;line-height:1}
+.schild span.was{display:block;font-weight:700;font-size:.78rem;margin-top:3px}
+.schild:hover .tag{background:#ff9f6d;animation-play-state:paused}
+@keyframes pendel{0%,100%{transform:rotate(87deg)}50%{transform:rotate(93deg)}}
+@media(prefers-reduced-motion:reduce){.schild .tag{animation:none}}
+.karte[data-paket="3"] .wen{padding-right:34px}
+@media(max-width:900px){.schild .tag{left:-42px;top:40px}.schild .kordel .desk{display:none}.schild .kordel .handy{display:inline}.karte[data-paket="3"] .wen{padding-right:0}.karte[data-paket="1"] .nr,.karte[data-paket="1"] .wen{padding-right:44px}}
+
+</style>
+</head>
+
+<body>
+<header class="kopf">
+  <div class="spalte">
+    <a class="logo" href="./" aria-label="formateins, zur Startseite"><span class="s">format</span><span class="p">eins</span></a>
+    <nav class="rechts" aria-label="Seite">
+      <ul class="menu"><li><a href="./#leistungen">Bereiche</a></li><li><a href="social-media">Social Media</a></li><li><a href="./#arbeiten">Arbeiten</a></li><li><a href="preise">Preise</a></li><li><a href="./#fragen">Fragen</a></li></ul>
+      <button class="menuknopf" type="button" aria-expanded="false" aria-controls="menuoffen" aria-label="Menü"><i aria-hidden="true"></i></button>
+      <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="spalte heroraster">
+    <div>
+      <p class="oben"><b>Erklärvideo</b><i></i>Video</p>
+      <h1>In 60 Sekunden verstanden,<span class="zweite">was du machst.</span></h1>
+      <!-- Hero-Text: Adrian 05.11.2026, Fassung A (Sparten statt Einsatzorte, die stehen unten). -->
+      <p class="lead">Du bringst ein neues Produkt oder eine neue Dienstleistung? Oder du willst endlich zeigen, was du machst, modern und verständlich? Dann bist du hier genau richtig.</p>
+      <div class="handeln">
+        <a class="knopf" href="gespraech">Darüber reden<span class="pfeil">→</span></a>
+        <a class="knopf umriss" href="kostenrechner?fuer=video">Kosten berechnen</a>
+      </div>
+      <p class="klarzeile">Drei Pakete, fester Preis, fertig in 2 bis 3 Wochen.</p>
+    </div>
+    <div>
+      <!-- Ausschnitt aus dem Erklärvideo für Butterfly Cottage (im formateins-Reel 4,5-8 s), Kunde einverstanden (ENT-090). -->
+      <div class="handy"><video poster="entwurf-erklaervideo-muster.webp" width="540" height="960" muted loop playsinline autoplay preload="metadata" aria-label="Ausschnitt aus dem Erklärvideo für Butterfly Cottage"><source src="entwurf-erklaervideo-muster.webm" type="video/webm"><source src="entwurf-erklaervideo-muster.mp4" type="video/mp4"></video></div>
+      <p class="handy-unter">Ausschnitt aus dem Erklärvideo für Butterfly Cottage.</p>
+    </div>
+  </div>
+</section>
+
+<section class="abschnitt" id="einsatz">
+  <div class="spalte">
+    <p class="oben"><b>Einsatz</b><i></i>Einmal gemacht, überall dabei</p>
+    <h2>Wo dein Video arbeitet.<span class="zweite">Auch wenn du gerade keine Zeit hast.</span></h2>
+    <p class="lead" style="margin-top:16px">Ein Erklärvideo ist ein kurzer Film, meist 30 bis 90 Sekunden. Eine Stimme führt durch, Bilder und Schrift zeigen, worum es geht.</p>
+    <ol class="lz"><li data-i="01"><span class="nr">01</span><span class="w">Website.</span><span class="s">Ganz oben auf der Startseite. Wer neu ist, versteht in einer Minute, was du machst.</span><i class="strich"></i></li><li data-i="02"><span class="nr">02</span><span class="w">Social Media.</span><span class="s">Als Reel im Hochformat, mit Untertiteln. Funktioniert auch ohne Ton.</span><i class="strich"></i></li><li data-i="03"><span class="nr">03</span><span class="w">Messe.</span><span class="s">Am Stand oder im Verkaufsgespräch. Das Video erklärt, du hast Zeit fürs Gespräch.</span><i class="strich"></i></li></ol>
+      <p class="quer-hoch">Quer und hoch inklusive, damit es überall passt.</p>
+  </div>
+</section>
+
+<!-- Ablauf wie auf der Startseite (Adrian 06.11.2026): links Titel, Satz und Knopf,
+     rechts die Schritte; der orange Balken füllt sich mit dem Scrollen. -->
+<section class="abschnitt" id="ablauf">
+  <div class="spalte ablauf">
+    <div class="ablaufkopf">
+      <p class="oben"><b>Ablauf</b><i></i>Zuerst zuhören</p>
+      <h2>So läuft es ab.<span class="zweite">Fünf Schritte.</span></h2>
+      <p class="still">Erst verstehen, dann gestalten. Ab dem Erstgespräch hast du dein Video in 2 bis 3 Wochen.</p>
+      <a class="knopf" href="gespraech">Darüber reden<span class="pfeil">→</span></a>
+    </div>
+    <div class="stufen">
+      <div class="stufe">
+        <span class="nr" aria-hidden="true">01</span>
+        <h3>Ich schaue mir an, was du anbietest.</h3>
+        <p>Im Gespräch klären wir, wen du erreichen willst, was du zeigen willst und was am Schluss hängen bleiben soll. Vorher schaue ich mir deine Website und deine Unterlagen an.</p>
+      </div>
+      <div class="stufe">
+        <span class="nr" aria-hidden="true">02</span>
+        <h3>Ich schreibe, du redest mit.</h3>
+        <p>Aus dem Gespräch wird ein Skript: was die Stimme sagt und was man dazu sieht. Du liest es, wir besprechen es, erst dann geht es weiter.</p>
+      </div>
+      <div class="stufe">
+        <span class="nr" aria-hidden="true">03</span>
+        <h3>Bilder in deinem Look.</h3>
+        <p>Farben, Schrift und Bilder passen zu deinem Auftritt. Die KI hilft mir bei den Bildern und macht das Technische schneller. Darum bleibt der Preis tief.</p>
+      </div>
+      <div class="stufe">
+        <span class="nr" aria-hidden="true">04</span>
+        <h3>Eine professionelle Stimme führt durch.</h3>
+        <p>Dazu Musik und Untertitel. Alles in einem Guss animiert, damit man dem Video gerne folgt.</p>
+      </div>
+      <div class="stufe">
+        <span class="nr" aria-hidden="true">05</span>
+        <h3>Zwei Runden für deine Rückmeldungen.</h3>
+        <p>Eine aufs Skript, eine aufs fertige Video. Danach bekommst du dein Video quer und hoch, bereit für Website, Social Media und Messe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="abschnitt" id="paket">
+  <div class="spalte">
+    <p class="oben"><b>Pakete</b><i></i>Animiert</p>
+    <h2>Drei Pakete, ein fester Preis.<span class="zweite">Alles drin, was ein gutes Video braucht.</span></h2>
+    <p class="lead" style="margin-top:16px">Für Software, Karten, Abläufe und alles, was sich mit Bild, Grafik und Bildschirm zeigen lässt. Die Länge bestimmt den Preis, was dazu gehört, ist in jedem Paket gleich.</p>
+    <div class="karten">
+      <a class="schild" href="kostenrechner?fuer=video" aria-label="Zusammen gebucht 20 Prozent günstiger, im Rechner ansehen"><svg class="kordel" viewBox="40 0 32 46" aria-hidden="true"><path d="M50 2 C44 8 46 12 56 8 C66 4 68 10 60 14"/><path class="desk" d="M60 14 C56 18 56 30 56 46"/><path class="desk" d="M56 8 C70 14 66 30 57 46" opacity=".55"/><path class="handy" d="M60 14 C50 20 36 30 30 48"/><path class="handy" d="M56 8 C60 22 44 34 31 48" opacity=".55"/><circle cx="56" cy="8" r="3.2"/></svg><span class="tag"><b>−20&nbsp;%</b><span class="was">zusammen gebucht</span></span></a>
+      <article class="karte" data-paket="1">
+        <p class="nr">01 · Auf den Punkt</p>
+        <h3>Kurz</h3>
+        <p class="zeit">30 Sekunden</p>
+        <p class="wen">Wenn eine Sache schnell verstanden sein soll: ein Angebot, eine Aktion, ein Ablauf.</p>
+        <div class="preis"><small>Einmalig</small><span class="betrag hand">CHF 1'400</span><span class="vergleich"><span class="kuendbar">Fester Preis</span></span></div>
+        <ul class="inhalt">
+          <li>Erstgespräch: Ich schaue mir an, was du anbietest und zeigen willst</li>
+          <li>Skript, mit dir besprochen</li>
+          <li>Bilder und Animation in deinem Look</li>
+          <li>Professionelle Stimme, Musik und Untertitel</li>
+          <li>Anpassungen an der Optik, bis es passt</li>
+          <li>Quer und hoch, für Website und Social Media</li>
+        </ul>
+        <a class="hin" href="kostenrechner?fuer=video">Im Rechner weiter →</a>
+      </article>
+      <article class="karte voll" data-paket="2">
+        <p class="nr">02 · Der Standard</p>
+        <h3>Klar</h3>
+        <p class="zeit">60 Sekunden</p>
+        <p class="wen">Wenn die Leute verstehen sollen, was du machst und warum sie zu dir kommen sollen.</p>
+        <div class="preis"><small>Einmalig</small><span class="betrag hand">CHF 2'400</span><span class="vergleich"><span class="kuendbar">Fester Preis</span></span></div>
+        <p class="plus">Alles aus Kurz, dazu</p>
+        <ul class="inhalt">
+          <li>Doppelt so viel Zeit: Angebot, Ablauf und was dich ausmacht</li>
+          <li>Mehr Szenen, mehr Bilder</li>
+          <li>Passt auf die Startseite und in jede Präsentation</li>
+        </ul>
+        <a class="hin" href="kostenrechner?fuer=video">Im Rechner weiter →</a>
+      </article>
+      <article class="karte" data-paket="3">
+        <p class="nr">03 · Mehr zu zeigen</p>
+        <h3>Ausführlich</h3>
+        <p class="zeit">90 Sekunden</p>
+        <p class="wen">Wenn dein Angebot oder Produkt mehr Erklärung braucht, etwa mehrere Schritte oder Varianten.</p>
+        <div class="preis"><small>Einmalig</small><span class="betrag hand">CHF 3'400</span><span class="vergleich"><span class="kuendbar">Fester Preis</span></span></div>
+        <p class="plus">Alles aus Klar, dazu</p>
+        <ul class="inhalt">
+          <li>Platz für mehrere Schritte, Varianten oder ein Produkt im Detail</li>
+          <li>Auf Wunsch in Kapitel geteilt, als einzelne Clips nutzbar</li>
+        </ul>
+        <a class="hin" href="kostenrechner?fuer=video">Im Rechner weiter →</a>
+      </article>
+    </div>
+    <!-- Zweiter Weg: Erklärvideo mit Dreh, Box wie der Social-Media-Boost auf der Preisseite (Adrian 06.11.2026). -->
+    <aside class="boost" aria-label="Erklärvideo mit Dreh">
+      <span class="abzeichen">Zweiter Weg · Mit Dreh</span>
+      <div>
+        <h3>Braucht dein Video mehr als Animation?</h3>
+        <p>Willst du deinen Betrieb, dein Team oder dein Produkt zeigen, filme ich bei dir vor Ort. Die Aufnahmen tragen das Video, Stimme und Animation kommen dazu. Den Festpreis bekommst du nach dem Gespräch.</p>
+      </div>
+      <div class="boost-preis">
+        <div class="boost-ab">Ab</div>
+        <div class="boost-gross">CHF 2'400 <em>nach Gespräch</em></div>
+        <a class="hin" href="gespraech">Darüber reden →</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="abschnitt" id="beispiele">
+  <div class="spalte">
+    <p class="oben"><b>Referenz</b><i></i>Echtes Projekt</p>
+    <h2>So sieht es aus.</h2>
+    <div class="muster">
+      <div class="handy ref-video"><button class="abspielen" type="button" aria-label="Video mit Ton abspielen"><span></span></button><video poster="arbeiten/entwurf-butterfly-video.webp" width="720" height="1280" playsinline preload="none" aria-label="Erklärvideo für Butterfly Cottage, 48 Sekunden"><source src="arbeiten/entwurf-butterfly-video.webm" type="video/webm"><source src="arbeiten/entwurf-butterfly-video.mp4" type="video/mp4"></video></div>
+      <div>
+        <span class="etikett-m">Butterfly Cottage · Schottland</span>
+        <h3>50 Ausflugsziele auf einer Karte, in einer Minute erklärt.</h3>
+        <p>Für Daniel und Sarah Muccio in Grantown-on-Spey. Ihre interaktive Karte kann viel, darum brauchte sie ein Video, das schnell zeigt, was sie kann und wie man sie bedient.</p><figure style="margin:0"><div class="kartebild"><img src="arbeiten/entwurf-butterfly-karte-gross.webp" width="1400" height="824" alt="Die interaktive Karte von Butterfly Cottage"></div><figcaption class="kartebild-unter">Die Karte, um die es geht: über 50 Ziele in 18 Kategorien, mit Tagesplaner.</figcaption></figure>
+        <a class="knopf" href="arbeiten/entwurf-butterfly-cottage">Ganze Geschichte ansehen<span class="pfeil">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="abschnitt" id="fragen">
+  <div class="spalte">
+    <p class="oben"><b>Fragen</b><i></i>Ehrlich beantwortet</p>
+    <h2>Was oft gefragt wird.</h2>
+    <div class="faq">
+      <details><summary>Mein Vorhaben ist noch nicht fertig. Geht das trotzdem?</summary><p>Ja. Ich arbeite mit dem, was schon da ist: Entwürfe, Skizzen oder Bildschirmfotos. So ist das Video bereit, wenn du startest.</p></details>
+      <details><summary>Kann ich das Video selbst sprechen?</summary><p>Ja, wenn du das möchtest. Dann braucht es eine professionelle Tonaufnahme, mit dem Handy klingt es nie so gut wie eine Sprecherstimme. Die Aufnahme offeriere ich separat. Im Paket ist eine professionelle Stimme schon dabei.</p></details>
+      <details><summary>Was, wenn mir etwas nicht gefällt?</summary><p>Dann feilen wir daran. Gefällt dir etwas am Aussehen nicht, etwa Farben, Bilder, Schrift oder Tempo, passe ich es an, bis das Video für dich passt.</p></details>
+      <details><summary>Macht das alles eine KI?</summary><p>Ich arbeite mit KI, wie heute die ganze Branche. Sie macht die Technik schneller, davon profitierst du beim Preis. Zuhören, mit dir die Strategie festlegen und gestalten bleibt meine Arbeit. Ansprechpartner bin immer ich.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="abschnitt schluss">
+  <div class="spalte">
+    <h2>Die Leute sollen verstehen, was du machst?<span class="zweite">Reden wir darüber.</span></h2>
+    <p class="lead" style="margin-top:18px">30 Minuten am Telefon oder per Video, unverbindlich.</p>
+    <div class="handeln">
+      <a class="knopf" href="gespraech">Gespräch vereinbaren<span class="pfeil">→</span></a>
+      <a class="knopf umriss" href="kostenrechner?fuer=video">Kosten berechnen</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="menuoffen" id="menuoffen" hidden>
+  <div class="menukopf"><span class="logo"><span class="s">format</span><span class="p">eins</span></span><button class="zu" type="button" aria-label="Menü schliessen">×</button></div>
+  <ul><li><a href="./#leistungen">Bereiche</a></li><li><a href="social-media">Social Media</a></li><li><a href="./#arbeiten">Arbeiten</a></li><li><a href="preise">Preise</a></li><li><a href="./#fragen">Fragen</a></li></ul>
+  <a class="knopf" href="gespraech">Auftritt besprechen<span class="pfeil">→</span></a>
+  <p class="leise"><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a> · <a href="tel:+41796868486">079 686 84 86</a></p>
+</div>
+
+<footer>
+  <div class="spalte">
+    <div class="fussraster">
+      <div class="fussmarke">
+        <a class="logo" href="./" aria-label="formateins, zur Startseite"><span class="s">format</span><span class="p">eins</span></a>
+        <p>Webdesign, Branding, Video und Social Media für Selbstständige, kleine Unternehmen und Vereine in Olten und der Region.</p>
+      </div>
+      <div>
+        <p class="fusstitel"><i aria-hidden="true"></i>Leistungen</p>
+        <ul class="fussliste">
+          <li><a href="preise">Preise</a></li>
+          <li><a href="social-media">Social Media</a></li>
+          <li><a href="entwurf-erklaervideo" aria-current="page">Erklärvideo</a></li>
+          <li><a href="kostenrechner">Kostenrechner</a></li>
+          <li><a href="website-kosten">Was kostet eine Website?</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="fusstitel"><i aria-hidden="true"></i>Kontakt</p>
+        
+        <ul class="fussliste">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Region Olten</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg><a href="mailto:adrian@formateins.ch">adrian@formateins.ch</a></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><a href="tel:+41796868486">079 686 84 86</a></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><a href="gespraech">Gespräch vereinbaren</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rechtliches">
+      <nav><a href="impressum">Impressum</a><a href="datenschutz">Datenschutz</a><a href="#" data-cookies hidden>Cookies</a></nav>
+      <span>© 2026 formateins, eine Marke der pzu consulting gmbh</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+/* Balken im Ablauf wie auf der Startseite: Leselinie bei 72 % der Fensterhöhe,
+   der Balken wächst mit dem Scrollen, eine Nummer ist erreicht, sobald ihre
+   Mitte über der Leselinie liegt. */
+(function(){
+  const stufen = document.querySelector('.stufen');
+  if (!stufen || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const nummern = [...stufen.querySelectorAll('.stufe')];
+  let angemeldet = false;
+  const fuellen = () => {
+    angemeldet = false;
+    const kasten = stufen.getBoundingClientRect();
+    const linie = innerHeight * .72;
+    const oben = kasten.top + 6, unten = kasten.bottom - 6;
+    const fuell = Math.min(Math.max(linie - oben, 0), unten - oben);
+    stufen.style.setProperty('--fuell', fuell.toFixed(1) + 'px');
+    nummern.forEach(s => {
+      const r = s.querySelector('.nr').getBoundingClientRect();
+      s.classList.toggle('erreicht', r.top + r.height / 2 < linie);
+    });
+  };
+  const anstossen = () => { if (!angemeldet) { angemeldet = true; requestAnimationFrame(fuellen); } };
+  addEventListener('scroll', anstossen, { passive: true });
+  addEventListener('resize', anstossen);
+  fuellen();
+})();
+</script>
+<script>
+/* Referenzvideo: startet erst auf Klick, dann mit Ton und Bedienleiste (ENT-088) */
+document.querySelectorAll('.ref-video').forEach(function(h){
+  var b=h.querySelector('.abspielen'),v=h.querySelector('video');
+  b.addEventListener('click',function(){h.classList.add('laeuft');v.controls=true;v.muted=false;v.play();});
+  if('IntersectionObserver' in window){new IntersectionObserver(function(e){if(!e[0].isIntersecting&&!v.paused)v.pause();},{threshold:.2}).observe(v);}
+});
+</script>
+<script>
+/* Einsatz: Zeile leuchtet auf, sobald sie die Lesezeile (60 % der Fensterhöhe) erreicht; die jüngste ist orange, das Orange wandert nach unten (ENT-088) */
+(function(){var z=[].slice.call(document.querySelectorAll('.lz li'));if(!z.length)return;var w=false;
+function f(){w=false;var g=innerHeight*.6;var j=-1;z.forEach(function(l,i){var r=l.getBoundingClientRect(),a=r.top+r.height/2<g;l.classList.toggle('an',a);if(a)j=i});z.forEach(function(l,i){l.classList.toggle('jetzt',i===j)})}
+addEventListener('scroll',function(){if(!w){w=true;requestAnimationFrame(f)}},{passive:true});addEventListener('resize',f);f()})();
+</script>
+</body>
+</html>
