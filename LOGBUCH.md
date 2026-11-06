@@ -1365,3 +1365,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   drei Reiter auf der Startseite (Formate, Was du bekommst) mit rundem Pfeil
   rechts, beim Darüberfahren orange gefüllt; zeigt, dass eine Seite dahinter
   liegt. Bei Webdesign nicht, dort steht schon «Was sie kostet →».
+- [ ] **ENT-086** · 06.11.2026 · Search Console, Videoindexierung: «Das Video
+  befindet sich nicht auf einer Wiedergabeseite» für `video-spot.mp4` auf der
+  Startseite (erstmals erkannt 29.10.2026). Die Videos sind Kacheln, nie der
+  Hauptinhalt; eine eigene Wiedergabeseite hat Adrian nicht gewählt. Lösung:
+  `htaccess-hostpoint` setzt für alle `.mp4` und `.webm` den Kopf
+  `X-Robots-Tag: noindex`. Die Seiten bleiben im Index, nur die Videodateien
+  nicht. Auf Arbeitszweig `claude/sharp-faraday-t6rehp`, noch nicht live.
+  Offen: Livegang auf Adrians Wort, danach Kopf auf www.formateins.ch prüfen
+  und in der Search Console «Fehlerbehebung überprüfen» starten.
