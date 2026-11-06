@@ -1662,3 +1662,13 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Akquise f240824, ausgeliefert mit Lauf Nr. 132, live geprüft.
 - [ ] Betrag für den Service Domain und Hosting pro Jahr festlegen (Adrian),
   für Offerte und Gespräch (ENT-119).
+
+- [x] **ENT-120** · 06.11.2026 · Akquise, Frage 6 «Gehört die Website dann
+  uns?» (Adrian, Fassung A, Besitz betonen statt Hosting): «Ja, vollumfänglich.
+  Die Website, alle Texte, Bilder und Dateien gehören Ihnen. Sie können
+  jederzeit wechseln, auch zu jemand anderem.» Der alte Satz «Domain und Hosting
+  laufen auf Ihren Namen» widersprach ENT-119. Akquise 160167e, Lauf Nr. 133.
+- [x] **ENT-121** · 06.11.2026 · Akquise, Abschnitt «Wenn Sie mögen» mit weniger
+  Abstand (Adrian): oben und unten clamp(64px,8vw,112px) statt 160 px (Handy
+  64 statt 88). Gilt für alle Seiten. Akquise fdc06c4, Lauf Nr. 134, live
+  gemessen.
