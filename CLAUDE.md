@@ -171,6 +171,14 @@ Rechtschreibung ohne ß, Betraege als CHF 2'400. Keine leeren Werbewoerter
 («einzigartig», «massgeschneidert», «ganzheitlich»), stattdessen sagen, was
 passiert und was es bringt.
 
+**Kein Doppelpunkt, kein Gedankenstrich.** Seit dem 06.11.2026 auf Adrians
+Wunsch (ENT-105): In Texten an Kunden (formateins.ch, Offerten, Instagram,
+Briefe und Vorschlagsseiten der Akquise) kein «:» und kein «–» oder «—» als
+Satzzeichen. Das ist typisch KI-geschrieben. Statt «X: Y» zwei Saetze oder ein
+Komma, statt «A – B» zwei Saetze, bei Spannen «bis» (CHF 1'400 bis 1'900).
+Erlaubt bleiben Uhrzeit (14:30), Seitenverhaeltnis (9:16) und Bindestriche in
+Woertern. Jeden Text vor dem Zeigen darauf pruefen, auch Varianten im Chat.
+
 **Fuer wen.** Selbststaendige, kleine Unternehmen und Vereine. Nicht
 «Betrieb», sondern du und dich. Nicht gendern.
 

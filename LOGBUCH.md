@@ -1548,3 +1548,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Gilt für alle Seiten. Auf der ganzen Seite weiter vermitteln, dass gemeinsam
   erarbeitet wird (Preis, Fragen, Schluss). Ausgeliefert (Lauf «Vorschlag zu
   Hostpoint»). Beleg: formateins-akquise `vorschlag/src/vorschlag/Vorschlag.astro`.
+- [ ] **ENT-105** · 06.11.2026 · Schreibstil (Adrian: «typisch KI
+  geschreibe»): In Texten an Kunden kein Doppelpunkt und kein Gedankenstrich
+  als Satzzeichen, Spannen mit «bis». Erlaubt bleiben Uhrzeit, 9:16 und
+  Bindestriche in Wörtern. Festgehalten in `CLAUDE.md` (Schreibstil) und in
+  formateins-akquise `CLAUDE.md`, `.claude/skills/HAUSREGELN.md`,
+  `.agents/product-marketing.md` v1.3. Sofort korrigiert «Gebaut wird Ihre.»
+  in «Wer das macht». Offen: die übrigen Stellen auf der Vorschlagsseite und im
+  Entwurf, `CLAUDE.md` hier auf `main` (Adrians Wort).
