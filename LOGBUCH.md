@@ -1637,3 +1637,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Website braucht mehr von Ihnen.» Kein Verweis mehr auf den Entwurf, WhatsApp
   nicht erwähnt (erklärt Adrian im Gespräch). Akquise 3dcd5bb, ausgeliefert
   mit Lauf Nr. 129, live geprüft.
+
+- [x] **ENT-117** · 06.11.2026 · Akquise, Frage 3 «Kostet das Gespräch
+  etwas?» (Adrian, Fassung B): «Nein. Das Gespräch ist kostenlos und
+  unverbindlich. Danach haben Sie den Festpreis und entscheiden in Ruhe.» Gilt
+  für alle Seiten. Akquise f198777, ausgeliefert mit Lauf Nr. 130, live geprüft.
