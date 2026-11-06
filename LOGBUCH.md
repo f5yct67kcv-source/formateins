@@ -1689,3 +1689,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   weg, damit die Zeile passt («pzu consulting gmbh · Hochgasse 7, 4632
   Trimbach»). Gilt für alle Seiten. Akquise 6a2de77, Lauf Nr. 136, live gemessen
   bei 390, 1024, 1280, 1440 und 1920 px. Ändert ENT-122.
+- [x] **ENT-124** · 06.11.2026 · AMMANN, Abschnitt «Ihr Auftritt» (Adrian):
+  letzter Satz neu «Damit Ihr Kanal wieder in Schwung kommt, schenke ich Ihnen
+  ein kurzes Video mit Ihrem Logo.» AMMANN hatte den Kanal schon, darum kein
+  «Start». Der Clip ist ein kurzes Video mit Logo, nicht «das Logo als Film».
+  Social Media bleibt hier Ansporn, kein Teil des Verkaufs. Nur daten.json von
+  AMMANN. Akquise 22ec27d.
