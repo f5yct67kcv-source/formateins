@@ -1611,3 +1611,13 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Sekunden, CHF 1'400», als fester Preis (`data-fest`, ohne Rahmen). Hinweis
   der Karte: fester Preis beim Erklärvideo, sonst verschieben Länge, Formate
   und Ton. Betreiber zieht die drei Stellen beim Schalten nach (rot geprüft).
+
+- [x] **ENT-092** · 06.11.2026 · Produktvideo gestrichen (Adrian: keine
+  Erfahrung im Dreh von Produkten, so nicht anbieten). Raus aus dem
+  Kostenrechner (Antwort und Weiche «Imagefilm oder Erklärvideo»), aus der
+  Karte Video und den Daten für Suchmaschinen auf `preise.html` und aus
+  `llms.txt`. Wer ein Produkt zeigen will, landet beim Erklärvideo, animiert
+  oder mit Dreh (ENT-091). `video.produkt` bleibt im Preisblock und im
+  Betreiber als Ansatz für den Leistungskatalog, die Stellen fürs Schalten
+  sind entfernt (formateins-betreiber, Arbeitszweig). Nur Arbeitszweig und
+  Vorschau, Livegang zusammen mit ENT-091.
