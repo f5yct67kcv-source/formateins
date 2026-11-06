@@ -1572,3 +1572,16 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   (Feld `wie`; ohne Feld ein Satz `fuss_kurz`). Ausgeliefert mit Lauf
   «Vorschlag zu Hostpoint» Nr. 122, live geprüft. Beleg: formateins-akquise
   `vorschlag/src/vorschlag/Gesamtcheck.astro`.
+- [x] **ENT-108** · 06.11.2026 · Akquise, Vorschlagsseite (Adrian: «etwas
+  viel Padding»): Abstand zwischen Bewertung und «Was es kostet» kleiner, am
+  Computer 156 statt 204 px. Ausgeliefert mit ENT-109.
+- [x] **ENT-109** · 06.11.2026 · Akquise, «Startseite zuerst» auch bei
+  technischem Fall C (Adrian, ändert Punkt 5 aus ENT-094): Block erscheint mit
+  dem Hinweis «Für die Umstellung braucht es den Zugang zu Ihrer Domain. Das
+  klären wir im Gespräch.» (Agentur nicht erwähnt). Bei AMMANN wieder drin,
+  erster Punkt neu «Wir machen den Vorschlag gemeinsam zu Ihrer Startseite.»,
+  Anrechnung «während 12 Monaten» auch in den Fragen. Nachgeführt in
+  `akquise/tueroeffner.md`, Skill `akquise-brief` (Prüfliste),
+  `.agents/product-marketing.md` v1.4, README AMMANN. Ausgeliefert mit Lauf
+  «Vorschlag zu Hostpoint» Nr. 123, live geprüft. Beleg: formateins-akquise
+  `akquise/betriebe/09-ammann-oberentfelden/daten.json`.
