@@ -1682,3 +1682,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Nr. 88, live geprüft. Einschätzung, keine Rechtsberatung.
 - [ ] Datenschutz auf formateins.ch hat noch Doppelpunkte («Kurz gesagt:», «Mehr
   nicht: keine IP-Adresse …»), ENT-105. Nur auf Adrians Wort.
+
+- [x] **ENT-123** · 06.11.2026 · Fuss der Vorschlagsseiten (Adrian): Impressum und
+  Datenschutz als eigener Teil, orange, am Handy zuunterst. Am Computer ab
+  1300 px alles auf einer Zeile, darunter untereinander. «Eine Marke der» fällt
+  weg, damit die Zeile passt («pzu consulting gmbh · Hochgasse 7, 4632
+  Trimbach»). Gilt für alle Seiten. Akquise 6a2de77, Lauf Nr. 136, live gemessen
+  bei 390, 1024, 1280, 1440 und 1920 px. Ändert ENT-122.
