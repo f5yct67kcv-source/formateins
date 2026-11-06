@@ -1507,10 +1507,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   in der Augenbraue kurz (05.11.2026), damit es am Handy auf eine Zeile passt.
   Ausgeliefert zusammen mit ENT-095 bis 097 (Lauf «Vorschlag zu Hostpoint»).
   Beleg: formateins-akquise `vorschlag/src/vorschlag/Vergleich.astro`.
-- [ ] **ENT-100** · 06.11.2026 · (zuerst als ENT-099 vergeben) Akquise, Vorschlagsseite, Handpfeile bei «Was
+- [x] **ENT-100** · 06.11.2026 · (zuerst als ENT-099 vergeben) Akquise, Vorschlagsseite, Handpfeile bei «Was
   ich geändert habe» (Adrian: alle gleich geschwungen, Spitzen unsauber): jede
   Form anders (Bogen von oben, S, Bogen von unten; pro Punkt `handy_form`),
   letzte 40 px fast gerade, Spitze mit zwei ungleichen Haken entlang der Linie,
   mit Ring endet der Pfeil am Rand des Rings (Pfeil 1 zeigte vorher aufs Menü).
-  Variante A gebaut, B (Schlaufe) gezeigt. Offen: Adrians Wahl, ausliefern.
+  Variante A gebaut, B (Schlaufe) gezeigt; Adrian wählt A. Ausgeliefert mit
+  Lauf «Vorschlag zu Hostpoint» Nr. 117, live geprüft.
   Beleg: formateins-akquise `vorschlag/src/vorschlag/HandyAenderungen.astro`.
