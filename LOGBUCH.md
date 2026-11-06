@@ -1592,3 +1592,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Domain, Festpreis und Mehrwertsteuer darunter für beide. Ausgeliefert mit
   Lauf «Vorschlag zu Hostpoint» Nr. 124, live geprüft. Beleg:
   formateins-akquise `vorschlag/src/vorschlag/Vorschlag.astro`, `vorschlag.css`.
+- [x] **ENT-111** · 06.11.2026 · Akquise, «Startseite zuerst» auf der Seite
+  ohne Zahlungsbedingung (Adrian: «Gefällt Ihnen die Seite nicht, zahlen Sie
+  nichts» klingt nach Geld-zurück-Garantie, die Seite soll die Tür öffnen).
+  Erster Schritt neu «Die erste Seite, die Ihre Kunden sehen.», «Wir machen
+  den Vorschlag gemeinsam zu Ihrer Startseite.», «Ihre übrigen Seiten bleiben,
+  wie sie sind.» Intern: bezahlt wird, wenn die Seite online geht, steht in der
+  Offerte (`akquise/tueroeffner.md`, `.agents/product-marketing.md`).
+  Ausgeliefert mit Lauf «Vorschlag zu Hostpoint» Nr. 125, live geprüft.
