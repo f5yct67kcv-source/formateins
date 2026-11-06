@@ -1652,3 +1652,13 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Akquise 7d11840, ausgeliefert mit Lauf Nr. 131, live geprüft.
 - [ ] formateins.ch nennt unter den Fragen noch «rund zwei Monate» (index.html,
   entwurf.html). Anpassen nur auf Adrians Wort, Push auf main ist live (ENT-118).
+
+- [x] **ENT-119** · 06.11.2026 · Akquise, Frage 5 neu gestellt (Adrian,
+  Fassung A): «Welche Kosten kommen später noch dazu?» statt «Was kostet es nach
+  dem Livegang?» (der Kunde kennt den Ablauf nicht). Antwort «Nur die jährlichen
+  Kosten für Domain und Hosting. Gern übernehme ich beides für Sie und verrechne
+  es einmal im Jahr. Selbstverständlich dürfen Sie es auch selbst in die Hand
+  nehmen.» Domain und Hosting als Service in `.agents/product-marketing.md`.
+  Akquise f240824, ausgeliefert mit Lauf Nr. 132, live geprüft.
+- [ ] Betrag für den Service Domain und Hosting pro Jahr festlegen (Adrian),
+  für Offerte und Gespräch (ENT-119).
