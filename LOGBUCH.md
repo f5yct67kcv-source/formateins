@@ -1621,3 +1621,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Betreiber als Ansatz für den Leistungskatalog, die Stellen fürs Schalten
   sind entfernt (formateins-betreiber, Arbeitszweig). Nur Arbeitszweig und
   Vorschau, Livegang zusammen mit ENT-091.
+  Nachtrag (Adrian): Auf der Startseite heisst der Eintrag im Kasten Formate
+  weiter «Werbevideo» (passt zum Reel), Text neu «Dein Angebot oder deine
+  Aktion, animiert und auf den Punkt. Für Website, Werbung und
+  Präsentation.» statt «Dein Produkt oder deine Dienstleistung, ins richtige
+  Licht gesetzt». Ebenso in `entwurf-start.html`.
