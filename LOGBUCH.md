@@ -1397,3 +1397,20 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `video-spot.mp4` und `.webm` mit `x-robots-tag: noindex` (auch bei
   Teilabruf 206), Startseite und `video-spot.webp` ohne. Bleibt bei Adrian:
   «Fehlerbehebung überprüfen» in der Search Console.
+- [x] **ENT-087** · 06.11.2026 · guardops.ch hat ein eigenes privates
+  Repository `formateins-guardops` und wird nicht mehr aus der Software von
+  GuardOpS ausgeliefert. Verlauf übernommen, Seite als reines HTML mit einem
+  PHP-Endpunkt für die Terminbuchung, Deploy «guardops.ch zu Hostpoint» bei
+  jedem Push auf `main`. Entscheide zur Webseite kommen ab jetzt hier ins
+  Logbuch, Entscheide zur Software bleiben bei GuardOpS (Adrian, 06.11.2026).
+  Beleg: formateins-guardops `82d1ef4`, Lauf Nr. 4 erfolgreich; in der
+  Software der Upload nach guardops.ch entfernt, Lauf Nr. 759 erfolgreich.
+  Geprüft auf guardops.ch: alle neun Seiten 200 am Handy und am Desktop,
+  Schriften und Bilder geladen, keine Skriptfehler.
+  Dazu am selben Tag: die Abgleichsdatei des Deploys über die Webseite
+  gesperrt (`c8d15ab`, Lauf Nr. 6, 403 geprüft); die Kalenderadresse der
+  Terminbuchung korrigiert, sie zeigte nicht auf den Kalenderserver von
+  Hostpoint (Lauf Nr. 10, Buchung und Absage von Adrian getestet); alte
+  Zugangsdaten und der einmalige Übertragungs-Token gelöscht.
+  Offen: `datenschutz-demo.html` beschreibt eine abgeschaltete
+  Demo-Umgebung, klären ob sie bleibt.
