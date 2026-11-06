@@ -1515,3 +1515,8 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Variante A gebaut, B (Schlaufe) gezeigt; Adrian wählt A. Ausgeliefert mit
   Lauf «Vorschlag zu Hostpoint» Nr. 117, live geprüft.
   Beleg: formateins-akquise `vorschlag/src/vorschlag/HandyAenderungen.astro`.
+- [ ] **ENT-101** · 06.11.2026 · Akquise, Vorschlagsseite Schritt für Schritt
+  (Adrian): unter dem Vergleich «Fragen zum Vorschlag? Rufen Sie an oder
+  schreiben Sie mir auf WhatsApp.» (vorher «schreiben Sie auf WhatsApp»).
+  Gilt für alle Seiten. Offen: ausliefern. Beleg: formateins-akquise
+  `vorschlag/src/vorschlag/Vorschlag.astro`.
