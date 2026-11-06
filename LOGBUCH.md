@@ -1623,3 +1623,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   dem Kunden, sobald bezahlt ist. Ausgeliefert mit Lauf «Vorschlag zu
   Hostpoint» Nr. 127, live geprüft. Beleg: formateins-akquise
   `vorschlag/src/vorschlag/Vorschlag.astro`.
+- [x] **ENT-115** · 06.11.2026 · Akquise, Fragen auf der Vorschlagsseite
+  (Adrian, Fassung A): Titel «Kurz beantwortet.» statt «Bevor Sie anrufen.»
+  (keine Erwartung, dass er anruft). Frage 1 «Kann ich klein anfangen?» an den
+  Preis angeglichen: «Ja. Mit «Startseite zuerst» machen wir den Vorschlag für
+  CHF 1'200 zu Ihrer Startseite. …». Gilt für alle Seiten. Ausgeliefert mit
+  Lauf «Vorschlag zu Hostpoint» Nr. 128, live geprüft.
