@@ -1593,6 +1593,10 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `&video=erklaer`. Preise in `preise.js` (`video.erklaer`,
   `video.erklaerDreh`), `anfrage.php` kennt die neuen Antworten.
   `video.animiert` bleibt vorerst für die Zeile «Kurzer Spot» auf
-  `preise.html`. Offen: Betreiber nachziehen (Ansätze, Regeln, Rechnen,
-  `preise-faelle.json`), sonst schreibt «Schalten» den Block ohne
-  `erklaer` zurück; beim Livegang `preise.html` (Spot-Zeile) anpassen.
+  `preise.html`. Betreiber nachgezogen auf dem Arbeitszweig (formateins-betreiber
+  23e0d59): Ansätze, Fall mit Paketfrage, fester Preis und Ab-Preis, Leistungen
+  V-61 bis V-63 und V-71, Prüfung mit Fällen aus dem Rechner (rot geprüft).
+  Offen: Betreiber auf `main` erst zusammen mit dem Livegang, sonst schreibt
+  «Schalten» den Block ohne `erklaer` zurück; beim Livegang `preise.html`
+  (Spot-Zeile) anpassen und die festen Zahlen der Erklärvideo-Seite in
+  `preise_stellen()` aufnehmen.
