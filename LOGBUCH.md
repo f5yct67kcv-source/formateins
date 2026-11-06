@@ -1060,6 +1060,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   `index.html`: beide Adressen in `sameAs` der Firma (`#formateins`), nach
   Google-Profil und Instagram. `entwurf.html` hat noch kein `sameAs`, dort
   bleibt der Hinweis für den Livegang.
+  Livegang: main a35e3d8, Lauf «Website zu Hostpoint» Nr. 85 erfolgreich.
+  Geprüft auf www.formateins.ch: `sameAs` mit Google-Profil, Instagram,
+  local.ch und search.ch ausgeliefert.
 
 - [ ] **ENT-078** · 03.11.2026 · Betreiber-Bereich: **eigener Bereich «Preise»**
   mit der Preislogik des Kostenrechners, transparent und mit Eingriffen von
