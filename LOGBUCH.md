@@ -1710,3 +1710,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   stattdessen in Grün «Mit dem Vorschlag werden vier rote Punkte grün» (zählt
   die Zeilen von Rot auf Grün). Die Note 3,5 für heute bleibt (ENT-089). Nur
   AMMANN hat einen Gesamtcheck. Akquise 53f5aa4.
+- [x] **ENT-127** · 07.11.2026 · Z&H nachgezogen auf den Stand von AMMANN
+  (Adrian «A, ja, ja, ja»): Einleitung, Auftritt mit den 270 Likes (Fassung A),
+  Frage und WhatsApp wie AMMANN (dort ohne «Starthilfe»), «Startseite zuerst»
+  mit Hinweis zur Domain, Änderungen am Handy mit Nummern (stil «handy»),
+  Preis ohne Doppelpunkt und Gedankenstrich, Gesamtcheck neu gemessen am
+  07.11.2026 (heute Note 5, Ladezeit Vorschlag 2,9 s gelb). Baustein: Satz
+  «werden drei Punkte besser», wenn nicht alles von Rot auf Grün geht. Offen:
+  Datum des Briefs, Foto am Handy verkleinern (Adrians Wort). Akquise 0744e8b.
