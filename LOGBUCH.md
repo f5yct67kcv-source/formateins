@@ -1645,3 +1645,12 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Offen für Adrian: neue Seiten in der Search Console und bei Bing
   einreichen (README, «Nach dem Livegang»). Übersicht `/arbeiten` bleibt
   offen (ENT-090).
+
+- [ ] **ENT-094** · 07.11.2026 · Übersicht der Referenzen (zu ENT-090,
+  Adrian): Variante A (Raster, neueste Arbeit gross, Filter Website, Branding,
+  Video, Social Media) wird gebaut, vorerst nur als Entwurf
+  `entwurf-arbeiten.html`, Variante B (Liste) verworfen. Muster (Sportcenter
+  Lindenfeld, Hakuro) stehen drin, als «Muster» markiert. Die Startseite
+  bleibt, wie sie ist. Der Menüpunkt führt auf die neue Übersicht und heisst
+  «Referenzen» statt «Arbeiten»; die Adresse bleibt `/arbeiten/`, weil die
+  Detailseiten dort schon stehen. Offen: Livegang auf Adrians Wort.
