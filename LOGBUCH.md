@@ -1704,3 +1704,9 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   sich das nicht), «kein Verkaufsgespräch» und «Der Vorschlag gehört Ihnen»
   fallen weg. `vorschlag.besuch` bleibt in den Daten, wird nicht mehr gezeigt.
   Gilt für alle Seiten. Akquise 910f3c5.
+- [x] **ENT-126** · 07.11.2026 · Gesamtcheck ohne Einzelnoten (Adrian): Beim
+  ersten Eindruck statt «½ von 5 Punkten → 5 von 5» neu «erst weiter unten →
+  sofort sichtbar». Der Ring «9,5 mit Vorschlag» und der Pfeil fallen weg,
+  stattdessen in Grün «Mit dem Vorschlag werden vier rote Punkte grün» (zählt
+  die Zeilen von Rot auf Grün). Die Note 3,5 für heute bleibt (ENT-089). Nur
+  AMMANN hat einen Gesamtcheck. Akquise 53f5aa4.
