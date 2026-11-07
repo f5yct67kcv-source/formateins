@@ -1654,3 +1654,11 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   bleibt, wie sie ist. Der Menüpunkt führt auf die neue Übersicht und heisst
   «Referenzen» statt «Arbeiten»; die Adresse bleibt `/arbeiten/`, weil die
   Detailseiten dort schon stehen. Offen: Livegang auf Adrians Wort.
+
+- [ ] **ENT-095** · 07.11.2026 · GuardOpS im Aufbau der Referenzen (Adrian):
+  Geschichte wie bei Butterfly Cottage (Kopf mit Steckbrief und Bild im
+  Browserrahmen, dann 01 Herausforderung, 02 Lösung, 03 Ergebnis, Schluss).
+  Texte aus der bisherigen Seite: Ausgangslage wird Herausforderung, «Was
+  gebaut wurde» wird Lösung, Prüfstand und Kennwerte kommen ins Ergebnis.
+  Bauplan und Handy-Bild fallen weg. Entwurf `arbeiten/entwurf-guardops.html`,
+  Livegang auf Adrians Wort.
