@@ -1581,7 +1581,7 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Ton und Steuerung, startet erst auf Klick, auf der Referenzseite im
   Ergebnis und auf der Erklärvideo-Seite bei der Referenz.
 
-- [ ] **ENT-091** · 06.11.2026 · Kostenrechner für die Erklärvideo-Pakete
+- [x] **ENT-091** · 06.11.2026 · Kostenrechner für die Erklärvideo-Pakete
   (Adrian): «Animierter Spot» wird «Erklärvideo, animiert» mit den Paketen
   Kurz 30 s CHF 1'400, Klar 60 s CHF 2'400, Ausführlich 90 s CHF 3'400
   (fester Preis, Stimme, Musik, Untertitel, Quer- und Hochformat inbegriffen,
@@ -1626,3 +1626,22 @@ Läufe = Actions «Website zu Hostpoint» (#Nummer). Commits auf `main`.
   Aktion, animiert und auf den Punkt. Für Website, Werbung und
   Präsentation.» statt «Dein Produkt oder deine Dienstleistung, ins richtige
   Licht gesetzt». Ebenso in `entwurf-start.html`.
+
+- [x] **ENT-093** · 07.11.2026 · Livegang Erklärvideo (Adrian: «live»). Mit
+  einem Push auf `main`: Seite `/erklaervideo` (aus dem Entwurf, ENT-088, ohne
+  noindex, mit canonical und Open Graph), Referenz
+  `/arbeiten/butterfly-cottage` (ENT-090; der unbestätigte Satz zur Wirkung
+  bei den Gästen ist gestrichen), Bilder und Videos ohne `entwurf`-Präfix,
+  Kostenrechner mit den Erklärvideo-Paketen (ENT-091), Preisseite und
+  `llms.txt` ohne Spot und Produktvideo (ENT-091, ENT-092), Werbevideo-Text
+  auf der Startseite (ENT-092). Dazu: Eintrag Erklärvideo im Formate-Kasten
+  der Startseite führt auf `/erklaervideo`, «Erklärvideo» in der Fussleiste
+  (Startseite, Preise, Social Media), Butterfly Cottage im Fuss der Arbeiten
+  und im Ratgeber, `sitemap.xml` und `llms.txt` (Stand 07.11.2026, Block
+  Erklärvideo, Seiten, Arbeiten) nachgeführt, Trennstriche zwischen den
+  Abschnitten auf Preise und Social Media entfernt (Adrian zu ENT-088).
+  Betreiber gleichzeitig auf `main`: Erklärvideo in Preise und die festen
+  Zahlen von `erklaervideo.html` und `llms.txt` in `preise_stellen()`.
+  Offen für Adrian: neue Seiten in der Search Console und bei Bing
+  einreichen (README, «Nach dem Livegang»). Übersicht `/arbeiten` bleibt
+  offen (ENT-090).

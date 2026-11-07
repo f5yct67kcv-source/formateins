@@ -2,7 +2,7 @@
 
 > formateins ist das Studio von Adrian von Arb in Trimbach bei Olten (Kanton Solothurn). Es macht Websites, Branding (Logo und Erscheinungsbild), Video und Social Media für Selbstständige, kleine Unternehmen und Vereine in der Region Olten, Solothurn und Aargau. Alles aus einer Hand, mit Festpreis nach einem kurzen Gespräch.
 
-Diese Datei fasst die Seite www.formateins.ch als Text zusammen. Stand: 05.11.2026. Bei Abweichungen gilt die Seite selbst.
+Diese Datei fasst die Seite www.formateins.ch als Text zusammen. Stand: 07.11.2026. Bei Abweichungen gilt die Seite selbst.
 
 ## Kontakt
 
@@ -28,8 +28,13 @@ Branding:
 - Logo und Erscheinungsbild mit Drucksachen (Visitenkarte, Briefbogen, Vorlage für Offerte und Rechnung): CHF 2'600 – 3'400
 
 Video:
-- Erklärvideo, animiert, 30 Sekunden: CHF 1'400, fester Preis
 - Imagefilm, 30 bis 60 Sekunden, ein Drehtag: CHF 2'400 – 3'200
+
+Erklärvideo, fester Preis, mit Skript, Stimme, Musik, Untertitel, Quer- und Hochformat und Anpassungen an der Optik, bis es passt:
+- Kurz, 30 Sekunden: CHF 1'400
+- Klar, 60 Sekunden: CHF 2'400
+- Ausführlich, 90 Sekunden: CHF 3'400
+- Mit Dreh vor Ort: ab CHF 2'400, Festpreis nach dem Gespräch
 
 Pakete (mehr als eine Richtung zusammen: die teuerste voll, jede weitere 20 % günstiger):
 - Startformat, Branding und Website auf einer Seite: CHF 2'800 – 3'800, fertig in 3 bis 4 Wochen
@@ -66,6 +71,7 @@ Foto und Video vor Ort sind in jedem Bereich als Zusatz möglich und werden sepa
 - [Startseite](https://www.formateins.ch/): Webdesign, Branding und Video aus Olten, Arbeiten, Ablauf, Fragen
 - [Preise](https://www.formateins.ch/preise): alle Preise einzeln und als Paket
 - [Social Media](https://www.formateins.ch/social-media): Kanäle betreuen lassen, drei Stufen pro Monat, Ablauf am Beispiel
+- [Erklärvideo](https://www.formateins.ch/erklaervideo): drei Pakete zum festen Preis, auf Wunsch mit Dreh, Referenz Butterfly Cottage
 - [Kostenrechner](https://www.formateins.ch/kostenrechner): Preisrahmen in wenigen Fragen, ohne Konto
 - [Website erstellen lassen: Was kostet das?](https://www.formateins.ch/website-kosten): Ratgeber zu Website-Preisen und was sie bewegt
 - [Gespräch vereinbaren](https://www.formateins.ch/gespraech)
@@ -74,3 +80,4 @@ Foto und Video vor Ort sind in jedem Bereich als Zusatz möglich und werden sepa
 
 - [GuardOpS](https://www.formateins.ch/arbeiten/guardops): Produktwebsite für eine Schweizer Betriebssoftware
 - [Craniosacral Praxis Johann von Arb](https://www.formateins.ch/arbeiten/craniosacral-praxis): Website für eine Praxis in Fulenbach bei Olten
+- [Butterfly Cottage](https://www.formateins.ch/arbeiten/butterfly-cottage): Erklärvideo für eine interaktive Karte mit über 50 Ausflugszielen in Grantown-on-Spey, Schottland
